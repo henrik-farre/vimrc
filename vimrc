@@ -71,6 +71,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'sgur/ctrlp-extensions.vim.git'
+Plugin 'pangloss/vim-javascript.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -235,15 +237,6 @@ let g:ycm_seed_identifiers_with_syntax = 1
 " Vdebug
 let g:vdebug_keymap =  {"run": "<F11>"}
 let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/Localdev/www"}, "break_on_open": 0, "watch_window_style": "compact", "server" : "172.17.42.1"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/Localdev/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-"
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/nomeco-ex/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/drupal.mi.dk/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/oscom3/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/procom/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/devel/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/sik/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/remote_mounts/jv/var/www"}, "break_on_open": 0, "watch_window_style": "compact"}
 
 " Tern for vim
 let g:tern#command = ['tern'] " it is installed via npm, and the command is in PATH
