@@ -1,0 +1,41 @@
+snippet foreach
+	{foreach ${1:$array} as ${2:$key => $value}${3: sequence array(}${4}${5:) as $sequence}}
+	${6:{$2}}
+	{/foreach}
+endsnippet
+
+snippet avg
+	{attribute_view_gui attribute=${1:$node.}}
+endsnippet
+
+snippet show
+	{${1}|attribute('show')}
+endsnippet
+
+snippet fetch 
+	fetch('${1:content}','${2:list|node}', 
+	       hash('${3:parent_node_id|node_id}','${4}')
+	     )
+endsnippet
+
+snippet switch
+	{switch match=${1}}
+	  {case match='${2}''}
+		${3}
+	  {/case}
+	{/switch}
+endsnippet
+
+snippet if
+	{if ${1}}
+	${2}
+	{/if}
+endsnippet
+
+snippet ife
+	{if ${1}}
+	${2}
+	{else}
+	${3}
+	{/if}
+endsnippet
