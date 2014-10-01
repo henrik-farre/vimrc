@@ -3,29 +3,20 @@
 " from http://www.reddit.com/r/vim/comments/20eyjk/preventing_plugin_clash_and_key_lag_sculpting/
 if has('vim_starting')
   " ensure that we always start with Vim defaults (as opposed to those set by the current system)
+  " Save 'diff' as set all& resets it, from http://ruderich.org/simon/config/vimrc
+  let s:save_diff = &diff
   set all&
   " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
   set nocompatible                  " Don't be compatible with vi
 endif
 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " pathogen {{{
-" "
-" let g:pathogen_disabled = []
-" 
-" " vim on arch is compiled with -python3, and the console version also does not
-" " have python
-" if !has("python") 
-"   call add(g:pathogen_disabled, 'tern_for_vim')
-"   call add(g:pathogen_disabled, 'ultisnips')
-" endif
-" 
-" filetype off
-" runtime! autoload/pathogen.vim
-" silent! call pathogen#helptags()
-" silent! call pathogen#runtime_append_all_bundles()
-" 
-" " }}}
+if has('eval')
+    let &diff = s:save_diff
+    unlet s:save_diff
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle {{{
 
 filetype off                  " required
 
@@ -36,6 +27,39 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Dependencies
+Plugin 'mattn/webapi-vim'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Javascript
+" JavaScript bundle for vim, this bundle provides syntax and indent plugins.
+Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'nono/vim-handlebars'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown
+Plugin 'tpope/vim-markdown'
+Plugin 'jtratner/vim-flavored-markdown'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PHP
+Plugin '2072/PHP-Indenting-for-VIm'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'joonty/vdebug'
+" Drupal enhancements
+" https://www.drupal.org/node/1389448#vundle
+Plugin 'git://drupalcode.org/project/vimrc.git', {'name': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/'}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Git
+Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/gist-vim'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Web
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5.vim'
+Plugin 'beyondwords/vim-twig'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'tpope/vim-haml'
@@ -45,38 +69,34 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
-Plugin 'othree/html5.vim'
-Plugin 'beyondwords/vim-twig'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tags
 Plugin 'majutsushi/tagbar'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
 Plugin 'kien/ctrlp.vim'
-Plugin 'sickill/vim-pasta'
+Plugin 'sgur/ctrlp-extensions.vim.git'
+" Annoying when using mixed html/php
+" See <leader>p
+" Plugin 'sickill/vim-pasta'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'kshenoy/vim-signature'
-Plugin 'nono/vim-handlebars'
 Plugin 'godlygeek/tabular'
 Plugin 'chrisbra/Recover.vim'
 Plugin 'tpope/vim-repeat'
-Plugin 'joonty/vdebug'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'groenewege/vim-less'
-Plugin 'mtth/scratch.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin '2072/PHP-Indenting-for-VIm'
-Plugin 'honza/vim-snippets'
+" Plugin 'mtth/scratch.vim'
+" Use v multiple times to expand selection
 Plugin 'terryma/vim-expand-region'
-Plugin 'tpope/vim-markdown'
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'sgur/ctrlp-extensions.vim.git'
-Plugin 'pangloss/vim-javascript.git'
+
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" }}}
 
 let mapleader = "," 
 " http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
@@ -91,36 +111,35 @@ map <Space> <leader>
 " Does not work...
 
 " MiniBufExplorer
-let g:miniBufExplUseSingleClick = 1 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
-let g:miniBufExplCycleArround = 1   " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
-let g:miniBufExplBRSplit = 0        " Put new window above, else splitbelow is used
+let g:miniBufExplUseSingleClick = 1   " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
+let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
+let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
+let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17 
 noremap <C-TAB> :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 
 " UltiSnips
 " First one is from snipMate
 let g:snips_author = 'Henrik Farre <hf@bellcom.dk>'
+" YCM conflicts with UltiSnips TAB key usage
+" https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
 let g:UltiSnipsExpandTrigger="<s-space>"
 let g:UltiSnipsJumpForwardTrigger="<s-space>"
 let g:UltiSnipsJumpBackwardTrigger="<c-s-space>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+" let g:UltiSnipsSnippetDir= expand("$HOME/.vim/UltiSnips" )
 
 " Exuberant Ctags
-" au BufWritePost *.php call system("ctags -a -f ~/tmp/dev/ctags/php --PHP-kinds=+cf --extra=+q " . expand("%:p"))
-" au BufRead,BufNewFile *.php setlocal tags+=~/tmp/dev/ctags/php
 " Set tag filename(s)
-set tags+=~/.vim/phptags,./tags,tags
-" set tags=./tags;${HOME}
+set tags=./tags;
 
-" Load a tag file
-" Loads a tag file from ~/.vim.tags/, based on the argument provided. The
-" command "Ltag"" is mapped to this function.
-function! LoadTags(file)
-   let tagspath = $HOME . "/.vim-tags/" . a:file
-   let tagcommand = 'set tags+=' . tagspath
-   execute tagcommand
-endfunction
-command! -nargs=1 Ltag :call LoadTags("<args>")
+" " Easytags 
+" " ensure it checks the project specific tags file
+" let g:easytags_dynamic_files = 2
+" " configure easytags to run ctags after saving the buffer
+" let g:easytags_events = ['BufWritePost']
+" let g:easytags_async = 1
+" " let g:easytags_by_filetype = "~/.vim/tags"
+" let g:easytags_autorecurse = 1
 
 " showmarks
 " let g:showmarks_enable = 0
@@ -171,6 +190,8 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_php_checkers = ['php' ]
+" Handle composite filetype
 " let g:syntastic_quiet_warnings=1
 " let g:loaded_javascript_syntax_checker = 1 " Disable distribued javascript syntax checker plugin
 " let g:syntastic_html_checker='w3' " use validator.w3.org
@@ -181,15 +202,6 @@ if &diff
   let g:loaded_html_syntax_checker = 1 " Disable html
   let g:loaded_xhtml_syntax_checker = 1 " Disable xhtml
 endif
-
-" SuperTab
-" let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-" let g:SuperTabLongestHighlight = 1 
-
-" Command-T
-" Remember to: rake make in dir
-" let g:CommandTMaxDepth = 4
 
 " CtrlP
 " https://github.com/kien/ctrlp.vim
@@ -202,7 +214,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 'ra'
 
 " Quickly open the command-line CtrlP plugin.
-nmap <C-q> :CtrlPCmdline<CR>
+nnoremap <C-q> :CtrlPCmdline<CR>
+nnoremap <leader>t :CtrlPTag<cr>
 
 " From http://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
@@ -214,15 +227,14 @@ if executable('ag')
 endif
 
 " Tabular
-" if exists(":Tabularize")
-  nmap <leader>a= :Tabularize /=<CR>
-  vmap <leader>a= :Tabularize /=<CR>
-  nmap <leader>a: :Tabularize /:\zs<CR>
-  vmap <leader>a: :Tabularize /:\zs<CR>
-" endif
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_use_ultisnips_completer = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -230,13 +242,14 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_auto_trigger = 1
-let g:ycm_add_preview_to_completeopt = 1
 " let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 
 " Vdebug
 let g:vdebug_keymap =  {"run": "<F11>"}
 let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/Localdev/www"}, "break_on_open": 0, "watch_window_style": "compact", "server" : "172.17.42.1"}
+let g:vdebug_features = { 'max_children': 128 }
+"let g:vdebug_features = { 'max_depth': 2048, 'max_children': 128 }
 
 " Tern for vim
 let g:tern#command = ['tern'] " it is installed via npm, and the command is in PATH
@@ -257,6 +270,23 @@ nnoremap <Leader>s :Scratch<CR>
 " https://github.com/terryma/vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" PHP complete
+" https://github.com/shawncplus/phpcomplete.vim/issues/48
+" Conflicting mapping of C-]
+let g:phpcomplete_enhance_jump_to_definition = 0
+
+" NERD Commenter
+map <F5> :call NERDComment(0, 'toggle')<CR>
+inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
+
+" NERD Tree
+map <F6> :NERDTreeToggle<CR>
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+" Use Ack to search for word under cursor
+" map <F9> <Esc>:exec("Ack --php ".expand("<cword>"))<CR>
+
 
 " }}}
 
@@ -309,7 +339,8 @@ endif
 set printfont=Bitstream\ Vera\ Sans\ Mono\ 8
 
 " Invisible character
-nmap <leader>l :set list!<CR>   " Shortcut to rapidly toggle `set list`
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
 "set list
 set listchars=tab:▸\ ,eol:¬
 
@@ -340,12 +371,8 @@ set ssop-=folds " do not store folds
 " Stuff
 "
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
-"set clipboard+=unnamed            " put yanks/etc on the clipboard
-" 703 corresponds to Vim 7.3 
-if v:version >= 703
-  " use X clipboard
-  set clipboard=unnamedplus
-endif
+" use X clipboard if avaliable
+let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
 set title                         " change the terminals/windows title
@@ -359,7 +386,8 @@ set showmode                      " display the current mode
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set showfulltag                   " Show full tag for completion
 set switchbuf=useopen             " Buffer switching the reuses already visible buffers
-set formatoptions=tcqor	          " t=text, c=comments, q=format with gq command, o,r=autoinsert comment leader
+" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+" set formatoptions=tcqor	          " t=text, c=comments, q=format with gq command, o,r=autoinsert comment leader
 set ttyfast                       " Indicates a fast terminal connection. More characters will be sent to the screen for redrawing
 
 set modeline                      " read settings for stuff like shiftwidth from current file
@@ -481,149 +509,20 @@ function! <SID>BufcloseCloseIt()
   endif
 endfunction
 
-" Switch *.php filetype based on rest of filename
-" Based on vimrc from http://www.shlomifish.org/open-source/projects/conf/vim/current/vimrc
-function! PHP_file_type()
-    let fn = expand("<afile>")
-    if (match(fn, "\\.ini\\.append\\.php$") >= 0)
-        set filetype=ezpini
-    else
-        set filetype=php
-    endif
-endfunction
+" https://github.com/sanguis/drupal-snippets/blob/master/plugin/snipMate_drupal.vim
+" Drupal filename function. Use instead of Filename().
+fun! DrupalFilename(...)
+  " We need to chop off two path components. This has no adverse
+  " effect on files with only one path component.
+  let filename = expand('%:t:r:r')
+  if filename == '' | return a:0 == 2 ? a:2 : '' | endif
+  return !a:0 || a:1 == '' ? filename : substitute(a:1, '$1', filename, 'g')
+endf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
 "
-
-" More natural cursor movement
-map <silent> <up> gk
-imap <silent> <up> <C-o>gk
-map <silent> <down> gj
-imap <silent> <down> <C-o>gj
-map <silent> <home> g<home>
-imap <silent> <home> <C-o>g<home>
-map <silent> <end> g<end>
-imap <silent> <end> <C-o>g<end>
-
-noremap  <buffer> <silent> k gk
-noremap  <buffer> <silent> j gj
-noremap  <buffer> <silent> 0 g0
-noremap  <buffer> <silent> $ g$
-
-" Easier split navigations
-" http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Disable search highlightning
-nmap <silent> <C-N> :silent noh<CR>
-
-" toggle insertmode
-" inoremap <S-Space> <ESC>
-" nnoremap <S-Space> i
-
-" Save keystrockes on save
-" http://vim.wikia.com/wiki/Use_Ctrl-O_instead_of_Esc_in_insert_mode_mappings
-imap <C-s> <C-o>:wa<CR>
-nmap <C-s> :wa<CR>
-
-" Quit
-imap <C-q> <esc>:qa<CR>
-
-" inoremap <C-space> <C-x><C-o>
-
-" " Completion popup
-" " Improve completion popup menu http://vim.wikia.com/wiki/Improve_completion_popup_menu
-" inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-" inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-" inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-" inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-" inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-" inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-" " automatically open and close the popup menu / preview window
-" au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-
-" <F3> used in ~/.vim/ftplugin/php.vim
-" mapning to jump to a line
-" map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-" NERD Commenter
-map <F5> :call NERDComment(0, 'toggle')<CR>
-inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
-
-" NERD Tree
-map <F6> :NERDTreeToggle<CR>
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-" Use Ack to search for word under cursor
-" map <F9> <Esc>:exec("Ack --php ".expand("<cword>"))<CR>
-
-" Conflicts with vdebug
-" Set a toggle for pasting input
-" set pastetoggle=<F10>
-
-" Map ' so it jumps to line and column
-nnoremap ' `
-nnoremap ` '
-
-" Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
-" For command mode:
-map! <S-Insert> <MiddleMouse>
-
-"  Useful mappings to paste and reformat/reindent
-" nnoremap <Esc>P P'[v']=
-" nnoremap <Esc>p p'[v']=
-
-" mistypings...
-nmap :w:w :w
-nmap :W :w
-nmap :_w :w
-nmap :Q :q
-nmap :q1 :q!
-nmap :qA :qa
-nmap :wQ :wq
-nmap :WQ :wq
-nmap :Wq :wq
-nmap :Wqa :wqa
-nmap :E :e
-nmap :Bw :bw
-nmap :Bd :bd
-nmap :B1 :b1
-nmap :B2 :b2
-nmap :Bn :bn
-nmap :Sp :sp
-" Disable Ex mode
-map Q <Nop>
-" Disable help
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-nnoremap gF :view <cfile><cr>     " Open none existing file under cursor
-
-"Actually, the tab does not switch buffers, but my arrows
-"Bclose function ca be found in "Buffer related" section
-map <leader>bd :Bclose<cr>
-
-noremap Y y$ " yank till the end of the line
-" Yank/paste to the OS clipboard with ,y and ,p
-" nmap <leader>y "*y
-" nmap <leader>Y "*yy
-" nmap <leader>p "*p
-" nmap <leader>P "*P
-" noremap  y "*y
-" noremap  Y "*Y
-" noremap  p "*p
-" noremap  P "*P
-" vnoremap y "*y
-" vnoremap Y "*Y
-" vnoremap p "*p
-" vnoremap P "*P
-" map <C-Z> :shell " Disable the suspend for ^Z ; call shell
-" map <leader>cd :cd %:p:h<cr> "For changing to the current directory of the file I'm working on
+source ~/.vim/bindings.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbrevs
@@ -634,6 +533,12 @@ ab seperator separator
 iab DATE <C-r>=strftime("%Y-%m-%d")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto commands
+"
+
+" Go back to the position the cursor was on the last time this file was edited
+" au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
+
 " Omnicomplete
 "
 " if version > 640
@@ -653,33 +558,38 @@ augroup vimrc_autocmd
 augroup END
 "endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Buffer commands
-"
-
-" Go back to the position the cursor was on the last time this file was edited
-" au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
-
-" Load PHP files as php+html+css
-" au BufRead,BufNewFile *.php set filetype=php.html.css
-au BufRead,BufNewFile *.php call PHP_file_type()
-" au BufRead,BufNewFile *.tpl set filetype=smarty.html.css
+augroup vimrc_php
+  autocmd!
+  " Based on vimrc from http://www.shlomifish.org/open-source/projects/conf/vim/current/vimrc
+  autocmd BufRead,BufNewFile *.ini.append.php set filetype=ezpini
+  " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+  " Don't repeat singleline comments
+  autocmd FileType php setlocal comments-=:// comments+=f://
+  " Load PHP files as php+html+css
+  " au BufRead,BufNewFile *.php set filetype=php.html.css
+augroup END
 
 " Reads the skeleton files, delete empty line
 if !&diff
   augroup vimrc_skeleton
     autocmd!
     autocmd BufNewFile *.php 0r ~/.vim/skel/php |normal Gdd2h 
+    autocmd BufNewFile *.module 0r ~/.vim/skel/drupal_module |normal Gdd2h 
     autocmd BufNewFile *.html 0r ~/.vim/skel/html | $,$d
-    autocmd BufNewFile *.html setlocal ft=xhtml 
+    " autocmd BufNewFile *.html setlocal ft=xhtml 
     autocmd BufNewFile *.css 0r ~/.vim/skel/css | $,$d
   augroup END
 endif
 
+augroup vimrc_tmuxfiletype
+  autocmd!
+  autocmd BufNewFile,BufRead .tmux.conf set filetype=tmux
+augroup END
+
 " Transparent editing of gpg encrypted files.
 " By Wouter Hanegraaff <wouter@blub.net>
 augroup encrypted
-  au!
+  autocmd!
   " First make sure nothing is written to ~/.viminfo while editing
   " an encrypted file.
   autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
@@ -709,21 +619,18 @@ augroup encrypted
   autocmd BufWritePost,FileWritePost  *.gpg set nobin
 augroup END
 
-" Drupal modules
-augroup vimrc_drupalmodule
-  autocmd!
-  autocmd BufRead,BufNewFile *.module set filetype=php
-  autocmd BufRead,BufNewFile *.install set filetype=php
-  autocmd BufRead,BufNewFile *.test set filetype=php
+augroup vimrc_markdown
+    autocmd!
+    autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-augroup vimrc_markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup vimrc_vdebug
+  autocmd!
+  autocmd WinEnter DebuggerWatch res 60
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Source files
+" UI settings
 "
 source ~/.vim/ui.vim
 

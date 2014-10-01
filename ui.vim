@@ -112,14 +112,17 @@ endif
 
 set cmdheight=1         " The commandbar is 1 high
 
+if &diff
+  " Fixes "press enter or type command to continue"
+  set cmdheight=2
+  " http://vim.wikia.com/wiki/Start_with_a_wide_window_for_diff
+  let &columns = 320 + 2*&foldcolumn + 1
+endif
+
 " Highlight redundant whitespaces.
 " hi RedundantSpaces ctermbg=blue guibg=blue
 " match RedundantSpaces /\s\+$\| \+\ze\t/
 
-" if &diff
-"     colors inkpot " Vim Tip #1143
-" endif
- 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Statusline 
 "
@@ -158,12 +161,3 @@ set statusline+=%*
 set statusline+=%=\ %l,%c%V\ %<%P
 
 set laststatus=2                  " Always show statusline
-
-
-" function! HF_truncatePath()
-"    let fullPath = expand('%F')
-"    if strlen(fullPath) > 50
-"       let fullPath = "Hest"
-"    endif
-"    return fullPath. " ". strlen( expand('%F') )
-" endfunction
