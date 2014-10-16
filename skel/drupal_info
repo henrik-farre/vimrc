@@ -1,0 +1,7 @@
+name = Pretty name
+description = Descriptions
+package = Bellcom
+dependencies[] = services
+core = 7.x
+php = 5.2
+files[] = class.AppHelper.php

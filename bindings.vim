@@ -39,6 +39,9 @@ nmap <silent> <C-N> :silent noh<CR>
 imap <C-s> <C-o>:wa<CR>
 nmap <C-s> :wa<CR>
 
+" jk in insert mode is Escape
+imap jk <Esc>
+
 " Map ' so it jumps to line and column
 nnoremap ' `
 nnoremap ` '

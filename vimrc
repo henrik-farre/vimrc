@@ -190,7 +190,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_php_checkers = ['php' ]
+" let g:syntastic_php_checkers = ['php']
 " Handle composite filetype
 " let g:syntastic_quiet_warnings=1
 " let g:loaded_javascript_syntax_checker = 1 " Disable distribued javascript syntax checker plugin
@@ -421,12 +421,12 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
 " Store temporary files in a central spot
-set backupdir=/tmp/backups/   
-set directory=/tmp/swaps/             " swap files
+set backupdir=~/.vim/backups/   
+set directory=~/.vim/swaps/       " swap files
 " set viewdir=~/.vim/views/
 " Creating directories if they don't exist
-silent execute '!mkdir -p /tmp/backups'
-silent execute '!mkdir -p /tmp/swaps'
+" silent execute '!mkdir -p /tmp/backups'
+" silent execute '!mkdir -p /tmp/swaps'
 " silent execute '!mkdir -p ~/.vim/views'
 " au BufWinLeave * silent! mkview         " make vim save view (state) (folds, cursor, etc)
 " au BufWinEnter * silent! loadview       " make vim load view (state) (folds, cursor, etc)
@@ -519,6 +519,18 @@ fun! DrupalFilename(...)
   return !a:0 || a:1 == '' ? filename : substitute(a:1, '$1', filename, 'g')
 endf
 
+" Removes trailing spaces
+function! TrimWhiteSpace()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
 "
@@ -575,6 +587,7 @@ if !&diff
     autocmd!
     autocmd BufNewFile *.php 0r ~/.vim/skel/php |normal Gdd2h 
     autocmd BufNewFile *.module 0r ~/.vim/skel/drupal_module |normal Gdd2h 
+    autocmd BufNewFile *.info 0r ~/.vim/skel/drupal_info |normal Gdd2h 
     autocmd BufNewFile *.html 0r ~/.vim/skel/html | $,$d
     " autocmd BufNewFile *.html setlocal ft=xhtml 
     autocmd BufNewFile *.css 0r ~/.vim/skel/css | $,$d
@@ -624,11 +637,28 @@ augroup vimrc_markdown
     autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
+augroup vimrc_xml
+    autocmd!
+    autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+augroup END
+
+augroup vimrc_json
+    autocmd!
+    autocmd FileType json setlocal equalprg=json
+augroup END
+
 augroup vimrc_vdebug
   autocmd!
   autocmd WinEnter DebuggerWatch res 60
 augroup END
 
+augroup vimrc_whitespace
+  autocmd!
+  autocmd FileWritePre    *.{php,js,module,info} :call TrimWhiteSpace()
+  autocmd FileAppendPre   *.{php,js,module,info} :call TrimWhiteSpace()
+  autocmd FilterWritePre  *.{php,js,module,info} :call TrimWhiteSpace()
+  autocmd BufWritePre     *.{php,js,module,info} :call TrimWhiteSpace()
+augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
 "
