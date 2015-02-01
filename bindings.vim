@@ -14,10 +14,25 @@ imap <silent> <home> <C-o>g<home>
 map <silent> <end> g<end>
 imap <silent> <end> <C-o>g<end>
 
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
+" noremap <buffer> <silent> k gk
+" noremap <buffer> <silent> j gj
+" Fix moving pass wrapped lines: http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
+nnoremap H 0
+nnoremap L $
+
+" http://www.reddit.com/r/vim/comments/2ueu0g/which_pluginskeybindsetc_significantly_changed/
+" expands %% to current file's directory in command-line mode
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<CR>
+
+" From https://github.com/mkropat/vim-dwiw2015/blob/master/plugin/dwiw2015.vim#L212
+" > -- shift selection rightwards (preserve selection) [Visual Mode]
+vnoremap > >gv
+" < -- shift selection leftwards (preserve selection) [Visual Mode]
+vnoremap < <gv
 
 " Easier split navigations
 " http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
@@ -34,13 +49,17 @@ nnoremap <C-_> <C-W>n
 " Disable search highlightning
 nmap <silent> <C-N> :silent noh<CR>
 
+" Invisible character
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
 " Save keystrockes on save
 " http://vim.wikia.com/wiki/Use_Ctrl-O_instead_of_Esc_in_insert_mode_mappings
 imap <C-s> <C-o>:wa<CR>
 nmap <C-s> :wa<CR>
 
 " jk in insert mode is Escape
-imap jk <Esc>
+" imap jk <Esc>
 
 " Map ' so it jumps to line and column
 nnoremap ' `
@@ -80,6 +99,8 @@ nmap :WQ :wq
 nmap :Wq :wq
 nmap :Wqa :wqa
 nmap :WQa :wqa
+nmap :waq :wqa
+nmap :qwa :wqa
 nmap :E :e
 nmap :Bw :bw
 nmap :Bd :bd
@@ -93,6 +114,10 @@ map Q <Nop>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" Undo stuff
+" nnoremap u <NOP>
+" inoremap <C-u> <ESC>ui
 
 " Open none existing file under cursor
 nnoremap gF :view <cfile><cr>

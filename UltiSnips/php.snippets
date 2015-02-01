@@ -1,13 +1,12 @@
 extends html
 
-snippet php
+global !p
+from vimsnippets import complete
+endglobal
+
+snippet php "PHP open tag"
 <?php
 ${1}
-?>
-endsnippet
-
-snippet ec
-echo "${1:string}"${2};
 endsnippet
 
 snippet inc
@@ -24,10 +23,6 @@ endsnippet
 
 snippet req1
 require_once '${1:file}';${2}
-endsnippet
-
-snippet globals
-$GLOBALS['${1:variable}']${2: = }${3:something}${4:;}${5}
 endsnippet
 
 snippet $_ "COOKIE['...']"
@@ -55,132 +50,11 @@ $_REQUEST['${1:variable}']${2}
 endsnippet
 
 snippet $_ "SERVER['...']"
-$_SERVER['${1:variable}']${2}
+$_SERVER['$1`!p snip.rv=complete(t[1], ['REMOTE_ADDR','REQUEST_URI','SERVER_NAME'])`']
 endsnippet
 
 snippet $_ "SESSION['...']"
 $_SESSION['${1:variable}']${2}
-endsnippet
-
-snippet /*
-/**
- * ${1}
- **/
-endsnippet
-
-snippet doc_cp
-/**
- * ${1:undocumented class}
- *
- * @package ${2:default}
- * @author ${3:`g:snips_author`}
-**/${4}
-endsnippet
-
-snippet doc_vp
-/**
- * ${1:undocumented class variable}
- *
- * @var ${2:string}
- **/${3}
-endsnippet
-
-snippet doc_v
-/**
- * ${3:undocumented class variable}
- *
- * @var ${4:string}
- **/
-${1:var} $${2};${5}
-endsnippet
-
-snippet doc_c
-/**
- * ${3:undocumented class}
- *
- * @packaged ${4:default}
- * @author ${5:`!v g:snips_author`}
- **/
-${1:}class ${2:}
-{${6}
-} // END $1class $2
-endsnippet
-
-snippet doc_dp
-/**
- * ${1:undocumented constant}
- **/${2}
-endsnippet
-
-snippet doc_d
-/**
- * ${3:undocumented constant}
- **/
-define(${1}, ${2});${4}
-endsnippet
-
-snippet doc_fp
-/**
- * ${1:undocumented function}
- *
- * @return ${2:void}
- * @author ${3:`g:snips_author`}
- **/${4}
-endsnippet
-
-snippet doc_s
-/**
- * ${4:undocumented function}
- *
- * @return ${5:void}
- * @author ${6:`g:snips_author`}
- **/
-${1}function ${2}(${3});${7}
-endsnippet
-
-snippet doc_h
-/**
- * ${1}
- *
- * @author ${2:`g:snips_author`}
- * @version ${3:$Id$}
- * @copyright ${4:$2}, `strftime('%d %B, %Y')`
- * @package ${5:default}
- **/
-
-/**
- * Define DocBlock
- *//
-endsnippet
-
-snippet doc_i
-/**
- * ${2:undocumented class}
- *
- * @package ${3:default}
- * @author ${4:`g:snips_author`}
- **/
-interface ${1:}
-{${5}
-} // END interface $1
-endsnippet
-
-snippet class
-/**
- * ${1}
- **/
-class ${2:ClassName}
-{
-  ${3}
-  function ${4:__construct}(${5:argument})
-  {
-    ${6:// code...}
-  }
-}
-endsnippet
-
-snippet def
-define('${1}'${2});${3}
 endsnippet
 
 snippet def?
@@ -194,7 +68,7 @@ while (${1:/* condition */})
 }
 endsnippet
 
-snippet do
+snippet do "do"
 do 
 {
   ${2:// code... }
@@ -220,7 +94,7 @@ else
 ${4}
 endsnippet
 
-snippet else
+snippet else "else"
 else 
 {
   ${1:// code...}
@@ -232,10 +106,6 @@ elseif (${1:/* condition */})
 {
   ${2:// code...}
 }
-endsnippet
-
-snippet t
-$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
 endsnippet
 
 snippet switch
@@ -271,28 +141,16 @@ ${1:public }function ${2:FunctionName}(${3})
 }
 endsnippet
 
-snippet array
-$${1:arrayName} = array('${2}' => ${3});${4}
-
-endsnippet
-
 snippet ERR
 error_log(__LINE__.':'.__FILE__.' '${VISUAL}$0); // hf@bellcom.dk debugging
 endsnippet
 
 snippet ERRP
-error_log(__LINE__.':'.__FILE__.' '.print_r(${VISUAL}$0,1)); // hf@bellcom.dk debugging
+error_log(__LINE__.':'.__FILE__.' '.print_r(${VISUAL}$0, 1)); // hf@bellcom.dk debugging
 endsnippet
 
 snippet ISBC
 if ( $_SERVER['REMOTE_ADDR'] == '90.185.206.100' )
-{
-  ${1}
-}
-endsnippet
-
-snippet ISHOME
-if ( $_SERVER['REMOTE_ADDR'] == '87.104.49.70' )
 {
   ${1}
 }
@@ -308,26 +166,6 @@ snippet while
 while (${1:/* condition */}) 
 {
   ${2:// code...}
-}
-
-endsnippet
-
-snippet pattern "singleton"
-class singleton
-{
-  private static $instance = null;
-  
-  private function __construct() {}
-  
-  public static function getInstance()
-  {
-    if ( self::$instance === null )
-    {
-      self::$instance = new self;
-    }
-  
-  return self::$instance;
-  }
 }
 
 endsnippet
@@ -354,14 +192,6 @@ catch (Exception ${2:$e})
 
 endsnippet
 
-snippet SELECT
-SELECT ${1} FROM ${2} WHERE ${3}
-endsnippet
-
 snippet xdb
 xdebug_break();
-endsnippet
-
-snippet @param
-@param ${1:string} ${2:name} ${3:desc}
 endsnippet

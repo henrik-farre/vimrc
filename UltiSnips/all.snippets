@@ -1,14 +1,13 @@
 # Global snippets
 
-# (c) holds no legal value ;)
-snippet c)
-	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `!v strftime("%Y")` ${1:`!v g:snips_author`}. All Rights Reserved.${2}
-endsnippet
+global !p
+from vimsnippets import complete
+endglobal
 
 snippet date
-	`!v strftime("%Y-%m-%d")`
+`!v strftime("%Y-%m-%d")`
 endsnippet
 
-snippet ddate
-	`!v strftime("%B %d, %Y")`
+snippet h@ "Mail addresses"
+$1`!p snip.rv=complete(t[1], ['hf@bellcom.dk','henrik@rockhopper.dk'])`
 endsnippet

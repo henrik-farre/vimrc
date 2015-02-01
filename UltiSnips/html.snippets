@@ -1,85 +1,8 @@
 ## html -->>
 
-# Some useful Unicode entities
-# Non-Breaking Space
-snippet nbs
-	&nbsp;
-endsnippet
-
-# ←
-snippet left
-	&#x2190;
-endsnippet
-
-# →
-snippet right
-	&#x2192;
-endsnippet
-
-# ↑
-snippet up
-	&#x2191;
-endsnippet
-
-# ↓
-snippet down
-	&#x2193;
-endsnippet
-
-# ↩
-snippet return
-	&#x21A9;
-endsnippet
-
-# ⇤
-snippet backtab
-	&#x21E4;
-endsnippet
-
-# ⇥
-snippet tab
-	&#x21E5;
-endsnippet
-
-# ⇧
-snippet shift
-	&#x21E7;
-endsnippet
-
-# ⌃
-snippet control
-	&#x2303;
-endsnippet
-
-# ⌅
-snippet enter
-	&#x2305;
-endsnippet
-
-# ⌘
-snippet command
-	&#x2318;
-endsnippet
-
-# ⌥
-snippet option
-	&#x2325;
-endsnippet
-
-# ⌦
-snippet delete
-	&#x2326;
-endsnippet
-
-# ⌫
-snippet backspace
-	&#x232B;
-endsnippet
-
-# ⎋
-snippet escape
-	&#x238B;
-endsnippet
+global !p
+from vimsnippets import complete
+endglobal
 
 snippet body
 	<body>
@@ -120,28 +43,8 @@ snippet base
 	<base href="${1}" target="${2}"`Close()`>
 endsnippet
 
-snippet r
+snippet br
 	<br`Close()[1:]`>
-endsnippet
-
-snippet div
-	<div ${1:id="name"}>${2}</div>
-# Embed QT Movie
-endsnippet
-
-snippet movie
-	<object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
-	 codebase="http://www.apple.com/qtactivex/qtplugin.cab">
-		<param name="src" value="$1"`Close()`>
-		<param name="controller" value="$4"`Close()`>
-		<param name="autoplay" value="$5"`Close()`>
-		<embed src="${1:movie.mov}"
-			width="${2:320}" height="${3:240}"
-			controller="${4:true}" autoplay="${5:true}"
-			scale="tofit" cache="true"
-			pluginspage="http://www.apple.com/quicktime/download/"
-		`Close()[1:]`>
-	</object>${6}
 endsnippet
 
 snippet fieldset
@@ -159,10 +62,6 @@ snippet form
 
 	<p><input type="submit" value="Continue &rarr;"`Close()` /></p>
 	</form>
-endsnippet
-
-snippet h1
-	<h1 id="${1:heading}">${2:$1}</h1>
 endsnippet
 
 snippet input
@@ -199,59 +98,15 @@ snippet select
 	</select>${5}
 endsnippet
 
-snippet table
-	<table${1}>
-		<tr>
-		  <td>${2}</td>
-		</tr>
-	</table>
-endsnippet
-
 snippet textarea
 	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
 # enriques custom snippets:
 endsnippet
 
-snippet img
-	<img src="${1}" alt="${2}" />${3}
-endsnippet
-
-snippet td
-	<td>${1}</td>
-endsnippet
-
-snippet th
-	<th>${1}</th>
-endsnippet
-
-snippet tr
-	<tr>
-	  <td>${1}</td>
-	</tr>
-endsnippet
-
-snippet thead
-	<thead>
-	  <tr>
-	    <td>${1}</td>
-	  </tr>
-	</thead>
-endsnippet
-
-snippet tbody
-	<tbody>
-	  <tr>
-	    <td>${1}</td>
-	  </tr>
-	</tbody>
+snippet img "Image" w
+<img src="http://$1`!p snip.rv=complete(t[1], ['placekitten.com/100/80','placehold.it/100x80'])`"${2: alt="${3}"}${4: /}>
 endsnippet
 
 snippet ahref
 	<a href="${1:http://}">${2}</a>
-endsnippet
-
-snippet p
-	<p>
-	  ${1}
-	</p>
 endsnippet
