@@ -52,6 +52,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
 " Handlebars syntax + text objects
 Plugin 'mustache/vim-mustache-handlebars'
+" JSON/JSONP
+Plugin 'elzr/vim-json'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 Plugin 'tpope/vim-markdown'
@@ -133,7 +135,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
-Plugin 'jonathanpatt/vim-koala'
+" Plugin 'jonathanpatt/vim-koala'
 Plugin 'michalbachowski/vim-wombat256mod'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
