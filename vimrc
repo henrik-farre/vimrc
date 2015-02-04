@@ -484,6 +484,10 @@ let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run op
 let g:php_cs_fixer_verbose = 1                    " Return the output of command if 1, else an inline information.
 " Default mappings <leader>pcf fix file / <leader>pcd fix directory
 
+" JSON
+" Don't hide "
+let g:vim_json_syntax_conceal = 0
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
