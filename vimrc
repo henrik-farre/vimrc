@@ -137,6 +137,7 @@ Plugin 'godlygeek/tabular'
 " Colorschemes
 " Plugin 'jonathanpatt/vim-koala'
 Plugin 'michalbachowski/vim-wombat256mod'
+Plugin 'nathanaelkane/vim-indent-guides'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
 " https://github.com/majutsushi/tagbar/wiki
@@ -488,6 +489,11 @@ let g:php_cs_fixer_verbose = 1                    " Return the output of command
 " Don't hide "
 let g:vim_json_syntax_conceal = 0
 
+" Indentguides
+" <Leader>ig
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -819,7 +825,7 @@ function! SymfonyDetect(type)
   let l:symfonyRoot = DetectPHPProject(markers)
   if l:symfonyRoot != ''
     " echo l:symfonyRoot
-    setlocal filetype=php.symfony
+    execute 'setlocal filetype=' . a:type . '.symfony'
     let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
     let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2'
@@ -973,6 +979,8 @@ augroup END
 augroup vimrc_symfony
   autocmd!
   autocmd BufRead,BufNewFile *.php call SymfonyDetect('php')
+  autocmd BufRead,BufNewFile *.scss call SymfonyDetect('scss')
+  autocmd BufRead,BufNewFile *.yml call SymfonyDetect('yml')
 augroup END
 
 augroup vimrc_drupal
