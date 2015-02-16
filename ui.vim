@@ -23,7 +23,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Might create problems with normal term 
 " rxvt-256color is for launcing nvim directly with out tmux
-if &term == 'xterm-256color' || &term == 'screen-256color' || &term == 'rxvt-256color'
+if &term == 'xterm-256color' || &term =~ '^screen' || &term =~ '^rxvt-'
   " Cursor shape
   " ------------
   " For rxvt-unicode:
@@ -134,6 +134,11 @@ hi MBEVisibleChanged    guifg=#ffffff guibg=#ff0000 gui=bold cterm=bold
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
 " highlight NonText guifg=fg guibg=bg ctermfg=fg ctermbg=bg gui=none cterm=none
+
+" Indet guides
+hi IndentGuidesOdd  ctermbg=236
+hi IndentGuidesEven ctermbg=235
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
