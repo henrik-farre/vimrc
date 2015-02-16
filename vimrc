@@ -102,6 +102,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
 " HTML5 omnicomplete and syntax
 Plugin 'othree/html5.vim'
+" Twig, correct filetype set by autocmd in this file
 Plugin 'evidens/vim-twig'
 " vim syntax for LESS (dynamic CSS)
 Plugin 'groenewege/vim-less'
@@ -338,6 +339,8 @@ let g:syntastic_sort_aggregated_errors = 0
 " let g:loaded_javascript_syntax_checker = 1 " Disable distribued javascript syntax checker plugin
 " let g:syntastic_html_checker='w3' " use validator.w3.org
 " let g:syntastic_csslint_options = "--warnings=none"
+" Dont run html checker on twig files
+let g:syntastic_filetype_map = { "html.twig": "twig" }
 
 if &diff
   let g:loaded_javascript_syntax_checker = 1 " Disable hacked javascript syntex checker pluing if we are doing a diff
@@ -944,15 +947,14 @@ augroup END
 
 augroup vimrc_twig
     autocmd!
-    " syntastic_quiet_messages
-    " syntastic_<filetype>_<checker>_quiet_messages
-    autocmd FileType *.html.twig let g:syntastic_html_tidy_ignore_errors = [
-    \  'plain text isn''t allowed in <head> elements',
-    \  '<base> escaping malformed URI reference',
-    \  'discarding unexpected <body>',
-    \  '<script> escaping malformed URI reference',
-    \  '</head> isn''t allowed in <body> elements'
-    \ ]
+    autocmd BufNewFile,BufRead *.html.twig,*.twig setlocal filetype=html.twig    
+"    autocmd BufNewFile,BufRead *.html.twig,*.twig let g:syntastic_html_tidy_ignore_errors = [
+"    \  'plain text isn''t allowed in <head> elements',
+"    \  '<base> escaping malformed URI reference',
+"    \  'discarding unexpected <body>',
+"    \  '<script> escaping malformed URI reference',
+"    \  '</head> isn''t allowed in <body> elements'
+"    \ ]
 augroup END
 
 " Use "json" to format .json
