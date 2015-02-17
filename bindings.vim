@@ -87,27 +87,20 @@ nnoremap <silent> p p`]
 " Select pasted text, companion function to gv
 noremap gV `[v`]
 
-" mistypings...
-nmap :w:w :w
-nmap :W :w
-nmap :_w :w
-nmap :Q :q
-nmap :q1 :q!
-nmap :qA :qa
-nmap :wQ :wq
-nmap :WQ :wq
-nmap :Wq :wq
-nmap :Wqa :wqa
-nmap :WQa :wqa
-nmap :waq :wqa
-nmap :qwa :wqa
-nmap :E :e
-nmap :Bw :bw
-nmap :Bd :bd
-nmap :B1 :b1
-nmap :B2 :b2
-nmap :Bn :bn
-nmap :Sp :sp
+" Typos {{{
+" http://blog.sanctum.geek.nz/vim-command-typos/
+" http://vim.wikia.com/wiki/Handle_common_command_typos
+cnoreabbrev q1 q!
+cnoreabbrev qA qa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev Wq wq
+cnoreabbrev Wqa wqa
+cnoreabbrev WQa wqa
+cnoreabbrev waq wqa
+cnoreabbrev qwa wqa
+" }}}
+
 " Disable Ex mode
 map Q <Nop>
 " Disable help
