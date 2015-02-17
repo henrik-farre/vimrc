@@ -548,7 +548,7 @@ if v:version >= 703
 endif
 
 set printfont=Bitstream\ Vera\ Sans\ Mono\ 8
-"set list
+set list
 " set listchars=tab:▸\ ,eol:¬
 set listchars=tab:→\ ,extends:»,precedes:«,trail:▒,nbsp:·
 
