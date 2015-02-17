@@ -1,6 +1,6 @@
 " vim:fdm=marker
-" 
-" Explanation of vimrc 
+"
+" Explanation of vimrc
 " https://gist.github.com/romainl/9ecd7b09a693816997ba
 "
 " Anti-pattern of vimrc
@@ -149,7 +149,7 @@ Plugin 'majutsushi/tagbar'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 " Plugin 'kien/ctrlp.vim'
-" Active fork: 
+" Active fork:
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'sgur/ctrlp-extensions.vim.git'
 Plugin 'JazzCore/ctrlp-cmatcher'
@@ -260,7 +260,7 @@ let g:snips_author = 'Henrik Farre <hf@bellcom.dk>'
 " Make it work in terminal, as shift-space does not work. Requires supertab http://stackoverflow.com/a/22253548
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>" 
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " let g:UltiSnipsSnippetDir= expand("$HOME/.vim/UltiSnips" )
 
 " Exuberant Ctags {{{
@@ -353,9 +353,9 @@ endif
 " CtrlP
 " https://github.com/kien/ctrlp.vim
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn|cache)$',
+    \ 'dir':  '\v[\/]\.(git|hg|svn|cache)$',
     \ 'file': '\v\.(exe|so|dll|tgz|tar|zip|log)$',
-	\ }
+    \ }
 " r:  the nearest ancestor that contains one of these directories or files: .git  .hg .svn .bzr _darcs
 " a: like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file.
 let g:ctrlp_working_path_mode = 'ra'
@@ -427,7 +427,7 @@ let delimitMate_expand_space = 1
 " Scratch
 " nnoremap <Leader>s :Scratch<CR>
 
-" vim-expand-region 
+" vim-expand-region
 " https://github.com/terryma/vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -575,7 +575,7 @@ set splitright
 "
 set ssop-=options " do not store global and local values in a session
 set ssop-=folds " do not store folds
- 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff
 "
@@ -615,8 +615,8 @@ set timeoutlen=1000
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard {{{
-" 
-" In insert mode: 
+"
+" In insert mode:
 " - <C+r> *: Primary selection
 " - <C+r> +: Contents of clipboard
 "
@@ -952,7 +952,7 @@ augroup END
 
 augroup vimrc_twig
     autocmd!
-    autocmd BufNewFile,BufRead *.html.twig,*.twig setlocal filetype=html.twig    
+    autocmd BufNewFile,BufRead *.html.twig,*.twig setlocal filetype=html.twig
 "    autocmd BufNewFile,BufRead *.html.twig,*.twig let g:syntastic_html_tidy_ignore_errors = [
 "    \  'plain text isn''t allowed in <head> elements',
 "    \  '<base> escaping malformed URI reference',
