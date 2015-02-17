@@ -242,8 +242,10 @@ let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: http
 " Use Ctrl+Pageup / Pagedown as Ctrl+Tab does not work in the urxvt
 " noremap <C-TAB> :MBEbn<CR>
 " noremap <C-S-TAB> :MBEbp<CR>
-noremap <silent> [5^ :MBEbn<CR>
-noremap <silent> [6^ :MBEbp<CR>
+" noremap <silent> [5^ :MBEbn<CR>
+" noremap <silent> [6^ :MBEbp<CR>
+noremap <Leader>bn :bn<CR>
+noremap <Leader>bp :bp<CR>
 
 " UltiSnips
 " First one is from snipMate
