@@ -604,7 +604,10 @@ set switchbuf=useopen             " Buffer switching the reuses already visible 
 "  +l:  Do not break a comment line if it is long before you start.
 set formatoptions-=t
 set formatoptions+=croql
-set ttyfast                       " Indicates a fast terminal connection. More characters will be sent to the screen for redrawing
+if !has('nvim')
+  " Indicates a fast terminal connection. More characters will be sent to the screen for redrawing
+  set ttyfast
+endif
 " http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
 set ttimeout
 set ttimeoutlen=100
