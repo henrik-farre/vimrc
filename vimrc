@@ -244,8 +244,8 @@ let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: http
 " noremap <C-S-TAB> :MBEbp<CR>
 " noremap <silent> [5^ :MBEbn<CR>
 " noremap <silent> [6^ :MBEbp<CR>
-noremap <Leader>bn :bn<CR>
-noremap <Leader>bp :bp<CR>
+noremap <silent> <Leader>bn :MBEbn<CR>
+noremap <silent> <Leader>bp :MBEbp<CR>
 
 " UltiSnips
 " First one is from snipMate
