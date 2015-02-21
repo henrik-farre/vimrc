@@ -160,7 +160,7 @@ Plugin 'JazzCore/ctrlp-cmatcher'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 " Plugin 'chrisbra/Recover.vim'
 " Plugin 'mtth/scratch.vim'
 " Use v multiple times to expand selection
