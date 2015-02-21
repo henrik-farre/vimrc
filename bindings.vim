@@ -93,7 +93,6 @@ noremap gV `[v`]
 " http://blog.sanctum.geek.nz/vim-command-typos/
 " http://vim.wikia.com/wiki/Handle_common_command_typos
 cnoreabbrev q1 q!
-cnoreabbrev qA qa
 cnoreabbrev wQ wq
 cnoreabbrev WQ wq
 cnoreabbrev Wq wq
@@ -101,6 +100,18 @@ cnoreabbrev Wqa wqa
 cnoreabbrev WQa wqa
 cnoreabbrev waq wqa
 cnoreabbrev qwa wqa
+
+if has("user_commands")
+    command! -bang -nargs=? -complete=file E e<bang> <args>
+    command! -bang -nargs=? -complete=file W w<bang> <args>
+    command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+    command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+    command! -bang Wa wa<bang>
+    command! -bang WA wa<bang>
+    command! -bang Q q<bang>
+    command! -bang QA qa<bang>
+    command! -bang Qa qa<bang>
+endif
 " }}}
 
 " Disable Ex mode
