@@ -55,7 +55,7 @@ if has('title')
   endif
   " r: Read only flag
   " y: Filetype
-  " m: Modified flag 
+  " m: Modified flag
   set titlestring+=%m
 
   " display a warning if fileformat isnt unix
@@ -63,7 +63,7 @@ if has('title')
 
   " display a warning if file encoding isnt utf-8
   " Syntastic Warning
-  set titlestring+=%{SyntasticStatuslineFlag()} 
+  set titlestring+=%{SyntasticStatuslineFlag()}
   set titlestring+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 endif
 
@@ -77,7 +77,7 @@ endif
 "    set guifont=Envy\ Code\ R\ 9
 "    " set guifont=M+\ 2m\ regular\ 9
 "    " set guifont=Envy\ Code\ R\ for\ Powerline\ 9
-"    set guioptions=ai " a: primary selection, i: icon 
+"    set guioptions=ai " a: primary selection, i: icon
 "  elseif ( &term =~ '^xterm' || &term =~ '^rxvt-' || &term =~ '^screen-')
 "    " set background=dark " Only when running as terminal
 "    " Terminal options
@@ -109,25 +109,25 @@ colorscheme wombat256mod
 "     hi PmenuSbar    guibg=#204d40                          ctermbg=6
 "     hi PmenuThumb   guifg=#38ff56                          ctermfg=3
 "     hi WildMenu     guifg=#20012e guibg=#00a675 gui=bold   ctermfg=NONE ctermbg=NONE cterm=bold
-"      
+"
 " MiniBufExplorer
 hi MBENormal            guifg=#cfbfad
 hi MBEChanged           guifg=#ffffff guibg=#ff0000
 hi MBEVisibleNormal     guifg=#cfcfcd gui=bold cterm=bold
 hi MBEVisibleChanged    guifg=#ffffff guibg=#ff0000 gui=bold cterm=bold
-"      
+"
 "     " Invisible character colors
 "     " Disabled because it changes gutter color in wombat256
 "     " hi NonText guifg=#161640
 "     " hi SpecialKey guifg=#161640
-"     
+"
 "     " For statusline
 "     hi User1 guifg=#eee040
 "     hi User2 guifg=#dd3333
 "     hi User3 guifg=#ff66ff
 "     hi User4 guifg=#a0ee40
 "     hi User5 guifg=#eeee40
-"     
+"
 "     " SignColumn
 "     hi SignColumn guibg=#121212
 
@@ -138,7 +138,6 @@ hi MBEVisibleChanged    guifg=#ffffff guibg=#ff0000 gui=bold cterm=bold
 " Indet guides
 hi IndentGuidesOdd  ctermbg=236
 hi IndentGuidesEven ctermbg=235
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
@@ -164,9 +163,9 @@ endif
 " match RedundantSpaces /\s\+$\| \+\ze\t/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Statusline 
+" Statusline
 "
-" n: Buffernumber 
+" n: Buffernumber
 set statusline=[%n]\ 
 " git branch
 " %{exists('g:loaded_fugitive')?fugitive#statusline():''}
@@ -178,9 +177,9 @@ set statusline+=%*
 set statusline+=\ %-25.60F\ 
 " r: Read only flag
 " y: Filetype
-" m: Modified flag 
+" m: Modified flag
 set statusline+=%r%y%m
- 
+
 " display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
@@ -189,10 +188,10 @@ set statusline+=%*
 " display a warning if file encoding isnt utf-8
 set statusline+=%#warningmsg#
 " Syntastic Warning
-set statusline+=%{SyntasticStatuslineFlag()} 
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
- 
+
 " display a warning if &paste is set
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
