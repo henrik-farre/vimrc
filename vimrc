@@ -897,6 +897,7 @@ if !&diff
     " autocmd BufNewFile *.html setlocal ft=xhtml
     autocmd BufNewFile *.css 0r ~/.vim/skel/css | $,$d
     autocmd BufNewFile *.sh 0r ~/.vim/skel/bash | $,$d
+    autocmd BufNewFile .tern-project 0r ~/.vim/skel/tern-project | $,$d
   augroup END
 endif
 
