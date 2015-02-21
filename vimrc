@@ -201,12 +201,12 @@ map <Space> <leader>
 " let g:neocomplete#enable_smart_case = 1
 " " Set minimum syntax keyword length.
 " let g:neocomplete#sources#syntax#min_keyword_length = 3
-" 
+"
 " let g:neocomplete#auto_completion_start_length   = 2
 " let g:neocomplete#manual_completion_start_length = 0
 " let g:neocomplete#enable_auto_close_preview      = 1
 " let g:neocomplete#enable_auto_select = 1
-" 
+"
 " " <CR>: close popup and save indent.
 " inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 " function! s:my_cr_function()
@@ -214,7 +214,7 @@ map <Space> <leader>
 "   " For no inserting <CR> key.
 "   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 " endfunction
-" 
+"
 " " Enable heavy omni completion.
 " if !exists('g:neocomplete#sources#omni#input_patterns')
 "   let g:neocomplete#sources#omni#input_patterns = {}
@@ -223,11 +223,11 @@ map <Space> <leader>
 "   let g:neocomplete#force_omni_input_patterns = {}
 " endif
 " let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-" 
+"
 " " <TAB>: completion.
 " inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" 
-" 
+"
+"
 " if has('conceal')
 "   set conceallevel=2 concealcursor=i
 " endif
