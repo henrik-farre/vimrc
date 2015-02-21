@@ -3,6 +3,8 @@
 "
 " Plugin mappings are in vimrc
 "
+" http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+" map <Leader>v :set invpaste<CR>:set paste?<CR>
 
 " More natural cursor movement
 map <silent> <up> gk
