@@ -2,12 +2,12 @@
 " Window titles
 "
 " Term
-if &term =~ "^screen"
-" has("autocmd")
-" autocmd VimLeave * :set term=screen " this fixes background artifacting when leaving vim inside screen
-  set t_ts=k
-  set t_fs=\
-endif
+" if &term =~ "^screen"
+" " has("autocmd")
+" " autocmd VimLeave * :set term=screen " this fixes background artifacting when leaving vim inside screen
+"   set t_ts=k
+"   set t_fs=\
+" endif
 
 " Highlight VCS conflict markers
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
@@ -21,24 +21,24 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 "  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[0 q\<Esc>\\"
 "endif
 
-" Might create problems with normal term 
+" Might create problems with normal term
 " rxvt-256color is for launcing nvim directly with out tmux
-if &term == 'xterm-256color' || &term =~ '^screen' || &term =~ '^rxvt-'
-  " Cursor shape
-  " ------------
-  " For rxvt-unicode:
-  " 1 or 0 -> blinking block
-  " 2 -> solid block
-  " 3 -> blinking underscore
-  " 4 -> solid underscore
-  " Recent versions of xterm (282 or above) also support
-  " 5 -> blinking vertical bar
-  " 6 -> solid vertical bar
-  let &t_SI = "\<Esc>[6 q"
-  let &t_EI = "\<Esc>[2 q"
-  " let &t_EI = "\<Esc>]12;white\x9c"
-  " let &t_SI = "\<Esc>]12;orange\x9c"
-endif
+" if &term == 'xterm-256color' || &term =~ '^screen' || &term =~ '^rxvt-'
+"   " Cursor shape
+"   " ------------
+"   " For rxvt-unicode:
+"   " 1 or 0 -> blinking block
+"   " 2 -> solid block
+"   " 3 -> blinking underscore
+"   " 4 -> solid underscore
+"   " Recent versions of xterm (282 or above) also support
+"   " 5 -> blinking vertical bar
+"   " 6 -> solid vertical bar
+"   let &t_SI = "\<Esc>[6 q"
+"   let &t_EI = "\<Esc>[2 q"
+"   " let &t_EI = "\<Esc>]12;white\x9c"
+"   " let &t_SI = "\<Esc>]12;orange\x9c"
+" endif
 
 " Tries to match statusline
 if has('title')
