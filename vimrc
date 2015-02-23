@@ -270,7 +270,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " incsearch {{{
 " https://github.com/haya14busa/incsearch.vim
-let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#auto_nohlsearch = 0
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
