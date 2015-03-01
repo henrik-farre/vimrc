@@ -853,6 +853,27 @@ function! SymfonyDetect(type)
   endif
 endfun
 
+" Based on https://github.com/qbbr/vim-symfony/blob/master/plugin/sf2jmp2viewFromView.vim
+" Jump to a twig in symfony
+function! s:SfJumpToTwig()
+  let linecontent = getline(line('.'))
+  let matches = matchlist(linecontent, '\v\C([A-Z]{1}[a-z]{1,}Bundle):([^:]+)?:([^.:]+\.html\.twig)')
+
+  if (empty(matches))
+    echohl WarningMsg | echomsg "Pattern not found" | echohl None
+    return
+  endif
+
+  try
+    let filename = matches[1].'/'.matches[2].'/'.matches[3]
+    execute ":find ".filename
+  catch
+    echohl WarningMsg | echomsg "Template file ". filename ." not found" | echohl None
+  endtry
+endfunction
+
+command! SfJumpToTwig call s:SfJumpToTwig()
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -999,6 +1020,7 @@ augroup vimrc_symfony
   autocmd BufRead,BufNewFile *.php call SymfonyDetect('php')
   autocmd BufRead,BufNewFile *.scss call SymfonyDetect('scss')
   autocmd BufRead,BufNewFile *.yml call SymfonyDetect('yml')
+  autocmd BufEnter *Controller.php nmap <buffer><leader>g :SfJumpToTwig<CR>
 augroup END
 
 augroup vimrc_drupal
