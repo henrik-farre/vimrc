@@ -159,6 +159,8 @@ Plugin 'JazzCore/ctrlp-cmatcher'
 " Plugin 'sickill/vim-pasta'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
+" Examples of python interpolation:
+" https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
 Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
 " Plugin 'chrisbra/Recover.vim'
