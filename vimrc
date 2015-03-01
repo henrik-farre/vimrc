@@ -847,6 +847,8 @@ function! SymfonyDetect(type)
     let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2'
     let g:php_cs_fixer_level = "symfony"
     let g:php_cs_fixer_config = "sf23"
+    let l:theme_path=l:symfonyRoot.'/app/Resources/themes/**'
+    execute 'set path+='.l:theme_path
     setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
   endif
 endfun
