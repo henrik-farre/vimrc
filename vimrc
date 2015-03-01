@@ -830,6 +830,7 @@ function! DetectPHPProject(markers)
   return ''
 endfunction
 
+" Set options for Symfony Project
 function! SymfonyDetect(type)
   let markers = {'Symfony' : [
         \   ['app', 'Resources'],
