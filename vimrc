@@ -66,7 +66,7 @@ Plugin '2072/PHP-Indenting-for-VIm'
 " Up-to-date PHP syntax file (5.3–5.6 support)
 Plugin 'StanAngeloff/php.vim'
 " Improved PHP omnicompletion
-Plugin 'shawncplus/phpcomplete.vim'
+" Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vdebug'
 " Needed by pdv
 Plugin 'tobyS/vmustache'
