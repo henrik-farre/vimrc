@@ -138,7 +138,6 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
-" Plugin 'jonathanpatt/vim-koala'
 Plugin 'michalbachowski/vim-wombat256mod'
 Plugin 'nathanaelkane/vim-indent-guides'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
