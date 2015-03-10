@@ -121,6 +121,9 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" Disable increment of numbers, clashes with tmux
+nmap <C-a> <Nop>
+
 " Undo stuff
 " nnoremap u <NOP>
 " inoremap <C-u> <ESC>ui
