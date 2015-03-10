@@ -113,7 +113,9 @@ Plugin 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 " Plugin 'Shougo/neocomplete.vim'
-Plugin 'Valloric/YouCompleteMe'
+if v:version >= 704
+  Plugin 'Valloric/YouCompleteMe'
+endif
 Plugin 'ervandew/supertab'
 Plugin 'Raimondi/delimitMate'
 " Active repository?: https://github.com/Firef0x/matchit/network
@@ -560,7 +562,11 @@ set sidescrolloff=7
 set sidescroll=1
 " All abbrevitions, truncate middle of long messages, no intro when starting,
 " no ins-completion-menu messages
-set shortmess=aTIc
+if v:version >= 704
+  set shortmess=aTIc
+else
+  set shortmess=aTI
+endif
 
 set nostartofline                 " Cursor does not jump to first nonblank char on line after buffer switch http://stackoverflow.com/questions/8292742/vim-cursor-jumps-to-begining-of-the-line-after-buffer-switch
 
@@ -582,7 +588,9 @@ set ssop-=folds " do not store folds
 " Stuff
 "
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
-set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
+if v:version >= 704
+  set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
+endif
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
 set title                         " change the terminals/windows title
