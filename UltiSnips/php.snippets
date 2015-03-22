@@ -206,3 +206,23 @@ endsnippet
 snippet xdb
 xdebug_break();
 endsnippet
+
+snippet class "Basic class with namespace snippet" b
+<?php
+
+namespace `!p
+abspath = os.path.abspath(path)
+m = re.search(r'[A-Z].+(?=/)', abspath)
+if m:
+  snip.rv = m.group().replace('/', '\\')
+`;
+/**
+* @author ${1:`!v g:snips_author`}
+*/
+class `!p
+snip.rv = re.match(r'.*(?=\.)', fn).group()
+`$2
+{
+  $3
+}
+endsnippet
