@@ -162,6 +162,7 @@ Plugin 'JazzCore/ctrlp-cmatcher'
 " Snippets
 " Examples of python interpolation:
 " https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
+" PHP/Symfony snippets: https://github.com/algotech/ultisnips-php
 Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
 " Plugin 'chrisbra/Recover.vim'
