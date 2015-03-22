@@ -936,11 +936,11 @@ augroup END
 if !&diff
   augroup vimrc_skeleton
     autocmd!
-    autocmd BufNewFile *.php 0r ~/.vim/skel/php |normal Gdd2h
+"    autocmd BufNewFile *.php 0r ~/.vim/skel/php |normal Gdd2h
     autocmd BufNewFile *.module 0r ~/.vim/skel/drupal_module |normal Gdd2h
     autocmd BufNewFile *.info 0r ~/.vim/skel/drupal_info |normal Gdd2h
     autocmd BufNewFile *.html 0r ~/.vim/skel/html | $,$d
-    " autocmd BufNewFile *.html setlocal ft=xhtml
+"    autocmd BufNewFile *.html setlocal ft=xhtml
     autocmd BufNewFile *.css 0r ~/.vim/skel/css | $,$d
     autocmd BufNewFile *.sh 0r ~/.vim/skel/bash | $,$d
     autocmd BufNewFile .tern-project 0r ~/.vim/skel/tern-project | $,$d
