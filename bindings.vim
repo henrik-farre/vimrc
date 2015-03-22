@@ -134,3 +134,7 @@ nnoremap gF :view <cfile><cr>
 "Actually, the tab does not switch buffers, but my arrows
 "Bclose function ca be found in "Buffer related" section
 map <leader>bd :Bclose<cr>
+map <leader>b1 :b1<cr>
+map <leader>b2 :b2<cr>
+map <leader>b3 :b3<cr>
+map <leader>b4 :b4<cr>
