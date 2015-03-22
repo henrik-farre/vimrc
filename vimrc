@@ -604,7 +604,7 @@ set title                         " change the terminals/windows title
 set hid                           " change buffer without saving
 set autowrite                     " Write contents of the file, if it has been modified, on buffer exit
 set history=10000                 " remember more than the default 20 commands and search patterns
-set shell=bash\ --rcfile\ ~/.vim/bashrc.vim
+" set shell=bash\ --rcfile\ ~/.vim/bashrc.vim
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places
 set showcmd                       " Show (partial) command in status line.
 set showmode                      " display the current mode
