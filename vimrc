@@ -8,6 +8,8 @@
 "
 " http://usevim.com/2014/03/28/vimrc-folding/
 " from http://www.reddit.com/r/vim/comments/20eyjk/preventing_plugin_clash_and_key_lag_sculpting/
+let g:python_host_prog='/usr/bin/python2.7'
+
 if has('vim_starting')
   " ensure that we always start with Vim defaults (as opposed to those set by the current system)
   " Save 'diff' as set all& resets it, from http://ruderich.org/simon/config/vimrc
