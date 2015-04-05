@@ -1040,7 +1040,7 @@ augroup vimrc_symfony
   autocmd!
   autocmd BufRead,BufNewFile *.php call SymfonyDetect('php')
   autocmd BufRead,BufNewFile *.scss call SymfonyDetect('scss')
-  autocmd BufRead,BufNewFile *.yml call SymfonyDetect('yml')
+  autocmd BufRead,BufNewFile *.yml call SymfonyDetect('yaml')
   autocmd BufEnter *Controller.php nmap <buffer><leader>g :SfJumpToTwig<CR>
 augroup END
 
