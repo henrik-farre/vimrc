@@ -226,3 +226,9 @@ snip.rv = re.match(r'.*(?=\.)', fn).group()
   $3
 }
 endsnippet
+
+snippet for "for"
+for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+${4:// code...}
+}
+endsnippet
