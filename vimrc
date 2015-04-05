@@ -154,7 +154,8 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'kien/ctrlp.vim'
 " Active fork:
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'sgur/ctrlp-extensions.vim.git'
+" cmdline : cmdline history, yankring : yank history, menu : extension selector menu
+" Plugin 'sgur/ctrlp-extensions.vim.git'
 Plugin 'JazzCore/ctrlp-cmatcher'
 " Alternativ matcher written in python https://github.com/FelikZ/ctrlp-py-matcher
 " Annoying when using mixed html/php
