@@ -27,7 +27,6 @@ endif
 " http://rbtnn.hateblo.jp/entry/2014/12/28/010913
 set encoding=utf-8
 scriptencoding utf-8
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle {{{
 
