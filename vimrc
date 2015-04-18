@@ -256,6 +256,7 @@ noremap <silent> <Leader>bp :MBEbp<CR>
 " UltiSnips
 " First one is from snipMate
 let g:snips_author = 'Henrik Farre <hf@bellcom.dk>'
+let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
 " YCM conflicts with UltiSnips TAB key usage
 " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
 
