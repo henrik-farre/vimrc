@@ -114,7 +114,7 @@ Plugin 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 " Plugin 'Shougo/neocomplete.vim'
-if v:version >= 704
+if v:version >= 704 && has("python")
   Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'ervandew/supertab'
