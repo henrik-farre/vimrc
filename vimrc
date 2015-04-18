@@ -246,8 +246,8 @@ let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits 
 let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
 let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17 
 " Use Ctrl+Pageup / Pagedown as Ctrl+Tab does not work in the urxvt
-" noremap <C-TAB> :MBEbn<CR>
-" noremap <C-S-TAB> :MBEbp<CR>
+noremap <C-TAB> :MBEbn<CR>
+noremap <C-S-TAB> :MBEbp<CR>
 " noremap <silent> [5^ :MBEbn<CR>
 " noremap <silent> [6^ :MBEbp<CR>
 noremap <silent> <Leader>bn :MBEbn<CR>
