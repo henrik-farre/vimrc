@@ -28,57 +28,56 @@ endif
 set encoding=utf-8
 scriptencoding utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle {{{
 
-filetype off                  " required
+" vim-plug {{{
+if empty(glob('~/.nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependencies
 " Remember to run 'make' in dir after install
-" Plugin 'Shougo/vimproc'
+" Plug 'Shougo/vimproc'
 " Currently only needed by emmet-vim for snippet override
-" Plugin 'mattn/webapi-vim'
-Plugin 'tpope/vim-repeat'
+" Plug 'mattn/webapi-vim'
+Plug 'tpope/vim-repeat'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Remember to run npm install in folder
-Plugin 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 " Handlebars syntax + text objects
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 " JSON/JSONP
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
-Plugin 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
-Plugin 'jtratner/vim-flavored-markdown'
+Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PHP
 " The official VIm indent script for PHP
-Plugin '2072/PHP-Indenting-for-VIm'
+Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " Up-to-date PHP syntax file (5.3–5.6 support)
-Plugin 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Improved PHP omnicompletion
-" Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'joonty/vdebug'
+" Plug 'shawncplus/phpcomplete.vim'
+Plug 'joonty/vdebug', { 'for': 'php' }
 " Needed by pdv
-Plugin 'tobyS/vmustache'
+Plug 'tobyS/vmustache', { 'for': 'php' }
 " PHP doc
-Plugin 'tobyS/pdv'
+Plug 'tobyS/pdv', { 'for': 'php' }
 " Drupal enhancements
 " https://www.drupal.org/node/1389448#vundle - with modifications, so don't update
-Plugin 'git://drupalcode.org/project/vimrc.git', {'name': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
+" Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
 " Code sniffer fixer: <leader>pcf
 " Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
-Plugin 'stephpy/vim-php-cs-fixer', {'pinned': 1}
+Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " Slightly buggy, error about mark not being set
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
 " nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
@@ -92,95 +91,92 @@ Plugin 'stephpy/vim-php-cs-fixer', {'pinned': 1}
 " vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
 " nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
 " nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
-" Plugin 'adoy/vim-php-refactoring-toolbox'
+" Plug 'adoy/vim-php-refactoring-toolbox'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 " Shows git branch in statusline + tags to the one in .git/tags if exists
-Plugin 'tpope/vim-fugitive'
-" Plugin 'mattn/gist-vim'
+Plug 'tpope/vim-fugitive'
+" Plug 'mattn/gist-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Web
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 " HTML5 omnicomplete and syntax
-Plugin 'othree/html5.vim'
+Plug 'othree/html5.vim'
 " Twig, correct filetype set by autocmd in this file
-Plugin 'evidens/vim-twig'
+Plug 'evidens/vim-twig'
 " vim syntax for LESS (dynamic CSS)
-Plugin 'groenewege/vim-less'
+Plug 'groenewege/vim-less'
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
-" Plugin 'hail2u/vim-css3-syntax'
+" Plug 'hail2u/vim-css3-syntax'
 " Smarty
-Plugin 'blueyed/smarty.vim'
+Plug 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
-" Plugin 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 if v:version >= 704 && has("python")
-  Plugin 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 endif
-Plugin 'ervandew/supertab'
-Plugin 'Raimondi/delimitMate'
+Plug 'ervandew/supertab'
+Plug 'Raimondi/delimitMate'
 " Active repository?: https://github.com/Firef0x/matchit/network
-Plugin 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 " Vim runtime files for Haml, Sass, and SCSS
-Plugin 'tpope/vim-haml'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
+Plug 'tpope/vim-haml'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
 " Produces some strange sideeffects
 " Meta-p / Meta-Shift-p after paste, needs to be loaded before surround
-" Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'tpope/vim-surround'
-" Plugin 'mileszs/ack.vim'
-Plugin 'haya14busa/incsearch.vim'
+" Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-surround'
+" Plug 'mileszs/ack.vim'
+Plug 'haya14busa/incsearch.vim'
 " Like poster for Chrome, make http requests
-Plugin 'nicwest/QQ.vim'
+Plug 'nicwest/QQ.vim'
 " Add visual marks in gutter
-Plugin 'kshenoy/vim-signature'
-Plugin 'godlygeek/tabular'
+Plug 'kshenoy/vim-signature'
+Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
-Plugin 'michalbachowski/vim-wombat256mod'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'michalbachowski/vim-wombat256mod'
+Plug 'nathanaelkane/vim-indent-guides'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
 " https://github.com/majutsushi/tagbar/wiki
 " Adding support for javascript:
 " https://github.com/ramitos/jsctags
 " npm install -g git://github.com/ramitos/jsctags.git
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
-" Plugin 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 " Active fork:
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " cmdline : cmdline history, yankring : yank history, menu : extension selector menu
-" Plugin 'sgur/ctrlp-extensions.vim.git'
-Plugin 'JazzCore/ctrlp-cmatcher'
+" Plug 'sgur/ctrlp-extensions.vim.git'
+Plug 'JazzCore/ctrlp-cmatcher'
 " Alternativ matcher written in python https://github.com/FelikZ/ctrlp-py-matcher
 " Annoying when using mixed html/php
 " See <leader>p
-" Plugin 'sickill/vim-pasta'
+" Plug 'sickill/vim-pasta'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 " Examples of python interpolation:
 " https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
 " PHP/Symfony snippets: https://github.com/algotech/ultisnips-php
-Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Plugin 'chrisbra/Recover.vim'
-" Plugin 'mtth/scratch.vim'
+Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'chrisbra/Recover.vim'
+" Plug 'mtth/scratch.vim'
 " Use v multiple times to expand selection
-" Plugin 'terryma/vim-expand-region'
+" Plug 'terryma/vim-expand-region'
 " <Space>w
 " <Space>fX where X is a char
 " <Space>j/k linewise
-" Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'christoomey/vim-tmux-navigator'
+" Plug 'Lokaltog/vim-easymotion'
+" Plug 'christoomey/vim-tmux-navigator'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+call plug#end()
 " }}}
 
 if has('nvim')
