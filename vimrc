@@ -146,7 +146,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Adding support for javascript:
 " https://github.com/ramitos/jsctags
 " npm install -g git://github.com/ramitos/jsctags.git
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 " Plug 'kien/ctrlp.vim'
