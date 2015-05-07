@@ -1,3 +1,4 @@
 bundle/*
 pythonx/vimsnippets.pyc
 swaps
+autoload/plug.vim
