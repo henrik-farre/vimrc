@@ -38,10 +38,10 @@ vnoremap < <gv
 
 " Easier split navigations
 " http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-W><C-j>
+nnoremap <C-k> <C-W><C-k>
+nnoremap <C-l> <C-W><C-l>
+nnoremap <C-h> <C-W><C-h>
 
 " Pipe char is \, use CTRL-V to find it
 " '-' can't be used
