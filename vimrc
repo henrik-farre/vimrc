@@ -998,6 +998,12 @@ augroup vimrc_markdown
     autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
+" Spelling, files for neovim: ftp://ftp.vim.org/pub/vim/runtime/spell/
+augroup vimrc_spelling
+    autocmd!
+    autocmd FileType gitcommit,markdown,ghmarkdown setlocal spell spelllang=en_us
+augroup END
+
 " Indent xml using xmllint
 augroup vimrc_xml
     autocmd!
