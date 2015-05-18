@@ -594,7 +594,10 @@ set ssop-=folds " do not store folds
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff
 "
-set backspace=indent,eol,start    " allow backspacing over everything in insert mode
+if !has('nvim')
+  " Default in neovim
+  set backspace=indent,eol,start    " allow backspacing over everything in insert mode
+endif
 if v:version >= 704
   set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
 endif
@@ -622,8 +625,9 @@ set switchbuf=useopen             " Buffer switching the reuses already visible 
 "  +o:  Continue comments after when using 'O' or 'o' to open a new line.
 "  +q:  Format comments using q<motion>.
 "  +l:  Do not break a comment line if it is long before you start.
+"  +j:  Where it makes sense, remove a comment leader when joining lines.
 set formatoptions-=t
-set formatoptions+=croql
+set formatoptions+=croqlj
 if !has('nvim')
   " Indicates a fast terminal connection. More characters will be sent to the screen for redrawing
   set ttyfast
