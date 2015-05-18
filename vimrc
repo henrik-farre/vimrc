@@ -125,6 +125,7 @@ Plug 'tpope/vim-haml'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
+" Plug 'benekastah/neomake'
 " Produces some strange sideeffects
 " Meta-p / Meta-Shift-p after paste, needs to be loaded before surround
 " Plug 'maxbrunsfeld/vim-yankstack'
