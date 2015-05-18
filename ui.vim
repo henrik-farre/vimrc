@@ -147,7 +147,9 @@ set mouse=ar            " Mouse on, all modes + hit-enter/more-prompt
 " Scroll in tmux
 " https://news.ycombinator.com/item?id=4420173
 " Was not set before
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 set cmdheight=1         " The commandbar is 1 high
 
