@@ -1079,6 +1079,32 @@ augroup vimrc_line_return
         \ endif
 augroup END
 
+if has_key(g:plugs, 'neomake')
+  " let g:neomake_verbose = 0
+  " let g:neomake_php_phpcs_args_standard = "Symfony"
+  " let g:neomake_php_enabled_makers = ['php', 'phpcs', 'phpmd']
+  " let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
+  autocmd! BufWritePost * Neomake
+
+  " Helper function for Neomake list
+  "
+  " Echo the state, when changed, if the opening of the list is turned off
+  " close the list
+  function! ToggleNeomakeLlist()
+    if !exists("g:neomake_open_list")
+      let g:neomake_open_list=0
+    endif
+    let g:neomake_open_list=!g:neomake_open_list
+    if g:neomake_open_list == 1
+      echomsg "neomake open list is ON"
+      execute("lopen")
+    else
+      echomsg "neomake open list is OFF"
+      execute("lcl")
+    endif
+  endfunction
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
 "
