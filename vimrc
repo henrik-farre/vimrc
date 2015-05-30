@@ -123,6 +123,7 @@ Plug 'vim-scripts/matchit.zip'
 " Vim runtime files for Haml, Sass, and SCSS
 Plug 'tpope/vim-haml'
 Plug 'fholgado/minibufexpl.vim'
+" Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 " Plug 'benekastah/neomake'
