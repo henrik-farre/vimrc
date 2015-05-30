@@ -68,9 +68,9 @@ nnoremap ' `
 nnoremap ` '
 
 " Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
+" map <S-Insert> <MiddleMouse>
 " For command mode:
-map! <S-Insert> <MiddleMouse>
+" map! <S-Insert> <MiddleMouse>
 
 "  Useful mappings to paste and reformat/reindent
 nnoremap <leader>P P'[v']=
