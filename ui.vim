@@ -63,8 +63,10 @@ if has('title')
 
   " display a warning if file encoding isnt utf-8
   " Syntastic Warning
-  set titlestring+=%{SyntasticStatuslineFlag()}
-  set titlestring+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+  if has_key(g:plugs, 'syntastic')
+    set titlestring+=%{SyntasticStatuslineFlag()}
+    set titlestring+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+  endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -190,9 +192,11 @@ set statusline+=%*
 " display a warning if file encoding isnt utf-8
 set statusline+=%#warningmsg#
 " Syntastic Warning
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
+if has_key(g:plugs, 'syntastic')
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+  set statusline+=%*
+endif
 
 " display a warning if &paste is set
 set statusline+=%#error#
