@@ -242,14 +242,16 @@ map <Space> <leader>
 let g:miniBufExplUseSingleClick = 1   " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
 let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
 let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
-let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17 
+let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17
 " Use Ctrl+Pageup / Pagedown as Ctrl+Tab does not work in the urxvt
-noremap <C-TAB> :MBEbn<CR>
-noremap <C-S-TAB> :MBEbp<CR>
-" noremap <silent> [5^ :MBEbn<CR>
-" noremap <silent> [6^ :MBEbp<CR>
-noremap <silent> <Leader>bn :MBEbn<CR>
-noremap <silent> <Leader>bp :MBEbp<CR>
+"if has_key(g:plugs, 'minibufexplorer')
+  noremap <C-TAB> :MBEbn<CR>
+  noremap <C-S-TAB> :MBEbp<CR>
+  " noremap <silent> [5^ :MBEbn<CR>
+  " noremap <silent> [6^ :MBEbp<CR>
+  noremap <silent> <Leader>bn :MBEbn<CR>
+  noremap <silent> <Leader>bp :MBEbp<CR>
+"endif
 
 " UltiSnips
 " First one is from snipMate
