@@ -835,58 +835,84 @@ function! RemoveDocBlock()
   normal [/V]/x
 endfunction
 
-" let s:project_root_cache = {}
-
-function! DetectPHPProject(markers)
+" Based on https://www.drupal.org/project/vimrc
+let s:project_root_cache = {}
+function! FindProjectRoot(markers)
   let s:slash = !exists("+shellslash") || &shellslash ? '/' : '\'
   let directory = expand('%:p:h')
+
+  " If we have a cached answer, then return it.
+  if has_key(s:project_root_cache, directory)
+    return s:project_root_cache[directory]
+  endif
+
   let path_components = split(directory, s:slash, 1)
+  let project_root = remove(path_components, 0)
 
   for marker_list in values(a:markers)
     call map(marker_list, 'join(v:val, s:slash)')
   endfor
 
-  let project_root = remove(path_components, 0)
-
   for part in path_components
     let project_root .= s:slash . part
-    for marker_list in values(a:markers)
-      let is_project_root = 1
-      for marker in marker_list
-        " Since globpath() is built in to vim, this should be fast.
-        if globpath(project_root, marker) == ''
-          let is_project_root = 0
-          break
+
+    for project_type in keys(a:markers)
+        let project = get(a:markers,project_type,[])
+        for marker in project
+          let is_project_root = 1
+          " Since globpath() is built in to vim, this should be fast.
+          if globpath(project_root, marker) == ''
+            let is_project_root = 0
+            break
+          endif
+        endfor " marker
+
+        " If all the markers are there, then this looks like a the project root.
+        if is_project_root
+          let s:project_root_cache[directory] = {'root': project_root, 'type': project_type}
+          return s:project_root_cache[directory]
         endif
-      endfor " marker
-      " If all the markers are there, then this looks like a Drupal root.
-      if is_project_root
-        " let s:drupal_root_cache[a:path] = project_root
-        return project_root
-      endif
-    endfor " marker_list
+    endfor
   endfor " part
-  return ''
+
+  return {}
 endfunction
 
 " Set options for Symfony Project
-function! SymfonyDetect(type)
+function! PHPProjectDetect(type)
   let markers = {'Symfony' : [
         \   ['app', 'Resources'],
+        \ ],
+        \ 'Drupal7' : [
+        \   ['index.php'],
+        \   ['update.php'],
+        \   ['includes', 'bootstrap.inc'],
+        \   ['modules', 'node', 'node.module'],
+        \   ['modules', 'system', 'system.module'],
+        \ ],
+        \ 'Drupal8' : [
+        \   ['index.php'],
+        \   ['core', 'install.php'],
+        \   ['core', 'includes', 'bootstrap.inc'],
+        \   ['core', 'modules', 'node', 'node.module'],
+        \   ['core', 'modules', 'system', 'system.module'],
         \ ], }
 
-  let l:symfonyRoot = DetectPHPProject(markers)
-  if l:symfonyRoot != ''
-    " echo l:symfonyRoot
-    execute 'setlocal filetype=' . a:type . '.symfony'
-    let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-    let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
-    let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2'
-    let g:php_cs_fixer_level = "symfony"
-    let g:php_cs_fixer_config = "sf23"
-    let l:theme_path=l:symfonyRoot.'/app/Resources/themes/**'
-    execute 'set path+='.l:theme_path
-    setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+  let l:project = FindProjectRoot(markers)
+  let l:filetype_suffix = ''
+
+  if has_key(l:project, 'root')
+    if l:project['type'] == 'Symfony'
+      let l:filetype_suffix = 'symfony'
+      let l:theme_path=l:project['root'].'/app/Resources/themes/**'
+      execute 'set path+='.l:theme_path
+    elseif l:project['type'] == 'Drupal7'
+      let l:filetype_suffix = 'drupal'
+    elseif l:project['type'] == 'Drupal8'
+      let l:filetype_suffix = 'drupal'
+    endif
+
+    execute 'setlocal filetype=' . a:type . '.'. l:filetype_suffix
   endif
 endfun
 
@@ -945,8 +971,14 @@ augroup vimrc_complete
   autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 augroup END
 
-augroup vimrc_php
+augroup vimrc_phpproject
   autocmd!
+  autocmd BufRead,BufNewFile *.php call PHPProjectDetect('php')
+  autocmd BufRead,BufNewFile *.scss call PHPProjectDetect('scss')
+  autocmd BufRead,BufNewFile *.yml call PHPProjectDetect('yaml')
+  autocmd BufRead,BufNewFile *.module call PHPProjectDetect('php')
+  autocmd BufRead,BufNewFile *.inc call PHPProjectDetect('php')
+  autocmd BufRead,BufNewFile *.install call PHPProjectDetect('php')
   " Based on vimrc from http://www.shlomifish.org/open-source/projects/conf/vim/current/vimrc
   autocmd BufRead,BufNewFile *.ini.append.php set filetype=ezpini
   " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
@@ -1074,21 +1106,6 @@ augroup vimrc_whitespace
   autocmd FileAppendPre   *.{php,js,module,info} :call TrimWhiteSpace()
   autocmd FilterWritePre  *.{php,js,module,info} :call TrimWhiteSpace()
   autocmd BufWritePre     *.{php,js,module,info} :call TrimWhiteSpace()
-augroup END
-
-augroup vimrc_symfony
-  autocmd!
-  autocmd BufRead,BufNewFile *.php call SymfonyDetect('php')
-  autocmd BufRead,BufNewFile *.scss call SymfonyDetect('scss')
-  autocmd BufRead,BufNewFile *.yml call SymfonyDetect('yaml')
-  autocmd BufEnter *Controller.php nmap <buffer><leader>g :SfJumpToTwig<CR>
-augroup END
-
-augroup vimrc_drupal
-  autocmd!
-  autocmd FileType php.drupal let g:syntastic_php_checkers = ['php', 'phpcs']
-  autocmd FileType php.drupal let g:syntastic_php_phpcs_args = '--report=csv --standard=Drupal'
-  autocmd FileType php.drupal let g:php_cs_fixer_level = "Drupal"
 augroup END
 
 " Resize splits when the window is resized
