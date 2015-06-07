@@ -138,7 +138,10 @@ Plug 'scrooloose/syntastic'
 " Meta-p / Meta-Shift-p after paste, needs to be loaded before surround
 " Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'tpope/vim-surround'
-" Plug 'mileszs/ack.vim'
+
+Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
+
 Plug 'haya14busa/incsearch.vim'
 " Like poster for Chrome, make http requests
 Plug 'nicwest/QQ.vim'
