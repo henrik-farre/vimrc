@@ -937,6 +937,33 @@ endfunction
 
 command! SfJumpToTwig call s:SfJumpToTwig()
 
+" From https://github.com/scrooloose/syntastic/issues/1361#issuecomment-82312541
+function! SyntasticDisableToggle()
+    if !exists('s:syntastic_disabled')
+        let s:syntastic_disabled = 0
+    endif
+    if !s:syntastic_disabled
+        let s:modemap_save = deepcopy(g:syntastic_mode_map)
+        let g:syntastic_mode_map['active_filetypes'] = []
+        let g:syntastic_mode_map['mode'] = 'passive'
+        let s:syntastic_disabled = 1
+        SyntasticReset
+    else
+        let g:syntastic_mode_map = deepcopy(s:modemap_save)
+        let s:syntastic_disabled = 0
+    endif
+    echo 'Syntastic ' . ['enabled', 'disabled'][s:syntastic_disabled]
+endfunction
+
+command! SyntasticDisableToggle call SyntasticDisableToggle()
+
+function! VdebugWrapper()
+  SyntasticDisableToggle
+  " SyntasticToggleMode
+  VdebugStart
+endfunction
+
+command! VdebugWrapper call VdebugWrapper()
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
