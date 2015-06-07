@@ -103,6 +103,16 @@ cnoreabbrev WQa wqa
 cnoreabbrev waq wqa
 cnoreabbrev qwa wqa
 
+cnoreabbrev n1 b1
+cnoreabbrev n2 b2
+cnoreabbrev n3 b3
+cnoreabbrev n4 b4
+cnoreabbrev n5 b5
+cnoreabbrev n6 b6
+cnoreabbrev n7 b7
+cnoreabbrev n8 b8
+cnoreabbrev n9 b9
+
 if has("user_commands")
     command! -bang -nargs=? -complete=file E e<bang> <args>
     command! -bang -nargs=? -complete=file W w<bang> <args>
