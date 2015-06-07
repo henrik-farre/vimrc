@@ -8,6 +8,9 @@
 "
 " http://usevim.com/2014/03/28/vimrc-folding/
 " from http://www.reddit.com/r/vim/comments/20eyjk/preventing_plugin_clash_and_key_lag_sculpting/
+"
+" Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
+"
 let g:python_host_prog='/usr/bin/python2.7'
 
 if has('vim_starting')
