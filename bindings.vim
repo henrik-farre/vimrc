@@ -43,6 +43,8 @@ nnoremap <C-k> <C-W><C-k>
 nnoremap <C-l> <C-W><C-l>
 nnoremap <C-h> <C-W><C-h>
 
+nmap <BS> <C-h>
+
 " Pipe char is \, use CTRL-V to find it
 " '-' can't be used
 nnoremap <C-\> <C-W>v
