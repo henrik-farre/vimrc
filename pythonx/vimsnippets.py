@@ -1,5 +1,7 @@
 """Helper methods used in UltiSnips snippets."""
 
+import os, re
+
 def complete(tab, opts):
     """
     get options that start with tab
@@ -18,3 +20,12 @@ def complete(tab, opts):
     if not len(opts):
         msg = "{0}"
     return msg.format("|".join(opts))
+
+def namespace(path):
+    """
+    Searches backwards till the last uppercase letter
+    """
+    abspath = os.path.abspath(path)
+    m = re.search(r'[A-Z].+(?=/)', abspath)
+    if m:
+        return m.group().replace('/', '\\')
