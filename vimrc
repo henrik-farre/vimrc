@@ -1093,7 +1093,8 @@ augroup END
 " Spelling, files for neovim: ftp://ftp.vim.org/pub/vim/runtime/spell/
 augroup vimrc_spelling
     autocmd!
-    autocmd FileType gitcommit,markdown,ghmarkdown setlocal spell spelllang=en_us
+    autocmd FileType gitcommit,markdown,ghmarkdown,cucumber setlocal spell spelllang=en_us
+    autocmd FileType gitcommit,markdown,ghmarkdown,cucumber setlocal complete+=kspell
 augroup END
 
 " Indent xml using xmllint
