@@ -789,6 +789,7 @@ command! Bclose call <SID>BufcloseCloseIt()
 " remember to use sudo -e instead
 command! -bar -nargs=0 SudoW   :silent exe "write !sudo tee % >/dev/null"|silent edit!
 
+" <SID> explanation: http://stackoverflow.com/questions/16768059/how-to-understand-these-vim-scripts
 function! <SID>BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
