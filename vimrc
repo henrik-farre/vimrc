@@ -12,6 +12,10 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 let g:python_host_prog='/usr/bin/python2.7'
+let $VIMHOME = $HOME."/.vim"
+if has('nvim')
+  let $VIMHOME = $HOME."/.nvim"
+endif
 
 if has('vim_starting')
   " ensure that we always start with Vim defaults (as opposed to those set by the current system)
@@ -39,7 +43,7 @@ if empty(glob('~/.nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.vim/bundle')
+call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependencies
 " Remember to run 'make' in dir after install
@@ -478,7 +482,7 @@ nmap <F8> :TagbarToggle<CR>
 " Use Ack to search for word under cursor
 " map <F9> <Esc>:exec("Ack --php ".expand("<cword>"))<CR>
 
-let g:pdv_template_dir = $HOME ."/.vim/pdv_tpls"
+let g:pdv_template_dir = $VIMHOME."/pdv_tpls"
 " http://www.reddit.com/r/vim/comments/1nnngz/issue_with_pdv/
 " nnoremap <buffer> <Leader>d :call pdv#DocumentWithSnip()<CR>
 nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
@@ -707,9 +711,9 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
 " Store temporary files in a central spot
-set backupdir=~/.vim/backups/
+set backupdir=$VIMHOME/backups/
 set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
-set directory=~/.vim/swaps/       " swap files
+set directory=$VIMHOME/swaps/       " swap files
 " set viewdir=~/.vim/views/
 " Creating directories if they don't exist
 " silent execute '!mkdir -p /tmp/backups'
@@ -910,7 +914,7 @@ command! SfJumpToTwig call s:SfJumpToTwig()
 "
 " yankstack overrides mappings
 " call yankstack#setup()
-source ~/.vim/bindings.vim
+source $VIMHOME/bindings.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbrevs
@@ -946,18 +950,36 @@ augroup vimrc_php
   autocmd FileType php,php.drupal,php.symfony set comments-=:// comments+=f:// comments+=sl:/*,mb:*,elx:*/
 augroup END
 
+augroup vimrc_drupal
+  autocmd!
+  autocmd FileType php.drupal let g:syntastic_php_checkers = ['php', 'phpcs']
+  autocmd FileType php.drupal let g:syntastic_php_phpcs_args = '--report=csv --standard=Drupal'
+  autocmd FileType php.drupal let g:php_cs_fixer_level = "Drupal"
+augroup END
+
+augroup vimrc_symfony
+  autocmd!
+  autocmd FileType php.symfony let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+  autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
+  autocmd FileType php.symfony let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2'
+  autocmd FileType php.symfony let g:php_cs_fixer_level = "symfony"
+  autocmd FileType php.symfony let g:php_cs_fixer_config = "sf23"
+  autocmd FileType php.symfony setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd BufEnter *Controller.php nmap <buffer><leader>g :SfJumpToTwig<CR>
+augroup END
+
 " Reads the skeleton files, delete empty line
 if !&diff
   augroup vimrc_skeleton
     autocmd!
-"    autocmd BufNewFile *.php 0r ~/.vim/skel/php |normal Gdd2h
-    autocmd BufNewFile *.module 0r ~/.vim/skel/drupal_module |normal Gdd2h
-    autocmd BufNewFile *.info 0r ~/.vim/skel/drupal_info |normal Gdd2h
-    autocmd BufNewFile *.html 0r ~/.vim/skel/html | $,$d
+"    autocmd BufNewFile *.php 0r $VIMHOME/skel/php |normal Gdd2h
+    autocmd BufNewFile *.module 0r $VIMHOME/skel/drupal_module |normal Gdd2h
+    autocmd BufNewFile *.info 0r $VIMHOME/skel/drupal_info |normal Gdd2h
+    autocmd BufNewFile *.html 0r $VIMHOME/skel/html | $,$d
 "    autocmd BufNewFile *.html setlocal ft=xhtml
-    autocmd BufNewFile *.css 0r ~/.vim/skel/css | $,$d
-    autocmd BufNewFile *.sh 0r ~/.vim/skel/bash | $,$d
-    autocmd BufNewFile .tern-project 0r ~/.vim/skel/tern-project | $,$d
+    autocmd BufNewFile *.css 0r $VIMHOME/skel/css | $,$d
+    autocmd BufNewFile *.sh 0r $VIMHOME/skel/bash | $,$d
+    autocmd BufNewFile .tern-project 0r $VIMHOME/skel/tern-project | $,$d
   augroup END
 endif
 
@@ -1109,9 +1131,36 @@ if has_key(g:plugs, 'neomake')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Async ctags test
+if has('nvim')
+function! s:start_job()
+    let job_args = [&shell, '-c', 'git ctags']
+    call jobstart(job_args, s:job_control_callbacks)
+endfunction
+
+function! s:job_handler(id, data, event)
+  " Disable if stderr - not git project probably
+  if a:event ==# "stderr"
+  endif
+endfunction
+
+let s:job_control_callbacks = {
+      \ 'on_stdout': function('s:job_handler'),
+      \ 'on_stderr': function('s:job_handler'),
+      \ 'on_exit': function('s:job_handler'),
+      \ }
+
+augroup vimrc_ctags
+  autocmd!
+  autocmd BufWritePost *.php :call s:start_job()
+augroup END
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
 "
-source ~/.vim/ui.vim
+source $VIMHOME/ui.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " turn off any existing search
