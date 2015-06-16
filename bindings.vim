@@ -112,6 +112,15 @@ cnoreabbrev n6 b6
 cnoreabbrev n7 b7
 cnoreabbrev n8 b8
 cnoreabbrev n9 b9
+cnoreabbrev B1 b1
+cnoreabbrev B2 b2
+cnoreabbrev B3 b3
+cnoreabbrev B4 b4
+cnoreabbrev B5 b5
+cnoreabbrev B6 b6
+cnoreabbrev B7 b7
+cnoreabbrev B8 b8
+cnoreabbrev B9 b9
 
 if has("user_commands")
     command! -bang -nargs=? -complete=file E e<bang> <args>
