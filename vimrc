@@ -132,8 +132,8 @@ Plug 'tpope/vim-haml'
 Plug 'fholgado/minibufexpl.vim'
 " Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
-" Plug 'benekastah/neomake'
+" Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 " Produces some strange sideeffects
 " Meta-p / Meta-Shift-p after paste, needs to be loaded before surround
 " Plug 'maxbrunsfeld/vim-yankstack'
@@ -344,6 +344,7 @@ let g:user_emmet_settings = {
 
 " syntastic
 let g:syntastic_enable_signs=1
+" automatically open error window when errors are detected/closed when none are detected
 let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_error_symbol = '✗'
@@ -918,6 +919,7 @@ endfun
 
 " Based on https://github.com/qbbr/vim-symfony/blob/master/plugin/sf2jmp2viewFromView.vim
 " Jump to a twig in symfony
+" TODO: if routing.yml => jump to controller
 function! s:SfJumpToTwig()
   let linecontent = getline(line('.'))
   let matches = matchlist(linecontent, '\v\C([A-Z]{1}[a-z]{1,}Bundle):([^:]+)?:([^.:]+\.html\.twig)')
@@ -1156,9 +1158,11 @@ augroup END
 
 if has_key(g:plugs, 'neomake')
   " let g:neomake_verbose = 0
-  " let g:neomake_php_phpcs_args_standard = "Symfony"
-  " let g:neomake_php_enabled_makers = ['php', 'phpcs', 'phpmd']
-  " let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
+  let g:neomake_php_phpcs_args_standard = "Symfony2"
+  let g:neomake_php_enabled_makers = ['php']
+  let g:neomake_symfony_phpcs_args_standard = "Symfony2"
+  let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
+  let g:neomake_javascript_enabled_makers = ['jshint']
   autocmd! BufWritePost * Neomake
 
   " Helper function for Neomake list
