@@ -48,7 +48,7 @@ nmap <BS> <C-h>
 " Pipe char is \, use CTRL-V to find it
 " '-' can't be used
 nnoremap <C-\> <C-W>v
-nnoremap <C-_> <C-W>n
+nnoremap <C-_> :sp<CR>
 
 " Disable search highlightning
 nmap <silent> <C-N> :silent noh<CR>
