@@ -191,6 +191,7 @@ endif
 " <Space>j/k linewise
 " Plug 'Lokaltog/vim-easymotion'
 " Plug 'christoomey/vim-tmux-navigator'
+Plug 'dyng/ctrlsf.vim'
 
 call plug#end()
 " }}}
