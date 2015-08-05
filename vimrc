@@ -144,6 +144,7 @@ Plug 'rking/ag.vim'
 Plug 'mileszs/ack.vim'
 
 Plug 'haya14busa/incsearch.vim'
+Plug 'vasconcelloslf/vim-interestingwords'
 " Like poster for Chrome, make http requests
 Plug 'nicwest/QQ.vim'
 " Add visual marks in gutter
