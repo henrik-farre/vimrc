@@ -928,7 +928,6 @@ endfun
 
 " Based on https://github.com/qbbr/vim-symfony/blob/master/plugin/sf2jmp2viewFromView.vim
 " Jump to a twig in symfony
-" TODO: if routing.yml => jump to controller
 function! s:SfJumpToTwig()
   let linecontent = getline(line('.'))
   let matches = matchlist(linecontent, '\v\C([A-Z]{1}[a-z]{1,}Bundle):([^:]+)?:([^.:]+\.html\.twig)')
@@ -947,6 +946,40 @@ function! s:SfJumpToTwig()
 endfunction
 
 command! SfJumpToTwig call s:SfJumpToTwig()
+
+" Based on https://raw.githubusercontent.com/qbbr/vim-symfony/master/plugin/sf2jmp2controllerFromRouting.vim
+function! s:Sf2jmp2controllerFromRouting()
+    let linecontent = getline(line('.'))
+
+    " @AcmeDemoBundle/Controller/DefaultController.php
+    " 1 - str, 2 - namespace, 3 - bundle, 4 - controller
+    let matches = matchlist(linecontent, '\v\C\@([A-Z]{1}[a-z]{1,})(\w+Bundle)/Controller/(\w+)Controller\.php')
+
+    if (empty(matches))
+        " _controller: AcmeDemoBundle:Welcome:index
+        " 5 - action (not need)
+        let matches = matchlist(linecontent, '\v\C_controller: \([A-Z]\{1,}[a-z]\{1,}\):\(\w\+\):\(\w\+\)')
+    endif
+
+    echo matches
+
+    if (empty(matches))
+        echohl WarningMsg | echomsg "controller not found" | echohl None
+        return
+    endif
+
+    let filename = 'src/' . matches[1] . '/' . matches[2] . '/Controller/'. matches[3] . 'Controller.php'
+
+    echo filename
+
+    if filereadable(filename)
+        edit filename
+    else
+        echohl WarningMsg | echomsg "could not open controller (path: " . filename . ")" | echohl None
+    endif
+endfunction
+
+com! SfJumpToController call s:Sf2jmp2controllerFromRouting()
 
 " From https://github.com/scrooloose/syntastic/issues/1361#issuecomment-82312541
 function! SyntasticDisableToggle()
@@ -1040,6 +1073,7 @@ augroup vimrc_symfony
   autocmd FileType php.symfony let g:php_cs_fixer_config = "sf23"
   autocmd FileType php.symfony setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufEnter *Controller.php nmap <buffer><leader>g :SfJumpToTwig<CR>
+  autocmd BufEnter routing.yml nmap <buffer><leader>g :SfJumpToController<CR>
 augroup END
 
 " Reads the skeleton files, delete empty line
