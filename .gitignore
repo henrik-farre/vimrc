@@ -1,5 +1,6 @@
 bundle/*
 pythonx/vimsnippets.pyc
+pythonx/__pycache__/
 swaps
 autoload/plug.vim
 autoload/plug.vim.old
