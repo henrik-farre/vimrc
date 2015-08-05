@@ -1152,6 +1152,8 @@ augroup END
 augroup vimrc_twig
     autocmd!
     autocmd BufNewFile,BufRead *.html.twig,*.twig setlocal filetype=html.twig
+    " TODO: check if symfony project:
+    autocmd FileType html.twig setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 "    autocmd BufNewFile,BufRead *.html.twig,*.twig let g:syntastic_html_tidy_ignore_errors = [
 "    \  'plain text isn''t allowed in <head> elements',
 "    \  '<base> escaping malformed URI reference',
