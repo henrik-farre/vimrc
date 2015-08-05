@@ -1204,7 +1204,7 @@ augroup END
 if has_key(g:plugs, 'neomake')
   " let g:neomake_verbose = 0
   let g:neomake_php_phpcs_args_standard = "Symfony2"
-  let g:neomake_php_enabled_makers = ['php']
+  let g:neomake_php_enabled_makers = ['php', 'phpcs', 'phpmd']
   let g:neomake_symfony_phpcs_args_standard = "Symfony2"
   let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
   let g:neomake_javascript_enabled_makers = ['jshint']
