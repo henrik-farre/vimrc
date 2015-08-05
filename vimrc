@@ -50,7 +50,8 @@ call plug#begin("$VIMHOME/bundle")
 " Plug 'Shougo/vimproc'
 " Currently only needed by emmet-vim for snippet override
 " Plug 'mattn/webapi-vim'
-Plug 'tpope/vim-repeat'
+" Repeat plugin actions with "." only used by surround
+" Plug 'tpope/vim-repeat'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
