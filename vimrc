@@ -630,7 +630,11 @@ set history=10000                 " remember more than the default 20 commands a
 " set shell=bash\ --rcfile\ ~/.vim/bashrc.vim
 " set shell=zsh\ -d\ -f
 " set shell=~/.nvim/scripts/zsh.sh
-set shell=zsh
+if empty(glob("/usr/bin/zsh"))
+  set shell=bash
+else
+  set shell=zsh
+endif
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showcmd                       " Show (partial) command in status line.
 set showmode                      " display the current mode
