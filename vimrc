@@ -103,7 +103,9 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 " Shows git branch in statusline + tags to the one in .git/tags if exists
-Plug 'tpope/vim-fugitive'
+if executable('git')
+  Plug 'tpope/vim-fugitive'
+endif
 " Plug 'mattn/gist-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Web
