@@ -657,7 +657,10 @@ set switchbuf=useopen             " Buffer switching the reuses already visible 
 "  +l:  Do not break a comment line if it is long before you start.
 "  +j:  Where it makes sense, remove a comment leader when joining lines.
 set formatoptions-=t
-set formatoptions+=croqlj
+set formatoptions+=croql
+if v:version >= 704
+  set formatoptions+=j
+endif
 if !has('nvim')
   " Indicates a fast terminal connection. More characters will be sent to the screen for redrawing
   set ttyfast
