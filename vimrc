@@ -145,7 +145,9 @@ Plug 'tpope/vim-surround'
 Plug 'rking/ag.vim'
 Plug 'mileszs/ack.vim'
 
-Plug 'haya14busa/incsearch.vim'
+if v:version >= 704
+  Plug 'haya14busa/incsearch.vim'
+endif
 Plug 'vasconcelloslf/vim-interestingwords'
 " Like poster for Chrome, make http requests
 Plug 'nicwest/QQ.vim'
@@ -294,16 +296,18 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " incsearch {{{
 " https://github.com/haya14busa/incsearch.vim
-let g:incsearch#auto_nohlsearch = 0
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+if has_key(g:plugs, 'incsearch')
+  let g:incsearch#auto_nohlsearch = 0
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+  map n  <Plug>(incsearch-nohl-n)
+  map N  <Plug>(incsearch-nohl-N)
+  map *  <Plug>(incsearch-nohl-*)
+  map #  <Plug>(incsearch-nohl-#)
+  map g* <Plug>(incsearch-nohl-g*)
+  map g# <Plug>(incsearch-nohl-g#)
+endif
 " }}}
 
 " showmarks
