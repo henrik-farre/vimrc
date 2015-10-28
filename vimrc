@@ -781,7 +781,7 @@ syntax on                         " Enable syntax highlightning
 " Set right after vundle end
 " filetype plugin on                " Enable filetype settings
 " filetype indent on
-set synmaxcol=300                " Syntax coloring lines that are too long just slows down the world
+set synmaxcol=500                " Syntax coloring lines that are too long just slows down the world
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Diff
