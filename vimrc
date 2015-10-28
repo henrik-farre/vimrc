@@ -1203,10 +1203,10 @@ augroup END
 
 augroup vimrc_whitespace
   autocmd!
-  autocmd FileWritePre    *.{php,js,module,info} :call TrimWhiteSpace()
-  autocmd FileAppendPre   *.{php,js,module,info} :call TrimWhiteSpace()
-  autocmd FilterWritePre  *.{php,js,module,info} :call TrimWhiteSpace()
-  autocmd BufWritePre     *.{php,js,module,info} :call TrimWhiteSpace()
+  autocmd FileWritePre    *.{php,js,module,info,tpl} :call TrimWhiteSpace()
+  autocmd FileAppendPre   *.{php,js,module,info,tpl} :call TrimWhiteSpace()
+  autocmd FilterWritePre  *.{php,js,module,info,tpl} :call TrimWhiteSpace()
+  autocmd BufWritePre     *.{php,js,module,info,tpl} :call TrimWhiteSpace()
 augroup END
 
 " Resize splits when the window is resized
