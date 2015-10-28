@@ -44,8 +44,9 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 if has('title')
   set titlestring=%{v:progname}:\ 
   " git branch
-  " %{exists('g:loaded_fugitive')?fugitive#titlestring():''}
-  set titlestring+=%{fugitive#statusline()}
+  if has_key(g:plugs, 'fugitive')
+    set titlestring+=%{fugitive#statusline()}
+  endif
   if has("gui_running")
     " Full path if gvim is used
     set titlestring+=\ %F\ 
@@ -172,9 +173,10 @@ endif
 " n: Buffernumber
 set statusline=[%n]\ 
 " git branch
-" %{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=%1*
-set statusline+=%{fugitive#statusline()}
+if has_key(g:plugs, 'fugitive')
+  set statusline+=%{fugitive#statusline()}
+endif
 set statusline+=%*
 " set statusline+=\ %F\ 
 " Display min 25, max 60 chars of F (Full path), from the right
