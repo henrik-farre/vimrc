@@ -1081,6 +1081,9 @@ augroup vimrc_drupal
   autocmd FileType php.drupal let g:syntastic_php_checkers = ['php', 'phpcs']
   autocmd FileType php.drupal let g:syntastic_php_phpcs_args = '--report=csv --standard=Drupal'
   autocmd FileType php.drupal let g:php_cs_fixer_level = "Drupal"
+  autocmd FileType php.drupal let g:neomake_php_phpcs_args_standard = "Drupal"
+  autocmd FileType php.drupal let g:neomake_drupal_phpcs_args_standard = "Drupal"
+  autocmd FileType php.drupal let g:neomake_drupal_enabled_makers = ['php', 'phpcs', 'phpmd']
 augroup END
 
 augroup vimrc_symfony
@@ -1088,6 +1091,9 @@ augroup vimrc_symfony
   autocmd FileType php.symfony let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
   autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
   autocmd FileType php.symfony let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2'
+  autocmd FileType php.symfony let g:neomake_php_phpcs_args_standard = "Symfony2"
+  autocmd FileType php.symfony let g:neomake_symfony_phpcs_args_standard = "Symfony2"
+  autocmd FileType php.symfony let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
   autocmd FileType php.symfony let g:php_cs_fixer_level = "symfony"
   autocmd FileType php.symfony let g:php_cs_fixer_config = "sf23"
   autocmd FileType php.symfony setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
@@ -1221,13 +1227,13 @@ augroup vimrc_line_return
 augroup END
 
 if has_key(g:plugs, 'neomake')
-  " let g:neomake_verbose = 0
-  let g:neomake_php_phpcs_args_standard = "Symfony2"
+  " let g:neomake_verbose = 2
+  " let g:neomake_logfile = '/tmp/neomake.log'
   let g:neomake_php_enabled_makers = ['php', 'phpcs', 'phpmd']
-  let g:neomake_symfony_phpcs_args_standard = "Symfony2"
-  let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
   let g:neomake_javascript_enabled_makers = ['jshint']
   autocmd! BufWritePost * Neomake
+  let g:neomake_open_list=2
+  let g:neomake_list_height=5
 
   " Helper function for Neomake list
   "
