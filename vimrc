@@ -398,8 +398,10 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:ctrlp_open_multiple_files = '2vjr'
 
 " Quickly open the command-line CtrlP plugin.
-nnoremap <C-q> :CtrlPCmdline<CR>
-nnoremap <leader>t :CtrlPTag<cr>
+" nnoremap <leader>q :CtrlPCmdline<CR>
+" nnoremap <leader>t :CtrlPTag<cr>
+" nnoremap <leader>p :CtrlP<cr>
+" nnoremap <leader>b :CtrlPBuffer<cr>
 
 " From http://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
