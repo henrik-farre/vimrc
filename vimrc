@@ -264,6 +264,7 @@ let g:miniBufExplUseSingleClick = 1   " If you would like to single click on tab
 let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
 let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
 let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17
+let g:miniBufExplorerAutoStart = 0    " Do not auto start
 " Use Ctrl+Pageup / Pagedown as Ctrl+Tab does not work in the urxvt
 "if has_key(g:plugs, 'minibufexplorer')
   noremap <C-TAB> :MBEbn<CR>
@@ -272,6 +273,7 @@ let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: http
   " noremap <silent> [6^ :MBEbp<CR>
   noremap <silent> <Leader>bn :MBEbn<CR>
   noremap <silent> <Leader>bp :MBEbp<CR>
+  noremap <leader>b :MBEToggle<CR>
 "endif
 
 " UltiSnips
