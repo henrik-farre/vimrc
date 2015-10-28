@@ -75,8 +75,8 @@ nnoremap ` '
 " map! <S-Insert> <MiddleMouse>
 
 "  Useful mappings to paste and reformat/reindent
-nnoremap <leader>P P'[v']=
-nnoremap <leader>p p'[v']=
+" nnoremap <leader>P P'[v']=
+" nnoremap <leader>p p'[v']=
 
 " yank till the end of the line
 noremap Y y$
