@@ -544,6 +544,10 @@ let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 " }}}
 
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#omni_patterns = {}
+" let g:deoplete#omni_patterns.php = ['[^. *\t]\.\w*', '\h\w*::', '\h\w*->']
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 "
