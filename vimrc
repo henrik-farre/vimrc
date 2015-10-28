@@ -124,7 +124,7 @@ Plug 'blueyed/smarty.vim'
 " Misc
 " Plug 'Shougo/neocomplete.vim'
 if v:version >= 704 && has("python")
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+  Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
 endif
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
