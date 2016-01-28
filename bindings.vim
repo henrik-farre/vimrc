@@ -2,6 +2,8 @@
 " General keymaps
 "
 " Plugin mappings are in vimrc
+" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
+nmap <Leader>v :e $MYVIMRC<CR>
 "
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
 " map <Leader>v :set invpaste<CR>:set paste?<CR>
