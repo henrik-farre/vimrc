@@ -74,28 +74,6 @@ endif
 " Font and terminal settings
 " https://gist.github.com/romainl/9ecd7b09a693816997ba
 " 'set t_Co=256' is a bad idea, set your terminal emulator up properly
-" instead.
-"
-"  if has("gui_running")
-"    set guifont=Envy\ Code\ R\ 9
-"    " set guifont=M+\ 2m\ regular\ 9
-"    " set guifont=Envy\ Code\ R\ for\ Powerline\ 9
-"    set guioptions=ai " a: primary selection, i: icon
-"  elseif ( &term =~ '^xterm' || &term =~ '^rxvt-' || &term =~ '^screen-')
-"    " set background=dark " Only when running as terminal
-"    " Terminal options
-"    set t_Sb=^[4%dm " set background color
-"    set t_Sf=^[3%dm " set foreground color
-"    set t_Co=256    " Number of colors
-"                    " bce = background color erase
-"    if ( &term == 'screen-256color-bce' )
-"      set t_ut=
-"    endif
-"  else
-"    "set background=dark
-"    set t_Co=16
-"    "colorscheme darkblue
-"  endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
