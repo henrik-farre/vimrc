@@ -14,7 +14,7 @@
 let g:python_host_prog='/usr/bin/python2.7'
 let $VIMHOME = $HOME."/.vim"
 if has('nvim')
-  let $VIMHOME = $HOME."/.nvim"
+  let $VIMHOME = $HOME."/.config/nvim"
 endif
 
 if has('vim_starting')
