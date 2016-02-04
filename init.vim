@@ -555,6 +555,8 @@ let g:indent_guides_start_level = 2
 " let g:deoplete#omni_patterns = {}
 " let g:deoplete#omni_patterns.php = ['[^. *\t]\.\w*', '\h\w*::', '\h\w*->']
 
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 "
