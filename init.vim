@@ -151,6 +151,9 @@ Plug 'mileszs/ack.vim'
 if v:version >= 704
   Plug 'haya14busa/incsearch.vim'
 endif
+
+Plug 'unblevable/quick-scope'
+
 Plug 'vasconcelloslf/vim-interestingwords'
 " Like poster for Chrome, make http requests
 Plug 'nicwest/QQ.vim'
