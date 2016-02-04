@@ -113,6 +113,7 @@ Plug 'mattn/emmet-vim'
 " HTML5 omnicomplete and syntax
 Plug 'othree/html5.vim'
 " Twig, correct filetype set by autocmd in this file
+" Discontinued repository:
 Plug 'evidens/vim-twig'
 " vim syntax for LESS (dynamic CSS)
 Plug 'groenewege/vim-less'
