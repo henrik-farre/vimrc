@@ -1288,6 +1288,21 @@ augroup vimrc_ctags
   autocmd BufWritePost *.php :call s:start_job()
 augroup END
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Utils functions
+"
+" Rename current file, based on https://github.com/martin-svk/dot-files/blob/master/neovim/autoload/utils.vim#L111
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    execute ':saveas ' . new_name
+    execute ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+command! Rename :call RenameFile()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
