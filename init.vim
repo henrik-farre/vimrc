@@ -20,7 +20,7 @@ if has('vim_starting')
   let s:save_diff = &diff
   set all&
   " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
-  set nocompatible                  " Don't be compatible with vi
+  set nocompatible                  " Don't be compatible with vi (ignored by neovim)
 endif
 
 if has('eval')
