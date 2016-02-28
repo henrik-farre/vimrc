@@ -12,10 +12,7 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 let g:python_host_prog='/usr/bin/python2.7'
-let $VIMHOME = $HOME."/.vim"
-if has('nvim')
-  let $VIMHOME = $HOME."/.config/nvim"
-endif
+let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
 
 if has('vim_starting')
   " ensure that we always start with Vim defaults (as opposed to those set by the current system)
