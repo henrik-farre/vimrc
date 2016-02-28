@@ -161,6 +161,10 @@ map <leader>b1 :b1<cr>
 map <leader>b2 :b2<cr>
 map <leader>b3 :b3<cr>
 map <leader>b4 :b4<cr>
+" Switch buffers using <leader>bn/bp, skips quickfix because autocmd has set
+" it to nobuflisted
+noremap <leader>bn :bn<cr>
+noremap <leader>bp :bp<cr>
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
