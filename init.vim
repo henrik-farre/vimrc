@@ -1251,6 +1251,12 @@ augroup vimrc_line_return
         \ endif
 augroup END
 
+" Hide quickfix from bufferlist
+augroup vimrc_qfix
+    autocmd!
+    autocmd FileType qf setlocal nobuflisted
+augroup END
+
 if has_key(g:plugs, 'neomake')
   " let g:neomake_verbose = 2
   " let g:neomake_logfile = '/tmp/neomake.log'
