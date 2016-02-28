@@ -1308,7 +1308,6 @@ function! RenameFile()
   endif
 endfunction
 command! Rename :call RenameFile()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
