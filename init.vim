@@ -174,10 +174,14 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " CtrlP
 " Plug 'kien/ctrlp.vim'
 " Active fork:
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 " cmdline : cmdline history, yankring : yank history, menu : extension selector menu
 " Plug 'sgur/ctrlp-extensions.vim.git'
-Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'JazzCore/ctrlp-cmatcher'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF, first repository contains plugin, the other commands and mappings
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " Alternativ matcher written in python https://github.com/FelikZ/ctrlp-py-matcher
 " Annoying when using mixed html/php
 " See <leader>p
@@ -388,40 +392,53 @@ if &diff
   let g:loaded_xhtml_syntax_checker = 1 " Disable xhtml
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
+if has_key(g:plugs, 'fzf')
+  nnoremap <leader>t :Files<cr>
+  nnoremap <leader>b :Buffers<cr>
+  " Dont use tmux split
+  " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
+  let g:fzf_layout = {}
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
-" https://github.com/kien/ctrlp.vim
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|cache)$',
-    \ 'file': '\v\.(exe|so|dll|tgz|tar|zip|log)$',
-    \ }
-" r:  the nearest ancestor that contains one of these directories or files: .git  .hg .svn .bzr _darcs
-" a: like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file.
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-" Max open 2 windows, vertical split, jump to first opened file, open in
-" current window
-let g:ctrlp_open_multiple_files = '2vjr'
+if has_key(g:plugs, 'ctrlp.vim')
+  " https://github.com/kien/ctrlp.vim
+  let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn|cache)$',
+      \ 'file': '\v\.(exe|so|dll|tgz|tar|zip|log)$',
+      \ }
+  " r:  the nearest ancestor that contains one of these directories or files: .git  .hg .svn .bzr _darcs
+  " a: like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file.
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+  " Max open 2 windows, vertical split, jump to first opened file, open in
+  " current window
+  let g:ctrlp_open_multiple_files = '2vjr'
 
-" Quickly open the command-line CtrlP plugin.
-" nnoremap <leader>q :CtrlPCmdline<CR>
-" nnoremap <leader>t :CtrlPTag<cr>
-" nnoremap <leader>p :CtrlP<cr>
-" nnoremap <leader>b :CtrlPBuffer<cr>
+  " Quickly open the command-line CtrlP plugin.
+  " nnoremap <leader>q :CtrlPCmdline<CR>
+  " nnoremap <leader>t :CtrlPTag<cr>
+  " nnoremap <leader>p :CtrlP<cr>
+  " nnoremap <leader>b :CtrlPBuffer<cr>
 
-" From http://robots.thoughtbot.com/faster-grepping-in-vim
-if executable('ag')
-  " http://blog.patspam.com/2014/super-fast-ctrlp
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup
-        \ --ignore .git
-        \ --ignore .svn
-        \ --ignore .hg
-        \ --ignore .DS_Store
-        \ --ignore "**/*.pyc"
-        \ -g ""'
+  " From http://robots.thoughtbot.com/faster-grepping-in-vim
+  if executable('ag')
+    " http://blog.patspam.com/2014/super-fast-ctrlp
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup
+          \ --ignore .git
+          \ --ignore .svn
+          \ --ignore .hg
+          \ --ignore .DS_Store
+          \ --ignore "**/*.pyc"
+          \ -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+  endif
 endif
 
 " Tabular
