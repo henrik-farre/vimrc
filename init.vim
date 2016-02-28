@@ -1271,27 +1271,27 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Async ctags test
 if has('nvim')
-function! s:start_job()
-    let job_args = [&shell, '-c', 'git ctags']
-    call jobstart(job_args, s:job_control_callbacks)
-endfunction
+ function! s:CtagsJobStart()
+     let job_args = [&shell, '-c', 'git ctags']
+     call jobstart(job_args, s:CtagsJobCallbacks)
+ endfunction
 
-function! s:job_handler(id, data, event)
-  " Disable if stderr - not git project probably
-  if a:event ==# "stderr"
-  endif
-endfunction
+ function! s:CtagsJobHandler(id, data, event)
+   " Disable if stderr - not git project probably
+   if a:event ==# "stderr"
+   endif
+ endfunction
 
-let s:job_control_callbacks = {
-      \ 'on_stdout': function('s:job_handler'),
-      \ 'on_stderr': function('s:job_handler'),
-      \ 'on_exit': function('s:job_handler'),
-      \ }
+ let s:CtagsJobCallbacks = {
+       \ 'on_stdout': function('s:CtagsJobHandler'),
+       \ 'on_stderr': function('s:CtagsJobHandler'),
+       \ 'on_exit': function('s:CtagsJobHandler'),
+       \ }
 
-augroup vimrc_ctags
-  autocmd!
-  autocmd BufWritePost *.php :call s:start_job()
-augroup END
+  augroup vimrc_ctags
+    autocmd!
+    autocmd BufWritePost *.php :call s:CtagsJobStart()
+  augroup END
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
