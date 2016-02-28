@@ -131,7 +131,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/matchit.zip'
 " Vim runtime files for Haml, Sass, and SCSS
 Plug 'tpope/vim-haml'
-Plug 'weynhamz/vim-plugin-minibufexpl'
+" Plug 'weynhamz/vim-plugin-minibufexpl'
 " Plug 'fholgado/minibufexpl.vim'
 " Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdcommenter'
@@ -262,22 +262,24 @@ map <Space> <leader>
 " let g:neocomplete#max_list = 20
 " }}}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MiniBufExplorer
-let g:miniBufExplUseSingleClick = 1   " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
-let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
-let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
-let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17
-let g:miniBufExplorerAutoStart = 0    " Do not auto start
 " Use Ctrl+Pageup / Pagedown as Ctrl+Tab does not work in the urxvt
-"if has_key(g:plugs, 'minibufexplorer')
+if has_key(g:plugs, 'vim-plugin-minibufexpl')
+  let g:miniBufExplUseSingleClick = 1   " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
+  let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
+  let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
+  let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17
+  let g:miniBufExplorerAutoStart = 0    " Do not auto start
   noremap <C-TAB> :MBEbn<CR>
   noremap <C-S-TAB> :MBEbp<CR>
-  " noremap <silent> [5^ :MBEbn<CR>
-  " noremap <silent> [6^ :MBEbp<CR>
-  noremap <silent> <Leader>bn :MBEbn<CR>
-  noremap <silent> <Leader>bp :MBEbp<CR>
-  noremap <leader>b :MBEToggle<CR>
-"endif
+"  noremap <silent> [5^ :MBEbn<CR>
+"  noremap <silent> [6^ :MBEbp<CR>
+"  noremap <silent> <Leader>bn :MBEbn<CR>
+"  noremap <silent> <Leader>bp :MBEbp<CR>
+" FZF is used for that
+"  noremap <leader>bt :MBEToggle<CR>
+endif
 
 " UltiSnips
 " First one is from snipMate
