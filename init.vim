@@ -1260,29 +1260,12 @@ augroup END
 if has_key(g:plugs, 'neomake')
   " let g:neomake_verbose = 2
   " let g:neomake_logfile = '/tmp/neomake.log'
-  let g:neomake_php_enabled_makers = ['php', 'phpcs', 'phpmd']
+  " Disable phpcs by default
+  let g:neomake_php_enabled_makers = ['php', 'phpmd']
   let g:neomake_javascript_enabled_makers = ['jshint']
-  autocmd! BufWritePost * Neomake
   let g:neomake_open_list=2
   let g:neomake_list_height=5
-
-  " Helper function for Neomake list
-  "
-  " Echo the state, when changed, if the opening of the list is turned off
-  " close the list
-  function! ToggleNeomakeLlist()
-    if !exists("g:neomake_open_list")
-      let g:neomake_open_list=0
-    endif
-    let g:neomake_open_list=!g:neomake_open_list
-    if g:neomake_open_list == 1
-      echomsg "neomake open list is ON"
-      execute("lopen")
-    else
-      echomsg "neomake open list is OFF"
-      execute("lcl")
-    endif
-  endfunction
+  autocmd! BufWritePost * Neomake
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
