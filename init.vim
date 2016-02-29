@@ -135,7 +135,6 @@ Plug 'tpope/vim-haml'
 " Plug 'fholgado/minibufexpl.vim'
 " Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'scrooloose/syntastic'
 Plug 'benekastah/neomake'
 " Produces some strange sideeffects
 " Meta-p / Meta-Shift-p after paste, needs to be loaded before surround
@@ -365,26 +364,6 @@ let g:user_emmet_settings = {
       \   'filters' : 'fc',
       \ }
       \}
-
-" syntastic
-let g:syntastic_enable_signs=1
-" automatically open error window when errors are detected/closed when none are detected
-let g:syntastic_auto_loc_list=1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_php_checkers = ['php']
-" Disable syntax highlighting
-let g:syntastic_enable_highlighting = 0
-" Don't sort by line number, so that syntax errors are above phpmd/phpcs
-let g:syntastic_sort_aggregated_errors = 0
-" Handle composite filetype
-" let g:syntastic_quiet_warnings=1
-" let g:loaded_javascript_syntax_checker = 1 " Disable distribued javascript syntax checker plugin
-" let g:syntastic_html_checker='w3' " use validator.w3.org
-" let g:syntastic_csslint_options = "--warnings=none"
-" Dont run html checker on twig files
-let g:syntastic_filetype_map = { "html.twig": "twig" }
 
 if &diff
   let g:loaded_javascript_syntax_checker = 1 " Disable hacked javascript syntex checker pluing if we are doing a diff
@@ -1025,33 +1004,6 @@ endfunction
 
 com! SfJumpToController call s:Sf2jmp2controllerFromRouting()
 
-" From https://github.com/scrooloose/syntastic/issues/1361#issuecomment-82312541
-function! SyntasticDisableToggle()
-    if !exists('s:syntastic_disabled')
-        let s:syntastic_disabled = 0
-    endif
-    if !s:syntastic_disabled
-        let s:modemap_save = deepcopy(g:syntastic_mode_map)
-        let g:syntastic_mode_map['active_filetypes'] = []
-        let g:syntastic_mode_map['mode'] = 'passive'
-        let s:syntastic_disabled = 1
-        SyntasticReset
-    else
-        let g:syntastic_mode_map = deepcopy(s:modemap_save)
-        let s:syntastic_disabled = 0
-    endif
-    echo 'Syntastic ' . ['enabled', 'disabled'][s:syntastic_disabled]
-endfunction
-
-command! SyntasticDisableToggle call SyntasticDisableToggle()
-
-function! VdebugWrapper()
-  SyntasticDisableToggle
-  " SyntasticToggleMode
-  VdebugStart
-endfunction
-
-command! VdebugWrapper call VdebugWrapper()
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1103,8 +1055,6 @@ augroup END
 
 augroup vimrc_drupal
   autocmd!
-  autocmd FileType php.drupal let g:syntastic_php_checkers = ['php', 'phpcs']
-  autocmd FileType php.drupal let g:syntastic_php_phpcs_args = '--report=csv --standard=Drupal'
   autocmd FileType php.drupal let g:php_cs_fixer_level = "Drupal"
   autocmd FileType php.drupal let g:neomake_php_phpcs_args_standard = "Drupal"
   autocmd FileType php.drupal let g:neomake_drupal_phpcs_args_standard = "Drupal"
@@ -1113,9 +1063,7 @@ augroup END
 
 augroup vimrc_symfony
   autocmd!
-  autocmd FileType php.symfony let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
   autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
-  autocmd FileType php.symfony let g:syntastic_php_phpcs_args = '--report=csv --standard=Symfony2'
   autocmd FileType php.symfony let g:neomake_php_phpcs_args_standard = "Symfony2"
   autocmd FileType php.symfony let g:neomake_symfony_phpcs_args_standard = "Symfony2"
   autocmd FileType php.symfony let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
@@ -1204,13 +1152,6 @@ augroup vimrc_twig
     autocmd BufNewFile,BufRead *.html.twig,*.twig setlocal filetype=html.twig
     " TODO: check if symfony project:
     autocmd FileType html.twig setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-"    autocmd BufNewFile,BufRead *.html.twig,*.twig let g:syntastic_html_tidy_ignore_errors = [
-"    \  'plain text isn''t allowed in <head> elements',
-"    \  '<base> escaping malformed URI reference',
-"    \  'discarding unexpected <body>',
-"    \  '<script> escaping malformed URI reference',
-"    \  '</head> isn''t allowed in <body> elements'
-"    \ ]
 augroup END
 
 " Use "json" to format .json
