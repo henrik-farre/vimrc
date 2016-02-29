@@ -375,7 +375,7 @@ endif
 " FZF
 if has_key(g:plugs, 'fzf')
   nnoremap <leader>t :Files<cr>
-  nnoremap <leader>b :Buffers<cr>
+  nnoremap <leader>bv :Buffers<cr>
   " Dont use tmux split
   " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
   let g:fzf_layout = {}
