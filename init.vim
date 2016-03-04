@@ -332,22 +332,8 @@ let g:loaded_netrwPlugin = 1      " netrw
 let g:loaded_vimballPlugin = 1    " vimball
 let loaded_matchparen = 1         " Parenthesis matching is just too slow
 
-if !has("python3")
-  let g:UltiSnipsNoPythonWarning = 1
-endif
-
-" NERDTree
-" let NERDTreeSortOrder = [ '\/$', '*']
-
-" Tag list
-" let Tlist_Use_Right_Window = 1    " split to the right side of the screen
-" let Tlist_Compart_Format = 1      " show small menu
-" let Tlist_Enable_Fold_Column = 1  " Do not show folding tree
-" let Tlist_Auto_Highlight_Tag = 1
-" let Tlist_Display_Tag_Scope = 1
-" let Tlist_Show_Menu = 1
-
-" Zencoding aka emmet
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Emmet
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:use_emmet_complete_tag = 1
 let g:user_emmet_settings = {
