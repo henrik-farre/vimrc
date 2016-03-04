@@ -484,19 +484,6 @@ let delimitMate_expand_space = 1
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" PHP complete
-" https://github.com/shawncplus/phpcomplete.vim/issues/48
-" Conflicting mapping of C-]
-let g:phpcomplete_enhance_jump_to_definition = 0
-" When enabled the preview window's content will include information extracted
-" from docblock comments of the completions. Enabling this option will add
-" return types to the completion menu for functions too.
-let g:phpcomplete_parse_docblock_comments = 1
-" https://github.com/shawncplus/phpcomplete.vim/blob/master/misc/available_extensions
-let g:phpcomplete_add_function_extensions = ["mysqli", "soap", "simplexml"]
-let g:phpcomplete_add_class_extensions = ["mysqli", "soap", "pdo", "simplexml"]
-let g:phpcomplete_search_tags_for_variables = 1
-
 " NERD Commenter
 map <F5> :call NERDComment(0, 'toggle')<CR>
 inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
