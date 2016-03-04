@@ -70,7 +70,7 @@ Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " Up-to-date PHP syntax file (5.3–5.6 support)
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-" Improved PHP omnicompletion
+" Improved PHP omnicompletion -> breaks YCM somehow
 " Plug 'shawncplus/phpcomplete.vim'
 Plug 'joonty/vdebug', { 'on': 'VdebugStart', 'for': 'php' }
 " Needed by pdv
