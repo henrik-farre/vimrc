@@ -165,6 +165,7 @@ map <leader>b4 :b4<cr>
 noremap <leader>bn :bn<cr>
 noremap <leader>bp :bp<cr>
 
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-endif
+" Escape in terminal
+" if has('nvim')
+"   tnoremap <Esc> <C-\><C-n>
+" endif
