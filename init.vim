@@ -352,10 +352,14 @@ let g:user_emmet_settings = {
       \ }
       \}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable syntax checking when in a diff
 if &diff
-  let g:loaded_javascript_syntax_checker = 1 " Disable hacked javascript syntex checker pluing if we are doing a diff
-  let g:loaded_html_syntax_checker = 1 " Disable html
-  let g:loaded_xhtml_syntax_checker = 1 " Disable xhtml
+  let g:loaded_javascript_syntax_checker = 1
+  let g:loaded_html_syntax_checker = 1
+  let g:loaded_xhtml_syntax_checker = 1
+  let g:neomake_javascript_enabled_makers = []
+  let g:neomake_html_enabled_makers = []
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
