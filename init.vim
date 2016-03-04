@@ -284,8 +284,8 @@ if has_key(g:plugs, 'vim-plugin-minibufexpl')
 "  noremap <leader>bt :MBEToggle<CR>
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
-" First one is from snipMate
 let g:snips_author = 'Henrik Farre <hf@bellcom.dk>'
 let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
 " YCM conflicts with UltiSnips TAB key usage
@@ -301,10 +301,9 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " let g:UltiSnipsSnippetDir= expand("$HOME/.vim/UltiSnips" )
 
-" Exuberant Ctags {{{
-" Set tag filename(s)
-" set tags=./tags;
-" }}}
+if !has("python3")
+  let g:UltiSnipsNoPythonWarning = 1
+endif
 
 " incsearch {{{
 " https://github.com/haya14busa/incsearch.vim
