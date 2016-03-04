@@ -141,8 +141,8 @@ Plug 'benekastah/neomake'
 " Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'tpope/vim-surround'
 
-Plug 'rking/ag.vim'
-Plug 'mileszs/ack.vim'
+" Plug 'rking/ag.vim'
+" Plug 'mileszs/ack.vim'
 
 if v:version >= 704
   Plug 'haya14busa/incsearch.vim'
