@@ -490,9 +490,6 @@ inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
 " Inset spaces, mostly for Drupal CS
 let NERDSpaceDelims = 1
 
-" NERD Tree
-" map <F6> :NERDTreeToggle<CR>
-
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
@@ -592,7 +589,6 @@ if v:version >= 703
   augroup END
 endif
 
-set printfont=Bitstream\ Vera\ Sans\ Mono\ 8
 set list
 " set listchars=tab:▸\ ,eol:¬
 set listchars=tab:→\ ,extends:»,precedes:«,trail:▒,nbsp:·
@@ -641,14 +637,6 @@ set title                         " change the terminals/windows title
 set hid                           " change buffer without saving
 set autowrite                     " Write contents of the file, if it has been modified, on buffer exit
 set history=10000                 " remember more than the default 20 commands and search patterns
-" set shell=bash\ --rcfile\ ~/.vim/bashrc.vim
-" set shell=zsh\ -d\ -f
-" set shell=~/.nvim/scripts/zsh.sh
-if empty(glob("/usr/bin/zsh"))
-  set shell=bash
-else
-  set shell=zsh
-endif
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showcmd                       " Show (partial) command in status line.
 set showmode                      " display the current mode
@@ -766,10 +754,6 @@ endif
 "     set undodir=~/.vim/undo,~/tmp,/tmp
 " endif
 
-" if v:version < 700
-"   let loaded_nerd_tree=1
-" endif
-
 set keymodel=startsel             " Allow select of text in insert mode using shift
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -838,7 +822,7 @@ endfunction
 
 " https://github.com/sanguis/drupal-snippets/blob/master/plugin/snipMate_drupal.vim
 " Drupal filename function. Use instead of Filename().
-fun! DrupalFilename(...)
+function! DrupalFilename(...)
   " We need to chop off two path components. This has no adverse
   " effect on files with only one path component.
   let filename = expand('%:t:r:r')
@@ -996,7 +980,7 @@ function! s:Sf2jmp2controllerFromRouting()
     endif
 endfunction
 
-com! SfJumpToController call s:Sf2jmp2controllerFromRouting()
+command! SfJumpToController call s:Sf2jmp2controllerFromRouting()
 
 " }}}
 
