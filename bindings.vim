@@ -154,7 +154,6 @@ nmap <C-a> <Nop>
 " Open none existing file under cursor
 nnoremap gF :view <cfile><cr>
 
-" Actually, the tab does not switch buffers, but my arrows
 " Bclose function ca be found in "Buffer related" section
 map <leader>bd :Bclose<cr>
 map <leader>b1 :b1<cr>
