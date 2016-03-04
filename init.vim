@@ -305,6 +305,7 @@ if !has("python3")
   let g:UltiSnipsNoPythonWarning = 1
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch {{{
 " https://github.com/haya14busa/incsearch.vim
 if has_key(g:plugs, 'incsearch')
@@ -326,6 +327,7 @@ endif
 " let g:showmarks_ignore_type="hqpr"
 " let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable plugins:
 let g:loaded_html_danish = 1      " html_da
 let g:loaded_netrwPlugin = 1      " netrw
