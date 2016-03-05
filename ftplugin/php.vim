@@ -1,3 +1,4 @@
+if exists("b:did_ftplugin") | finish | endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlightning {{{
 let php_sql_query = 1                     " If you like SQL syntax highlighting inside Strings
@@ -34,3 +35,4 @@ endif
 
 " Map ; to add ; to the end of the line, when missing
 noremap <buffer> ; :norm A;<CR>
+let b:did_ftplugin = 1
