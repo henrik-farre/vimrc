@@ -213,9 +213,12 @@ if has('nvim')
   set runtimepath+=/usr/share/vim/vimfiles
 endif
 
-let g:mapleader = ","
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader
+" Needs to be set here, and not in bindings.vim as it is sourced to late
 " http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
-map <Space> <leader>
+let g:mapleader = "\<Space>"
+map <Space> <Leader>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings {{{
