@@ -28,11 +28,13 @@ if has('eval')
     unlet s:save_diff
 endif
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Encoding
 " http://rbtnn.hateblo.jp/entry/2014/12/28/010913
 set encoding=utf-8
 scriptencoding utf-8
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug {{{
 if empty(glob("$VIMHOME/autoload/plug.vim"))
   silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
