@@ -846,6 +846,7 @@ function! TrimWhiteSpace()
   let @/=_s
   call cursor(l, c)
 endfunction
+command! TrimWhiteSpace call TrimWhiteSpace()
 
 function! RemoveDocBlock()
   normal [/V]/x
