@@ -463,8 +463,7 @@ endif
 " Vdebug
 " Check local docker0 interface if Vdebug can't connect: ip addr show docker0
 let g:vdebug_keymap =  {"run": "<F11>"}
-let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/Localdev/www"}, "break_on_open": 0, "watch_window_style": "compact", "server" : "172.17.0.1", "port": 9000}
-" let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/Localdev/illum/www"}, "break_on_open": 0, "watch_window_style": "compact", "server" : "172.17.0.1"}
+let g:vdebug_options = {"path_maps": {"/var/www": "/home/enrique/Dev/docker/sites"}, "break_on_open": 0, "watch_window_style": "compact", "server" : "172.17.0.1", "port": 9000}
 let g:vdebug_features = { 'max_children': 128 }
 "let g:vdebug_features = { 'max_depth': 2048, 'max_children': 128 }
 
