@@ -118,6 +118,8 @@ Plug 'evidens/vim-twig'
 Plug 'groenewege/vim-less'
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 " Plug 'hail2u/vim-css3-syntax'
+" Show CSS colors
+" Plug 'skammer/vim-css-color'
 " Smarty
 Plug 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
