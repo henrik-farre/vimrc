@@ -803,6 +803,17 @@ set preserveindent
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " functions {{{
 "
+" http://ddrscott.github.io/blog/2016/vim-toggle-movement/
+function! ToggleHomeZero()
+  let pos = getpos('.')
+  execute "normal! ^"
+  if pos == getpos('.')
+    execute "normal! 0"
+  endif
+endfunction
+
+" FIXME: clashes with 0 g0 mapping in bindings
+nnoremap 0 :call ToggleHomeZero()<CR>
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
