@@ -371,7 +371,7 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
-if has_key(g:plugs, 'fzf')
+if has_key(g:plugs, 'fzf') && executable('fzf')
   nnoremap <leader>bv :Buffers<cr>
   " Dont use tmux split
   " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
