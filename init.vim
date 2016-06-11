@@ -487,8 +487,10 @@ let delimitMate_expand_space = 1
 
 " vim-expand-region
 " https://github.com/terryma/vim-expand-region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+if has_key(g:plugs, 'vim-expand-region')
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+endif
 
 " NERD Commenter
 map <F5> :call NERDComment(0, 'toggle')<CR>
