@@ -1131,7 +1131,8 @@ augroup END
 " Use github style markdown
 augroup vimrc_markdown
     autocmd!
-    autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    " autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    autocmd BufNewFile,BufRead *.md,*.markdown :call MarkdownTypeDetect()
 augroup END
 
 " Spelling, files for neovim: ftp://ftp.vim.org/pub/vim/runtime/spell/
@@ -1170,10 +1171,10 @@ augroup END
 
 augroup vimrc_whitespace
   autocmd!
-  autocmd FileWritePre    *.{php,js,module,info,tpl} :call TrimWhiteSpace()
-  autocmd FileAppendPre   *.{php,js,module,info,tpl} :call TrimWhiteSpace()
-  autocmd FilterWritePre  *.{php,js,module,info,tpl} :call TrimWhiteSpace()
-  autocmd BufWritePre     *.{php,js,module,info,tpl} :call TrimWhiteSpace()
+  autocmd FileWritePre    *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd FileAppendPre   *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd FilterWritePre  *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd BufWritePre     *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
 augroup END
 
 " Resize splits when the window is resized
@@ -1235,6 +1236,16 @@ if has('nvim')
     autocmd BufWritePost *.php :call s:CtagsJobStart()
   augroup END
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Detect Markdown filetype
+"
+function! MarkdownTypeDetect()
+  setlocal filetype=ghmarkdown
+  if expand("%:p:h") =~ 'content'
+    setlocal filetype=ghmarkdown.hugo
+  endif
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Utils functions
