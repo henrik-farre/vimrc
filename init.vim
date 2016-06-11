@@ -688,9 +688,9 @@ endif
 " - <C+r> +: Contents of clipboard
 "
 " use X clipboard if avaliable
-let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+" let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " Make it work in Neovim
-if has('nvim')
+if (has('nvim') && has('clipboard') && executable('xsel') && exists('$DISPLAY'))
   set clipboard+=unnamedplus
 endif
 " }}}
