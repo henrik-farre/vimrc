@@ -768,10 +768,12 @@ set keymodel=startsel             " Allow select of text in insert mode using sh
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlightning
 "
-syntax on                         " Enable syntax highlightning
-" Set right after vundle end
-" filetype plugin on                " Enable filetype settings
-" filetype indent on
+if !has('nvim')
+  " Defaults on Neovim
+  syntax on                         " Enable syntax highlightning
+  filetype plugin on                " Enable filetype settings
+  filetype indent on
+endif
 set synmaxcol=500                " Syntax coloring lines that are too long just slows down the world
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
