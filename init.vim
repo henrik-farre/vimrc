@@ -542,6 +542,7 @@ let g:vim_json_syntax_conceal = 0
 " <Leader>ig
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
+nnoremap <silent> <Leader>ig <Plug>IndentGuidesToggle
 " let g:indent_guides_guide_size = 1
 " }}}
 
