@@ -77,13 +77,15 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
+" Enable when https://github.com/neovim/neovim/pull/4690 lands
+" set termguicolors
 colorscheme wombat256mod
 
 " set cursorline  " Highlight current line
 " hi cursorline guibg=#000070
 " Highlight current line in insert mode.
 " autocmd InsertLeave * se nocul
-" autocmd InsertEnter * se cul 
+" autocmd InsertEnter * se cul
 " hi CursorColumn guibg=#ff0050
 "     hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
 "     hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
