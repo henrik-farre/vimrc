@@ -210,7 +210,8 @@ endif
 Plug 'dyng/ctrlsf.vim'
 " Ansible
 Plug 'pearofducks/ansible-vim'
-
+" Detect tabs vs spaces
+Plug 'tpope/vim-sleuth'
 call plug#end()
 " }}}
 
