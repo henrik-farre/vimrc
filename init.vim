@@ -296,7 +296,7 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
-let g:snips_author = 'Henrik Farre <henrik@rockhopper.dk>'
+let g:snips_author = 'Henrik Farre <hfa@ordbogen.com>'
 let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
 " YCM conflicts with UltiSnips TAB key usage
 " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
