@@ -37,7 +37,7 @@ scriptencoding utf-8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug {{{
 if empty(glob("$VIMHOME/autoload/plug.vim"))
-  silent !curl -fLo ~/.nvim/autoload/plug.vim --create-dirs
+  silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
