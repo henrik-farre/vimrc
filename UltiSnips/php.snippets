@@ -153,11 +153,11 @@ foreach ($${1:variable} as $${2:key})
 endsnippet
 
 snippet ERR
-error_log(__LINE__.':'.__FILE__.' '${VISUAL}$0); // henrik@rockhopper.dk debugging
+error_log(__LINE__.':'.__FILE__.' '${VISUAL}$0); // `!v g:snips_author` debugging
 endsnippet
 
 snippet ERRP
-error_log(__LINE__.':'.__FILE__.' '.print_r(${VISUAL}$0, 1)); // henrik@rockhopper.dk debugging
+error_log(__LINE__.':'.__FILE__.' '.print_r(${VISUAL}$0, 1)); // `!v g:snips_author` debugging
 endsnippet
 
 snippet ISBC
@@ -168,9 +168,9 @@ if ( $_SERVER['REMOTE_ADDR'] == '90.185.207.55' )
 endsnippet
 
 snippet hf
-// hf@bellcom.dk, `!v strftime('%d-%b-%Y')`: ${1:} -->>
+// `!v g:snips_author`, `!v strftime('%d-%b-%Y')`: ${1:} -->>
 ${2}
-// <<-- hf@bellcom.dk, `!v strftime('%d-%b-%Y')`: $1
+// <<-- `!v g:snips_author`, `!v strftime('%d-%b-%Y')`: $1
 endsnippet
 
 snippet while
