@@ -603,7 +603,7 @@ endif
 
 set list
 " set listchars=tab:▸\ ,eol:¬
-set listchars=tab:→\ ,extends:»,precedes:«,trail:▒,nbsp:·
+set listchars=tab:\ \ ,extends:»,precedes:«,trail:▒,nbsp:·
 
 "vertical/horizontal scroll off settings
 set scrolloff=10                  " Keep lines between the cursor and bottom/top
