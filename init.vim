@@ -1021,7 +1021,7 @@ source $VIMHOME/bindings.vim
 " Abbrevs
 "
 ab seperator separator
-iab DATE <C-r>=strftime("%Y-%m-%d")<CR>
+iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto commands
