@@ -558,7 +558,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake
 if has_key(g:plugs, 'neomake')
-  let g:neomake_php_phpmd_args = ['%:p', 'text', '~/.config/phpmd/phpmd_swat_rules.xml']
+  let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
