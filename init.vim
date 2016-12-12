@@ -573,6 +573,9 @@ set hlsearch                      " Highlight search results
 set ignorecase                    " Do case insensitive matching, must be set for smartcase to work
 set smartcase                     " Do smart case search - case sensitive if first letter in search is uppercase
 set incsearch                     " Incremental search
+if has('nvim')
+  set inccommand=split            " Incremental replace, https://github.com/neovim/neovim/pull/5561
+endif
 set gdefault                      " Applies substitutions globally on lines, /g to disable
 
 set infercase                     " Handle case in a smart way in autocompletes
