@@ -113,6 +113,7 @@ hi MBEVisibleChanged    guifg=#ffffff guibg=#ff0000 gui=bold cterm=bold
 "
 "     " SignColumn
 "     hi SignColumn guibg=#121212
+highlight SignColumn ctermbg=232
 
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
