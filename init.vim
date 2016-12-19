@@ -166,6 +166,7 @@ Plug 'michalbachowski/vim-wombat256mod'
 " 24bit, but to blueish
 " Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'machakann/vim-highlightedyank'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
 " https://github.com/majutsushi/tagbar/wiki
