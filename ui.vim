@@ -111,8 +111,11 @@ hi MBEVisibleChanged    guifg=#ffffff guibg=#ff0000 gui=bold cterm=bold
 "     hi User4 guifg=#a0ee40
 "     hi User5 guifg=#eeee40
 "
-"     " SignColumn
-"     hi SignColumn guibg=#121212
+" SignColumn
+hi SignColumn guibg=#121212 ctermbg=232
+
+" Neovim highlight group to yanked content
+hi HighlightedyankRegion cterm=reverse gui=reverse
 
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
