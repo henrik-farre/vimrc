@@ -1181,14 +1181,20 @@ augroup vimrc_json
 augroup END
 
 " Use yamllint when ft is ansible
-augroup vimrc_ansible
-    autocmd!
-    let g:neomake_ansible_yamllint_maker = {
-              \ 'exe': 'yamllint',
-              \ 'args': ['-f', 'parsable'],
-              \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
-              \ }
-    autocmd FileType ansible let g:neomake_ansible_enabled_makers = ['yamllint']
+" augroup vimrc_ansible
+"     autocmd!
+"     let g:neomake_ansible_yamllint_maker = {
+"               \ 'exe': 'yamllint',
+"               \ 'args': ['-f', 'parsable'],
+"               \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
+"               \ }
+"     autocmd FileType ansible let g:neomake_ansible_enabled_makers = ['yamllint']
+" augroup END
+
+" Jenkinsfile
+augroup vimrc_jenkins
+  autocmd!
+  autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
 augroup END
 
 " Resize vdebug window
