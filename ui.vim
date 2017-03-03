@@ -77,8 +77,9 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
-" Enable when https://github.com/neovim/neovim/pull/4690 lands
-" set termguicolors
+if (has("termguicolors"))
+ set termguicolors
+endif
 colorscheme wombat256mod
 
 " set cursorline  " Highlight current line
