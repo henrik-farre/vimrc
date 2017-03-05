@@ -163,7 +163,10 @@ Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'michalbachowski/vim-wombat256mod'
-" 24bit, but to blueish
+" 24bit, too dim colors
+" Plug 'tyrannicaltoucan/vim-deep-space'
+" Plug 'mhartington/oceanic-next'
+" 24bit, but too blueish
 " Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'machakann/vim-highlightedyank'
