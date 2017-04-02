@@ -167,7 +167,10 @@ Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'michalbachowski/vim-wombat256mod'
-" 24bit, but to blueish
+" 24bit, too dim colors
+" Plug 'tyrannicaltoucan/vim-deep-space'
+" Plug 'mhartington/oceanic-next'
+" 24bit, but too blueish
 " Plug 'whatyouhide/vim-gotham'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'machakann/vim-highlightedyank'
@@ -301,7 +304,7 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
-let g:snips_author = 'Henrik Farre <hfa@ordbogen.com>'
+let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
 let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
 " YCM conflicts with UltiSnips TAB key usage
 " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
@@ -471,7 +474,7 @@ endif
 " Vdebug
 " Check local docker0 interface if Vdebug can't connect: ip addr show docker0
 let g:vdebug_keymap =  {"run": "<F11>"}
-let g:vdebug_options = {"path_maps": {"/srv/udvikling/": "/home/hfa/remote_mounts/dev/"}, "break_on_open": 0, "watch_window_style": "compact", "port": 9090}
+let g:vdebug_options = {"path_maps": {"/srv/udvikling/": "/home/hfa/remote_mounts/dev/"}, "break_on_open": 0, "watch_window_style": "compact", "port": 9000}
 " , "proxy_host": "localhost", "proxy_port": 9090, "ide_key": "hfa"
 let g:vdebug_features = { 'max_children': 128 }
 " let g:vdebug_options["debug_file_level"] = 2
@@ -566,9 +569,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake
-if has_key(g:plugs, 'neomake')
-  let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
-endif
+" if has_key(g:plugs, 'neomake')
+"   let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
+" endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
@@ -1187,14 +1190,20 @@ augroup vimrc_json
 augroup END
 
 " Use yamllint when ft is ansible
-augroup vimrc_ansible
-    autocmd!
-    let g:neomake_ansible_yamllint_maker = {
-              \ 'exe': 'yamllint',
-              \ 'args': ['-f', 'parsable'],
-              \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
-              \ }
-    autocmd FileType ansible let g:neomake_ansible_enabled_makers = ['yamllint']
+" augroup vimrc_ansible
+"     autocmd!
+"     let g:neomake_ansible_yamllint_maker = {
+"               \ 'exe': 'yamllint',
+"               \ 'args': ['-f', 'parsable'],
+"               \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
+"               \ }
+"     autocmd FileType ansible let g:neomake_ansible_enabled_makers = ['yamllint']
+" augroup END
+
+" Jenkinsfile
+augroup vimrc_jenkins
+  autocmd!
+  autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
 augroup END
 
 " Resize vdebug window
