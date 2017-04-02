@@ -11,7 +11,11 @@
 "
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
-let g:python_host_prog='/usr/bin/python2.7'
+if has('mac')
+  let g:python_host_prog='/usr/local/bin/python'
+else
+  let g:python_host_prog='/usr/bin/python2.7'
+endif
 let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
 
 if has('vim_starting')
@@ -708,6 +712,8 @@ endif
 " let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " Make it work in Neovim
 if (has('nvim') && has('clipboard') && executable('xsel') && exists('$DISPLAY'))
+  set clipboard+=unnamedplus
+elseif (has('nvim') && has('clipboard') && executable('pbcopy') && has('mac'))
   set clipboard+=unnamedplus
 endif
 " }}}
