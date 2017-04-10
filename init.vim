@@ -1113,6 +1113,7 @@ if !&diff
     autocmd BufNewFile *.css 0r $VIMHOME/skel/css | $,$d
     autocmd BufNewFile *.sh 0r $VIMHOME/skel/bash | $,$d
     autocmd BufNewFile .tern-project 0r $VIMHOME/skel/tern-project | $,$d
+    autocmd BufNewFile Dockerfile 0r $VIMHOME/skel/Dockerfile | $,$d
   augroup END
 endif
 
