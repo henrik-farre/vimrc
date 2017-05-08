@@ -25,6 +25,11 @@ if has('vim_starting')
   set all&
   " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
   set nocompatible                  " Don't be compatible with vi (ignored by neovim)
+
+  if has('nvim')
+    " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
+    set runtimepath+=/usr/share/vim/vimfiles
+  endif
 endif
 
 if has('eval')
@@ -222,11 +227,6 @@ Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-sleuth'
 call plug#end()
 " }}}
-
-if has('nvim')
-  " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
-  set runtimepath+=/usr/share/vim/vimfiles
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader
