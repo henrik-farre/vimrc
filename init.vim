@@ -1194,16 +1194,11 @@ augroup vimrc_json
     autocmd FileType json setlocal equalprg=json
 augroup END
 
-" Use yamllint when ft is ansible
-" augroup vimrc_ansible
-"     autocmd!
-"     let g:neomake_ansible_yamllint_maker = {
-"               \ 'exe': 'yamllint',
-"               \ 'args': ['-f', 'parsable'],
-"               \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
-"               \ }
-"     autocmd FileType ansible let g:neomake_ansible_enabled_makers = ['yamllint']
-" augroup END
+" ansible-vim does not detect playbooks
+augroup vimrc_ansible
+    autocmd!
+    autocmd BufRead,BufNewFile ~/Dev/ansible/*.yml set ft=ansible
+augroup END
 
 " Jenkinsfile
 augroup vimrc_jenkins
