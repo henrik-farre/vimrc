@@ -220,6 +220,8 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'pearofducks/ansible-vim'
 " Detect tabs vs spaces
 Plug 'tpope/vim-sleuth'
+" Syntax and more for tmux
+Plug 'tmux-plugins/vim-tmux'
 call plug#end()
 " }}}
 
