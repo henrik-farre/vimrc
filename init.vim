@@ -25,6 +25,11 @@ if has('vim_starting')
   set all&
   " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
   set nocompatible                  " Don't be compatible with vi (ignored by neovim)
+
+  if has('nvim')
+    " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
+    set runtimepath+=/usr/share/vim/vimfiles
+  endif
 endif
 
 if has('eval')
@@ -224,11 +229,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tmux-plugins/vim-tmux'
 call plug#end()
 " }}}
-
-if has('nvim')
-  " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
-  set runtimepath+=/usr/share/vim/vimfiles
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader
@@ -705,6 +705,9 @@ set timeoutlen=1000
 if has('nvim')
   set ttimeoutlen=0
 endif
+
+" Do not autoread changed files, also see checktime augroup
+set noautoread
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard {{{
@@ -1193,16 +1196,11 @@ augroup vimrc_json
     autocmd FileType json setlocal equalprg=json
 augroup END
 
-" Use yamllint when ft is ansible
-" augroup vimrc_ansible
-"     autocmd!
-"     let g:neomake_ansible_yamllint_maker = {
-"               \ 'exe': 'yamllint',
-"               \ 'args': ['-f', 'parsable'],
-"               \ 'errorformat': '%E%f:%l:%c: [error] %m,%W%f:%l:%c: [warning] %m',
-"               \ }
-"     autocmd FileType ansible let g:neomake_ansible_enabled_makers = ['yamllint']
-" augroup END
+" ansible-vim does not detect playbooks
+augroup vimrc_ansible
+    autocmd!
+    autocmd BufRead,BufNewFile ~/Dev/ansible/*.yml set ft=ansible
+augroup END
 
 " Jenkinsfile
 augroup vimrc_jenkins
@@ -1245,6 +1243,17 @@ augroup END
 augroup vimrc_qfix
     autocmd!
     autocmd FileType qf setlocal nobuflisted
+augroup END
+
+" Help Neovim check if file has changed on disc
+" https://github.com/neovim/neovim/issues/2127
+augroup checktime
+    autocmd!
+    if !has("gui_running")
+        "silent! necessary otherwise throws errors when using command
+        "line window.
+        autocmd BufEnter,CursorHold,CursorHoldI,CursorMoved,CursorMovedI,FocusGained,BufEnter,FocusLost,WinLeave * checktime
+    endif
 augroup END
 
 if has_key(g:plugs, 'neomake')
