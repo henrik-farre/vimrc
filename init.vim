@@ -633,11 +633,10 @@ set scrolloff=10                  " Keep lines between the cursor and bottom/top
 set sidescrolloff=7
 set sidescroll=1
 " All abbrevitions, truncate middle of long messages, no intro when starting,
+set shortmess=aTI
 " no ins-completion-menu messages
-if v:version >= 704
-  set shortmess=aTIc
-else
-  set shortmess=aTI
+if v:version > 704
+  set shortmess+=c
 endif
 
 set nostartofline                 " Cursor does not jump to first nonblank char on line after buffer switch http://stackoverflow.com/questions/8292742/vim-cursor-jumps-to-begining-of-the-line-after-buffer-switch
@@ -663,7 +662,7 @@ if !has('nvim')
   " Default in neovim
   set backspace=indent,eol,start    " allow backspacing over everything in insert mode
 endif
-if v:version >= 704
+if v:version > 704
   set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
 endif
 set confirm                       " present a dialog
