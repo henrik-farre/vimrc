@@ -209,8 +209,8 @@ Plug 'junegunn/fzf.vim'
 " PHP/Symfony snippets: https://github.com/algotech/ultisnips-php
 if v:version >= 704
   Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 endif
-" Plug 'honza/vim-snippets'
 " Plug 'chrisbra/Recover.vim'
 " Plug 'mtth/scratch.vim'
 " Use v multiple times to expand selection
