@@ -227,6 +227,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-sleuth'
 " Syntax and more for tmux
 Plug 'tmux-plugins/vim-tmux'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 " }}}
 

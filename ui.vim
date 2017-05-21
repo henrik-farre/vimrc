@@ -61,13 +61,6 @@ if has('title')
 
   " display a warning if fileformat isnt unix
   set titlestring+=%{&ff!='unix'?'['.&ff.']':''}
-
-  " display a warning if file encoding isnt utf-8
-  " Syntastic Warning
-  if has_key(g:plugs, 'syntastic')
-    set titlestring+=%{SyntasticStatuslineFlag()}
-    set titlestring+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-  endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,12 +170,6 @@ set statusline+=%*
 
 " display a warning if file encoding isnt utf-8
 set statusline+=%#warningmsg#
-" Syntastic Warning
-if has_key(g:plugs, 'syntastic')
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-  set statusline+=%*
-endif
 
 " display a warning if &paste is set
 set statusline+=%#error#
@@ -192,3 +179,25 @@ set statusline+=%*
 set statusline+=%=\ %l,%c%V\ %<%P
 
 set laststatus=2                  " Always show statusline
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+set noshowmode
