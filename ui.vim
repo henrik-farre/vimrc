@@ -148,37 +148,40 @@ endif
 " Statusline
 "
 " n: Buffernumber
-set statusline=[%n]\ 
-" git branch
-set statusline+=%1*
-if has_key(g:plugs, 'fugitive')
-  set statusline+=%{fugitive#statusline()}
-endif
-set statusline+=%*
-" set statusline+=\ %F\ 
-" Display min 25, max 60 chars of F (Full path), from the right
-set statusline+=\ %-25.60F\ 
-" r: Read only flag
-" y: Filetype
-" m: Modified flag
-set statusline+=%r%y%m
+"     set statusline=[%n]\ 
+"     " git branch
+"     set statusline+=%1*
+"     if has_key(g:plugs, 'fugitive')
+"       set statusline+=%{fugitive#statusline()}
+"     endif
+"     set statusline+=%*
+"     " set statusline+=\ %F\ 
+"     " Display min 25, max 60 chars of F (Full path), from the right
+"     set statusline+=\ %-25.60F\ 
+"     " r: Read only flag
+"     " y: Filetype
+"     " m: Modified flag
+"     set statusline+=%r%y%m
+"
+"     " display a warning if fileformat isnt unix
+"     set statusline+=%#warningmsg#
+"     set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+"     set statusline+=%*
+"
+"     " display a warning if file encoding isnt utf-8
+"     set statusline+=%#warningmsg#
+"
+"     " display a warning if &paste is set
+"     set statusline+=%#error#
+"     set statusline+=%{&paste?'[paste]':''}
+"     set statusline+=%*
+"
+"     set statusline+=%=\ %l,%c%V\ %<%P
 
-" display a warning if fileformat isnt unix
-set statusline+=%#warningmsg#
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-set statusline+=%*
-
-" display a warning if file encoding isnt utf-8
-set statusline+=%#warningmsg#
-
-" display a warning if &paste is set
-set statusline+=%#error#
-set statusline+=%{&paste?'[paste]':''}
-set statusline+=%*
-
-set statusline+=%=\ %l,%c%V\ %<%P
-
-set laststatus=2                  " Always show statusline
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:p:h') : '[No Name]'
+  return filename
+endfunction
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -195,6 +198,9 @@ let g:lightline = {
       \   'readonly': '(&filetype!="help"&& &readonly)',
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
