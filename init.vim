@@ -1201,6 +1201,7 @@ augroup END
 augroup vimrc_ansible
     autocmd!
     autocmd BufRead,BufNewFile ~/Dev/ansible/*.yml set ft=ansible
+    autocmd BufRead,BufNewFile inventory set ft=ansible_hosts
 augroup END
 
 " Jenkinsfile
