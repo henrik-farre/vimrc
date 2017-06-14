@@ -179,7 +179,7 @@ endif
 "     set statusline+=%=\ %l,%c%V\ %<%P
 
 function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:p:h') : '[No Name]'
+  let filename = expand('%:t') !=# '' ? expand('%:p') : '[No Name]'
   return filename
 endfunction
 
