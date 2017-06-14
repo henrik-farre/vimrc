@@ -45,10 +45,11 @@ scriptencoding utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug {{{
+" https://github.com/junegunn/vim-plug/wiki/faq
 if empty(glob("$VIMHOME/autoload/plug.vim"))
   silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin("$VIMHOME/bundle")
@@ -1199,6 +1200,7 @@ augroup END
 augroup vimrc_ansible
     autocmd!
     autocmd BufRead,BufNewFile ~/Dev/ansible/*.yml set ft=ansible
+    autocmd BufRead,BufNewFile inventory set ft=ansible_hosts
 augroup END
 
 " Jenkinsfile
