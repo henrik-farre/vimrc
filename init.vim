@@ -478,7 +478,6 @@ endif
 " Check local docker0 interface if Vdebug can't connect: ip addr show docker0
 let g:vdebug_keymap =  {"run": "<F11>"}
 let g:vdebug_options = {"path_maps": {"/srv/udvikling/": "/home/hfa/remote_mounts/dev/"}, "break_on_open": 0, "watch_window_style": "compact", "port": 9000}
-" , "proxy_host": "localhost", "proxy_port": 9090, "ide_key": "hfa"
 let g:vdebug_features = { 'max_children': 128 }
 " let g:vdebug_options["debug_file_level"] = 2
 " let g:vdebug_options["debug_file"] = "/tmp/vdebug.log"
