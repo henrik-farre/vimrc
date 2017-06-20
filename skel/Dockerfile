@@ -14,3 +14,6 @@
 FROM alpine:latests
 MAINTAINER hfar@tv2.dk
 
+# ARG VCS_REF="local"
+# LABEL org.label-schema.vcs-ref=$VCS_REF \
+#       org.label-schema.vcs-url="https://github.com/something/repo.git"
