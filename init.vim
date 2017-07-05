@@ -199,6 +199,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " FZF, first repository contains plugin, the other commands and mappings
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 " Alternativ matcher written in python https://github.com/FelikZ/ctrlp-py-matcher
 " Annoying when using mixed html/php
 " See <leader>p
