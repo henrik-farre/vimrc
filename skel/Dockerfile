@@ -14,7 +14,7 @@
 # 10. Optimize COPY and RUN
 # 11. Specify default environment variables, ports and volumes
 
-FROM alpine:latests
+FROM alpine:latest
 MAINTAINER hfar@tv2.dk
 
 # ARG VCS_REF="local"
