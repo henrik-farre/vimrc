@@ -178,32 +178,29 @@ endif
 "
 "     set statusline+=%=\ %l,%c%V\ %<%P
 
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:p') : '[No Name]'
-  return filename
+function! AirlineGitInfo()
+  let git = fugitive#head()
+  if git != ''
+    return ' '.git
+  else
+    return ''
 endfunction
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'jellybeans'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#tabline#enabled = 0
+" Hides neomake output:
+" let g:airline_skip_empty_sections = 1
+let g:airline#extensions#neomake#enabled = 1
+let g:airline#extensions#neomake#error_symbol = '✖ Error: '
+let g:airline#extensions#neomake#warning_symbol = '⚠ Warning: '
+
+let g:airline#extensions#whitespace#enabled = 0
+
+let g:airline_section_b = '%{AirlineGitInfo()}'
+let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+" l: Line number, c: column, V: virtual column, not displayed if == c
+let g:airline_section_z = airline#section#create([ '%l,%c%V'])
 
 set noshowmode
