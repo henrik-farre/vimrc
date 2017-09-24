@@ -2266,24 +2266,14 @@ archive:
 endsnippet
 
 snippet file "Sets attributes of files" b
-file:
-	path: ${1:[]}
-
-	src: ${2:# path of the file to link to (applies only to C(state=link)). Will accept absolute, relative and nonexisting paths. Relative paths are not expanded.}
-	force: ${3:yes|#no}
-	unsafe_writes: ${4:no}
-	selevel: ${5:s0}
-	seuser: ${6:# User part of SELinux file context. Will default to system policy, if applicable. If set to C(_default), it will use the C(user) portion of the policy if available.}
-	recurse: ${7:yes|#no}
-	serole: ${8:# Role part of SELinux file context, C(_default) feature works as for I(seuser).}
-	group: ${9:# Name of the group that should own the file/directory, as would be fed to I(chown).}
-	state: ${10:#file|link|directory|hard|touch|absent}
-	mode: ${11:# Mode the file or directory should be. For those used to I(/usr/bin/chmod) remember that modes are actually octal numbers (like 0644). Leaving off the leading zero will likely have unexpected results. As of version 1.8, the mode may be specified as a symbolic mode (for example, C(u+rwx) or C(u=rw,g=r,o=r)).}
-	follow: ${12:yes|#no}
-	owner: ${13:# Name of the user that should own the file/directory, as would be fed to I(chown).}
-	attributes: ${14:# Attributes the file or directory should have. To get supported flags look at the man page for I(chattr) on the target system. This string should contain the attributes in the same order as the one displayed by I(lsattr).}
-	setype: ${15:# Type part of SELinux file context, C(_default) feature works as for I(seuser).}
-
+- name: ${1:Name}
+	file:
+		path: ${2:[]}
+		src: ${3:# path of the file to link to (applies only to C(state=link)). Will accept absolute, relative and nonexisting paths. Relative paths are not expanded.}
+		group: ${4:# Name of the group that should own the file/directory, as would be fed to I(chown).}
+		state: ${5:#file|link|directory|hard|touch|absent}
+		mode: ${6:# Mode the file or directory should be. For those used to I(/usr/bin/chmod) remember that modes are actually octal numbers (like 0644). Leaving off the leading zero will likely have unexpected results. As of version 1.8, the mode may be specified as a symbolic mode (for example, C(u+rwx) or C(u=rw,g=r,o=r)).}
+		owner: ${7:# Name of the user that should own the file/directory, as would be fed to I(chown).}
 endsnippet
 
 snippet copy "Copies files to remote locations." b
