@@ -2333,16 +2333,10 @@ synchronize:
 endsnippet
 
 snippet stat "retrieve file or file system status" b
-stat:
-	path: ${1:# The full path of the file/object to get the facts of}
-
-	get_checksum: ${2:yes}
-	follow: ${3:no}
-	checksum_algorithm: ${4:#sha1|sha224|sha256|sha384|sha512}
-	get_mime: ${5:#True|False}
-	get_md5: ${6:yes}
-	get_attributes: ${7:yes}
-
+- name: ${1}
+	stat:
+		path: ${2:# The full path of the file/object to get the facts of}
+	register: ${3}
 endsnippet
 
 snippet template "Templates a file out to a remote server." b
