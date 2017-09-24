@@ -138,7 +138,7 @@ Plug 'blueyed/smarty.vim'
 if v:version >= 704 && has("python")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
 endif
-" Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 " Active repository?: https://github.com/Firef0x/matchit/network
