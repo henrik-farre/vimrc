@@ -772,14 +772,18 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
 " Store temporary files in a central spot
+if !isdirectory($VIMHOME."/backups/")
+    call mkdir($VIMHOME."/backups/", "", 0700)
+endif
+
 set backupdir=$VIMHOME/backups/
 set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
+
+if !isdirectory($VIMHOME."/swaps/")
+    call mkdir($VIMHOME."/swaps/", "", 0700)
+endif
 set directory=$VIMHOME/swaps/       " swap files
 " set viewdir=~/.vim/views/
-" Creating directories if they don't exist
-" silent execute '!mkdir -p /tmp/backups'
-" silent execute '!mkdir -p /tmp/swaps'
-" silent execute '!mkdir -p ~/.vim/views'
 " au BufWinLeave * silent! mkview         " make vim save view (state) (folds, cursor, etc)
 " au BufWinEnter * silent! loadview       " make vim load view (state) (folds, cursor, etc)
 
