@@ -134,7 +134,7 @@ Plug 'blueyed/smarty.vim'
 if v:version >= 704 && has("python")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
 endif
-" Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 " Active repository?: https://github.com/Firef0x/matchit/network
@@ -225,7 +225,9 @@ Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-sleuth'
 " Syntax and more for tmux
 Plug 'tmux-plugins/vim-tmux'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " }}}
 
@@ -766,14 +768,18 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
 " Store temporary files in a central spot
+if !isdirectory($VIMHOME."/backups/")
+    call mkdir($VIMHOME."/backups/", "", 0700)
+endif
+
 set backupdir=$VIMHOME/backups/
 set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
+
+if !isdirectory($VIMHOME."/swaps/")
+    call mkdir($VIMHOME."/swaps/", "", 0700)
+endif
 set directory=$VIMHOME/swaps/       " swap files
 " set viewdir=~/.vim/views/
-" Creating directories if they don't exist
-" silent execute '!mkdir -p /tmp/backups'
-" silent execute '!mkdir -p /tmp/swaps'
-" silent execute '!mkdir -p ~/.vim/views'
 " au BufWinLeave * silent! mkview         " make vim save view (state) (folds, cursor, etc)
 " au BufWinEnter * silent! loadview       " make vim load view (state) (folds, cursor, etc)
 
@@ -1260,9 +1266,10 @@ if has_key(g:plugs, 'neomake')
   " Disable phpcs by default
   let g:neomake_php_enabled_makers = ['php', 'phpmd']
   let g:neomake_javascript_enabled_makers = ['jshint']
-  let g:neomake_open_list=2
+  let g:neomake_open_list=0
   let g:neomake_list_height=5
-  autocmd! BufWritePost * Neomake
+  " autocmd! BufWritePost * Neomake
+  call neomake#configure#automake('nrw', 750)
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
