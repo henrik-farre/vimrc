@@ -131,7 +131,7 @@ Plug 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 " Plug 'Shougo/neocomplete.vim'
-if v:version >= 704 && has("python")
+if has('nvim') && has("python")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
 endif
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
