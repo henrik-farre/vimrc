@@ -1269,7 +1269,11 @@ if has_key(g:plugs, 'neomake')
   let g:neomake_open_list=0
   let g:neomake_list_height=5
   " autocmd! BufWritePost * Neomake
-  call neomake#configure#automake('nrw', 750)
+  if has('nvim')
+    call neomake#configure#automake('nrw', 750)
+  else
+    call neomake#configure#automake('w')
+  endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
