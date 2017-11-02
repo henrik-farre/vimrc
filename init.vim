@@ -1180,10 +1180,10 @@ augroup END
 
 " Indent xml using xmllint
 " - Only works for entire file
-augroup vimrc_xml
-    autocmd!
-    autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-augroup END
+" augroup vimrc_xml
+"     autocmd!
+"     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+" augroup END
 
 augroup vimrc_twig
     autocmd!
