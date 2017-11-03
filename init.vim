@@ -174,7 +174,7 @@ Plug 'michalbachowski/vim-wombat256mod'
 " Plug 'mhartington/oceanic-next'
 " 24bit, but too blueish
 " Plug 'whatyouhide/vim-gotham'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'machakann/vim-highlightedyank'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
