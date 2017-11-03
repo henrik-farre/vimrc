@@ -131,7 +131,7 @@ Plug 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 " Plug 'Shougo/neocomplete.vim'
-if v:version >= 704 && has("python")
+if has('nvim') && has("python")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
 endif
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -1180,10 +1180,10 @@ augroup END
 
 " Indent xml using xmllint
 " - Only works for entire file
-augroup vimrc_xml
-    autocmd!
-    autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-augroup END
+" augroup vimrc_xml
+"     autocmd!
+"     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+" augroup END
 
 augroup vimrc_twig
     autocmd!
@@ -1269,7 +1269,11 @@ if has_key(g:plugs, 'neomake')
   let g:neomake_open_list=0
   let g:neomake_list_height=5
   " autocmd! BufWritePost * Neomake
-  call neomake#configure#automake('nrw', 750)
+  if has('nvim')
+    call neomake#configure#automake('nrw', 750)
+  else
+    call neomake#configure#automake('w')
+  endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
