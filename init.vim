@@ -63,7 +63,7 @@ silent! call plug#begin("$VIMHOME/bundle")
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Remember to run npm install in folder
 if executable('npm')
-  Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do', 'npm install' }
+  Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 endif
 " Handlebars syntax + text objects
 Plug 'mustache/vim-mustache-handlebars'
