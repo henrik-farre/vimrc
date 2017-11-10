@@ -65,10 +65,10 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 if executable('npm')
   Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 endif
-" Handlebars syntax + text objects
-Plug 'mustache/vim-mustache-handlebars'
+" Handlebars syntax + text objects:
+" Plug 'mustache/vim-mustache-handlebars'
 " JSON/JSONP
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
@@ -118,18 +118,18 @@ endif
 " General Web
 Plug 'mattn/emmet-vim'
 " HTML5 omnicomplete and syntax
-Plug 'othree/html5.vim'
+" Plug 'othree/html5.vim'
 " Twig, correct filetype set by autocmd in this file
 " Discontinued repository:
-Plug 'evidens/vim-twig'
+" Plug 'evidens/vim-twig'
 " vim syntax for LESS (dynamic CSS)
-Plug 'groenewege/vim-less'
+" Plug 'groenewege/vim-less'
 " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
 " Plug 'hail2u/vim-css3-syntax'
 " Show CSS colors
 " Plug 'skammer/vim-css-color'
 " Smarty
-Plug 'blueyed/smarty.vim'
+" Plug 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 " Plug 'Shougo/neocomplete.vim'
@@ -142,7 +142,7 @@ Plug 'Raimondi/delimitMate'
 " Active repository?: https://github.com/Firef0x/matchit/network
 Plug 'vim-scripts/matchit.zip'
 " Vim runtime files for Haml, Sass, and SCSS
-Plug 'tpope/vim-haml'
+" Plug 'tpope/vim-haml'
 " Plug 'weynhamz/vim-plugin-minibufexpl'
 " Plug 'fholgado/minibufexpl.vim'
 " Plug 'ap/vim-buftabline'
@@ -162,9 +162,9 @@ endif
 
 Plug 'unblevable/quick-scope'
 
-Plug 'vasconcelloslf/vim-interestingwords'
+" Plug 'vasconcelloslf/vim-interestingwords'
 " Like poster for Chrome, make http requests
-Plug 'nicwest/QQ.vim'
+" Plug 'nicwest/QQ.vim'
 " Add visual marks in gutter
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
@@ -184,7 +184,7 @@ Plug 'machakann/vim-highlightedyank'
 " Adding support for javascript:
 " https://github.com/ramitos/jsctags
 " npm install -g git://github.com/ramitos/jsctags.git
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 " Plug 'kien/ctrlp.vim'
