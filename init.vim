@@ -62,7 +62,9 @@ silent! call plug#begin("$VIMHOME/bundle")
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Remember to run npm install in folder
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+if executable('npm')
+  Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do', 'npm install' }
+endif
 " Handlebars syntax + text objects
 Plug 'mustache/vim-mustache-handlebars'
 " JSON/JSONP
