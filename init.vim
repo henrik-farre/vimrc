@@ -224,7 +224,7 @@ endif
 " <Space>j/k linewise
 " Plug 'Lokaltog/vim-easymotion'
 " Plug 'christoomey/vim-tmux-navigator'
-Plug 'dyng/ctrlsf.vim'
+" Plug 'dyng/ctrlsf.vim'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 " Detect tabs vs spaces
