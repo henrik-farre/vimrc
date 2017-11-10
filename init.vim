@@ -48,7 +48,7 @@ if empty(glob("$VIMHOME/autoload/plug.vim"))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin("$VIMHOME/bundle")
+silent! call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependencies
 " Remember to run 'make' in dir after install
