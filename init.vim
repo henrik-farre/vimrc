@@ -160,7 +160,10 @@ if v:version >= 704
   Plug 'haya14busa/incsearch.vim'
 endif
 
-Plug 'unblevable/quick-scope'
+" Highlights on f F t F
+Plug 'bradford-smith94/quick-scope'
+" Dead repo:
+"Plug 'unblevable/quick-scope'
 
 " Plug 'vasconcelloslf/vim-interestingwords'
 " Like poster for Chrome, make http requests
