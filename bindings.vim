@@ -81,7 +81,7 @@ nnoremap ` '
 " nnoremap <leader>p p'[v']=
 
 " yank till the end of the line
-noremap Y y$
+noremap Y "*y$
 
 " Yank / Paste multiple lines easier
 " Automatically jump to end of text you pasted
