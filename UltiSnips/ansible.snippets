@@ -1407,7 +1407,6 @@ snippet debug "Print statements during execution" b
   debug:
     msg: ${2:Hello world!}
     var: ${3:# A variable name to debug.  Mutually exclusive with the 'msg' option.}
-
 endsnippet
 
 snippet include_vars "Load variables from files, dynamically within a task." b
@@ -2155,14 +2154,12 @@ cronvar:
 endsnippet
 
 snippet command "Executes a command on a remote node" b
-command:
-	${1:free_form: # the command module takes a free form command to run.  There is no parameter actually named 'free form'. See the examples!}
-
-	warn: ${2:yes}
-	creates: ${3:# a filename or (since 2.0) glob pattern, when it already exists, this step will B(not) be run.}
-	executable: ${4:# change the shell used to execute the command. Should be an absolute path to the executable.}
-	chdir: ${5:# cd into this directory before running the command}
-	removes: ${6:# a filename or (since 2.0) glob pattern, when it does not exist, this step will B(not) be run.}
+command: ${1:#Command}
+args:
+	creates: ${2:# a filename or (since 2.0) glob pattern, when it already exists, this step will B(not) be run.}
+	executable: ${3:# change the shell used to execute the command. Should be an absolute path to the executable.}
+	chdir: ${4:# cd into this directory before running the command}
+	removes: ${5:# a filename or (since 2.0) glob pattern, when it does not exist, this step will B(not) be run.}
 
 endsnippet
 
