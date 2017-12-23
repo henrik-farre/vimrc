@@ -694,6 +694,7 @@ set switchbuf=useopen             " Buffer switching the reuses already visible 
 "  +j:  Where it makes sense, remove a comment leader when joining lines.
 set formatoptions-=t
 set formatoptions+=croql
+" Fix comments when jusing j to join lines
 if v:version >= 704
   set formatoptions+=j
 endif
