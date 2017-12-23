@@ -2244,22 +2244,12 @@ blockinfile:
 endsnippet
 
 snippet archive "Creates a compressed archive of one or more files or trees." b
-archive:
-	path: ${1:# Remote absolute path, glob, or list of paths or globs for the file or files to compress or archive.}
-
-	group: ${2:# Name of the group that should own the file/directory, as would be fed to I(chown).}
-	format: ${3:#gz|bz2|zip}
-	dest: ${4:# The file name of the destination archive. This is required when C(path) refers to multiple files by either specifying a glob, a directory or multiple paths in a list.}
-	selevel: ${5:s0}
-	seuser: ${6:# User part of SELinux file context. Will default to system policy, if applicable. If set to C(_default), it will use the C(user) portion of the policy if available.}
-	setype: ${7:# Type part of SELinux file context, C(_default) feature works as for I(seuser).}
-	remove: ${8:no}
-	unsafe_writes: ${9:no}
-	serole: ${10:# Role part of SELinux file context, C(_default) feature works as for I(seuser).}
-	mode: ${11:# Mode the file or directory should be. For those used to I(/usr/bin/chmod) remember that modes are actually octal numbers (like 0644). Leaving off the leading zero will likely have unexpected results. As of version 1.8, the mode may be specified as a symbolic mode (for example, C(u+rwx) or C(u=rw,g=r,o=r)).}
-	attributes: ${12:# Attributes the file or directory should have. To get supported flags look at the man page for I(chattr) on the target system. This string should contain the attributes in the same order as the one displayed by I(lsattr).}
-	owner: ${13:# Name of the user that should own the file/directory, as would be fed to I(chown).}
-
+- name: ${1:Name}
+	archive:
+		path: ${2:# Remote absolute path, glob, or list of paths or globs for the file or files to compress or archive.}
+		format: ${3:#gz|bz2|zip}
+		dest: ${4:# The file name of the destination archive. This is required when C(path) refers to multiple files by either specifying a glob, a directory or multiple paths in a list.}
+		remove: ${5:no}
 endsnippet
 
 snippet file "Sets attributes of files" b
