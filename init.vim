@@ -1273,7 +1273,7 @@ if has_key(g:plugs, 'neomake')
   " Disable phpcs by default
   let g:neomake_php_enabled_makers = ['php', 'phpmd']
   let g:neomake_javascript_enabled_makers = ['jshint']
-  let g:neomake_open_list=0
+  let g:neomake_open_list=2
   let g:neomake_list_height=5
   " autocmd! BufWritePost * Neomake
   if has('nvim')
