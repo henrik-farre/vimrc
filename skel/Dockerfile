@@ -15,8 +15,11 @@
 # 11. Specify default environment variables, ports and volumes
 
 FROM alpine:latest
-MAINTAINER hfar@tv2.dk
 
-# ARG VCS_REF="local"
-# LABEL org.label-schema.vcs-ref=$VCS_REF \
-#       org.label-schema.vcs-url="https://github.com/something/repo.git"
+ARG VCS_REF="local"
+ARG VCS_URL="none"
+ARG VERSION="dev"
+LABEL org.label-schema.vcs-ref="$VCS_REF" \
+      org.label-schema.vcs-url="$VCS_URL" \
+      org.label-schema.version="$VERSION" \
+      maintainer="henrik@rockhopper.dk"
