@@ -139,8 +139,11 @@ endif
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
+" Neovim buildin
+if !has('nvim')
 " Active repository?: https://github.com/Firef0x/matchit/network
 Plug 'vim-scripts/matchit.zip'
+endif
 " Vim runtime files for Haml, Sass, and SCSS
 " Plug 'tpope/vim-haml'
 " Plug 'weynhamz/vim-plugin-minibufexpl'
