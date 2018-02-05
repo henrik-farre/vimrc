@@ -1212,7 +1212,7 @@ augroup END
 " ansible-vim does not detect playbooks
 augroup vimrc_ansible
     autocmd!
-    autocmd BufRead,BufNewFile ~/Dev/ansible/*.yml set ft=ansible
+    autocmd BufRead,BufNewFile */ansible/*.yml set ft=ansible
     autocmd BufRead,BufNewFile inventory set ft=ansible_hosts
 augroup END
 
