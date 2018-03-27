@@ -1490,8 +1490,9 @@ wait_for_connection:
 endsnippet
 
 snippet set_fact "Set host facts from a task" b
-set_fact:
-	key_value: ${1:# The C(set_fact) module takes key=value pairs as variables to set in the playbook scope. Or alternatively, accepts complex arguments using the C(args:) statement.}
+- name: ${1}
+	set_fact:
+		${2:Key}: ${3:Value}
 
 endsnippet
 
