@@ -1212,7 +1212,7 @@ augroup END
 " ansible-vim does not detect playbooks
 augroup vimrc_ansible
     autocmd!
-    autocmd BufRead,BufNewFile */ansible/*.yml set ft=ansible
+    autocmd BufRead,BufNewFile */ansible/*.yml set ft=yaml.ansible
     autocmd BufRead,BufNewFile inventory set ft=ansible_hosts
 augroup END
 
@@ -1220,6 +1220,7 @@ augroup END
 augroup vimrc_jenkins
   autocmd!
   autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
+  autocmd FileType grrovy setlocal omnifunc=javacomplete#Complete
 augroup END
 
 " Resize vdebug window
