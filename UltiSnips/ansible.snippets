@@ -2318,23 +2318,14 @@ snippet stat "retrieve file or file system status" b
 endsnippet
 
 snippet template "Templates a file out to a remote server." b
-template:
-	src: ${1:# Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.}
-	dest: ${2:# Location to render the template to on the remote machine.}
-
-	force: ${3:#yes|no}
-	selevel: ${4:s0}
-	seuser: ${5:# User part of SELinux file context. Will default to system policy, if applicable. If set to C(_default), it will use the C(user) portion of the policy if available.}
-	setype: ${6:# Type part of SELinux file context, C(_default) feature works as for I(seuser).}
-	unsafe_writes: ${7:no}
-	serole: ${8:# Role part of SELinux file context, C(_default) feature works as for I(seuser).}
-	mode: ${9:# Mode the file or directory should be. For those used to I(/usr/bin/chmod) remember that modes are actually octal numbers (like 0644). Leaving off the leading zero will likely have unexpected results. As of version 1.8, the mode may be specified as a symbolic mode (for example, C(u+rwx) or C(u=rw,g=r,o=r)).}
-	attributes: ${10:# Attributes the file or directory should have. To get supported flags look at the man page for I(chattr) on the target system. This string should contain the attributes in the same order as the one displayed by I(lsattr).}
-	owner: ${11:# Name of the user that should own the file/directory, as would be fed to I(chown).}
-	group: ${12:# Name of the group that should own the file/directory, as would be fed to I(chown).}
-	validate: ${13:# The validation command to run before copying into place. The path to the file to validate is passed in via '%s' which must be present as in the example below. The command is passed securely so shell features like expansion and pipes won't work.}
-	backup: ${14:yes|#no}
-
+- name: ${1}
+	template:
+		src: ${2:# Path of a Jinja2 formatted template on the Ansible controller. This can be a relative or absolute path.}
+		dest: ${3:# Location to render the template to on the remote machine.}
+		mode: ${4:0644}
+		owner: ${5:root}
+		group: ${6:root}
+		validate: ${7:# The validation command to run before copying into place. The path to the file to validate is passed in via '%s' which must be present as in the example below. The command is passed securely so shell features like expansion and pipes won't work.}
 endsnippet
 
 snippet unarchive "Unpacks an archive after (optionally) copying it from the local machine." b
