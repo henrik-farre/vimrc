@@ -1475,8 +1475,10 @@ include_role:
 endsnippet
 
 snippet fail "Fail with custom message" b
-fail:
-	msg: ${1:'Failed as requested from task'}
+- name: ${1:#Name}
+	fail:
+		msg: ${2:'Failed as requested from task'}
+	when: ${3:#Condition}
 
 endsnippet
 
