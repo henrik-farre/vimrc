@@ -1432,11 +1432,10 @@ wait_for:
 endsnippet
 
 snippet assert "Asserts given expressions are true" b
-assert:
-	that: ${1:# A string expression of the same form that can be passed to the 'when' statement}
-
-	msg: ${2:# The customized message used for a failing assertion}
-
+- name: ${1:# Assert something}
+	assert:
+		that: ${2:# A string expression of the same form that can be passed to the 'when' statement}
+		msg: ${3:# The customized message used for a failing assertion}
 endsnippet
 
 snippet async_status "Obtain status of asynchronous task" b
