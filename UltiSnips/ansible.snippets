@@ -1908,25 +1908,21 @@ ufw:
 endsnippet
 
 snippet cron "Manage cron.d and crontab entries." b
-cron:
-	cron_file: ${1:# If specified, uses this file instead of an individual user's crontab. If this is a relative path, it is interpreted with respect to /etc/cron.d. (If it is absolute, it will typically be /etc/crontab). To use the C(cron_file) parameter you must specify the C(user) as well.}
-	month: ${2:*}
-	disabled: ${3:no}
-	job: ${4:# The command to execute or, if env is set, the value of environment variable. Required if state=present.}
-	special_time: ${5:reboot|yearly|annually|monthly|weekly|daily|hourly}
-	user: ${6:root}
-	insertafter: ${7:# Used with C(state=present) and C(env). If specified, the environment variable will be inserted after the declaration of specified environment variable.}
-	insertbefore: ${8:# Used with C(state=present) and C(env). If specified, the environment variable will be inserted before the declaration of specified environment variable.}
-	day: ${9:*}
-	minute: ${10:*}
-	name: ${11:# Description of a crontab entry or, if env is set, the name of environment variable. Required if state=absent. Note that if name is not set and state=present, then a new crontab entry will always be created, regardless of existing ones.}
-	hour: ${12:*}
-	reboot: ${13:yes|#no}
-	state: ${14:#present|absent}
-	weekday: ${15:*}
-	env: ${16:yes|#no}
-	backup: ${17:yes|no}
-
+- name: ${1:Ensure cronjob is configured}
+	cron:
+		cron_file: ${2:# If specified, uses this file instead of an individual user's crontab. If this is a relative path, it is interpreted with respect to /etc/cron.d. (If it is absolute, it will typically be /etc/crontab). To use the C(cron_file) parameter you must specify the C(user) as well.}
+		disabled: ${3:no}
+		job: ${4:# The command to execute or, if env is set, the value of environment variable. Required if state=present.}
+		special_time: ${5:reboot|yearly|annually|monthly|weekly|daily|hourly}
+		user: ${6:root}
+		month: ${7:*}
+		day: ${8:*}
+		minute: ${9:*}
+		hour: ${10:*}
+		reboot: ${11:yes|#no}
+		state: ${12:#present|absent}
+		weekday: ${13:*}
+		name: ${14:# Description of a crontab entry or, if env is set, the name of environment variable. Required if state=absent. Note that if name is not set and state=present, then a new crontab entry will always be created, regardless of existing ones.}
 endsnippet
 
 snippet selinux "Change policy and state of SELinux" b
