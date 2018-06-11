@@ -1133,6 +1133,7 @@ if !&diff
     autocmd BufNewFile .tern-project 0r $VIMHOME/skel/tern-project | $,$d
     autocmd BufNewFile Dockerfile 0r $VIMHOME/skel/Dockerfile | $,$d
     autocmd BufNewFile .dockerignore 0r $VIMHOME/skel/dockerignore | $,$d
+    autocmd BufNewFile hest.yml 0r $VIMHOME/skel/hest.yml | $,$d
   augroup END
 endif
 

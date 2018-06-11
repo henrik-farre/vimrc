@@ -1,0 +1,10 @@
+---
+- name: Hest
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Debugging
+      debug:
+        var: hest
