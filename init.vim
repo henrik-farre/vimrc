@@ -385,6 +385,7 @@ let g:user_emmet_settings = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable syntax checking when in a diff
 if &diff
+  set noswapfile
   let g:loaded_javascript_syntax_checker = 1
   let g:loaded_html_syntax_checker = 1
   let g:loaded_xhtml_syntax_checker = 1
