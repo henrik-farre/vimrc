@@ -580,6 +580,11 @@ nnoremap <silent> <Leader>ig <Plug>IndentGuidesToggle
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ansible settings
+" When this variable is set, indentation will completely reset (unindent to column 0) after two newlines in insert-mode. The normal behavior of YAML is to always keep the previous indentation, even across multiple newlines with no content.
+let g:ansible_unindent_after_newline = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake
 " if has_key(g:plugs, 'neomake')
 "   let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
