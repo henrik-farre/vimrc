@@ -87,8 +87,12 @@ noremap Y "+y$
 " Automatically jump to end of text you pasted
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vnoremap <silent> y y`]
-vnoremap <silent> p p`]
-nnoremap <silent> p p`]
+" These leave `] when pasting using CTRL+o p
+" vnoremap <silent> p p`]
+" nnoremap <silent> p p`]
+" :h gp
+vnoremap <silent> p gp
+nnoremap <silent> p gp
 
 " Select pasted text, companion function to gv
 noremap gV `[v`]
