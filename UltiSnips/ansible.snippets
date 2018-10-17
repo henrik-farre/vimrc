@@ -1415,6 +1415,11 @@ snippet include_vars "Load variables from files, dynamically within a task." b
 		file: ${2:# The file name from which variables should be loaded.}
 endsnippet
 
+snippet include_tasks "Dynamically include a task list" b
+- name: ${1}
+	include_tasks: ${2:# The name of the imported file is specified directly without any other option..}
+endsnippet
+
 snippet wait_for "Waits for a condition before continuing." b
 wait_for:
 	active_connection_states: ${1:[u'ESTABLISHED', u'SYN_SENT', u'SYN_RECV', u'FIN_WAIT1', u'FIN_WAIT2', u'TIME_WAIT']}
