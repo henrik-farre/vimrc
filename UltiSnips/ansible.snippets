@@ -1462,15 +1462,9 @@ include:
 endsnippet
 
 snippet include_role "Load and execute a role" b
-include_role:
-	name: ${1:# The name of the role to be executed.}
-
-	allow_duplicates: ${2:yes}
-	tasks_from: ${3:main}
-	vars_from: ${4:main}
-	defaults_from: ${5:main}
-	private: ${6:# If True the variables from defaults/ and vars/ in a role will not be made available to the rest of the play.}
-
+- name: ${1:Name of task}
+	include_role:
+		name: ${2:# The name of the role to be executed.}
 endsnippet
 
 snippet fail "Fail with custom message" b
