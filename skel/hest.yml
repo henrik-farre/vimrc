@@ -7,4 +7,4 @@
   tasks:
     - name: Debugging
       debug:
-        var: hest
+        var: "hest"
