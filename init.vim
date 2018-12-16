@@ -183,7 +183,9 @@ Plug 'michalbachowski/vim-wombat256mod'
 " 24bit, but too blueish
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'nathanaelkane/vim-indent-guides'
-Plug 'machakann/vim-highlightedyank'
+if has('nvim') && v:version > 704
+  Plug 'machakann/vim-highlightedyank'
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
 " https://github.com/majutsushi/tagbar/wiki
