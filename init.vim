@@ -82,7 +82,9 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Improved PHP omnicompletion -> breaks YCM somehow
 " Plug 'shawncplus/phpcomplete.vim'
-Plug 'joonty/vdebug'
+if has("python3")
+  Plug 'joonty/vdebug'
+endif
 " Needed by pdv
 Plug 'tobyS/vmustache', { 'for': 'php' }
 " PHP doc
