@@ -83,7 +83,7 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Improved PHP omnicompletion -> breaks YCM somehow
 " Plug 'shawncplus/phpcomplete.vim'
 if has("python3")
-  Plug 'joonty/vdebug'
+  Plug 'joonty/vdebug', { 'for': 'php' }
 endif
 " Needed by pdv
 Plug 'tobyS/vmustache', { 'for': 'php' }
