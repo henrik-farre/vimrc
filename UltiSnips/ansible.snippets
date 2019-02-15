@@ -1496,21 +1496,6 @@ snippet set_fact "Set host facts from a task" b
 
 endsnippet
 
-snippet hipchat "Send a message to Hipchat." b
-hipchat:
-	room: ${1:# ID or name of the room.}
-	token: ${2:# API token.}
-	msg: ${3:# The message body.}
-
-	from: ${4:Ansible}
-	color: ${5:#yellow|red|green|purple|gray|random}
-	msg_format: ${6:#text|html}
-	api: ${7:https://api.hipchat.com/v1}
-	notify: ${8:#yes|no}
-	validate_certs: ${9:#yes|no}
-
-endsnippet
-
 snippet rhn_channel "Adds or removes Red Hat software channels" b
 rhn_channel:
 	sysname: ${1:# name of the system as it is known in RHN/Satellite}
@@ -1524,13 +1509,13 @@ rhn_channel:
 endsnippet
 
 snippet pacman "Manage packages with I(pacman)" b
-pacman:
-	state: ${1:#present|absent|latest}
-	upgrade: ${2:yes|no}
-	force: ${3:yes|no}
-	name: ${4:# Name of the package to install, upgrade, or remove.}
-	update_cache: ${5:yes|no}
-	recurse: ${6:yes|no}
+- name: ${1:Ensure package is installed}
+	pacman:
+		state: ${2:#present|absent|latest}
+		upgrade: ${3:yes|no}
+		name: ${4:# Name of the package to install, upgrade, or remove.}
+		update_cache: ${5:yes|no}
+		recurse: ${6:yes|no}
 
 endsnippet
 
