@@ -86,9 +86,9 @@ if has("python3")
   Plug 'joonty/vdebug', { 'for': 'php' }
 endif
 " Needed by pdv
-Plug 'tobyS/vmustache', { 'for': 'php' }
+" Plug 'tobyS/vmustache', { 'for': 'php' }
 " PHP doc
-Plug 'tobyS/pdv', { 'for': 'php' }
+" Plug 'tobyS/pdv', { 'for': 'php' }
 " Drupal enhancements
 " https://www.drupal.org/node/1389448#vundle - with modifications, so don't update
 " Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
