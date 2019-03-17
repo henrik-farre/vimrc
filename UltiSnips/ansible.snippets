@@ -1994,15 +1994,13 @@ parted:
 endsnippet
 
 snippet systemd "Manage services." b
-systemd:
-	name: ${1:# Name of the service. When using in a chroot environment you always need to specify the full name i.e. (crond.service).}
-
-	masked: ${2:yes|no}
-	state: ${3:started|stopped|restarted|reloaded}
-	no_block: ${4:yes|no}
-	enabled: ${5:yes|no}
-	daemon_reload: ${6:yes|no}
-	user: ${7:yes|no}
+- name: ${1:Ensure service is started}
+	systemd:
+		name: ${2:# Name of the service. When using in a chroot environment you always need to specify the full name i.e. (crond.service).}
+		state: ${3:started|stopped|restarted|reloaded}
+		enabled: ${4:yes|no}
+		daemon_reload: ${5:yes|no}
+		scope: ${6:system|user|global}
 
 endsnippet
 
