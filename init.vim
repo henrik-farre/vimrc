@@ -236,6 +236,8 @@ endif
 Plug 'pearofducks/ansible-vim'
 " Detect tabs vs spaces
 Plug 'tpope/vim-sleuth'
+" Hashicorp plugins
+Plug 'hashivim/vim-terraform'
 " Syntax and more for tmux
 Plug 'tmux-plugins/vim-tmux'
 " Plug 'itchyny/lightline.vim'
@@ -593,6 +595,10 @@ let g:ansible_unindent_after_newline = 0
 " if has_key(g:plugs, 'neomake')
 "   let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
 " endif
+
+" Terraform settings
+let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
+let g:terraform_align=1             " Set indent to 2 spaces
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
@@ -1097,7 +1103,7 @@ augroup vimrc_phpproject
   autocmd!
   autocmd BufRead,BufNewFile *.php call PHPProjectDetect('php')
   autocmd BufRead,BufNewFile *.scss call PHPProjectDetect('scss')
-  autocmd BufRead,BufNewFile *.yml call PHPProjectDetect('yaml')
+  " autocmd BufRead,BufNewFile *.yml call PHPProjectDetect('yaml')
   autocmd BufRead,BufNewFile *.module call PHPProjectDetect('php')
   autocmd BufRead,BufNewFile *.inc call PHPProjectDetect('php')
   autocmd BufRead,BufNewFile *.install call PHPProjectDetect('php')
@@ -1225,6 +1231,12 @@ augroup vimrc_ansible
     autocmd!
     autocmd BufRead,BufNewFile */ansible/*.yml set ft=yaml.ansible
     autocmd BufRead,BufNewFile inventory set ft=ansible_hosts
+augroup END
+
+" go-jira
+augroup vimrc_gojira
+  autocmd!
+  autocmd BufRead,BufNewFile /tmp/comment*.yml setlocal spell spelllang=da
 augroup END
 
 " Jenkinsfile
