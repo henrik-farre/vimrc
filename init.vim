@@ -139,6 +139,7 @@ if has('nvim') && has("python")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
 endif
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'dense-analysis/ale'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 " Neovim buildin
@@ -594,9 +595,23 @@ let g:ansible_unindent_after_newline = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neomake
-" if has_key(g:plugs, 'neomake')
-"   let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
-" endif
+"
+if has_key(g:plugs, 'neomake')
+  " let g:neomake_verbose = 2
+  " let g:neomake_logfile = '/tmp/neomake.log'
+  " let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
+  " Disable phpcs by default
+  let g:neomake_php_enabled_makers = ['php', 'phpmd']
+  let g:neomake_javascript_enabled_makers = ['jshint']
+  let g:neomake_open_list=0
+  let g:neomake_list_height=5
+  " autocmd! BufWritePost * Neomake
+  if has('nvim')
+    call neomake#configure#automake('nrw', 750)
+  else
+    call neomake#configure#automake('w')
+  endif
+endif
 
 " Terraform settings
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
@@ -1295,22 +1310,6 @@ augroup checktime
         autocmd BufEnter,FocusGained,BufEnter,FocusLost,WinLeave * checktime
     endif
 augroup END
-
-if has_key(g:plugs, 'neomake')
-  " let g:neomake_verbose = 2
-  " let g:neomake_logfile = '/tmp/neomake.log'
-  " Disable phpcs by default
-  let g:neomake_php_enabled_makers = ['php', 'phpmd']
-  let g:neomake_javascript_enabled_makers = ['jshint']
-  let g:neomake_open_list=2
-  let g:neomake_list_height=5
-  " autocmd! BufWritePost * Neomake
-  if has('nvim')
-    call neomake#configure#automake('nrw', 750)
-  else
-    call neomake#configure#automake('w')
-  endif
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Async ctags test
