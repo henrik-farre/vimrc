@@ -240,6 +240,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'hashivim/vim-terraform'
 " Syntax and more for tmux
 Plug 'tmux-plugins/vim-tmux'
+" TypeScript
+Plug 'leafgarland/typescript-vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
