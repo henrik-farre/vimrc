@@ -70,6 +70,9 @@ endif
 " JSON/JSONP
 " Plug 'elzr/vim-json'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Go
+Plug 'fatih/vim-go'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
@@ -140,6 +143,7 @@ if has('nvim') && has("python")
 endif
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'dense-analysis/ale'
+" Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 " Neovim buildin
@@ -166,7 +170,7 @@ if v:version >= 704
   Plug 'haya14busa/incsearch.vim'
 endif
 
-" Highlights on f F t F
+" Highlights on f F t T
 Plug 'bradford-smith94/quick-scope'
 " Dead repo:
 "Plug 'unblevable/quick-scope'
@@ -1254,6 +1258,7 @@ augroup END
 augroup vimrc_gojira
   autocmd!
   autocmd BufRead,BufNewFile /tmp/comment*.yml setlocal spell spelllang=da
+  autocmd BufRead,BufNewFile ~/.jira.d/templates/* setlocal ft=gotexttmpl
 augroup END
 
 " Jenkinsfile
