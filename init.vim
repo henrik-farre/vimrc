@@ -139,7 +139,7 @@ Plug 'mattn/emmet-vim'
 " Misc
 " Plug 'Shougo/neocomplete.vim'
 if has('nvim') && has("python")
-  Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' }
+  Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
 endif
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'dense-analysis/ale'
