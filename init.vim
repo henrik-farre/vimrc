@@ -250,6 +250,8 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Neovim-qt support
+Plug 'equalsraf/neovim-gui-shim'
 call plug#end()
 " }}}
 
@@ -494,6 +496,8 @@ if has_key(g:plugs, 'YouCompleteMe')
     \   'cs,java,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
     \   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
     \ }
+  " nvim freezes without this: https://github.com/junegunn/vim-peekaboo/issues/64
+  let g:ycm_filetype_blacklist = {'peekaboo': 1}
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
