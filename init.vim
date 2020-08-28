@@ -189,7 +189,10 @@ Plug 'michalbachowski/vim-wombat256mod'
 " Plug 'mhartington/oceanic-next'
 " 24bit, but too blueish
 " Plug 'whatyouhide/vim-gotham'
+" Does not work in neovim?
 " Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+
 if has('nvim') && v:version > 704
   Plug 'machakann/vim-highlightedyank'
 endif
@@ -251,7 +254,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Neovim-qt support
-Plug 'equalsraf/neovim-gui-shim'
+" Plug 'equalsraf/neovim-gui-shim'
+" Does not show any colors:
+" Plug 'rkitover/vimpager'
 call plug#end()
 " }}}
 
