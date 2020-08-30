@@ -516,6 +516,10 @@ let g:vdebug_features = { 'max_children': 128 }
 
 "let g:vdebug_features = { 'max_depth': 2048, 'max_children': 128 }
 
+if has_key(g:plugs, 'indentLine')
+  let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+endif
+
 " SuperTab
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
