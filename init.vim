@@ -18,7 +18,8 @@ if has('vim_starting')
   " ensure that we always start with Vim defaults (as opposed to those set by the current system)
   " Save 'diff' as set all& resets it, from http://ruderich.org/simon/config/vimrc
   let s:save_diff = &diff
-  set all&
+  " Disabled to fix lack of nvim resize, see https://github.com/neovim/neovim/issues/11066
+  " set all& " Reset all options
   " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
   set nocompatible                  " Don't be compatible with vi (ignored by neovim)
 
