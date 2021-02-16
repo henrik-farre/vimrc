@@ -49,6 +49,8 @@ nmap <BS> <C-h>
 
 " Pipe char is \, use CTRL-V to find it
 " '-' can't be used
+" Works in guis:
+" nnoremap <C-\|> <C-W>v
 nnoremap <C-\> <C-W>v
 nnoremap <C-_> :sp<CR>
 
