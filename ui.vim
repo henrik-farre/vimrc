@@ -72,6 +72,8 @@ endif
 " Colors
 if (has("termguicolors"))
  set termguicolors
+  " Colorizer setup - requires termguicolors
+  lua require'colorizer'.setup()
 endif
 colorscheme wombat256mod
 

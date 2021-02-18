@@ -258,6 +258,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'equalsraf/neovim-gui-shim'
 " Does not show any colors:
 " Plug 'rkitover/vimpager'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 " }}}
 
