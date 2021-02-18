@@ -49,6 +49,9 @@ if empty(glob("$VIMHOME/autoload/plug.vim"))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+
 silent! call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependencies
@@ -81,14 +84,15 @@ Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PHP
 " The official VIm indent script for PHP
-Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+" Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " Up-to-date PHP syntax file (5.3–5.6 support)
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+" Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Improved PHP omnicompletion -> breaks YCM somehow
 " Plug 'shawncplus/phpcomplete.vim'
-if has("python3")
-  Plug 'joonty/vdebug', { 'for': 'php' }
-endif
+" if has("python3")
+  " Plug 'joonty/vdebug'
+" endif
+Plug 'puremourning/vimspector'
 " Needed by pdv
 " Plug 'tobyS/vmustache', { 'for': 'php' }
 " PHP doc
@@ -254,6 +258,7 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 " Neovim-qt support
 " Plug 'equalsraf/neovim-gui-shim'
 " Does not show any colors:
@@ -548,10 +553,10 @@ if has_key(g:plugs, 'vim-expand-region')
 endif
 
 " NERD Commenter
-map <F5> :call NERDComment(0, 'toggle')<CR>
-inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
-" Inset spaces, mostly for Drupal CS
-let NERDSpaceDelims = 1
+""""" map <F5> :call NERDComment(0, 'toggle')<CR>
+""""" inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
+""""" " Inset spaces, mostly for Drupal CS
+""""" let NERDSpaceDelims = 1
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
