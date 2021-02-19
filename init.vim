@@ -106,7 +106,6 @@ Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'michalbachowski/vim-wombat256mod'
-Plug 'Yggdroot/indentLine'
 
 if has('nvim') && v:version > 704
   Plug 'machakann/vim-highlightedyank'
@@ -280,10 +279,6 @@ if has_key(g:plugs, 'YouCompleteMe')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has_key(g:plugs, 'indentLine')
-  let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-endif
-
 " SuperTab
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
