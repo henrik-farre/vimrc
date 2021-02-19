@@ -179,3 +179,16 @@ noremap <leader>bp :bp<cr>
 " Search for visually selected text:
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/\V<C-R>"<CR>
+
+" VimSpector
+nmap <leader><F5> <Plug>VimspectorContinue
+nmap <leader><F3> <Plug>VimspectorStop
+nmap <leader><F4> <Plug>VimspectorRestart
+nmap <leader><F6> <Plug>VimspectorPause
+nmap <leader><F8> <Plug>VimspectorAddFunctionBreakpoint
+nmap <F9> <Plug>VimspectorToggleBreakpoint
+" <Plug>VimspectorToggleConditionalBreakpoint
+" <Plug>VimspectorRunToCursor
+nmap <F10> <Plug>VimspectorStepOver
+nmap <F11> <Plug>VimspectorStepInto
+nmap <F12> <Plug>VimspectorStepOut

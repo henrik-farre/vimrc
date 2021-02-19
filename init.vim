@@ -81,13 +81,14 @@ Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PHP
 " The official VIm indent script for PHP
-Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+" Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 " Up-to-date PHP syntax file (5.3–5.6 support)
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+" Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Improved PHP omnicompletion -> breaks YCM somehow
 " Plug 'shawncplus/phpcomplete.vim'
 if has("python3")
-  Plug 'joonty/vdebug', { 'for': 'php' }
+  " Plug 'joonty/vdebug'
+  Plug 'puremourning/vimspector'
 endif
 " Needed by pdv
 " Plug 'tobyS/vmustache', { 'for': 'php' }
@@ -98,7 +99,7 @@ endif
 " Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
 " Code sniffer fixer: <leader>pcf
 " Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
-Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
+" Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " Slightly buggy, error about mark not being set
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
 " nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
@@ -254,6 +255,7 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 " Neovim-qt support
 " Plug 'equalsraf/neovim-gui-shim'
 " Does not show any colors:
@@ -508,16 +510,6 @@ if has_key(g:plugs, 'YouCompleteMe')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vdebug
-" Check local docker0 interface if Vdebug can't connect: ip addr show docker0
-let g:vdebug_keymap =  {"run": "<F11>"}
-let g:vdebug_options = {"path_maps": {"/srv/udvikling/": "/home/hfa/remote_mounts/dev/"}, "break_on_open": 0, "watch_window_style": "compact", "port": 9000}
-let g:vdebug_features = { 'max_children': 128 }
-" let g:vdebug_options["debug_file_level"] = 2
-" let g:vdebug_options["debug_file"] = "/tmp/vdebug.log"
-
-"let g:vdebug_features = { 'max_depth': 2048, 'max_children': 128 }
-
 if has_key(g:plugs, 'indentLine')
   let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 endif
@@ -554,7 +546,7 @@ inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
 let NERDSpaceDelims = 1
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " Use Ack to search for word under cursor
 " map <F9> <Esc>:exec("Ack --php ".expand("<cword>"))<CR>
@@ -1160,7 +1152,7 @@ augroup END
 
 augroup vimrc_symfony
   autocmd!
-  autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
+  " autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
   autocmd FileType php.symfony let g:neomake_php_phpcs_args_standard = "Symfony2"
   autocmd FileType php.symfony let g:neomake_symfony_phpcs_args_standard = "Symfony2"
   autocmd FileType php.symfony let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
@@ -1284,10 +1276,10 @@ augroup vimrc_jenkins
 augroup END
 
 " Resize vdebug window
-augroup vimrc_vdebug
-  autocmd!
-  autocmd WinEnter DebuggerWatch res 60
-augroup END
+" augroup vimrc_vdebug
+"   autocmd!
+"   autocmd WinEnter DebuggerWatch res 60
+" augroup END
 
 augroup vimrc_whitespace
   autocmd!
