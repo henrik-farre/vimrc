@@ -49,9 +49,6 @@ if empty(glob("$VIMHOME/autoload/plug.vim"))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-
 silent! call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependencies
@@ -89,10 +86,10 @@ Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 " Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Improved PHP omnicompletion -> breaks YCM somehow
 " Plug 'shawncplus/phpcomplete.vim'
-" if has("python3")
+if has("python3")
   " Plug 'joonty/vdebug'
-" endif
-Plug 'puremourning/vimspector'
+  Plug 'puremourning/vimspector'
+endif
 " Needed by pdv
 " Plug 'tobyS/vmustache', { 'for': 'php' }
 " PHP doc
@@ -553,13 +550,13 @@ if has_key(g:plugs, 'vim-expand-region')
 endif
 
 " NERD Commenter
-""""" map <F5> :call NERDComment(0, 'toggle')<CR>
-""""" inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
-""""" " Inset spaces, mostly for Drupal CS
-""""" let NERDSpaceDelims = 1
+map <F5> :call NERDComment(0, 'toggle')<CR>
+inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
+" Inset spaces, mostly for Drupal CS
+let NERDSpaceDelims = 1
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " Use Ack to search for word under cursor
 " map <F9> <Esc>:exec("Ack --php ".expand("<cword>"))<CR>
