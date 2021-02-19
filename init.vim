@@ -80,7 +80,7 @@ endif
 Plug 'mattn/emmet-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
-if has('nvim') && has("python")
+if has('nvim') && has("python3")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
 endif
 Plug 'ervandew/supertab'
