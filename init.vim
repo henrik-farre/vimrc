@@ -99,7 +99,7 @@ endif
 " Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
 " Code sniffer fixer: <leader>pcf
 " Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
-Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
+" Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " Slightly buggy, error about mark not being set
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
 " nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
@@ -510,16 +510,6 @@ if has_key(g:plugs, 'YouCompleteMe')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vdebug
-" Check local docker0 interface if Vdebug can't connect: ip addr show docker0
-let g:vdebug_keymap =  {"run": "<F11>"}
-let g:vdebug_options = {"path_maps": {"/srv/udvikling/": "/home/hfa/remote_mounts/dev/"}, "break_on_open": 0, "watch_window_style": "compact", "port": 9000}
-let g:vdebug_features = { 'max_children': 128 }
-" let g:vdebug_options["debug_file_level"] = 2
-" let g:vdebug_options["debug_file"] = "/tmp/vdebug.log"
-
-"let g:vdebug_features = { 'max_depth': 2048, 'max_children': 128 }
-
 if has_key(g:plugs, 'indentLine')
   let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 endif
@@ -1162,7 +1152,7 @@ augroup END
 
 augroup vimrc_symfony
   autocmd!
-  autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
+  " autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
   autocmd FileType php.symfony let g:neomake_php_phpcs_args_standard = "Symfony2"
   autocmd FileType php.symfony let g:neomake_symfony_phpcs_args_standard = "Symfony2"
   autocmd FileType php.symfony let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
@@ -1286,10 +1276,10 @@ augroup vimrc_jenkins
 augroup END
 
 " Resize vdebug window
-augroup vimrc_vdebug
-  autocmd!
-  autocmd WinEnter DebuggerWatch res 60
-augroup END
+" augroup vimrc_vdebug
+"   autocmd!
+"   autocmd WinEnter DebuggerWatch res 60
+" augroup END
 
 augroup vimrc_whitespace
   autocmd!
