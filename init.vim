@@ -51,14 +51,6 @@ endif
 
 silent! call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Dependencies
-" Remember to run 'make' in dir after install
-" Plug 'Shougo/vimproc'
-" Currently only needed by emmet-vim for snippet override
-" Plug 'mattn/webapi-vim'
-" Repeat plugin actions with "." only used by surround
-" Plug 'tpope/vim-repeat'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -66,10 +58,6 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 if executable('npm')
   Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 endif
-" Handlebars syntax + text objects:
-" Plug 'mustache/vim-mustache-handlebars'
-" JSON/JSONP
-" Plug 'elzr/vim-json'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go
 Plug 'fatih/vim-go'
@@ -79,94 +67,33 @@ Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PHP
-" The official VIm indent script for PHP
-" Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
-" Up-to-date PHP syntax file (5.3–5.6 support)
-" Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-" Improved PHP omnicompletion -> breaks YCM somehow
-" Plug 'shawncplus/phpcomplete.vim'
 if has("python3")
-  " Plug 'joonty/vdebug'
   Plug 'puremourning/vimspector'
 endif
-" Needed by pdv
-" Plug 'tobyS/vmustache', { 'for': 'php' }
-" PHP doc
-" Plug 'tobyS/pdv', { 'for': 'php' }
-" Drupal enhancements
-" https://www.drupal.org/node/1389448#vundle - with modifications, so don't update
-" Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
-" Code sniffer fixer: <leader>pcf
-" Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
-" Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
-" Slightly buggy, error about mark not being set
-" nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
-" nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
-" nnoremap <unique> <Leader>rm :call PhpRenameMethod()<CR>
-" nnoremap <unique> <Leader>eu :call PhpExtractUse()<CR>
-" vnoremap <unique> <Leader>ec :call PhpExtractConst()<CR>
-" nnoremap <unique> <Leader>ep :call PhpExtractClassProperty()<CR>
-" vnoremap <unique> <Leader>em :call PhpExtractMethod()<CR>
-" nnoremap <unique> <Leader>np :call PhpCreateProperty()<CR>
-" nnoremap <unique> <Leader>du :call PhpDetectUnusedUseStatements()<CR>
-" vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
-" nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
-" nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
-" Plug 'adoy/vim-php-refactoring-toolbox'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 " Shows git branch in statusline + tags to the one in .git/tags if exists
 if executable('git')
   Plug 'tpope/vim-fugitive'
 endif
-" Plug 'mattn/gist-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Web
 Plug 'mattn/emmet-vim'
-" HTML5 omnicomplete and syntax
-" Plug 'othree/html5.vim'
-" Twig, correct filetype set by autocmd in this file
-" Discontinued repository:
-" Plug 'evidens/vim-twig'
-" vim syntax for LESS (dynamic CSS)
-" Plug 'groenewege/vim-less'
-" Add CSS3 syntax support to vim's built-in `syntax/css.vim`
-" Plug 'hail2u/vim-css3-syntax'
-" Show CSS colors
-" Plug 'skammer/vim-css-color'
-" Smarty
-" Plug 'blueyed/smarty.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
-" Plug 'Shougo/neocomplete.vim'
 if has('nvim') && has("python")
   Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
 endif
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'dense-analysis/ale'
-" Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
-" Neovim buildin
 if !has('nvim')
-" Active repository?: https://github.com/Firef0x/matchit/network
-Plug 'vim-scripts/matchit.zip'
+  " Neovim buildin plugin
+  " Active repository?: https://github.com/Firef0x/matchit/network
+  Plug 'vim-scripts/matchit.zip'
 endif
-" Vim runtime files for Haml, Sass, and SCSS
-" Plug 'tpope/vim-haml'
-" Plug 'weynhamz/vim-plugin-minibufexpl'
-" Plug 'fholgado/minibufexpl.vim'
-" Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'benekastah/neomake'
-" Produces some strange sideeffects
-" Meta-p / Meta-Shift-p after paste, needs to be loaded before surround
-" Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'tpope/vim-surround'
-
-" Plug 'rking/ag.vim'
-" Plug 'mileszs/ack.vim'
 
 if v:version >= 704
   Plug 'haya14busa/incsearch.vim'
@@ -174,74 +101,31 @@ endif
 
 " Highlights on f F t T
 Plug 'bradford-smith94/quick-scope'
-" Dead repo:
-"Plug 'unblevable/quick-scope'
-
-" Plug 'vasconcelloslf/vim-interestingwords'
-" Like poster for Chrome, make http requests
-" Plug 'nicwest/QQ.vim'
 " Add visual marks in gutter
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'michalbachowski/vim-wombat256mod'
-" 24bit, too dim colors
-" Plug 'tyrannicaltoucan/vim-deep-space'
-" Plug 'mhartington/oceanic-next'
-" 24bit, but too blueish
-" Plug 'whatyouhide/vim-gotham'
-" Does not work in neovim?
-" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 
 if has('nvim') && v:version > 704
   Plug 'machakann/vim-highlightedyank'
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tags
-" https://github.com/majutsushi/tagbar/wiki
-" Adding support for javascript:
-" https://github.com/ramitos/jsctags
-" npm install -g git://github.com/ramitos/jsctags.git
-" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
-" Plug 'kien/ctrlp.vim'
-" Active fork:
-" Plug 'ctrlpvim/ctrlp.vim'
-" cmdline : cmdline history, yankring : yank history, menu : extension selector menu
-" Plug 'sgur/ctrlp-extensions.vim.git'
-" Plug 'JazzCore/ctrlp-cmatcher'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF, first repository contains plugin, the other commands and mappings
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Shows registers:
 Plug 'junegunn/vim-peekaboo'
-" Alternativ matcher written in python https://github.com/FelikZ/ctrlp-py-matcher
-" Annoying when using mixed html/php
-" See <leader>p
-" Plug 'sickill/vim-pasta'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 " Examples of python interpolation:
 " https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
-" PHP/Symfony snippets: https://github.com/algotech/ultisnips-php
 if v:version >= 704
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
 endif
-" Plug 'chrisbra/Recover.vim'
-" Plug 'mtth/scratch.vim'
-" Use v multiple times to expand selection
-" Plug 'terryma/vim-expand-region'
-" <Space>w
-" <Space>fX where X is a char
-" <Space>j/k linewise
-" Plug 'Lokaltog/vim-easymotion'
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'dyng/ctrlsf.vim'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 " Detect tabs vs spaces
@@ -256,10 +140,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-" Neovim-qt support
-" Plug 'equalsraf/neovim-gui-shim'
-" Does not show any colors:
-" Plug 'rkitover/vimpager'
 Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 " }}}
@@ -279,75 +159,12 @@ map <Space> <Leader>
 " if exists(":Tabularize")
 " Does not work...
 
-" Neocomplete {{{
-" Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-"
-" let g:neocomplete#auto_completion_start_length   = 2
-" let g:neocomplete#manual_completion_start_length = 0
-" let g:neocomplete#enable_auto_close_preview      = 1
-" let g:neocomplete#enable_auto_select = 1
-"
-" " <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"   " return neocomplete#close_popup() . "\<CR>"
-"   " For no inserting <CR> key.
-"   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-" endfunction
-"
-" " Enable heavy omni completion.
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
-" if !exists('g:neocomplete#force_omni_input_patterns')
-"   let g:neocomplete#force_omni_input_patterns = {}
-" endif
-" let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-"
-" " <TAB>: completion.
-" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-"
-"
-" if has('conceal')
-"   set conceallevel=2 concealcursor=i
-" endif
-" let g:neocomplete#max_list = 20
-" }}}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MiniBufExplorer
-" Use Ctrl+Pageup / Pagedown as Ctrl+Tab does not work in the urxvt
-if has_key(g:plugs, 'vim-plugin-minibufexpl')
-  let g:miniBufExplUseSingleClick = 1   " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
-  let g:miniBufExplCycleArround = 1     " Should buffer be cycled arround if hits the begining or the end while using MBE's buffer movement commands.
-  let g:miniBufExplBRSplit = 0          " Put new window above, else splitbelow is used
-  let g:miniBufExplorerMoreThanOne = 3  " Prevent problems with git difftool: https://github.com/fholgado/minibufexpl.vim/issues/17
-  let g:miniBufExplorerAutoStart = 0    " Do not auto start
-  noremap <C-TAB> :MBEbn<CR>
-  noremap <C-S-TAB> :MBEbp<CR>
-"  noremap <silent> [5^ :MBEbn<CR>
-"  noremap <silent> [6^ :MBEbp<CR>
-"  noremap <silent> <Leader>bn :MBEbn<CR>
-"  noremap <silent> <Leader>bp :MBEbp<CR>
-" FZF is used for that
-"  noremap <leader>bt :MBEToggle<CR>
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
 let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
 let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
 " YCM conflicts with UltiSnips TAB key usage
 " https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
-
-" let g:UltiSnipsExpandTrigger="<s-space>"
-" let g:UltiSnipsJumpForwardTrigger="<s-space>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-s-space>"
 
 " Make it work in terminal, as shift-space does not work. Requires supertab http://stackoverflow.com/a/22253548
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -360,8 +177,7 @@ if !has("python3")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" incsearch {{{
-" https://github.com/haya14busa/incsearch.vim
+" incsearch
 if has_key(g:plugs, 'incsearch')
   let g:incsearch#auto_nohlsearch = 0
   map /  <Plug>(incsearch-forward)
@@ -374,12 +190,6 @@ if has_key(g:plugs, 'incsearch')
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
 endif
-" }}}
-
-" showmarks
-" let g:showmarks_enable = 0
-" let g:showmarks_ignore_type="hqpr"
-" let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable plugins:
@@ -439,45 +249,6 @@ if has_key(g:plugs, 'fzf') && executable('fzf')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
-if has_key(g:plugs, 'ctrlp.vim')
-  " https://github.com/kien/ctrlp.vim
-  let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn|cache)$',
-      \ 'file': '\v\.(exe|so|dll|tgz|tar|zip|log)$',
-      \ }
-  " r:  the nearest ancestor that contains one of these directories or files: .git  .hg .svn .bzr _darcs
-  " a: like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file.
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-  " Max open 2 windows, vertical split, jump to first opened file, open in
-  " current window
-  let g:ctrlp_open_multiple_files = '2vjr'
-
-  " Quickly open the command-line CtrlP plugin.
-  " nnoremap <leader>q :CtrlPCmdline<CR>
-  " nnoremap <leader>t :CtrlPTag<cr>
-  " nnoremap <leader>p :CtrlP<cr>
-  " nnoremap <leader>b :CtrlPBuffer<cr>
-
-  " From http://robots.thoughtbot.com/faster-grepping-in-vim
-  if executable('ag')
-    " http://blog.patspam.com/2014/super-fast-ctrlp
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup
-          \ --ignore .git
-          \ --ignore .svn
-          \ --ignore .hg
-          \ --ignore .DS_Store
-          \ --ignore "**/*.pyc"
-          \ -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-  endif
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabular
 nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
@@ -520,24 +291,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " Tern for vim
 let g:tern#command = ['tern'] " it is installed via npm, and the command is in PATH
 
-" Gist vim
-" let g:gist_detect_filetype = 1
-" let g:gist_show_privates = 1
-" let g:gist_get_multiplefile = 1
-
 " delimitMate
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
-
-" Scratch
-" nnoremap <Leader>s :Scratch<CR>
-
-" vim-expand-region
-" https://github.com/terryma/vim-expand-region
-if has_key(g:plugs, 'vim-expand-region')
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
-endif
 
 " NERD Commenter
 map <F5> :call NERDComment(0, 'toggle')<CR>
@@ -545,57 +301,9 @@ inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
 " Inset spaces, mostly for Drupal CS
 let NERDSpaceDelims = 1
 
-" Tagbar
-" nmap <F8> :TagbarToggle<CR>
-
-" Use Ack to search for word under cursor
-" map <F9> <Esc>:exec("Ack --php ".expand("<cword>"))<CR>
-
-let g:pdv_template_dir = $VIMHOME."/pdv_tpls"
-" http://www.reddit.com/r/vim/comments/1nnngz/issue_with_pdv/
-" nnoremap <buffer> <Leader>d :call pdv#DocumentWithSnip()<CR>
-nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
-nnoremap <Leader>rd :call RemoveDocBlock()<CR>
-
-" Easy motion
-" map <Leader> <Plug>(easymotion-prefix)
-
-" Vim-php-cs-fixer
-" - Integration for https://github.com/fabpot/PHP-CS-Fixer
-" Level:
-" - psr0
-" - psr1
-" - psr2
-" - symfony
-" let g:php_cs_fixer_level = "all"                  " which level ?
-" Config:
-" - default: A default configuration
-" - magento: The configuration for a Magento application
-" - sf23   : The configuration for the Symfony 2.3+ branch
-" let g:php_cs_fixer_config = "default"             " configuration
-" let g:php_cs_fixer_php_path = "php"               " Path to PHP
-" Fixers:
-" let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd / <leader>pcf)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 1                    " Return the output of command if 1, else an inline information.
-" Default mappings <leader>pcf fix file / <leader>pcd fix directory
-
 " JSON
 " Don't hide "
 let g:vim_json_syntax_conceal = 0
-
-" Indentguides
-" <Leader>ig
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 2
-nnoremap <silent> <Leader>ig <Plug>IndentGuidesToggle
-" let g:indent_guides_guide_size = 1
-" }}}
-
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#omni_patterns = {}
-" let g:deoplete#omni_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'"
 
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -608,15 +316,9 @@ let g:ansible_unindent_after_newline = 0
 " Neomake
 "
 if has_key(g:plugs, 'neomake')
-  " let g:neomake_verbose = 2
-  " let g:neomake_logfile = '/tmp/neomake.log'
-  " let g:neomake_php_phpmd_args = ['%:p', 'text', '/home/hfa/.config/phpmd/phpmd_swat_rules.xml']
-  " Disable phpcs by default
-  let g:neomake_php_enabled_makers = ['php', 'phpmd']
   let g:neomake_javascript_enabled_makers = ['jshint']
   let g:neomake_open_list=0
   let g:neomake_list_height=5
-  " autocmd! BufWritePost * Neomake
   if has('nvim')
     call neomake#configure#automake('nrw', 750)
   else
@@ -788,10 +490,6 @@ endif
 
 set completeopt+=menu,longest,preview
 set complete-=i                   " disabled scanning of include files
-" set autochdir                     " always switch to the current file directory..
-" not every vim is compiled with this, use the following line instead
-" If you use command-t plugin, it conflicts with this, comment it out.
-"autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 " Wrapping/linebreak
 set textwidth=0                   " Do not wrap text
@@ -833,9 +531,6 @@ if !isdirectory($VIMHOME."/swaps/")
     call mkdir($VIMHOME."/swaps/", "", 0700)
 endif
 set directory=$VIMHOME/swaps/       " swap files
-" set viewdir=~/.vim/views/
-" au BufWinLeave * silent! mkview         " make vim save view (state) (folds, cursor, etc)
-" au BufWinEnter * silent! loadview       " make vim load view (state) (folds, cursor, etc)
 
 " Use less space for line numbering if possible
 if v:version >= 700
@@ -844,12 +539,6 @@ if v:version >= 700
     catch
     endtry
 endif
-
-" if v:version >= 703
-"     " tells Vim to create <FILENAME>.un~ files whenever you edit a file. These files contain undo information so you can undo previous actions even after you close and reopen a file.
-"     set undofile
-"     set undodir=~/.vim/undo,~/tmp,/tmp
-" endif
 
 set keymodel=startsel             " Allow select of text in insert mode using shift
 
@@ -930,16 +619,6 @@ function! <SID>BufcloseCloseIt()
   endif
 endfunction
 
-" https://github.com/sanguis/drupal-snippets/blob/master/plugin/snipMate_drupal.vim
-" Drupal filename function. Use instead of Filename().
-function! DrupalFilename(...)
-  " We need to chop off two path components. This has no adverse
-  " effect on files with only one path component.
-  let filename = expand('%:t:r:r')
-  if filename == '' | return a:0 == 2 ? a:2 : '' | endif
-  return !a:0 || a:1 == '' ? filename : substitute(a:1, '$1', filename, 'g')
-endf
-
 " Removes trailing spaces
 function! TrimWhiteSpace()
   " Preparation: save last search, and cursor position.
@@ -952,148 +631,6 @@ function! TrimWhiteSpace()
   call cursor(l, c)
 endfunction
 command! TrimWhiteSpace call TrimWhiteSpace()
-
-function! RemoveDocBlock()
-  normal [/V]/x
-endfunction
-
-" Based on https://www.drupal.org/project/vimrc
-let s:project_root_cache = {}
-function! FindProjectRoot(markers)
-  let s:slash = !exists("+shellslash") || &shellslash ? '/' : '\'
-  let directory = expand('%:p:h')
-
-  " If we have a cached answer, then return it.
-  if has_key(s:project_root_cache, directory)
-    return s:project_root_cache[directory]
-  endif
-
-  let path_components = split(directory, s:slash, 1)
-  let project_root = remove(path_components, 0)
-
-  for marker_list in values(a:markers)
-    call map(marker_list, 'join(v:val, s:slash)')
-  endfor
-
-  for part in path_components
-    let project_root .= s:slash . part
-
-    for project_type in keys(a:markers)
-        let project = get(a:markers,project_type,[])
-        for marker in project
-          let is_project_root = 1
-          " Since globpath() is built in to vim, this should be fast.
-          if globpath(project_root, marker) == ''
-            let is_project_root = 0
-            break
-          endif
-        endfor " marker
-
-        " If all the markers are there, then this looks like a the project root.
-        if is_project_root
-          let s:project_root_cache[directory] = {'root': project_root, 'type': project_type}
-          return s:project_root_cache[directory]
-        endif
-    endfor
-  endfor " part
-
-  return {}
-endfunction
-
-" Set options for Symfony Project
-function! PHPProjectDetect(type)
-  let markers = {'Symfony' : [
-        \   ['app', 'Resources'],
-        \ ],
-        \ 'Drupal7' : [
-        \   ['index.php'],
-        \   ['update.php'],
-        \   ['includes', 'bootstrap.inc'],
-        \   ['modules', 'node', 'node.module'],
-        \   ['modules', 'system', 'system.module'],
-        \ ],
-        \ 'Drupal8' : [
-        \   ['index.php'],
-        \   ['core', 'install.php'],
-        \   ['core', 'includes', 'bootstrap.inc'],
-        \   ['core', 'modules', 'node', 'node.module'],
-        \   ['core', 'modules', 'system', 'system.module'],
-        \ ], }
-
-  let l:project = FindProjectRoot(markers)
-  let l:filetype_suffix = ''
-
-  if has_key(l:project, 'root')
-    if l:project['type'] == 'Symfony'
-      let l:filetype_suffix = 'symfony'
-      let l:theme_path=l:project['root'].'/app/Resources/themes/**'
-      execute 'set path+='.l:theme_path
-    elseif l:project['type'] == 'Drupal7'
-      let l:filetype_suffix = 'drupal'
-    elseif l:project['type'] == 'Drupal8'
-      let l:filetype_suffix = 'drupal'
-    endif
-
-    execute 'setlocal filetype=' . a:type . '.'. l:filetype_suffix
-  endif
-endfun
-
-" Based on https://github.com/qbbr/vim-symfony/blob/master/plugin/sf2jmp2viewFromView.vim
-" Jump to a twig in symfony
-function! s:SfJumpToTwig()
-  let linecontent = getline(line('.'))
-  let matches = matchlist(linecontent, '\v\C([A-Z]{1}[a-z]{1,}Bundle):([^:]+)?:([^.:]+\.html\.twig)')
-
-  if (empty(matches))
-    echohl WarningMsg | echomsg "Pattern not found" | echohl None
-    return
-  endif
-
-  try
-    let filename = matches[1].'/'.matches[2].'/'.matches[3]
-    execute ":find ".filename
-  catch
-    echohl WarningMsg | echomsg "Template file ". filename ." not found" | echohl None
-  endtry
-endfunction
-
-command! SfJumpToTwig call s:SfJumpToTwig()
-
-" Based on https://raw.githubusercontent.com/qbbr/vim-symfony/master/plugin/sf2jmp2controllerFromRouting.vim
-function! s:Sf2jmp2controllerFromRouting()
-    let linecontent = getline(line('.'))
-
-    " @AcmeDemoBundle/Controller/DefaultController.php
-    " 1 - str, 2 - namespace, 3 - bundle, 4 - controller
-    let matches = matchlist(linecontent, '\v\C\@([A-Z]{1}[a-z]{1,})(\w+Bundle)/Controller/(\w+)Controller\.php')
-
-    if (empty(matches))
-        " _controller: AcmeDemoBundle:Welcome:index
-        " 5 - action (not need)
-        let matches = matchlist(linecontent, '\v\C_controller: \([A-Z]\{1,}[a-z]\{1,}\):\(\w\+\):\(\w\+\)')
-    endif
-
-    echo matches
-
-    if (empty(matches))
-        echohl WarningMsg | echomsg "controller not found" | echohl None
-        return
-    endif
-
-    let filename = 'src/' . matches[1] . '/' . matches[2] . '/Controller/'. matches[3] . 'Controller.php'
-
-    echo filename
-
-    if filereadable(filename)
-        edit filename
-    else
-        echohl WarningMsg | echomsg "could not open controller (path: " . filename . ")" | echohl None
-    endif
-endfunction
-
-command! SfJumpToController call s:Sf2jmp2controllerFromRouting()
-
-" }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
@@ -1127,51 +664,13 @@ augroup vimrc_complete
   autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 augroup END
 
-augroup vimrc_phpproject
-  autocmd!
-  autocmd BufRead,BufNewFile *.php call PHPProjectDetect('php')
-  autocmd BufRead,BufNewFile *.scss call PHPProjectDetect('scss')
-  " autocmd BufRead,BufNewFile *.yml call PHPProjectDetect('yaml')
-  autocmd BufRead,BufNewFile *.module call PHPProjectDetect('php')
-  autocmd BufRead,BufNewFile *.inc call PHPProjectDetect('php')
-  autocmd BufRead,BufNewFile *.install call PHPProjectDetect('php')
-  " Based on vimrc from http://www.shlomifish.org/open-source/projects/conf/vim/current/vimrc
-  autocmd BufRead,BufNewFile *.ini.append.php set filetype=ezpini
-  " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
-  " Don't repeat singleline comments
-  autocmd FileType php,php.drupal,php.symfony set comments-=:// comments+=f:// comments+=sl:/*,mb:*,elx:*/
-augroup END
-
-augroup vimrc_drupal
-  autocmd!
-  autocmd FileType php.drupal let g:php_cs_fixer_level = "Drupal"
-  autocmd FileType php.drupal let g:neomake_php_phpcs_args_standard = "Drupal"
-  autocmd FileType php.drupal let g:neomake_drupal_phpcs_args_standard = "Drupal"
-  autocmd FileType php.drupal let g:neomake_drupal_enabled_makers = ['php', 'phpcs', 'phpmd']
-augroup END
-
-augroup vimrc_symfony
-  autocmd!
-  " autocmd FileType php.symfony let g:vdebug_options['path_maps'] = {"/var/www": "/home/enrique/Localdev/pompdelux/www"}
-  autocmd FileType php.symfony let g:neomake_php_phpcs_args_standard = "Symfony2"
-  autocmd FileType php.symfony let g:neomake_symfony_phpcs_args_standard = "Symfony2"
-  autocmd FileType php.symfony let g:neomake_symfony_enabled_makers = ['php', 'phpcs', 'phpmd']
-  autocmd FileType php.symfony let g:php_cs_fixer_level = "symfony"
-  autocmd FileType php.symfony let g:php_cs_fixer_config = "sf23"
-  autocmd FileType php.symfony setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufEnter *Controller.php nmap <buffer><leader>g :SfJumpToTwig<CR>
-  autocmd BufEnter routing.yml nmap <buffer><leader>g :SfJumpToController<CR>
-augroup END
-
 " Reads the skeleton files, delete empty line
 if !&diff
   augroup vimrc_skeleton
     autocmd!
-"    autocmd BufNewFile *.php 0r $VIMHOME/skel/php |normal Gdd2h
     autocmd BufNewFile *.module 0r $VIMHOME/skel/drupal_module |normal Gdd2h
     autocmd BufNewFile *.info 0r $VIMHOME/skel/drupal_info |normal Gdd2h
     autocmd BufNewFile *.html 0r $VIMHOME/skel/html | $,$d
-"    autocmd BufNewFile *.html setlocal ft=xhtml
     autocmd BufNewFile *.css 0r $VIMHOME/skel/css | $,$d
     autocmd BufNewFile *.sh 0r $VIMHOME/skel/bash | $,$d
     autocmd BufNewFile .tern-project 0r $VIMHOME/skel/tern-project | $,$d
@@ -1240,13 +739,6 @@ augroup END
 "     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " augroup END
 
-augroup vimrc_twig
-    autocmd!
-    autocmd BufNewFile,BufRead *.html.twig,*.twig setlocal filetype=html.twig
-    " TODO: check if symfony project:
-    autocmd FileType html.twig setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-augroup END
-
 " Use "json" to format .json
 " https://github.com/trentm/json
 augroup vimrc_json
@@ -1274,12 +766,6 @@ augroup vimrc_jenkins
   autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
   autocmd FileType grrovy setlocal omnifunc=javacomplete#Complete
 augroup END
-
-" Resize vdebug window
-" augroup vimrc_vdebug
-"   autocmd!
-"   autocmd WinEnter DebuggerWatch res 60
-" augroup END
 
 augroup vimrc_whitespace
   autocmd!
@@ -1324,32 +810,6 @@ augroup checktime
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Async ctags test
-if has('nvim')
- function! s:CtagsJobStart()
-     let job_args = [&shell, '-c', 'git ctags']
-     call jobstart(job_args, s:CtagsJobCallbacks)
- endfunction
-
- function! s:CtagsJobHandler(id, data, event)
-   " Disable if stderr - not git project probably
-   if a:event ==# "stderr"
-   endif
- endfunction
-
- let s:CtagsJobCallbacks = {
-       \ 'on_stdout': function('s:CtagsJobHandler'),
-       \ 'on_stderr': function('s:CtagsJobHandler'),
-       \ 'on_exit': function('s:CtagsJobHandler'),
-       \ }
-
-  augroup vimrc_ctags
-    autocmd!
-    autocmd BufWritePost *.php :call s:CtagsJobStart()
-  augroup END
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Detect Markdown filetype
 "
 function! MarkdownTypeDetect()
@@ -1360,26 +820,6 @@ function! MarkdownTypeDetect()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Utils functions
-"
-" Rename current file, based on https://github.com/martin-svk/dot-files/blob/master/neovim/autoload/utils.vim#L111
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    execute ':saveas ' . new_name
-    execute ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
-command! Rename :call RenameFile()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
 "
 source $VIMHOME/ui.vim
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" turn off any existing search
-" Handled by incsearch plugin
-" au VimEnter * nohls

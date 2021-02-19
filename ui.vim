@@ -77,36 +77,6 @@ if (has("termguicolors"))
 endif
 colorscheme wombat256mod
 
-" set cursorline  " Highlight current line
-" hi cursorline guibg=#000070
-" Highlight current line in insert mode.
-" autocmd InsertLeave * se nocul
-" autocmd InsertEnter * se cul
-" hi CursorColumn guibg=#ff0050
-"     hi Pmenu        guifg=#00ffff guibg=#000000            ctermbg=0 ctermfg=6
-"     hi PmenuSel     guifg=#ffff00 guibg=#000000 gui=bold   cterm=bold ctermfg=3
-"     hi PmenuSbar    guibg=#204d40                          ctermbg=6
-"     hi PmenuThumb   guifg=#38ff56                          ctermfg=3
-"     hi WildMenu     guifg=#20012e guibg=#00a675 gui=bold   ctermfg=NONE ctermbg=NONE cterm=bold
-"
-" MiniBufExplorer
-hi MBENormal            guifg=#cfbfad
-hi MBEChanged           guifg=#ffffff guibg=#ff0000
-hi MBEVisibleNormal     guifg=#cfcfcd gui=bold cterm=bold
-hi MBEVisibleChanged    guifg=#ffffff guibg=#ff0000 gui=bold cterm=bold
-"
-"     " Invisible character colors
-"     " Disabled because it changes gutter color in wombat256
-"     " hi NonText guifg=#161640
-"     " hi SpecialKey guifg=#161640
-"
-"     " For statusline
-"     hi User1 guifg=#eee040
-"     hi User2 guifg=#dd3333
-"     hi User3 guifg=#ff66ff
-"     hi User4 guifg=#a0ee40
-"     hi User5 guifg=#eeee40
-"
 " SignColumn
 hi SignColumn guibg=#121212 ctermbg=232
 
@@ -141,44 +111,6 @@ if &diff
   " http://vim.wikia.com/wiki/Start_with_a_wide_window_for_diff
   let &columns = 320 + 2*&foldcolumn + 1
 endif
-
-" Highlight redundant whitespaces.
-" hi RedundantSpaces ctermbg=blue guibg=blue
-" match RedundantSpaces /\s\+$\| \+\ze\t/
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Statusline
-"
-" n: Buffernumber
-"     set statusline=[%n]\ 
-"     " git branch
-"     set statusline+=%1*
-"     if has_key(g:plugs, 'fugitive')
-"       set statusline+=%{fugitive#statusline()}
-"     endif
-"     set statusline+=%*
-"     " set statusline+=\ %F\ 
-"     " Display min 25, max 60 chars of F (Full path), from the right
-"     set statusline+=\ %-25.60F\ 
-"     " r: Read only flag
-"     " y: Filetype
-"     " m: Modified flag
-"     set statusline+=%r%y%m
-"
-"     " display a warning if fileformat isnt unix
-"     set statusline+=%#warningmsg#
-"     set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-"     set statusline+=%*
-"
-"     " display a warning if file encoding isnt utf-8
-"     set statusline+=%#warningmsg#
-"
-"     " display a warning if &paste is set
-"     set statusline+=%#error#
-"     set statusline+=%{&paste?'[paste]':''}
-"     set statusline+=%*
-"
-"     set statusline+=%=\ %l,%c%V\ %<%P
 
 function! AirlineGitInfo()
   let git = fugitive#head()
