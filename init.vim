@@ -138,7 +138,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'norcalli/nvim-colorizer.lua'
+if has('nvim')
+  Plug 'norcalli/nvim-colorizer.lua'
+endif
 call plug#end()
 " }}}
 

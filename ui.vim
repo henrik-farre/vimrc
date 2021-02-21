@@ -72,8 +72,10 @@ endif
 " Colors
 if (has("termguicolors"))
  set termguicolors
-  " Colorizer setup - requires termguicolors
-  lua require('colorizer').setup()
+  if has_key(g:plugs, 'nvim-colorizer.lua')
+    " Colorizer setup - requires termguicolors
+    lua require('colorizer').setup()
+  endif
 endif
 colorscheme wombat256mod
 
@@ -123,7 +125,9 @@ endfunction
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'jellybeans'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
 " Hides neomake output:
 " let g:airline_skip_empty_sections = 1
 let g:airline#extensions#neomake#enabled = 1
