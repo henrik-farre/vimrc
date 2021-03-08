@@ -141,6 +141,7 @@ Plug 'ryanoasis/vim-devicons'
 if has('nvim')
   Plug 'norcalli/nvim-colorizer.lua'
 endif
+Plug 'sbdchd/neoformat'
 call plug#end()
 " }}}
 
@@ -734,13 +735,6 @@ augroup END
 "     autocmd!
 "     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " augroup END
-
-" Use "json" to format .json
-" https://github.com/trentm/json
-augroup vimrc_json
-    autocmd!
-    autocmd FileType json setlocal equalprg=json
-augroup END
 
 " ansible-vim does not detect playbooks
 augroup vimrc_ansible
