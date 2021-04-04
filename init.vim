@@ -766,10 +766,10 @@ augroup vimrc_whitespace
 augroup END
 
 " Resize splits when the window is resized
-augroup vimrc_resize
-  autocmd!
-  autocmd VimResized * :wincmd =
-augroup END
+" augroup vimrc_resize
+"   autocmd!
+"   autocmd VimResized * :wincmd =
+" augroup END
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
