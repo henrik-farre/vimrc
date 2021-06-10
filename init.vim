@@ -18,9 +18,12 @@ if has('vim_starting')
   " Save 'diff' as set all& resets it, from http://ruderich.org/simon/config/vimrc
   let s:save_diff = &diff
   " Disabled to fix lack of nvim resize, see https://github.com/neovim/neovim/issues/11066
-  " set all& " Reset all options
-  " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
-  set nocompatible                  " Don't be compatible with vi (ignored by neovim)
+  " - also it should not be needed for neovim https://github.com/neovim/neovim/issues/5783
+  if !has('nvim')
+    set all& " Reset all options
+    " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
+    set nocompatible                  " Don't be compatible with vi (ignored by neovim)
+  endif
 
   if has('nvim')
     " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
