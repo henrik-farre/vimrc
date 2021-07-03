@@ -333,17 +333,20 @@ endif
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
 let g:terraform_align=1             " Set indent to 2 spaces
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treesitter
 "
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "yaml" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "yaml", "python", "bash", "json", "javascript", "html", "css", "lua" },
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
   },
 }
 EOF
@@ -377,9 +380,8 @@ set lazyredraw                    " Speed up macros
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding rules
 "
-" https://github.com/Konfekt/FastFold Refreshes on save
-set foldmethod=indent             " fold based on indent
-" set foldmethod=manual             " http://kevin.colyar.net/2011/05/fixing-vim-auto-complete-slowness-in-large-projects/
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldnestmax=10                " deepest fold is 10 levels
 set nofoldenable                  " dont fold by default
 set foldlevel=1                   " this is just what i use
