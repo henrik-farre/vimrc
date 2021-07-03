@@ -52,6 +52,7 @@ if empty(glob("$VIMHOME/autoload/plug.vim"))
 endif
 
 silent! call plug#begin("$VIMHOME/bundle")
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
@@ -329,6 +330,21 @@ endif
 " Terraform settings
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
 let g:terraform_align=1             " Set indent to 2 spaces
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Treesitter
+"
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "yaml" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
