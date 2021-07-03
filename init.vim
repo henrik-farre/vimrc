@@ -147,6 +147,7 @@ if has('nvim')
   Plug 'norcalli/nvim-colorizer.lua'
 endif
 Plug 'sbdchd/neoformat'
+Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 " }}}
 
@@ -346,6 +347,12 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent blankline
+"
+let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
+let g:indent_blankline_use_treesitter = v:true
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding

@@ -86,13 +86,16 @@ hi SignColumn guibg=#121212 ctermbg=232
 " Neovim highlight group to yanked content
 hi HighlightedyankRegion cterm=reverse gui=reverse
 
+" Indent guide
+hi IndentBlanklineChar guifg=#2f2f2f gui=nocombine
+
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
 " highlight NonText guifg=fg guibg=bg ctermfg=fg ctermbg=bg gui=none cterm=none
 
 " Indet guides
-hi IndentGuidesOdd  ctermbg=236
-hi IndentGuidesEven ctermbg=235
+" hi IndentGuidesOdd  ctermbg=236
+" hi IndentGuidesEven ctermbg=235
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
