@@ -81,7 +81,9 @@ endif
 colorscheme vem-dark
 
 " SignColumn
-hi SignColumn guibg=#121212 ctermbg=232
+" hi SignColumn guibg=#121212 ctermbg=232
+" Change split background between windows
+hi VertSplit guibg=NONE guifg=#444444 ctermbg=NONE ctermfg=NONE
 
 " Neovim highlight group to yanked content
 hi HighlightedyankRegion cterm=reverse gui=reverse

@@ -455,7 +455,8 @@ set history=10000                 " remember more than the default 20 commands a
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showcmd                       " Show (partial) command in status line.
 set showmode                      " display the current mode
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+" set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set fillchars+=vert:│
 set showfulltag                   " Show full tag for completion
 set switchbuf=useopen             " Buffer switching the reuses already visible buffers
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
