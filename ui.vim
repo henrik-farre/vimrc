@@ -77,7 +77,8 @@ if (has("termguicolors"))
     lua require('colorizer').setup()
   endif
 endif
-colorscheme wombat256mod
+" colorscheme wombat256mod
+colorscheme vem-dark
 
 " SignColumn
 hi SignColumn guibg=#121212 ctermbg=232
