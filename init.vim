@@ -93,7 +93,6 @@ if !has('nvim')
   Plug 'vim-scripts/matchit.zip'
 endif
 Plug 'scrooloose/nerdcommenter'
-Plug 'benekastah/neomake'
 Plug 'tpope/vim-surround'
 
 if v:version >= 704
