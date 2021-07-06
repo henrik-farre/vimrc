@@ -135,7 +135,10 @@ Plug 'leafgarland/typescript-vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Icons for filetypes
 Plug 'ryanoasis/vim-devicons'
+" Icons for filetypes - support for telescope
+Plug 'kyazdani42/nvim-web-devicons'
 if has('nvim')
   Plug 'norcalli/nvim-colorizer.lua'
 endif
@@ -318,6 +321,30 @@ endif
 " Terraform settings
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
 let g:terraform_align=1             " Set indent to 2 spaces
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DevIcons
+"
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
+" ryanoasis/vim-devicons contains an explicit setting for .zshrc: https://github.com/ryanoasis/vim-devicons/blob/master/plugin/webdevicons.vim#L300
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.zshrc'] = ''
+
+" nvim-web-devicons also has a override for .zshrc https://github.com/kyazdani42/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua#L175
+lua <<EOF
+require'nvim-web-devicons'.setup {
+  override = {
+    [".zshrc"] = {
+      icon = "",
+      color = "#428850",
+      name = "Zsh"
+    }
+  };
+ default = true;
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treesitter
