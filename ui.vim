@@ -79,6 +79,15 @@ endif
 " colorscheme wombat256mod
 colorscheme vem-dark
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cursor
+"
+hi Cursor cterm=reverse gui=reverse ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
+hi CursorLine term=underline cterm=underline guibg=#282828
+hi CursorLineNr term=underline cterm=underline guifg=Grey guibg=#282828
+set guicursor=n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+set cursorline
+
 " SignColumn
 " hi SignColumn guibg=#121212 ctermbg=232
 " Change split background between windows
