@@ -81,11 +81,11 @@ endif
 " General Web
 Plug 'mattn/emmet-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Completion
+Plug 'hrsh7th/nvim-compe'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
-if has('nvim') && has("python3")
-  Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py' }
-endif
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 if !has('nvim')
   " Neovim buildin plugin
@@ -259,38 +259,6 @@ nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:\zs<CR>
 vmap <leader>a: :Tabularize /:\zs<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-if has_key(g:plugs, 'YouCompleteMe')
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-  let g:ycm_min_num_of_chars_for_completion = 3
-  let g:ycm_use_ultisnips_completer = 1
-  " let g:ycm_add_preview_to_completeopt = 1 " Allready set in completeopt
-  let g:ycm_autoclose_preview_windor_after_completion = 1
-  let g:ycm_autoclose_preview_window_after_insertion = 0
-  let g:ycm_collect_identifiers_from_comments_and_strings = 0
-  let g:ycm_collect_identifiers_from_tags_files = 1
-  let g:ycm_seed_identifiers_with_syntax = 1
-  let g:ycm_complete_in_comments = 1
-  let g:ycm_complete_in_strings = 1
-  let g:ycm_auto_trigger = 1
-  let g:ycm_semantic_triggers =  {
-    \   'php,php.symfony,php.drupal' : ['->', '::'],
-    \   'cs,java,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-    \   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
-    \ }
-  " nvim freezes without this: https://github.com/junegunn/vim-peekaboo/issues/64
-  let g:ycm_filetype_blacklist = {'peekaboo': 1}
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SuperTab
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" Tern for vim
-let g:tern#command = ['tern'] " it is installed via npm, and the command is in PATH
 
 " delimitMate
 let delimitMate_expand_cr = 1
