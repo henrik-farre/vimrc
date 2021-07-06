@@ -106,7 +106,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
-" Plug 'michalbachowski/vim-wombat256mod'
 Plug 'pacha/vem-dark'
 
 if has('nvim') && v:version > 704
