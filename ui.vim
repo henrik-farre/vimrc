@@ -76,6 +76,10 @@ if has_key(g:plugs, 'nvim-colorizer.lua')
   " Colorizer setup - requires termguicolors
   lua require('colorizer').setup()
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorscheme
+"
 " colorscheme wombat256mod
 colorscheme vem-dark
 
