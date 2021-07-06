@@ -59,10 +59,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-" Remember to run npm install in folder
-if executable('npm')
-  Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
-endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go
 Plug 'fatih/vim-go'
@@ -682,9 +678,7 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 "
 augroup vimrc_complete
   autocmd!
-  " Use tern as completion
-  " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType html,xhtml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -702,7 +696,6 @@ if !&diff
     autocmd BufNewFile *.html 0r $VIMHOME/skel/html | $,$d
     autocmd BufNewFile *.css 0r $VIMHOME/skel/css | $,$d
     autocmd BufNewFile *.sh 0r $VIMHOME/skel/bash | $,$d
-    autocmd BufNewFile .tern-project 0r $VIMHOME/skel/tern-project | $,$d
     autocmd BufNewFile Dockerfile 0r $VIMHOME/skel/Dockerfile | $,$d
     autocmd BufNewFile .dockerignore 0r $VIMHOME/skel/dockerignore | $,$d
     autocmd BufNewFile hest.yml 0r $VIMHOME/skel/hest.yml | $,$d
