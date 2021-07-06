@@ -144,6 +144,14 @@ if has('nvim')
 endif
 Plug 'sbdchd/neoformat'
 Plug 'lukas-reineke/indent-blankline.nvim'
+" LSP setup
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'folke/lsp-colors.nvim'
+" Telescope and dependencies
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 " }}}
 
@@ -166,14 +174,7 @@ map <Space> <Leader>
 " UltiSnips
 let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
 let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
-" YCM conflicts with UltiSnips TAB key usage
-" https://github.com/Valloric/YouCompleteMe/blob/master/doc/youcompleteme.txt
-
-" Make it work in terminal, as shift-space does not work. Requires supertab http://stackoverflow.com/a/22253548
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" let g:UltiSnipsSnippetDir= expand("$HOME/.vim/UltiSnips" )
+let g:UltiSnipsSnippetDir= expand("$HOME/.vim/UltiSnips" )
 
 if !has("python3")
   let g:UltiSnipsNoPythonWarning = 1
@@ -226,8 +227,8 @@ if &diff
   let g:loaded_javascript_syntax_checker = 1
   let g:loaded_html_syntax_checker = 1
   let g:loaded_xhtml_syntax_checker = 1
-  let g:neomake_javascript_enabled_makers = []
-  let g:neomake_html_enabled_makers = []
+  " let g:neomake_javascript_enabled_makers = []
+  " let g:neomake_html_enabled_makers = []
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -350,7 +351,7 @@ EOF
 " Treesitter
 "
 lua <<EOF
-require 'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.configs'.setup {
   ensure_installed = { "yaml", "python", "bash", "json", "javascript", "html", "css", "lua" },
   highlight = {
     enable = true,
@@ -548,6 +549,10 @@ endif
 " Do not autoread changed files, also see checktime augroup
 set noautoread
 
+" Automatically change to directory of current file
+" - fixes start location of telescope find files
+set autochdir
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard {{{
 "
@@ -572,7 +577,8 @@ if has("gui_running")
   set noesckeys                   " Get rid of the delay when hitting esc!, NOTE: this produces A,B,C,D in input mode using arrow
 endif
 
-set completeopt+=menu,longest,preview
+" set completeopt+=menu,longest,preview
+set completeopt=menuone,noselect
 set complete-=i                   " disabled scanning of include files
 
 " Wrapping/linebreak
