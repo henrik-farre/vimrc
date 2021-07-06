@@ -112,10 +112,7 @@ if has('nvim') && v:version > 704
   Plug 'machakann/vim-highlightedyank'
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF, first repository contains plugin, the other commands and mappings
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-" Shows registers:
+" Shows registers
 Plug 'junegunn/vim-peekaboo'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
@@ -252,6 +249,31 @@ if has_key(g:plugs, 'fzf') && executable('fzf')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Telescope
+"
+nnoremap <leader>bv <cmd>Telescope buffers<CR>
+nnoremap <leader>gv <cmd>Telescope git_files<CR>
+nnoremap <leader>fv <cmd>Telescope find_files<CR>
+nnoremap <leader>lv <cmd>Telescope live_grep<CR>
+
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    color_devicons = true,
+    vimgrep_arguments = {
+      "ag",
+      "--no-color",
+      "--no-heading",
+      "--filename",
+      "--numbers",
+      "--column",
+      "--smart-case",
+    },
+  }
+}
+EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabular
 nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
@@ -320,6 +342,50 @@ EOF
 "
 let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
 let g:indent_blankline_use_treesitter = v:true
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LSP setup
+" - From https://github.com/kabouzeid/nvim-lspinstall
+lua << EOF
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Compe: completion plugin
+"
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.ultisnips = v:true
+let g:compe.source.emoji = v:true
+let g:compe.source.treesitter = v:true
+
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LSP colors, highlightning of messages for colorschemes that does not support
+" those groups
+"
+lua << EOF
+require("lsp-colors").setup({
+  Error = "#db4b4b",
+  Warning = "#e0af68",
+  Information = "#0db9d7",
+  Hint = "#10B981"
+})
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
