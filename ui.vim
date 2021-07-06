@@ -70,12 +70,11 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
-if (has("termguicolors"))
- set termguicolors
-  if has_key(g:plugs, 'nvim-colorizer.lua')
-    " Colorizer setup - requires termguicolors
-    lua require('colorizer').setup()
-  endif
+"
+set termguicolors
+if has_key(g:plugs, 'nvim-colorizer.lua')
+  " Colorizer setup - requires termguicolors
+  lua require('colorizer').setup()
 endif
 " colorscheme wombat256mod
 colorscheme vem-dark
