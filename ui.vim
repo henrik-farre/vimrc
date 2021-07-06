@@ -116,12 +116,6 @@ hi IndentBlanklineChar guifg=#2f2f2f gui=nocombine
 set selection=inclusive " Selection will include current char, set to exclusive else
 set mousemodel=popup
 set mouse=ar            " Mouse on, all modes + hit-enter/more-prompt
-" Scroll in tmux
-" https://news.ycombinator.com/item?id=4420173
-" Was not set before
-if !has('nvim')
-  set ttymouse=xterm2
-endif
 
 set cmdheight=1         " The commandbar is 1 high
 

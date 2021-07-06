@@ -19,21 +19,14 @@ if has('vim_starting')
   let s:save_diff = &diff
   " Disabled to fix lack of nvim resize, see https://github.com/neovim/neovim/issues/11066
   " - also it should not be needed for neovim https://github.com/neovim/neovim/issues/5783
-  if !has('nvim')
-    set all& " Reset all options
-    " this resets some values, eg 'history', so only do it once (that is why we check has('vim_starting'))
-    set nocompatible                  " Don't be compatible with vi (ignored by neovim)
-  endif
 
-  if has('nvim')
-    " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
-    set runtimepath+=/usr/share/vim/vimfiles
-  endif
+  " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
+  set runtimepath+=/usr/share/vim/vimfiles
 endif
 
 if has('eval')
-    let &diff = s:save_diff
-    unlet s:save_diff
+  let &diff = s:save_diff
+  unlet s:save_diff
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,10 +100,7 @@ Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'pacha/vem-dark'
-
-if has('nvim') && v:version > 704
-  Plug 'machakann/vim-highlightedyank'
-endif
+Plug 'machakann/vim-highlightedyank'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shows registers
 Plug 'junegunn/vim-peekaboo'
@@ -118,10 +108,8 @@ Plug 'junegunn/vim-peekaboo'
 " Snippets
 " Examples of python interpolation:
 " https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
-if v:version >= 704
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-endif
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 " Detect tabs vs spaces
@@ -139,9 +127,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 " Icons for filetypes - support for telescope
 Plug 'kyazdani42/nvim-web-devicons'
-if has('nvim')
-  Plug 'norcalli/nvim-colorizer.lua'
-endif
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'sbdchd/neoformat'
 Plug 'lukas-reineke/indent-blankline.nvim'
 " LSP setup
@@ -229,27 +215,6 @@ if &diff
   let g:loaded_xhtml_syntax_checker = 1
   " let g:neomake_javascript_enabled_makers = []
   " let g:neomake_html_enabled_makers = []
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF
-if has_key(g:plugs, 'fzf') && executable('fzf')
-  nnoremap <leader>bv :Buffers<cr>
-  " Dont use tmux split
-  " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
-  " let g:fzf_layout = {}
-  let g:fzf_nvim_statusline=1
-  " Override env from shell where I prefer -e
-  let $FZF_DEFAULT_OPTS = '-x --inline-info'
-
-  " Find git root if it exists
-  " https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
-  function! s:fzf_root()
-      let path = finddir(".git", expand("%:p:h").";")
-      return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
-  endfun
-
-  nnoremap <silent> <Leader>t :exe 'Files ' . <SID>fzf_root()<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -427,9 +392,7 @@ set hlsearch                      " Highlight search results
 set ignorecase                    " Do case insensitive matching, must be set for smartcase to work
 set smartcase                     " Do smart case search - case sensitive if first letter in search is uppercase
 set incsearch                     " Incremental search
-if has('nvim')
-  set inccommand=split            " Incremental replace, https://github.com/neovim/neovim/pull/5561
-endif
+set inccommand=split              " Incremental replace, https://github.com/neovim/neovim/pull/5561
 set gdefault                      " Applies substitutions globally on lines, /g to disable
 
 set infercase                     " Handle case in a smart way in autocompletes
@@ -452,16 +415,13 @@ set foldlevel=1                   " this is just what i use
 
 set number                        " Line numbers
 " Switch between relativenumber and number on focus/enter/leave
-" 703 corresponds to Vim 7.3
-if v:version >= 703
-  augroup vimrc_number
-    autocmd!
-    autocmd FocusLost * :set norelativenumber
-    autocmd FocusGained * :set relativenumber
-    autocmd InsertEnter * :set norelativenumber
-    autocmd InsertLeave * :set relativenumber
-  augroup END
-endif
+augroup vimrc_number
+  autocmd!
+  autocmd FocusLost * :set norelativenumber
+  autocmd FocusGained * :set relativenumber
+  autocmd InsertEnter * :set norelativenumber
+  autocmd InsertLeave * :set relativenumber
+augroup END
 
 set list
 " set listchars=tab:▸\ ,eol:¬
@@ -474,9 +434,7 @@ set sidescroll=1
 " All abbrevitions, truncate middle of long messages, no intro when starting,
 set shortmess=aTI
 " no ins-completion-menu messages
-if v:version > 704
-  set shortmess+=c
-endif
+set shortmess+=c
 
 set nostartofline                 " Cursor does not jump to first nonblank char on line after buffer switch http://stackoverflow.com/questions/8292742/vim-cursor-jumps-to-begining-of-the-line-after-buffer-switch
 
@@ -497,13 +455,7 @@ set ssop-=folds " do not store folds
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff
 "
-if !has('nvim')
-  " Default in neovim
-  set backspace=indent,eol,start    " allow backspacing over everything in insert mode
-endif
-if v:version > 704
-  set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
-endif
+set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
 set title                         " change the terminals/windows title
@@ -529,22 +481,14 @@ set switchbuf=useopen             " Buffer switching the reuses already visible 
 set formatoptions-=t
 set formatoptions+=croql
 " Fix comments when jusing j to join lines
-if v:version >= 704
-  set formatoptions+=j
-endif
-if !has('nvim')
-  " Indicates a fast terminal connection. More characters will be sent to the screen for redrawing
-  set ttyfast
-endif
+set formatoptions+=j
 " http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
 set ttimeout
 set ttimeoutlen=100
 set timeoutlen=1000
 " NeoVim handles ESC keys as alt+key set this to solve the problem
 " https://github.com/neovim/neovim/issues/2051
-if has('nvim')
-  set ttimeoutlen=0
-endif
+set ttimeoutlen=0
 
 " Do not autoread changed files, also see checktime augroup
 set noautoread
@@ -623,24 +567,16 @@ endif
 set directory=$VIMHOME/swaps/       " swap files
 
 " Use less space for line numbering if possible
-if v:version >= 700
-    try
-        setlocal numberwidth=3
-    catch
-    endtry
-endif
+try
+  setlocal numberwidth=3
+catch
+endtry
 
 set keymodel=startsel             " Allow select of text in insert mode using shift
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlightning
 "
-if !has('nvim')
-  " Defaults on Neovim
-  syntax on                         " Enable syntax highlightning
-  filetype plugin on                " Enable filetype settings
-  filetype indent on
-endif
 set synmaxcol=500                " Syntax coloring lines that are too long just slows down the world
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
