@@ -134,6 +134,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
+Plug 'onsails/lspkind-nvim'
+" Show 💡 if there is a code action avaliable
+Plug 'kosayoda/nvim-lightbulb'
 " Telescope and dependencies
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -377,6 +380,49 @@ require("lsp-colors").setup({
   Warning = "#e0af68",
   Information = "#0db9d7",
   Hint = "#10B981"
+})
+EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LSP kind: show icons for completions
+"
+lua << EOF
+require('lspkind').init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+
+    -- default symbol map
+    -- can be either 'default' or
+    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
+    --
+    -- default: 'default'
+    preset = 'default',
+
+    symbol_map = {
+      Text = '',
+      Method = 'ƒ',
+      Function = '',
+      Operator = 'ƒ',
+      Constructor = '',
+      Variable = '',
+      Class = '',
+      Interface = 'ﰮ',
+      Module = '',
+      Property = '',
+      Unit = '',
+      Value = '',
+      Enum = '了',
+      Keyword = '',
+      Snippet = '﬌',
+      Color = '',
+      File = '',
+      Folder = '',
+      EnumMember = '',
+      Constant = '',
+      Struct = '',
+    },
 })
 EOF
 
@@ -674,6 +720,12 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto commands
 "
+
+" Show 💡 when code action is avaliable
+augroup vimrc_lightbulb
+  autocmd!
+  autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+augroup END
 
 " Omnicomplete
 "
