@@ -131,10 +131,12 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'sbdchd/neoformat'
 Plug 'lukas-reineke/indent-blankline.nvim'
 " LSP setup
+" Plug 'dense-analysis/ale'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
 Plug 'onsails/lspkind-nvim'
+Plug 'folke/trouble.nvim'
 " Show 💡 if there is a code action avaliable
 Plug 'kosayoda/nvim-lightbulb'
 " Telescope and dependencies
@@ -425,6 +427,24 @@ require('lspkind').init({
     },
 })
 EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Trouble, A pretty list for showing diagnostics, references, telescope
+" results, quickfix and location lists to help you solve all the trouble your
+" code is causing.
+"
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+  }
+EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ALE
+"
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
