@@ -80,11 +80,7 @@ Plug 'hrsh7th/nvim-compe'
 " Misc
 " Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
-if !has('nvim')
-  " Neovim buildin plugin
-  " Active repository?: https://github.com/Firef0x/matchit/network
-  Plug 'vim-scripts/matchit.zip'
-endif
+Plug 'andymass/vim-matchup'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
