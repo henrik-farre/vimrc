@@ -124,10 +124,13 @@ Plug 'ryanoasis/vim-devicons'
 " Icons for filetypes - support for telescope
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
+" Linting and formatting
+" Plug 'dense-analysis/ale'
+Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
+" Show indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
 " LSP setup
-" Plug 'dense-analysis/ale'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
