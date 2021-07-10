@@ -138,6 +138,8 @@ Plug 'onsails/lspkind-nvim'
 Plug 'folke/trouble.nvim'
 " Show 💡 if there is a code action avaliable
 Plug 'kosayoda/nvim-lightbulb'
+" Set working to project directory
+Plug 'airblade/vim-rooter'
 " Telescope and dependencies
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -446,6 +448,13 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rooter
+"
+let g:rooter_cd_cmd = 'lcd'
+let g:rooter_silent_chdir = 1
+let g:rooter_resolve_links = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 "
 set fileencodings=utf-8,iso-8859-1
@@ -560,7 +569,7 @@ set noautoread
 
 " Automatically change to directory of current file
 " - fixes start location of telescope find files
-set autochdir
+" set autochdir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard {{{
