@@ -31,8 +31,6 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
-" http://rbtnn.hateblo.jp/entry/2014/12/28/010913
-set encoding=utf-8
 scriptencoding utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -372,7 +370,6 @@ let g:compe.source.ultisnips = v:true
 let g:compe.source.emoji = v:true
 let g:compe.source.treesitter = v:true
 
-
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -465,10 +462,8 @@ set fileencodings=utf-8,iso-8859-1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search
 "
-set hlsearch                      " Highlight search results
 set ignorecase                    " Do case insensitive matching, must be set for smartcase to work
 set smartcase                     " Do smart case search - case sensitive if first letter in search is uppercase
-set incsearch                     " Incremental search
 set inccommand=split              " Incremental replace, https://github.com/neovim/neovim/pull/5561
 set gdefault                      " Applies substitutions globally on lines, /g to disable
 
@@ -672,7 +667,6 @@ set shiftround                    " use multiple of shiftwidth when indenting wi
 set tabstop=4                     " To cause the TAB file-character to be displayed as mod-N in vi and vim (what Emacs calls tab-width)
 set expandtab                     " To cause TAB characters to not be used in the file for compression, and for only spaces to be used (what emacs calls indent-tabs-mode),
 " set smarttab
-set autoindent                    " keeps previous lines indent
 " Disable smartindent
 " http://stackoverflow.com/questions/18415492/autoindent-is-subset-of-smartindent-in-vim/18415867#18415867
 " http://vim.wikia.com/wiki/Indenting_source_code#Methods_for_automatic_indentation
