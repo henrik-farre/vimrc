@@ -59,9 +59,7 @@ Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("python3")
-  Plug 'puremourning/vimspector'
-endif
+Plug 'puremourning/vimspector'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 " Shows git branch in statusline + tags to the one in .git/tags if exists
@@ -281,11 +279,7 @@ if has_key(g:plugs, 'neomake')
   let g:neomake_javascript_enabled_makers = ['jshint']
   let g:neomake_open_list=0
   let g:neomake_list_height=5
-  if has('nvim')
-    call neomake#configure#automake('nrw', 750)
-  else
-    call neomake#configure#automake('w')
-  endif
+  call neomake#configure#automake('nrw', 750)
 endif
 
 " Terraform settings
@@ -579,9 +573,9 @@ set noautoread
 " use X clipboard if avaliable
 " let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " Make it work in Neovim
-if (has('nvim') && has('clipboard') && executable('xsel') && exists('$DISPLAY'))
+if (has('clipboard') && executable('xsel') && exists('$DISPLAY'))
   set clipboard+=unnamedplus
-elseif (has('nvim') && has('clipboard') && executable('pbcopy') && has('mac'))
+elseif (has('clipboard') && executable('pbcopy') && has('mac'))
   set clipboard+=unnamedplus
 endif
 " }}}
