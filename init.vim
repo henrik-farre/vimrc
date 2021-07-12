@@ -92,7 +92,6 @@ Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'pacha/vem-dark'
-Plug 'machakann/vim-highlightedyank'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shows registers
 Plug 'junegunn/vim-peekaboo'
@@ -744,6 +743,7 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto commands
 "
+au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=500, on_visual=true}
 
 " Show 💡 when code action is avaliable
 augroup vimrc_lightbulb

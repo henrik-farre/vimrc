@@ -97,9 +97,6 @@ set cursorline
 " Change split background between windows
 hi VertSplit guibg=NONE guifg=#444444 ctermbg=NONE ctermfg=NONE
 
-" Neovim highlight group to yanked content
-hi HighlightedyankRegion cterm=reverse gui=reverse
-
 " Indent guide
 hi IndentBlanklineChar guifg=#2f2f2f gui=nocombine
 
