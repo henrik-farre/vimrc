@@ -783,6 +783,7 @@ if !&diff
     autocmd BufNewFile Dockerfile 0r $VIMHOME/skel/Dockerfile | $,$d
     autocmd BufNewFile .dockerignore 0r $VIMHOME/skel/dockerignore | $,$d
     autocmd BufNewFile hest.yml 0r $VIMHOME/skel/hest.yml | $,$d
+    autocmd BufNewFile pyrightconfig.json 0r $VIMHOME/skel/pyrightconfig.json | $,$d
   augroup END
 endif
 
