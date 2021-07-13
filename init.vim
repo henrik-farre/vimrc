@@ -349,7 +349,25 @@ require'lspinstall'.setup() -- important
 
 local servers = require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{}
+  if server == 'yaml' then
+    require'lspconfig'[server].setup{
+      settings = {
+        yaml = {
+          schemas = {
+            ['https://json.schemastore.org/github-workflow'] = '.github/workflows/*.{yml,yaml}',
+            ['https://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+            ['https://json.schemastore.org/ansible-role-2.9.json'] = 'roles/**/*.{yml,yaml}',
+            ['https://json.schemastore.org/ansible-playbook.json'] = 'playbooks/*.{yml,yaml}',
+            ['https://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+            ['https://json.schemastore.org/stylelintrc'] = '.stylelintrc.{yml,yaml}',
+            ['https://json.schemastore.org/circleciconfig'] = '.circleci/**/*.{yml,yaml}'
+          }
+        }
+      }
+    }
+  else
+    require'lspconfig'[server].setup{}
+  end
 end
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
