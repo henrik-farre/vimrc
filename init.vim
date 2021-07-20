@@ -879,25 +879,25 @@ augroup END
 "     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " augroup END
 
-" ansible-vim does not detect playbooks
+" ansible-vim does not detect playbooks, `set filetype=x` overrides setfiletype
 augroup vimrc_ansible
     autocmd!
-    autocmd BufRead,BufNewFile */ansible/*.yml set ft=yaml.ansible
-    autocmd BufRead,BufNewFile inventory set ft=ansible_hosts
+    autocmd BufRead,BufNewFile */ansible/*.{yml,yaml} set filetype=yaml.ansible
+    autocmd BufRead,BufNewFile inventory set filetype=ansible_hosts
 augroup END
 
 " go-jira
 augroup vimrc_gojira
   autocmd!
   autocmd BufRead,BufNewFile /tmp/comment*.yml setlocal spell spelllang=da
-  autocmd BufRead,BufNewFile ~/.jira.d/templates/* setlocal ft=gotexttmpl
+  autocmd BufRead,BufNewFile ~/.jira.d/templates/* setfiletype gotexttmpl
 augroup END
 
 " Jenkinsfile
 augroup vimrc_jenkins
   autocmd!
-  autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
-  autocmd FileType grrovy setlocal omnifunc=javacomplete#Complete
+  autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
+  autocmd FileType groovy setlocal omnifunc=javacomplete#Complete
 augroup END
 
 augroup vimrc_whitespace
