@@ -349,23 +349,23 @@ let g:indent_blankline_use_treesitter = v:true
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LSP setup
 " - From https://github.com/kabouzeid/nvim-lspinstall
+if has_key(g:plugs, 'nvim-lspconfig')
 lua << EOF
 require'lspinstall'.setup() -- important
 
+-- k8s example:
+-- https://github.com/dln/dotfiles/blob/5298af4c1e500222eb1a497dfd0fed4a667ce85f/.config/nvim/lua/dln/lsp-config.lua#L108
 local servers = require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do
   if server == 'yaml' then
     require'lspconfig'[server].setup{
       settings = {
         yaml = {
+          validate = true,
+          schemaStore = { enable = true },
           schemas = {
-            ['https://json.schemastore.org/github-workflow'] = '.github/workflows/*.{yml,yaml}',
-            ['https://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
-            ['https://json.schemastore.org/ansible-role-2.9.json'] = 'roles/**/*.{yml,yaml}',
-            ['https://json.schemastore.org/ansible-playbook.json'] = 'playbooks/*.{yml,yaml}',
-            ['https://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
-            ['https://json.schemastore.org/stylelintrc'] = '.stylelintrc.{yml,yaml}',
-            ['https://json.schemastore.org/circleciconfig'] = '.circleci/**/*.{yml,yaml}'
+            ['https://json.schemastore.org/ansible-playbook.json'] = '*/setup.yml',
+            ['https://json.schemastore.org/ansible-role-2.9.json'] = 'roles/tasks/*.yml',
           }
         }
       }
@@ -382,6 +382,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 EOF
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compe: completion plugin
