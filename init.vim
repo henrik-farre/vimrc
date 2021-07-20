@@ -127,8 +127,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
-Plug 'dense-analysis/ale'
-" Plug 'neomake/neomake'
+" Plug 'dense-analysis/ale'
+Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 " Show indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -285,6 +285,29 @@ let g:ansible_unindent_after_newline = 0
 "
 if has_key(g:plugs, 'neomake')
   let g:neomake_javascript_enabled_makers = ['jshint']
+  let g:neomake_ansiblelint_maker = {
+        \ 'exe': 'ansible-lint',
+        \ 'args': ['--parseable-severity', '-x yaml', '--nocolor'],
+        \ 'errorformat': '%f:%l: [%o] [%s] %m',
+        \ }
+  " '%f:%l: [%t%n] %m,%f:%l: [%tANSIBLE%n] %m'
+  let g:neomake_error_sign = {
+      \ 'text': '',
+      \ 'texthl': 'NeomakeErrorSign',
+      \ }
+  let g:neomake_warning_sign = {
+      \   'text': '',
+      \   'texthl': 'NeomakeWarningSign',
+      \ }
+  let g:neomake_message_sign = {
+      \   'text': '',
+      \   'texthl': 'NeomakeMessageSign',
+      \ }
+  let g:neomake_info_sign = {
+      \ 'text': '',
+      \ 'texthl': 'NeomakeInfoSign'
+      \ }
+  let g:neomake_yaml_ansible_enabled_makers = ['ansiblelint']
   let g:neomake_open_list=0
   let g:neomake_list_height=5
   let g:neomake_logfile = '/tmp/neomake.log'
