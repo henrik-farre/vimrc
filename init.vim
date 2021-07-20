@@ -127,8 +127,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
-" Plug 'dense-analysis/ale'
-Plug 'neomake/neomake'
+Plug 'dense-analysis/ale'
+" Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 " Show indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -290,6 +290,7 @@ if has_key(g:plugs, 'neomake')
   let g:neomake_javascript_enabled_makers = ['jshint']
   let g:neomake_open_list=0
   let g:neomake_list_height=5
+  let g:neomake_logfile = '/tmp/neomake.log'
   call neomake#configure#automake('nrw', 750)
 endif
 
@@ -458,24 +459,30 @@ require('lspkind').init({
     },
 })
 EOF
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trouble, A pretty list for showing diagnostics, references, telescope
 " results, quickfix and location lists to help you solve all the trouble your
 " code is causing.
-"
+if has_key(g:plugs, 'trouble.nvim')
 lua << EOF
   require("trouble").setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
   }
 EOF
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 "
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+if has_key(g:plugs, 'ale')
+  let g:ale_sign_error = '>>'
+  let g:ale_sign_warning = '--'
+  " let g:ale_history_enabled = 1
+  " let g:ale_history_log_output = 1
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rooter
