@@ -384,11 +384,10 @@ for _, server in pairs(servers) do
     require'lspconfig'[server].setup{
       settings = {
         yaml = {
-          validate = true,
-          schemaStore = { enable = true },
           schemas = {
-            ['https://json.schemastore.org/ansible-playbook.json'] = '*/setup.yml',
-            ['https://json.schemastore.org/ansible-role-2.9.json'] = 'roles/tasks/*.yml',
+            ["https://json.schemastore.org/ansible-playbook.json"] = "**/playbooks/*.yml",
+            ['https://json.schemastore.org/ansible-role-2.9.json'] = '**/roles/**/{tasks,handlers}/**/*.yml',
+            ['https://json.schemastore.org/ansible-role-2.9.json'] = '**/roles/**/molecule/*/{converge,playbook}.yml',
           }
         }
       }
