@@ -123,6 +123,9 @@ if &diff
   let &columns = 320 + 2*&foldcolumn + 1
 endif
 
+hi NeomakeErrorSign guifg=red ctermfg=red
+hi NeomakeWarningSign guifg=yellow ctermfg=yellow
+
 function! AirlineGitInfo()
   let git = fugitive#head()
   if git != ''
