@@ -406,6 +406,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " LSP colors, highlightning of messages for colorschemes that does not support
 " those groups
 "
+if has_key(g:plugs, 'lsp-colors')
 lua << EOF
 require("lsp-colors").setup({
   Error = "#db4b4b",
@@ -414,10 +415,12 @@ require("lsp-colors").setup({
   Hint = "#10B981"
 })
 EOF
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LSP kind: show icons for completions
 "
+if has_key(g:plugs, 'lspkind-nvim')
 lua << EOF
 require('lspkind').init({
     -- enables text annotations
