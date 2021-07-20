@@ -11,6 +11,13 @@
 "
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
+
+" Disable unused providers
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+
 let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
 
 if has('vim_starting')
