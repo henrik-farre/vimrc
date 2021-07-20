@@ -169,10 +169,7 @@ map <Space> <Leader>
 let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
 let g:UltiSnipsEnableSnipMate = 0   " don't look for SnipMate snippets, in the 'snippets' dir
 let g:UltiSnipsSnippetDir= expand("$HOME/.vim/UltiSnips" )
-
-if !has("python3")
-  let g:UltiSnipsNoPythonWarning = 1
-endif
+let g:UltiSnipsNoPythonWarning = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch
