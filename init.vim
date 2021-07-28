@@ -81,7 +81,6 @@ Plug 'mattn/emmet-vim'
 Plug 'hrsh7th/nvim-compe'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
-" Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 Plug 'andymass/vim-matchup'
 Plug 'preservim/nerdcommenter'
