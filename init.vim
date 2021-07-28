@@ -84,7 +84,7 @@ Plug 'hrsh7th/nvim-compe'
 " Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 Plug 'andymass/vim-matchup'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 if v:version >= 704
@@ -265,10 +265,10 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 " NERD Commenter
-map <F5> :call NERDComment(0, 'toggle')<CR>
-inoremap <F5> <C-o>:call NERDComment(0, 'toggle')<C-m>
-" Inset spaces, mostly for Drupal CS
-let NERDSpaceDelims = 1
+map <F5> <Plug>NERDCommenterToggle
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " JSON
 " Don't hide "
