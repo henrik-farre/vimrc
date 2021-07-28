@@ -290,8 +290,8 @@ if has_key(g:plugs, 'neomake')
         \ 'exe': 'ansible-lint',
         \ 'args': ['--parseable-severity', '-x', 'yaml', '--nocolor'],
         \ 'errorformat':
-        \   '%f:%l: %m,' .
-        \   '%f:%l:%c: %m',
+            \ '%f:%l: %m,'.
+            \ '%f:%l:%c: %m',
         \ }
   " '%f:%l: [%t%n] %m,%f:%l: [%tANSIBLE%n] %m'
   let g:neomake_error_sign = {
@@ -385,6 +385,9 @@ local servers = require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do
   if server == 'yaml' then
     require'lspconfig'[server].setup{
+      flags = {
+        debounce_text_changes = 150,
+      },
       settings = {
         yaml = {
           schemas = {
@@ -396,7 +399,11 @@ for _, server in pairs(servers) do
       }
     }
   else
-    require'lspconfig'[server].setup{}
+    require'lspconfig'[server].setup{
+      flags = {
+        debounce_text_changes = 150,
+      }
+    }
   end
 end
 
