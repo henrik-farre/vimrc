@@ -128,12 +128,13 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
 " Plug 'dense-analysis/ale'
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 " Show indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
 " LSP setup
 Plug 'neovim/nvim-lspconfig'
+" Plug 'iamcco/diagnostic-languageserver'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
 Plug 'onsails/lspkind-nvim'
@@ -287,8 +288,10 @@ if has_key(g:plugs, 'neomake')
   let g:neomake_javascript_enabled_makers = ['jshint']
   let g:neomake_ansiblelint_maker = {
         \ 'exe': 'ansible-lint',
-        \ 'args': ['--parseable-severity', '-x yaml', '--nocolor'],
-        \ 'errorformat': '%f:%l: [%o] [%s] %m',
+        \ 'args': ['--parseable-severity', '-x', 'yaml', '--nocolor'],
+        \ 'errorformat':
+        \   '%f:%l: %m,' .
+        \   '%f:%l:%c: %m',
         \ }
   " '%f:%l: [%t%n] %m,%f:%l: [%tANSIBLE%n] %m'
   let g:neomake_error_sign = {
@@ -311,7 +314,7 @@ if has_key(g:plugs, 'neomake')
   let g:neomake_open_list=0
   let g:neomake_list_height=5
   let g:neomake_logfile = '/tmp/neomake.log'
-  call neomake#configure#automake('nrw', 750)
+  call neomake#configure#automake('nirw', 750)
 endif
 
 " Terraform settings
