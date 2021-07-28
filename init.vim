@@ -52,7 +52,7 @@ endif
 silent! call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}  " We recommend updating the parsers on update
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
