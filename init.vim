@@ -107,6 +107,7 @@ Plug 'junegunn/vim-peekaboo'
 " https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'phenomenes/ansible-snippets'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 " Detect tabs vs spaces
