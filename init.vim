@@ -388,7 +388,7 @@ for _, server in pairs(servers) do
       settings = {
         yaml = {
           schemas = {
-            ["https://json.schemastore.org/ansible-playbook.json"] = "**/playbooks/*.yml",
+            ['https://json.schemastore.org/ansible-playbook.json'] = '**/playbooks/*.yml',
             ['https://json.schemastore.org/ansible-role-2.9.json'] = '**/roles/**/{tasks,handlers}/**/*.yml',
             ['https://json.schemastore.org/ansible-role-2.9.json'] = '**/roles/**/molecule/*/{converge,playbook}.yml',
           }
