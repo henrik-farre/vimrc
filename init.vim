@@ -168,6 +168,8 @@ map <Space> <Leader>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
 let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch
@@ -428,8 +430,10 @@ let g:compe.source.ultisnips = v:true
 let g:compe.source.emoji = v:true
 let g:compe.source.treesitter = v:true
 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Press enter to select element in menu
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LSP colors, highlightning of messages for colorschemes that does not support
