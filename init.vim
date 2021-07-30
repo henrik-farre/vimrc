@@ -127,7 +127,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
+Plug 'nathunsmitty/nvim-ale-diagnostic'
 " Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 " Show indent lines
@@ -511,11 +512,26 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 "
+
+lua <<EOF
+require("nvim-ale-diagnostic")
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = false,
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false,
+  }
+)
+EOF
+
 if has_key(g:plugs, 'ale')
-  let g:ale_sign_error = '>>'
-  let g:ale_sign_warning = '--'
-  " let g:ale_history_enabled = 1
-  " let g:ale_history_log_output = 1
+  let g:ale_sign_error = ''
+  let g:ale_sign_warning = ''
+  let g:ale_history_enabled = 1
+  let g:ale_history_log_output = 1
+  let g:ale_lint_on_save = 1
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
