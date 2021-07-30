@@ -123,8 +123,12 @@ if &diff
   let &columns = 320 + 2*&foldcolumn + 1
 endif
 
-hi NeomakeErrorSign guifg=red ctermfg=red
-hi NeomakeWarningSign guifg=yellow ctermfg=yellow
+" neomake
+" hi NeomakeErrorSign guifg=red ctermfg=red
+" hi NeomakeWarningSign guifg=yellow ctermfg=yellow
+
+" vim-signature
+hi SignatureMarkText cterm=bold ctermbg=10 gui=bold guifg=#aeee04
 
 function! AirlineGitInfo()
   let git = fugitive#head()
