@@ -529,9 +529,9 @@ EOF
 if has_key(g:plugs, 'ale')
   let g:ale_sign_error = ''
   let g:ale_sign_warning = ''
-  let g:ale_history_enabled = 1
-  let g:ale_history_log_output = 1
-  let g:ale_lint_on_save = 1
+  " let g:ale_history_enabled = 1
+  " let g:ale_history_log_output = 1
+  " let g:ale_lint_on_save = 1
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
