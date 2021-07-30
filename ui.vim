@@ -147,9 +147,13 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 " Hides neomake output:
 " let g:airline_skip_empty_sections = 1
-let g:airline#extensions#neomake#enabled = 1
-let g:airline#extensions#neomake#error_symbol = '✖ Error: '
-let g:airline#extensions#neomake#warning_symbol = '⚠ Warning: '
+" let g:airline#extensions#neomake#enabled = 1
+" let g:airline#extensions#neomake#error_symbol = '✖ Error: '
+" let g:airline#extensions#neomake#warning_symbol = '⚠ Warning: '
+
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#error_symbol = '✖ Error: '
+let g:airline#extensions#ale#warning_symbol = '⚠ Warning: '
 
 let g:airline#extensions#whitespace#enabled = 0
 
