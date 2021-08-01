@@ -148,6 +148,9 @@ Plug 'airblade/vim-rooter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+" vim tests
+Plug 'junegunn/vader.vim'
+Plug 'equalsraf/neovim-gui-shim'
 call plug#end()
 " }}}
 
