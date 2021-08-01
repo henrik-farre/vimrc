@@ -829,13 +829,6 @@ endfunction
 command! TrimWhiteSpace call TrimWhiteSpace()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Keymaps
-"
-" yankstack overrides mappings
-" call yankstack#setup()
-source $VIMHOME/bindings.vim
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbrevs
 "
 ab seperator separator
@@ -1017,3 +1010,8 @@ endfunction
 " UI settings
 "
 source $VIMHOME/ui.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymaps
+"
+source $VIMHOME/bindings.vim
