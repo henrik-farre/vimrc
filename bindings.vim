@@ -50,9 +50,15 @@ nmap <BS> <C-h>
 " Pipe char is \, use CTRL-V to find it
 " '-' can't be used
 " Works in guis:
-" nnoremap <C-\|> <C-W>v
+nnoremap <C-\|> <C-W>v
 nnoremap <C-\> <C-W>v
 nnoremap <C-_> :sp<CR>
+nnoremap <C-S-_> :sp<CR>
+
+
+" neovim-qt
+inoremap <C-S-V> <C-R>+
+cnoremap <C-S-V> <C-R>+
 
 " Disable search highlightning
 nmap <silent> <C-N> :silent noh<CR>
