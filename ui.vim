@@ -86,10 +86,13 @@ colorscheme vem-dark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor
 "
-hi Cursor cterm=reverse gui=reverse ctermbg=NONE guibg=NONE ctermfg=NONE guifg=NONE
-hi CursorLine term=underline cterm=underline guibg=#282828
-hi CursorLineNr term=underline cterm=underline guifg=Grey guibg=#282828
-set guicursor=n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+" hi CursorLine guibg=#282828
+" hi CursorLineNr guifg=Grey guibg=#282828
+highlight Cursor guifg=white guibg=#0d61ac
+highlight default CursorInsert guifg=white guibg=#437019
+highlight default CursorVisual guifg=white guibg=#870000
+set guicursor=a:blinkwait600-blinkoff450-blinkon500,sm:block-blinkwait175-blinkoff150-blinkon175
+set guicursor+=n-c:block-Cursor,v:block-CursorVisual,i-ci-ve:ver25-CursorInsert,r-cr:hor20,o:hor50
 set cursorline
 
 " SignColumn
