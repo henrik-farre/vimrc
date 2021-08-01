@@ -587,6 +587,13 @@ augroup vimrc_number
   autocmd InsertLeave * :set relativenumber
 augroup END
 
+" Only show cursorline in active window/buffer
+augroup vimrc_CursorLine
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
 set list
 " set listchars=tab:▸\ ,eol:¬
 set listchars=tab:\ \ ,extends:»,precedes:«,trail:▒,nbsp:·
