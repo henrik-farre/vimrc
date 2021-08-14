@@ -429,15 +429,19 @@ EOF
 "
 let g:compe = {}
 let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.preselect = 'enable'
 let g:compe.source = {}
 let g:compe.source.path = v:true
 let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
+let g:compe.source.calc = v:false
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 let g:compe.source.ultisnips = v:true
 let g:compe.source.emoji = v:true
 let g:compe.source.treesitter = v:true
+let g:compe.documentation = {}
+let g:compe.documentation.border = "rounded"
 
 " Press enter to select element in menu
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
