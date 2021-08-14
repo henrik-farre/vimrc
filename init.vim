@@ -136,7 +136,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " LSP setup
 Plug 'neovim/nvim-lspconfig'
 " Plug 'iamcco/diagnostic-languageserver'
-Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'folke/trouble.nvim'
@@ -380,37 +379,18 @@ let g:indent_blankline_bufname_exclude = ["man://.*"]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LSP setup
-" - From https://github.com/kabouzeid/nvim-lspinstall
-if has_key(g:plugs, 'nvim-lspconfig')
+"
 lua << EOF
-require'lspinstall'.setup() -- important
-
--- k8s example:
--- https://github.com/dln/dotfiles/blob/5298af4c1e500222eb1a497dfd0fed4a667ce85f/.config/nvim/lua/dln/lsp-config.lua#L108
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  if server == 'yaml' then
-    require'lspconfig'[server].setup{
-      flags = {
-        debounce_text_changes = 150,
-      },
-      settings = {
-        yaml = {
-          schemas = {
-            ['https://json.schemastore.org/ansible-playbook.json'] = '**/playbooks/*.yml',
-            ['https://json.schemastore.org/ansible-role-2.9.json'] = '**/roles/**/{tasks,handlers}/**/*.yml',
-            ['https://json.schemastore.org/ansible-role-2.9.json'] = '**/roles/**/molecule/*/{converge,playbook}.yml',
-          }
-        }
-      }
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'terraformls', 'pyright', 'vimls', 'yamlls' }
+local nvim_lsp = require('lspconfig')
+for _, server in ipairs(servers) do
+  nvim_lsp[server].setup {
+    flags = {
+      debounce_text_changes = 150,
     }
-  else
-    require'lspconfig'[server].setup{
-      flags = {
-        debounce_text_changes = 150,
-      }
-    }
-  end
+  }
 end
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
@@ -420,7 +400,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 EOF
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compe: completion plugin
