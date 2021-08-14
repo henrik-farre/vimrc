@@ -386,11 +386,34 @@ lua << EOF
 local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'terraformls', 'pyright', 'vimls', 'yamlls' }
 local nvim_lsp = require('lspconfig')
 for _, server in ipairs(servers) do
-  nvim_lsp[server].setup {
-    flags = {
-      debounce_text_changes = 150,
+  if server == 'ansiblels' then
+    nvim_lsp[server].setup {
+      flags = {
+        debounce_text_changes = 150,
+      },
+      settings = {
+        ansible = {
+          ansible = {
+            path = "/usr/bin/ansible"
+          },
+          ansibleLint = {
+            enabled = true,
+            path = "/usr/bin/ansible-lint",
+            arguments = "-x yaml"
+          },
+          python = {
+            interpreterPath = "/usr/bin/python3"
+          }
+        },
+      }
     }
-  }
+  else
+    nvim_lsp[server].setup {
+      flags = {
+        debounce_text_changes = 150,
+      }
+    }
+  end
 end
 
 local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
