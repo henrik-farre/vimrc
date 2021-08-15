@@ -150,6 +150,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
 Plug 'equalsraf/neovim-gui-shim'
+" Enhanced wild menu
+Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 " }}}
 
@@ -552,6 +554,17 @@ endif
 let g:rooter_cd_cmd = 'lcd'
 let g:rooter_silent_chdir = 1
 let g:rooter_resolve_links = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Wilder
+"
+" Key bindings can be changed, see below
+call wilder#setup({'modes': [':', '/', '?']})
+
+set wildoptions+=pum
+call wilder#set_option('renderer', wilder#popupmenu_renderer({
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ }))
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
