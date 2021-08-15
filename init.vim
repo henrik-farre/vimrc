@@ -418,7 +418,7 @@ for _, server in ipairs(servers) do
   end
 end
 
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+local signs = { Error = "❌", Warning = "⚠️", Hint = "💡", Information = "ℹ️" }
 
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type
@@ -527,6 +527,7 @@ endif
 " ALE
 "
 
+if has_key(g:plugs, 'ale')
 lua <<EOF
 require("nvim-ale-diagnostic")
 
@@ -540,7 +541,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 EOF
 
-if has_key(g:plugs, 'ale')
   let g:ale_sign_error = ''
   let g:ale_sign_warning = ''
   " let g:ale_history_enabled = 1
