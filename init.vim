@@ -912,7 +912,8 @@ command! TrimWhiteSpace call TrimWhiteSpace()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbrevs
 "
-ab seperator separator
+iabbrev seperator separator
+iabbrev lenght length
 iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
