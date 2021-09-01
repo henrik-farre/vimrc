@@ -103,6 +103,9 @@ hi VertSplit guibg=NONE guifg=#444444 ctermbg=NONE ctermfg=NONE
 " Indent guide
 hi IndentBlanklineChar guifg=#2f2f2f gui=nocombine
 
+" Visual selection
+hi Visual guifg=#000000 guibg=LightBlue gui=none
+
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
 " highlight NonText guifg=fg guibg=bg ctermfg=fg ctermbg=bg gui=none cterm=none
