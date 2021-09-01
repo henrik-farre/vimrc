@@ -650,6 +650,12 @@ call wilder#set_option('pipeline', [
       \ ])
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Peekaboo
+"
+" Increase size of window
+let g:peekaboo_window = "vert bo 70new"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 "
 set fileencodings=utf-8,iso-8859-1
