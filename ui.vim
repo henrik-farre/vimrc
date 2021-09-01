@@ -136,14 +136,14 @@ endif
 " vim-signature
 hi SignatureMarkText cterm=bold ctermbg=10 gui=bold guifg=#aeee04
 
-function! AirlineGitInfo()
-  let git = fugitive#head()
-  if git != ''
-    return ' '.git
-  else
-    return ''
-  endif
-endfunction
+" function! AirlineGitInfo()
+"   let git = fugitive#head()
+"   if git != ''
+"     return ' '.git
+"   else
+"     return ''
+"   endif
+" endfunction
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'jellybeans'
@@ -163,7 +163,7 @@ let g:airline#extensions#ale#warning_symbol = '⚠ Warning: '
 
 let g:airline#extensions#whitespace#enabled = 0
 
-let g:airline_section_b = '%{AirlineGitInfo()}'
+" let g:airline_section_b = '%{AirlineGitInfo()}'
 let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 " l: Line number, c: column, V: virtual column, not displayed if == c
 let g:airline_section_z = airline#section#create([ '%l,%c%V'])
