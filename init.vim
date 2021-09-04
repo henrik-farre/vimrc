@@ -108,6 +108,7 @@ Plug 'pacha/vem-dark'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shows registers
 Plug 'junegunn/vim-peekaboo'
+Plug 'svermeulen/vim-easyclip'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snippets
 " Examples of python interpolation:
@@ -653,7 +654,18 @@ call wilder#set_option('pipeline', [
 " Peekaboo
 "
 " Increase size of window
-let g:peekaboo_window = "vert bo 70new"
+if has_key(g:plugs, 'vim-peekaboo')
+  let g:peekaboo_window = "vert bo 70new"
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Easy clip
+"
+if has_key(g:plugs, 'vim-easyclip')
+  let g:EasyClipAlwaysMoveCursorToEndOfPaste = 1
+  let g:EasyClipPreserveCursorPositionAfterYank = 1
+  let g:EasyClipUseCutDefaults = 0
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding

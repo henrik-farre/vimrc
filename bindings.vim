@@ -79,6 +79,14 @@ nmap <C-s> :wa<CR>
 nnoremap ' `
 nnoremap ` '
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clipboard related mappings, yank/cut/paste - Uses Easyclip
+" Easyclip
+if has_key(g:plugs, 'vim-easyclip')
+    nmap x <Plug>MoveMotionPlug
+    xmap x <Plug>MoveMotionXPlug
+    nmap xx <Plug>MoveMotionLinePlug
+endif
 " Make shift-insert work like in Xterm
 " map <S-Insert> <MiddleMouse>
 " For command mode:
@@ -89,22 +97,24 @@ nnoremap ` '
 " nnoremap <leader>p p'[v']=
 
 " yank till the end of the line
+" https://github.com/neovim/neovim/pull/13268
 noremap Y "+y$
 
 " Yank / Paste multiple lines easier
 " Automatically jump to end of text you pasted
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-vnoremap <silent> y y`]
+" vnoremap <silent> y y`]
 " These leave `] when pasting using CTRL+o p
 " vnoremap <silent> p p`]
 " nnoremap <silent> p p`]
 " :h gp
-vnoremap <silent> p gp
-nnoremap <silent> p gp
+" vnoremap <silent> p gp
+" nnoremap <silent> p gp
 
 " Select pasted text, companion function to gv
 noremap gV `[v`]
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Typos {{{
 " http://blog.sanctum.geek.nz/vim-command-typos/
 " http://vim.wikia.com/wiki/Handle_common_command_typos
