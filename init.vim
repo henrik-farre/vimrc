@@ -156,7 +156,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
-Plug 'equalsraf/neovim-gui-shim'
+" Plug 'equalsraf/neovim-gui-shim'
 " Enhanced wild menu
 Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
