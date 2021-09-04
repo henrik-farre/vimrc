@@ -55,12 +55,12 @@ nnoremap <C-\> <C-W>v
 nnoremap <C-_> :sp<CR>
 nnoremap <C-S-_> :sp<CR>
 
-
 " neovim-qt
 inoremap <C-S-V> <C-R>+
 cnoremap <C-S-V> <C-R>+
 
 " Disable search highlightning
+" Will be replaced with C-l
 nmap <silent> <C-N> :silent noh<CR>
 
 " Invisible character
@@ -71,9 +71,6 @@ nmap <leader>l :set list!<CR>
 " http://vim.wikia.com/wiki/Use_Ctrl-O_instead_of_Esc_in_insert_mode_mappings
 imap <C-s> <C-o>:wa<CR>
 nmap <C-s> :wa<CR>
-
-" jk in insert mode is Escape
-" imap jk <Esc>
 
 " Map ' so it jumps to line and column
 nnoremap ' `
@@ -178,10 +175,6 @@ nnoremap gF :view <cfile><cr>
 
 " Bclose function ca be found in "Buffer related" section
 map <leader>bd :Bclose<cr>
-map <leader>b1 :b1<cr>
-map <leader>b2 :b2<cr>
-map <leader>b3 :b3<cr>
-map <leader>b4 :b4<cr>
 " Switch buffers using <leader>bn/bp, skips quickfix because autocmd has set
 " it to nobuflisted
 noremap <leader>bn :bn<cr>
