@@ -135,8 +135,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
-Plug 'dense-analysis/ale'
-Plug 'nathunsmitty/nvim-ale-diagnostic'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 " Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 " Show indent lines
@@ -393,8 +392,17 @@ let g:indent_blankline_bufname_exclude = ["man://.*"]
 lua << EOF
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'html', 'jsonls', 'terraformls', 'pyright', 'vimls', 'yamlls' }
+local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'null-ls', 'terraformls', 'pyright', 'vimls', 'yamlls' }
 local nvim_lsp = require('lspconfig')
+
+-- null-ls setup
+local null_ls = require("null-ls")
+local sources = {
+    null_ls.builtins.diagnostics.flake8,
+    null_ls.builtins.diagnostics.shellcheck,
+}
+
+null_ls.config({ sources = sources })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -428,19 +436,27 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-vim.lsp.handlers["textDocument/hover"] =
-  vim.lsp.with(
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover,
   {
     border = "rounded"
   }
 )
 
-vim.lsp.handlers["textDocument/signatureHelp"] =
-  vim.lsp.with(
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
   vim.lsp.handlers.signature_help,
   {
     border = "rounded"
+  }
+)
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = false,
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false,
   }
 )
 
@@ -468,6 +484,36 @@ for _, server in ipairs(servers) do
         },
       }
     }
+  elseif server == 'yamlls' then
+    nvim_lsp[server].setup {
+      settings = {
+        yaml = {
+          schemaStovalidate = false,
+          hover = true,
+          completion = true,re = { enable = true },
+          schemas = {
+            ['https://json.schemastore.org/chart.json'] = 'Chart.{yml,yaml}'
+          }
+        }
+      }
+    }
+  elseif server == 'jsonls' then
+    nvim_lsp[server].setup {
+      settings = {
+        json = {
+          schemas = {
+            {
+              fileMatch = { 'Packer/**/*.json' },
+              url = 'https://json.schemastore.org/packer.json',
+            }
+          }
+        }
+      }
+    }
+  elseif server == 'groovyls' then
+   nvim_lsp[server].setup {
+     cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" },
+   }
   else
     nvim_lsp[server].setup {
       flags = {
@@ -589,36 +635,8 @@ endif
 " code is causing.
 if has_key(g:plugs, 'trouble.nvim')
 lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-  }
+  require("trouble").setup {}
 EOF
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ALE
-"
-
-if has_key(g:plugs, 'ale')
-lua <<EOF
-require("nvim-ale-diagnostic")
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
-    virtual_text = false,
-    signs = true,
-    update_in_insert = false,
-  }
-)
-EOF
-
-  let g:ale_sign_error = ''
-  let g:ale_sign_warning = ''
-  " let g:ale_history_enabled = 1
-  " let g:ale_history_log_output = 1
-  " let g:ale_lint_on_save = 1
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
