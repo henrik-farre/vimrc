@@ -136,7 +136,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
 Plug 'jose-elias-alvarez/null-ls.nvim'
-" Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 " Show indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -235,8 +234,6 @@ if &diff
   let g:loaded_javascript_syntax_checker = 1
   let g:loaded_html_syntax_checker = 1
   let g:loaded_xhtml_syntax_checker = 1
-  " let g:neomake_javascript_enabled_makers = []
-  " let g:neomake_html_enabled_makers = []
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -291,42 +288,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Ansible settings
 " When this variable is set, indentation will completely reset (unindent to column 0) after two newlines in insert-mode. The normal behavior of YAML is to always keep the previous indentation, even across multiple newlines with no content.
 let g:ansible_unindent_after_newline = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neomake
-"
-if has_key(g:plugs, 'neomake')
-  let g:neomake_javascript_enabled_makers = ['jshint']
-  let g:neomake_ansiblelint_maker = {
-        \ 'exe': 'ansible-lint',
-        \ 'args': ['--parseable-severity', '-x', 'yaml', '--nocolor'],
-        \ 'errorformat':
-            \ '%f:%l: %m,'.
-            \ '%f:%l:%c: %m',
-        \ }
-  " '%f:%l: [%t%n] %m,%f:%l: [%tANSIBLE%n] %m'
-  let g:neomake_error_sign = {
-      \ 'text': '',
-      \ 'texthl': 'NeomakeErrorSign',
-      \ }
-  let g:neomake_warning_sign = {
-      \   'text': '',
-      \   'texthl': 'NeomakeWarningSign',
-      \ }
-  let g:neomake_message_sign = {
-      \   'text': '',
-      \   'texthl': 'NeomakeMessageSign',
-      \ }
-  let g:neomake_info_sign = {
-      \ 'text': '',
-      \ 'texthl': 'NeomakeInfoSign'
-      \ }
-  let g:neomake_yaml_ansible_enabled_makers = ['ansiblelint']
-  let g:neomake_open_list=0
-  let g:neomake_list_height=5
-  let g:neomake_logfile = '/tmp/neomake.log'
-  call neomake#configure#automake('nirw', 750)
-endif
 
 " Terraform settings
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
