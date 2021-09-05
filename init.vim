@@ -70,9 +70,7 @@ Plug 'puremourning/vimspector'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 " Shows git branch in statusline + tags to the one in .git/tags if exists
-if executable('git')
-  Plug 'tpope/vim-fugitive'
-endif
+Plug 'tpope/vim-fugitive'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Web
 Plug 'mattn/emmet-vim'
@@ -92,11 +90,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'andymass/vim-matchup'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-
-if v:version >= 704
-  Plug 'haya14busa/incsearch.vim'
-endif
-
+Plug 'haya14busa/incsearch.vim'
 " Highlights on f F t T
 Plug 'bradford-smith94/quick-scope'
 " Add visual marks in gutter
@@ -155,7 +149,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
-" Plug 'equalsraf/neovim-gui-shim'
 " Enhanced wild menu
 Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
