@@ -267,6 +267,7 @@ let delimitMate_expand_space = 1
 
 " NERD Commenter
 map <F5> <Plug>NERDCommenterToggle
+let g:NERDCreateDefaultMappings = 0
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
