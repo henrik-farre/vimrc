@@ -942,16 +942,16 @@ augroup END
 
 " Omnicomplete
 "
-augroup vimrc_complete
-  autocmd!
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType html,xhtml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-augroup END
+" augroup vimrc_complete
+"   autocmd!
+"   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"   autocmd FileType html,xhtml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"   autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+"   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"   autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" augroup END
 
 " Reads the skeleton files, delete empty line
 if !&diff
@@ -1046,7 +1046,7 @@ augroup END
 augroup vimrc_jenkins
   autocmd!
   autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
-  autocmd FileType groovy setlocal omnifunc=javacomplete#Complete
+  " autocmd FileType groovy setlocal omnifunc=javacomplete#Complete
 augroup END
 
 augroup vimrc_whitespace
