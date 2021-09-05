@@ -234,8 +234,8 @@ endif
 "
 nnoremap <leader>bv <cmd>Telescope buffers<CR>
 nnoremap <leader>gv <cmd>Telescope git_files<CR>
-nnoremap <leader>fv <cmd>Telescope find_files<CR>
-nnoremap <leader>lv <cmd>Telescope live_grep<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>lg <cmd>Telescope live_grep<CR>
 
 lua << EOF
 require('telescope').setup{
