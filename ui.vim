@@ -148,6 +148,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#nvimlsp#enabled = 1
+let g:airline#extensions#nvimlsp#error_symbol = 'E:'
+let g:airline#extensions#nvimlsp#warning_symbol = 'W:'
 
 " let g:airline_section_b = '%{AirlineGitInfo()}'
 let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
