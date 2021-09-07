@@ -443,11 +443,40 @@ for _, server in ipairs(servers) do
     nvim_lsp[server].setup {
       settings = {
         yaml = {
-          schemaStovalidate = false,
+          validate = true,
           hover = true,
-          completion = true,re = { enable = true },
+          completion = true,
           schemas = {
-            ['https://json.schemastore.org/chart.json'] = 'Chart.{yml,yaml}'
+            kubernetes = {
+              "clusterrolebinding.yaml",
+              "clusterrole-contour.yaml",
+              "clusterrole.yaml",
+              "configmap.yaml",
+              "cronjob.yaml",
+              "daemonset.yaml",
+              "deployment-*.yaml",
+              "deployment.yaml",
+              "*-deployment.yaml",
+              "hpa.yaml",
+              "ingress.yaml",
+              "job.yaml",
+              "namespace.yaml",
+              "pod.yaml",
+              "pv.yaml",
+              "pvc.yaml",
+              "rbac.yaml",
+              "rolebinding.yaml",
+              "role.yaml",
+              "sa.yaml",
+              "secret.yaml",
+              "serviceaccounts.yaml",
+              "service-account.yaml",
+              "serviceaccount.yaml",
+              "service-*.yaml",
+              "service.yaml",
+              "*-service.yaml",
+              "statefulset.yaml",
+            },
           }
         }
       }
@@ -1031,7 +1060,7 @@ augroup END
 " ansible-vim does not detect playbooks, `set filetype=x` overrides setfiletype
 augroup vimrc_ansible
     autocmd!
-    autocmd BufRead,BufNewFile */ansible/*.{yml,yaml} set filetype=yaml.ansible
+    autocmd BufRead,BufNewFile */Ansible/*.{yml,yaml} set filetype=yaml.ansible
     autocmd BufRead,BufNewFile inventory set filetype=ansible_hosts
 augroup END
 
