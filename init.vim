@@ -112,6 +112,8 @@ Plug 'honza/vim-snippets'
 Plug 'phenomenes/ansible-snippets'
 " Ansible
 Plug 'pearofducks/ansible-vim'
+" Kubernetes + snippets
+Plug 'andrewstuart/vim-kubernetes'
 " Detect tabs vs spaces
 Plug 'tpope/vim-sleuth'
 " Hashicorp plugins
