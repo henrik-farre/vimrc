@@ -355,8 +355,8 @@ local nvim_lsp = require('lspconfig')
 -- null-ls setup
 local null_ls = require("null-ls")
 local sources = {
-    null_ls.builtins.diagnostics.flake8,
-    null_ls.builtins.diagnostics.shellcheck,
+  null_ls.builtins.diagnostics.flake8,
+  null_ls.builtins.diagnostics.shellcheck,
 }
 
 null_ls.config({ sources = sources })
