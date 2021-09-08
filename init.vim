@@ -615,7 +615,9 @@ endif
 " code is causing.
 if has_key(g:plugs, 'trouble.nvim')
 lua << EOF
-  require("trouble").setup {}
+  require("trouble").setup {
+    mode = "lsp_document_diagnostics"
+  }
 EOF
 endif
 
