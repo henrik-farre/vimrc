@@ -415,33 +415,30 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-for _, server in ipairs(servers) do
+local function make_config(server)
+  local config = {}
+  config.on_attach = on_attach
+  config.flags = {debounce_text_changes = 200}
+
   if server == 'ansiblels' then
-    nvim_lsp[server].setup {
-      on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 200,
-      },
-      filetypes = { "yaml.ansible" },
-      settings = {
+    config.filetypes = { "yaml.ansible" }
+    config.settings = {
+      ansible = {
         ansible = {
-          ansible = {
-            path = "/usr/bin/ansible"
-          },
-          ansibleLint = {
-            enabled = true,
-            path = "/usr/bin/ansible-lint",
-            arguments = "-x yaml"
-          },
-          python = {
-            interpreterPath = "/usr/bin/python3"
-          }
+          path = "/usr/bin/ansible"
         },
+        ansibleLint = {
+          enabled = true,
+          path = "/usr/bin/ansible-lint",
+          arguments = "-x yaml"
+        },
+        python = {
+          interpreterPath = "/usr/bin/python3"
+        }
       }
     }
   elseif server == 'yamlls' then
-    nvim_lsp[server].setup {
-      settings = {
+    config.settings = {
         yaml = {
           validate = true,
           hover = true,
@@ -476,35 +473,32 @@ for _, server in ipairs(servers) do
               "service.yaml",
               "*-service.yaml",
               "statefulset.yaml",
-            },
+            }
           }
         }
       }
-    }
   elseif server == 'jsonls' then
-    nvim_lsp[server].setup {
-      settings = {
-        json = {
-          schemas = {
-            {
-              fileMatch = { 'Packer/**/*.json' },
-              url = 'https://json.schemastore.org/packer.json',
-            }
+    config.settings = {
+      json = {
+        schemas = {
+          {
+            fileMatch = { 'Packer/**/*.json' },
+            url = 'https://json.schemastore.org/packer.json',
           }
         }
       }
     }
   elseif server == 'groovyls' then
-   nvim_lsp[server].setup {
-     cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" },
-   }
-  else
-    nvim_lsp[server].setup {
-      flags = {
-        debounce_text_changes = 150,
-      }
-    }
+     config.cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
   end
+
+  return config
+end
+
+for _, server in ipairs(servers) do
+  local config = make_config(server)
+
+  nvim_lsp[server].setup(config)
 end
 
 local signs = { Error = "❌", Warning = "⚠️", Hint = "💡", Information = "ℹ️" }
