@@ -28,6 +28,11 @@ noremap <buffer> <silent> $ g$
 nnoremap H 0
 nnoremap L $
 
+" Move cursor to first char on line on first press, next press goes to
+" beginning of line
+" FIXME: clashes with 0 g0 mapping above
+nnoremap <silent> 0 :call ToggleHomeZero()<CR>
+
 " http://www.reddit.com/r/vim/comments/2ueu0g/which_pluginskeybindsetc_significantly_changed/
 " expands %% to current file's directory in command-line mode
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<CR>
@@ -189,6 +194,7 @@ noremap <leader>bp :bp<cr>
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/\V<C-R>"<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimSpector
 nmap <leader><F5> <Plug>VimspectorContinue
 nmap <leader><F3> <Plug>VimspectorStop
@@ -201,3 +207,46 @@ nmap <F9> <Plug>VimspectorToggleBreakpoint
 nmap <F10> <Plug>VimspectorStepOver
 nmap <F11> <Plug>VimspectorStepInto
 nmap <F12> <Plug>VimspectorStepOut
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Telecope
+nnoremap <leader>bv <cmd>Telescope buffers<CR>
+nnoremap <leader>gv <cmd>Telescope git_files<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>lg <cmd>Telescope live_grep<CR>
+nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
+nnoremap <leader>fb :lua require('telescope.builtin').find_files({hidden = true})<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" incsearch
+if has_key(g:plugs, 'incsearch')
+  let g:incsearch#auto_nohlsearch = 0
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+  map n  <Plug>(incsearch-nohl-n)
+  map N  <Plug>(incsearch-nohl-N)
+  map *  <Plug>(incsearch-nohl-*)
+  map #  <Plug>(incsearch-nohl-#)
+  map g* <Plug>(incsearch-nohl-g*)
+  map g# <Plug>(incsearch-nohl-g#)
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabular
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERD Commenter
+map <F5> <Plug>NERDCommenterToggle
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Compe: completion plugin
+"
+" Press enter to select element in menu
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

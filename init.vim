@@ -178,21 +178,6 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" incsearch
-if has_key(g:plugs, 'incsearch')
-  let g:incsearch#auto_nohlsearch = 0
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-  map n  <Plug>(incsearch-nohl-n)
-  map N  <Plug>(incsearch-nohl-N)
-  map *  <Plug>(incsearch-nohl-*)
-  map #  <Plug>(incsearch-nohl-#)
-  map g* <Plug>(incsearch-nohl-g*)
-  map g# <Plug>(incsearch-nohl-g#)
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable plugins:
 let g:loaded_html_danish = 1      " html_da
 let g:loaded_netrwPlugin = 1      " netrw
@@ -232,46 +217,12 @@ if &diff
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Telescope
-"
-nnoremap <leader>bv <cmd>Telescope buffers<CR>
-nnoremap <leader>gv <cmd>Telescope git_files<CR>
-nnoremap <leader>ff <cmd>Telescope find_files<CR>
-nnoremap <leader>lg <cmd>Telescope live_grep<CR>
-nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
-nnoremap <leader>fb :lua require('telescope.builtin').find_files({hidden = true})<CR>
-
-lua << EOF
-require('telescope').setup{
-  defaults = {
-    color_devicons = true,
-    file_ignore_patterns = { '.cache', '.wine', '.cargo', '.git' },
-    vimgrep_arguments = {
-      "ag",
-      "--no-color",
-      "--no-heading",
-      "--filename",
-      "--numbers",
-      "--column",
-      "--smart-case",
-    },
-  }
-}
-EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabular
-nmap <leader>a= :Tabularize /=<CR>
-vmap <leader>a= :Tabularize /=<CR>
-nmap <leader>a: :Tabularize /:\zs<CR>
-vmap <leader>a: :Tabularize /:\zs<CR>
-
 " delimitMate
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD Commenter
-map <F5> <Plug>NERDCommenterToggle
 let g:NERDCreateDefaultMappings = 0
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -316,26 +267,6 @@ require'nvim-web-devicons'.setup {
 }
 EOF
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Treesitter
-"
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua" },
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-  incremental_selection = {
-    enable = true,
-  },
-  matchup = {
-    enable = true,
-  },
-}
-EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indent blankline
@@ -347,171 +278,18 @@ let g:indent_blankline_buftype_exclude = ["help", "terminal", "list", "nofile", 
 let g:indent_blankline_bufname_exclude = ["man://.*"]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LSP setup
+" Load Lua setup
 "
 lua << EOF
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'null-ls', 'terraformls', 'pyright', 'vimls', 'yamlls' }
-local nvim_lsp = require('lspconfig')
-
--- null-ls setup
-local null_ls = require("null-ls")
-local sources = {
-  null_ls.builtins.diagnostics.flake8,
-  null_ls.builtins.diagnostics.shellcheck,
-}
-
-null_ls.config({ sources = sources })
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-end
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  {
-    border = "rounded"
-  }
-)
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  {
-    border = "rounded"
-  }
-)
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    underline = false,
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  }
-)
-
-local function make_config(server)
-  local config = {}
-  config.on_attach = on_attach
-  config.flags = {debounce_text_changes = 200}
-
-  if server == 'ansiblels' then
-    config.filetypes = { "yaml.ansible" }
-    config.settings = {
-      ansible = {
-        ansible = {
-          path = "/usr/bin/ansible"
-        },
-        ansibleLint = {
-          enabled = true,
-          path = "/usr/bin/ansible-lint",
-          arguments = "-x yaml"
-        },
-        python = {
-          interpreterPath = "/usr/bin/python3"
-        }
-      }
-    }
-  elseif server == 'yamlls' then
-    config.settings = {
-        yaml = {
-          validate = true,
-          hover = true,
-          completion = true,
-          schemas = {
-            kubernetes = {
-              "clusterrolebinding.yaml",
-              "clusterrole-contour.yaml",
-              "clusterrole.yaml",
-              "configmap.yaml",
-              "cronjob.yaml",
-              "daemonset.yaml",
-              "deployment-*.yaml",
-              "deployment.yaml",
-              "*-deployment.yaml",
-              "hpa.yaml",
-              "ingress.yaml",
-              "job.yaml",
-              "namespace.yaml",
-              "pod.yaml",
-              "pv.yaml",
-              "pvc.yaml",
-              "rbac.yaml",
-              "rolebinding.yaml",
-              "role.yaml",
-              "sa.yaml",
-              "secret.yaml",
-              "serviceaccounts.yaml",
-              "service-account.yaml",
-              "serviceaccount.yaml",
-              "service-*.yaml",
-              "service.yaml",
-              "*-service.yaml",
-              "statefulset.yaml",
-            }
-          }
-        }
-      }
-  elseif server == 'jsonls' then
-    config.settings = {
-      json = {
-        schemas = {
-          {
-            fileMatch = { 'Packer/**/*.json' },
-            url = 'https://json.schemastore.org/packer.json',
-          }
-        }
-      }
-    }
-  elseif server == 'groovyls' then
-     config.cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
-  end
-
-  return config
-end
-
-for _, server in ipairs(servers) do
-  local config = make_config(server)
-
-  nvim_lsp[server].setup(config)
-end
-
-local signs = { Error = "❌", Warning = "⚠️", Hint = "💡", Information = "ℹ️" }
-
-for type, icon in pairs(signs) do
-  local hl = "LspDiagnosticsSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+-- LSP setup
+-- LSP kind
+-- LSP colors
+-- Trouble
+require('lsp_configuration')
+-- Treesitter
+require('treesitter_configuration')
+-- Telescope
+require('telescope_configuration')
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -533,11 +311,6 @@ let g:compe.source.emoji = v:true
 let g:compe.source.treesitter = v:true
 let g:compe.documentation = {}
 let g:compe.documentation.border = "rounded"
-
-" Press enter to select element in menu
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endif
 
 if has_key(g:plugs, 'nvim-cmp')
@@ -549,73 +322,6 @@ cmp.setup {
   },
   sources = { ... }
 }
-EOF
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LSP colors, highlightning of messages for colorschemes that does not support
-" those groups
-"
-if has_key(g:plugs, 'lsp-colors')
-lua << EOF
-require("lsp-colors").setup({
-  Error = "#db4b4b",
-  Warning = "#e0af68",
-  Information = "#0db9d7",
-  Hint = "#10B981"
-})
-EOF
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LSP kind: show icons for completions
-"
-if has_key(g:plugs, 'lspkind-nvim')
-lua << EOF
-require('lspkind').init({
-    with_text = true,
-    preset = 'default',
-
-    symbol_map = {
-      Class = "ﴯ",
-      Color = "",
-      Constant = "",
-      Constructor = '',
-      Enum = "",
-      EnumMember = '',
-      Event = "",
-      Field = "ﰠ",
-      File = "",
-      Folder = "",
-      Function = '',
-      Interface = "",
-      Keyword = "",
-      Method = 'ƒ',
-      Module = '',
-      Operator = "",
-      Property = "ﰠ",
-      Reference = "",
-      Snippet = "",
-      Struct = '',
-      Text = '',
-      TypeParameter = "",
-      Unit = "塞",
-      Value = "",
-      Variable = '',
-    },
-})
-EOF
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Trouble, A pretty list for showing diagnostics, references, telescope
-" results, quickfix and location lists to help you solve all the trouble your
-" code is causing.
-if has_key(g:plugs, 'trouble.nvim')
-lua << EOF
-  require("trouble").setup {
-    mode = "lsp_document_diagnostics"
-  }
 EOF
 endif
 
@@ -906,9 +612,6 @@ function! ToggleHomeZero()
     execute "normal! 0"
   endif
 endfunction
-
-" FIXME: clashes with 0 g0 mapping in bindings
-nnoremap 0 :call ToggleHomeZero()<CR>
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
