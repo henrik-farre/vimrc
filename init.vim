@@ -782,11 +782,12 @@ set timeoutlen=1000
 " https://github.com/neovim/neovim/issues/2051
 set ttimeoutlen=0
 
-" Do not autoread changed files
+" Do not autoread changed files (still detect changes) https://github.com/neovim/neovim/issues/2127
 set noautoread
 
 " Automatically change to directory of current file
 " - fixes start location of telescope find files
+" - Use rooter instead
 " set autochdir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
