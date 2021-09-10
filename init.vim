@@ -41,7 +41,7 @@ endif
 scriptencoding utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug {{{
+" vim-plug
 " https://github.com/junegunn/vim-plug/wiki/faq
 if empty(glob("$VIMHOME/autoload/plug.vim"))
   silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
@@ -154,7 +154,6 @@ Plug 'junegunn/vader.vim'
 " Enhanced wild menu
 " Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
-" }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader
@@ -164,12 +163,8 @@ let g:mapleader = "\<Space>"
 map <Space> <Leader>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin settings {{{
+" Plugin settings
 "
-" Note: Plugins are not loaded at this point... don't know why, but stuff
-" like:
-" if exists(":Tabularize")
-" Does not work...
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
@@ -228,10 +223,14 @@ let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JSON
 " Don't hide "
 let g:vim_json_syntax_conceal = 0
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Quick-scope
+"
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -242,7 +241,6 @@ let g:ansible_unindent_after_newline = 0
 " Terraform settings
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
 let g:terraform_align=1             " Set indent to 2 spaces
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DevIcons
@@ -266,7 +264,6 @@ require'nvim-web-devicons'.setup {
  default = true;
 }
 EOF
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indent blankline
@@ -406,20 +403,6 @@ set foldlevel=1                   " this is just what i use
 
 set number                        " Line numbers
 " Switch between relativenumber and number on focus/enter/leave
-augroup vimrc_number
-  autocmd!
-  autocmd FocusLost * :set norelativenumber
-  autocmd FocusGained * :set relativenumber
-  autocmd InsertEnter * :set norelativenumber
-  autocmd InsertLeave * :set relativenumber
-augroup END
-
-" Only show cursorline in active window/buffer
-augroup vimrc_CursorLine
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
 
 set list
 " set listchars=tab:▸\ ,eol:¬
@@ -497,7 +480,7 @@ set noautoread
 " set autochdir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clipboard {{{
+" Clipboard
 "
 " In insert mode:
 " - <C+r> *: Primary selection
@@ -511,7 +494,6 @@ if (has('clipboard') && executable('xsel') && exists('$DISPLAY'))
 elseif (has('clipboard') && executable('pbcopy') && has('mac'))
   set clipboard+=unnamedplus
 endif
-" }}}
 
 set modeline                      " read settings for stuff like shiftwidth from current file
 set modelines=3                   " number lines checked for modelines
@@ -602,7 +584,7 @@ set copyindent                    " copy the previous indentation on autoindenti
 set preserveindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" functions {{{
+" Functions
 "
 " http://ddrscott.github.io/blog/2016/vim-toggle-movement/
 function! ToggleHomeZero()
@@ -663,6 +645,21 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto commands
 "
+augroup vimrc_number
+  autocmd!
+  autocmd FocusLost * :set norelativenumber
+  autocmd FocusGained * :set relativenumber
+  autocmd InsertEnter * :set norelativenumber
+  autocmd InsertLeave * :set relativenumber
+augroup END
+
+" Only show cursorline in active window/buffer
+augroup vimrc_CursorLine
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=500, on_visual=true}
 
 " Show 💡 when code action is avaliable
