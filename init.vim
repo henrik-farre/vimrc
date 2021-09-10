@@ -423,16 +423,10 @@ set listchars=tab:\ \ ,extends:»,precedes:«,trail:▒,nbsp:·
 "vertical/horizontal scroll off settings
 set scrolloff=10                  " Keep lines between the cursor and bottom/top
 set sidescrolloff=7
-set sidescroll=1
 " All abbrevitions, truncate middle of long messages, no intro when starting,
 set shortmess=aTI
 " no ins-completion-menu messages
 set shortmess+=c
-
-set nostartofline                 " Cursor does not jump to first nonblank char on line after buffer switch http://stackoverflow.com/questions/8292742/vim-cursor-jumps-to-begining-of-the-line-after-buffer-switch
-
-"set showmatch                    " show matching brackets
-"set mat=5                        " how many tenths of a second to blink matching brackets for
 
 " More natural split opening
 " http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
@@ -454,9 +448,7 @@ set display+=lastline             " A nicer way to show long wrapped lines
 set title                         " change the terminals/windows title
 set hid                           " change buffer without saving
 set autowrite                     " Write contents of the file, if it has been modified, on buffer exit
-set history=10000                 " remember more than the default 20 commands and search patterns
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
-set showcmd                       " Show (partial) command in status line.
 set showmode                      " display the current mode
 " set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set fillchars+=vert:│
@@ -523,7 +515,6 @@ set textwidth=0                   " Do not wrap text
 set linebreak                     " Do not softwrap the line in the middle of a word
 set whichwrap=<,>,[,],h,l,b,s,~   " Make end/beginning-of-line cursor wrapping behave human-like, not vi-like
 
-set wildmenu
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 set wildignore+=.hg,.git,.svn,CSV                " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
@@ -546,18 +537,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 
 set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
-" Store temporary files in a central spot
-if !isdirectory($VIMHOME."/backups/")
-    call mkdir($VIMHOME."/backups/", "", 0700)
-endif
-
-set backupdir=$VIMHOME/backups/
 set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
-
-if !isdirectory($VIMHOME."/swaps/")
-    call mkdir($VIMHOME."/swaps/", "", 0700)
-endif
-set directory=$VIMHOME/swaps/       " swap files
 
 " Use less space for line numbering if possible
 try
