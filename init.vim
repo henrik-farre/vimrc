@@ -634,6 +634,7 @@ let g:rooter_resolve_links = 1
 " Wilder
 "
 " Key bindings can be changed, see below
+if has_key(g:plugs, 'wilder.nvim')
 call wilder#setup({'modes': [':', '/', '?']})
 
 set wildoptions+=pum
@@ -651,6 +652,7 @@ call wilder#set_option('pipeline', [
       \     wilder#python_search_pipeline(),
       \   ),
       \ ])
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Peekaboo
