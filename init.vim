@@ -152,7 +152,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
 " Enhanced wild menu
-Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 " }}}
 
