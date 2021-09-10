@@ -80,9 +80,9 @@ nnoremap ` '
 " Clipboard related mappings, yank/cut/paste - Uses Easyclip
 " Easyclip
 if has_key(g:plugs, 'vim-easyclip')
-    nmap x <Plug>MoveMotionPlug
-    xmap x <Plug>MoveMotionXPlug
-    nmap xx <Plug>MoveMotionLinePlug
+    nnoremap x "+x
+    xnoremap x "+x
+    " nmap xx xx
 endif
 " Make shift-insert work like in Xterm
 " map <S-Insert> <MiddleMouse>
