@@ -38,11 +38,13 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
+"
 scriptencoding utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 " https://github.com/junegunn/vim-plug/wiki/faq
+"
 if empty(glob("$VIMHOME/autoload/plug.vim"))
   silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -159,6 +161,7 @@ call plug#end()
 " Leader
 " Needs to be set here, and not in bindings.vim as it is sourced to late
 " http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
+"
 let g:mapleader = "\<Space>"
 map <Space> <Leader>
 
@@ -168,12 +171,14 @@ map <Space> <Leader>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
+"
 let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable plugins:
+"
 let g:loaded_html_danish = 1      " html_da
 let g:loaded_netrwPlugin = 1      " netrw
 let g:loaded_vimballPlugin = 1    " vimball
@@ -186,6 +191,7 @@ let g:loaded_tutor_mode_plugin = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Emmet
+"
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_complete_tag = 1
 let g:user_emmet_settings = {
@@ -204,6 +210,7 @@ let g:user_emmet_settings = {
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable syntax checking when in a diff
+"
 if &diff
   set noswapfile
   let g:loaded_javascript_syntax_checker = 1
@@ -213,11 +220,13 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " delimitMate
+"
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD Commenter
+"
 let g:NERDCreateDefaultMappings = 0
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -236,9 +245,12 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ansible settings
 " When this variable is set, indentation will completely reset (unindent to column 0) after two newlines in insert-mode. The normal behavior of YAML is to always keep the previous indentation, even across multiple newlines with no content.
+"
 let g:ansible_unindent_after_newline = 0
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Terraform settings
+"
 let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
 let g:terraform_align=1             " Set indent to 2 spaces
 
