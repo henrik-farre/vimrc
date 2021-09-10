@@ -573,40 +573,35 @@ endif
 if has_key(g:plugs, 'lspkind-nvim')
 lua << EOF
 require('lspkind').init({
-    -- enables text annotations
-    --
-    -- default: true
     with_text = true,
-
-    -- default symbol map
-    -- can be either 'default' or
-    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
-    --
-    -- default: 'default'
     preset = 'default',
 
     symbol_map = {
-      Text = '',
-      Method = 'ƒ',
-      Function = '',
-      Operator = 'ƒ',
+      Class = "ﴯ",
+      Color = "",
+      Constant = "",
       Constructor = '',
-      Variable = '',
-      Class = '',
-      Interface = 'ﰮ',
-      Module = '',
-      Property = '',
-      Unit = '',
-      Value = '',
-      Enum = '了',
-      Keyword = '',
-      Snippet = '﬌',
-      Color = '',
-      File = '',
-      Folder = '',
+      Enum = "",
       EnumMember = '',
-      Constant = '',
+      Event = "",
+      Field = "ﰠ",
+      File = "",
+      Folder = "",
+      Function = '',
+      Interface = "",
+      Keyword = "",
+      Method = 'ƒ',
+      Module = '',
+      Operator = "",
+      Property = "ﰠ",
+      Reference = "",
+      Snippet = "",
       Struct = '',
+      Text = '',
+      TypeParameter = "",
+      Unit = "塞",
+      Value = "",
+      Variable = '',
     },
 })
 EOF
