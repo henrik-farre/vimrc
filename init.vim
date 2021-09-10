@@ -207,7 +207,7 @@ let g:loaded_tutor_mode_plugin = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Emmet
 let g:user_emmet_expandabbr_key = '<c-e>'
-let g:use_emmet_complete_tag = 1
+let g:user_emmet_complete_tag = 1
 let g:user_emmet_settings = {
       \ 'html' : {
       \   'filters' : 'html',
