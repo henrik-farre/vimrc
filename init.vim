@@ -782,7 +782,7 @@ set timeoutlen=1000
 " https://github.com/neovim/neovim/issues/2051
 set ttimeoutlen=0
 
-" Do not autoread changed files, also see checktime augroup
+" Do not autoread changed files
 set noautoread
 
 " Automatically change to directory of current file
