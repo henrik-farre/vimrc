@@ -295,11 +295,11 @@ lua << EOF
 -- LSP kind
 -- LSP colors
 -- Trouble
-require('lsp_configuration')
+require('config.lsp')
 -- Treesitter
-require('treesitter_configuration')
+require('config.treesitter')
 -- Telescope
-require('telescope_configuration')
+require('config.telescope')
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
