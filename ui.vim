@@ -152,6 +152,11 @@ let g:airline#extensions#nvimlsp#enabled = 1
 let g:airline#extensions#nvimlsp#error_symbol = 'E:'
 let g:airline#extensions#nvimlsp#warning_symbol = 'W:'
 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.notexists = ''
+
 " let g:airline_section_b = '%{AirlineGitInfo()}'
 let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 " l: Line number, c: column, V: virtual column, not displayed if == c
