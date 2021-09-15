@@ -155,6 +155,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/vader.vim'
 " Enhanced wild menu
 " Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -412,7 +413,7 @@ set number                        " Line numbers
 
 set list
 " set listchars=tab:▸\ ,eol:¬
-set listchars=tab:\ \ ,extends:»,precedes:«,trail:▒,nbsp:·
+set listchars=tab:\ \ ,extends:»,precedes:«,nbsp:·
 
 "vertical/horizontal scroll off settings
 set scrolloff=10                  " Keep lines between the cursor and bottom/top

@@ -102,17 +102,17 @@ hi VertSplit guibg=NONE guifg=#444444 ctermbg=NONE ctermfg=NONE
 
 " Indent guide
 hi IndentBlanklineChar guifg=#2f2f2f gui=nocombine
+" https://github.com/lukas-reineke/indent-blankline.nvim/issues/59
+set colorcolumn = "99999"
 
 " Visual selection
 hi Visual guifg=#000000 guibg=LightBlue gui=none
 
+highlight ExtraWhitespace guibg=#4e2f2f
+
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
 " highlight NonText guifg=fg guibg=bg ctermfg=fg ctermbg=bg gui=none cterm=none
-
-" Indet guides
-" hi IndentGuidesOdd  ctermbg=236
-" hi IndentGuidesEven ctermbg=235
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
