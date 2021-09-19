@@ -409,7 +409,7 @@ set foldlevel=1                   " this is just what i use
 " set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo " which commands trigger auto-unfold
 
 set number                        " Line numbers
-" Switch between relativenumber and number on focus/enter/leave
+set signcolumn=auto:2             " Make space for multiple signs
 
 set list
 " set listchars=tab:▸\ ,eol:¬
