@@ -74,7 +74,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local function make_config(server)
   local config = {}
   config.on_attach = on_attach
-  config.flags = {debounce_text_changes = 200}
+  config.flags = {debounce_text_changes = 500}
 
   if server == 'ansiblels' then
     config.filetypes = { "yaml.ansible" }
@@ -157,7 +157,7 @@ for _, server in ipairs(servers) do
   nvim_lsp[server].setup(config)
 end
 
-local signs = { Error = "❌", Warning = "⚠️", Hint = "💡", Information = "ℹ️" }
+local signs = { Error = "", Warning = "", Hint = "", Information = "" }
 
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type
