@@ -61,8 +61,8 @@ nnoremap <C-_> :sp<CR>
 nnoremap <C-S-_> :sp<CR>
 
 " neovim-qt
-inoremap <C-S-V> <C-R>+
-cnoremap <C-S-V> <C-R>+
+" inoremap <C-S-V> <C-R>+
+" cnoremap <C-S-V> <C-R>+
 
 " Disable search highlightning
 " Will be replaced with C-l
@@ -215,6 +215,7 @@ nnoremap <leader>gv <cmd>Telescope git_files<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>lg <cmd>Telescope live_grep<CR>
 nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
+nnoremap <leader>ss <cmd>Telescope spell_suggest<CR>
 nnoremap <leader>fb :lua require('telescope.builtin').find_files({hidden = true})<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,7 +247,9 @@ map <F5> <Plug>NERDCommenterToggle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compe: completion plugin
 "
+if has_key(g:plugs, 'nvim-compe')
 " Press enter to select element in menu
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+endif
