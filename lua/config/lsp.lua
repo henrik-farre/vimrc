@@ -75,6 +75,9 @@ local function make_config(server)
   local config = {}
   config.on_attach = on_attach
   config.flags = {debounce_text_changes = 500}
+  if vim.g.plugs['nvim-cmp'] then
+    config.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  end
 
   if server == 'ansiblels' then
     config.filetypes = { "yaml.ansible" }
