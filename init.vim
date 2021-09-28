@@ -83,9 +83,9 @@ Plug 'hrsh7th/nvim-compe'
 " Plug 'hrsh7th/cmp-buffer'
 " Plug 'hrsh7th/cmp-nvim-lua'
 " Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
 " Plug 'hrsh7th/cmp-path'
 " Plug 'hrsh7th/cmp-emoji'
+" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 Plug 'Raimondi/delimitMate'
@@ -111,7 +111,6 @@ Plug 'svermeulen/vim-easyclip'
 " https://medium.com/brigade-engineering/sharpen-your-vim-with-snippets-767b693886db
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'phenomenes/ansible-snippets'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 " Kubernetes + snippets
@@ -294,6 +293,8 @@ require('config.treesitter')
 require('config.telescope')
 -- Indent blankline
 require('config.indent-blankline')
+-- nvim cmp
+require('config.cmp')
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -315,18 +316,6 @@ let g:compe.source.emoji = v:true
 let g:compe.source.treesitter = v:true
 let g:compe.documentation = {}
 let g:compe.documentation.border = "rounded"
-endif
-
-if has_key(g:plugs, 'nvim-cmp')
-lua << EOF
-local cmp = require'cmp'
-cmp.setup {
-  completion = {
-    autocomplete = { ... },
-  },
-  sources = { ... }
-}
-EOF
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
