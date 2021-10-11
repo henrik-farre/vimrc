@@ -248,6 +248,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " When this variable is set, indentation will completely reset (unindent to column 0) after two newlines in insert-mode. The normal behavior of YAML is to always keep the previous indentation, even across multiple newlines with no content.
 "
 let g:ansible_unindent_after_newline = 0
+let g:ansible_ftdetect_filename_regex = '\v(playbook|site|local|requirements)\.ya?ml$'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Terraform settings
