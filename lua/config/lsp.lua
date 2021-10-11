@@ -103,8 +103,9 @@ local function make_config(server)
           hover = true,
           completion = true,
           schemas = {
-            ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*.{yml,yaml}',
-            ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+            -- Schemas should work out of the box
+            -- ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
+            -- ['https://json.schemastore.org/github-action.json'] = '.github/action.{yml,yaml}',
             kubernetes = {
               "clusterrolebinding.yaml",
               "clusterrole-contour.yaml",
