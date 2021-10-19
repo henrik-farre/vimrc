@@ -212,11 +212,10 @@ nmap <F12> <Plug>VimspectorStepOut
 " Telecope
 nnoremap <leader>bv <cmd>Telescope buffers<CR>
 nnoremap <leader>gv <cmd>Telescope git_files<CR>
-nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>lg <cmd>Telescope live_grep<CR>
 nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
 nnoremap <leader>ss <cmd>Telescope spell_suggest<CR>
-nnoremap <leader>fb :lua require('telescope.builtin').find_files({hidden = true})<CR>
+nnoremap <leader>ff :lua require('telescope.builtin').find_files({hidden = true})<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch
