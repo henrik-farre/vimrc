@@ -480,6 +480,9 @@ set noautoread
 " Make it work in Neovim
 if (has('clipboard') && executable('xsel') && exists('$DISPLAY'))
   set clipboard+=unnamedplus
+elseif (has('clipboard') && executable('wl-copy'))
+  " wayland support
+  set clipboard+=unnamedplus
 elseif (has('clipboard') && executable('pbcopy') && has('mac'))
   set clipboard+=unnamedplus
 endif
