@@ -78,14 +78,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion
-Plug 'hrsh7th/nvim-compe'
-" Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-nvim-lua'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-emoji'
-" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+" Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-emoji'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 Plug 'Raimondi/delimitMate'
@@ -480,6 +480,9 @@ set noautoread
 " Make it work in Neovim
 if (has('clipboard') && executable('xsel') && exists('$DISPLAY'))
   set clipboard+=unnamedplus
+elseif (has('clipboard') && executable('wl-copy'))
+  " wayland support
+  set clipboard+=unnamedplus
 elseif (has('clipboard') && executable('pbcopy') && has('mac'))
   set clipboard+=unnamedplus
 endif
@@ -492,7 +495,7 @@ if has("gui_running")
 endif
 
 " set completeopt+=menu,longest,preview
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 set complete-=i                   " disabled scanning of include files
 
 " Wrapping/linebreak
