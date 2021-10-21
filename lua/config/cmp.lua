@@ -37,12 +37,12 @@ if vim.g.plugs['nvim-cmp'] then
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {
-      { name = 'buffer' },
-      { name = 'nvim_lua' },
       { name = 'nvim_lsp' },
+      { name = 'ultisnips' },
+      { name = 'buffer' },
       { name = 'path' },
       { name = 'emoji' },
-      { name = 'ultisnips' },
+      { name = 'nvim_lua' },
     }
   })
 end
