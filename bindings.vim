@@ -210,7 +210,7 @@ nmap <F12> <Plug>VimspectorStepOut
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Telecope
-nnoremap <leader>bv <cmd>Telescope buffers<CR>
+nnoremap <leader>bv :lua require('telescope.builtin').buffers({show_all_buffers = true, ignore_current_buffer = true})<CR>
 nnoremap <leader>gv <cmd>Telescope git_files<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>lg <cmd>Telescope live_grep<CR>
