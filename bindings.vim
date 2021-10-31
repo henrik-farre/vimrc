@@ -210,12 +210,14 @@ nmap <F12> <Plug>VimspectorStepOut
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Telescope
-nnoremap <leader>bv <cmd>Telescope buffers show_all_buffers=true ignore_current_buffer=true cwd_only=false<CR>
-nnoremap <leader>gv <cmd>Telescope git_files<CR>
-nnoremap <leader>lg <cmd>Telescope live_grep<CR>
-nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
-nnoremap <leader>ss <cmd>Telescope spell_suggest<CR>
-nnoremap <leader>ff :lua require('telescope.builtin').find_files({hidden = true})<CR>
+if has_key(g:plugs, 'telescope.nvim')
+  nnoremap <leader>bv <cmd>Telescope buffers show_all_buffers=true ignore_current_buffer=true cwd_only=false<CR>
+  nnoremap <leader>gv <cmd>Telescope git_files<CR>
+  nnoremap <leader>lg <cmd>Telescope live_grep<CR>
+  nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
+  nnoremap <leader>ss <cmd>Telescope spell_suggest<CR>
+  nnoremap <leader>ff :lua require('telescope.builtin').find_files({hidden = true})<CR>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch

@@ -146,11 +146,16 @@ Plug 'folke/trouble.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 " Set working to project directory
 Plug 'airblade/vim-rooter'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fuzzy finders
+" FZF, first repository contains plugin, the other commands and mappings
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " Telescope and dependencies
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" Plug 'nvim-telescope/telescope.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
 " Enhanced wild menu
@@ -169,6 +174,26 @@ map <Space> <Leader>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
+if has_key(g:plugs, 'fzf') && executable('fzf')
+  nnoremap <leader>bv :Buffers<cr>
+  " Dont use tmux split
+  " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
+  " let g:fzf_layout = {}
+  let g:fzf_nvim_statusline=1
+  " Override env from shell where I prefer -e
+  let $FZF_DEFAULT_OPTS = '-x --inline-info'
+
+  " Find git root if it exists
+  " https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
+  function! s:fzf_root()
+      let path = finddir(".git", expand("%:p:h").";")
+      return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
+  endfun
+
+  nnoremap <silent> <Leader>t :exe 'Files ' . <SID>fzf_root()<CR>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
@@ -292,7 +317,7 @@ require('config.lsp')
 -- Treesitter
 require('config.treesitter')
 -- Telescope
-require('config.telescope')
+-- require('config.telescope')
 -- Indent blankline
 require('config.indent-blankline')
 -- nvim cmp
