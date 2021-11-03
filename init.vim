@@ -153,7 +153,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Telescope and dependencies
 " Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim' " also required by null-ls
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'nvim-telescope/telescope.nvim'
 " vim tests
