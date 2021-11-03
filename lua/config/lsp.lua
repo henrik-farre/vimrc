@@ -140,6 +140,7 @@ local function make_config(server)
         }
       }
   elseif server == 'jsonls' then
+    config.cmd = { "vscode-json-languageserver", "--stdio" }
     config.settings = {
       json = {
         schemas = {
@@ -150,6 +151,10 @@ local function make_config(server)
         }
       }
     }
+  elseif server == 'html' then
+    config.cmd = { "vscode-html-languageserver", "--stdio" }
+  elseif server == 'css' then
+    config.cmd = { "vscode-css-languageserver", "--stdio" }
   elseif server == 'groovyls' then
      config.cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
   end
