@@ -7,13 +7,15 @@ local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html'
 local nvim_lsp = require('lspconfig')
 
 -- null-ls setup
-local null_ls = require("null-ls")
-local sources = {
-  null_ls.builtins.diagnostics.flake8,
-  null_ls.builtins.diagnostics.shellcheck,
-}
+if vim.g.plugs['null-ls.nvim'] then
+  local null_ls = require("null-ls")
+  local sources = {
+    null_ls.builtins.diagnostics.flake8,
+    null_ls.builtins.diagnostics.shellcheck,
+  }
 
-null_ls.config({ sources = sources })
+  null_ls.config({ sources = sources })
+end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -153,7 +155,7 @@ local function make_config(server)
     }
   elseif server == 'html' then
     config.cmd = { "vscode-html-languageserver", "--stdio" }
-  elseif server == 'css' then
+  elseif server == 'cssls' then
     config.cmd = { "vscode-css-languageserver", "--stdio" }
   elseif server == 'groovyls' then
      config.cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
