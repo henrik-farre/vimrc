@@ -132,6 +132,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
+Plug 'nvim-lua/plenary.nvim' " required by null-ls and telescope
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'sbdchd/neoformat'
 " Show indent lines
@@ -152,8 +153,7 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Telescope and dependencies
-" Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim' " also required by null-ls
+Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'nvim-telescope/telescope.nvim'
 " vim tests
