@@ -3,7 +3,7 @@
 --
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'null-ls', 'terraformls', 'pyright', 'vimls', 'yamlls' }
+local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'null-ls', 'terraformls', 'tflint', 'pyright', 'vimls', 'yamlls' }
 local nvim_lsp = require('lspconfig')
 
 -- null-ls setup
@@ -91,7 +91,7 @@ local function make_config(server)
         ansibleLint = {
           enabled = true,
           path = "/usr/bin/ansible-lint",
-          arguments = "-x yaml"
+          -- arguments = "-x yaml"
         },
         python = {
           interpreterPath = "/usr/bin/python3"
