@@ -762,6 +762,14 @@ augroup END
 "     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " augroup END
 
+" Fix that after enter the key is indented, and LSP does not suggest anything,
+" key is reindented after pressing :
+augroup vimrc_yaml
+    autocmd!
+    autocmd FileType yaml.ansible setlocal indentexpr=
+augroup END
+
+
 " ansible-vim does not detect playbooks, `set filetype=x` overrides setfiletype
 augroup vimrc_ansible
     autocmd!
