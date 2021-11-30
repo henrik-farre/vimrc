@@ -97,11 +97,11 @@ set cursorline
 
 " SignColumn
 " hi SignColumn guibg=#121212 ctermbg=232
-hi LspDiagnosticsSignError guifg=red guibg=#111111
-hi LspDiagnosticsSignWarning guifg=yellow guibg=#111111
-hi LspDiagnosticsSignHint guifg=green guibg=#111111
-hi LspDiagnosticsSignInformation guifg=blue guibg=#111111
-hi LspDiagnosticsDefaultInformation guibg=#111111
+hi DiagnosticError guifg=red guibg=#111111
+hi DiagnosticSignWarn guifg=yellow guibg=#111111
+hi DiagnosticSignHint guifg=green guibg=#111111
+hi DiagnosticSignInfo guifg=blue guibg=#111111
+hi DiagnosticInfo guibg=#111111
 " Change split background between windows
 hi VertSplit guibg=NONE guifg=#444444 ctermbg=NONE ctermfg=NONE
 
