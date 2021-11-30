@@ -54,7 +54,7 @@ endif
 silent! call plug#begin("$VIMHOME/bundle")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
@@ -94,7 +94,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'haya14busa/incsearch.vim'
 " Highlights on f F t T
-Plug 'bradford-smith94/quick-scope'
+" Plug 'bradford-smith94/quick-scope'
+Plug 'ggandor/lightspeed.nvim'
 " Add visual marks in gutter
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
@@ -267,7 +268,7 @@ let g:vim_json_syntax_conceal = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Quick-scope
 "
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ansible settings
