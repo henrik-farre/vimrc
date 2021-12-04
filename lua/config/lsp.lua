@@ -42,36 +42,44 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  -- https://jdhao.github.io/2021/12/01/nvim_v06_released/
+  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  {
-    border = "rounded"
-  }
-)
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  {
-    border = "rounded"
-  }
-)
+local border = {
+      {"🭽", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"🭾", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"🭿", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"🭼", "FloatBorder"},
+      {"▏", "FloatBorder"},
+}
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    underline = false,
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  }
-)
+-- To instead override globally
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+  severity_sort = true,
+})
 
 local function make_config(server)
   local config = {}
@@ -170,49 +178,11 @@ for _, server in ipairs(servers) do
   nvim_lsp[server].setup(config)
 end
 
-local signs = { Error = "", Warning = "", Hint = "", Information = "" }
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
--- -----------------------------------------------------------------------------------------------
--- LSP kind: show icons for completions
---
-if vim.g.plugs['lspkind-nvim'] then
-require('lspkind').init({
-    with_text = true,
-    preset = 'default',
-
-    symbol_map = {
-      Class = "ﴯ",
-      Color = "",
-      Constant = "",
-      Constructor = '',
-      Enum = "",
-      EnumMember = '',
-      Event = "",
-      Field = "ﰠ",
-      File = "",
-      Folder = "",
-      Function = '',
-      Interface = "",
-      Keyword = "",
-      Method = 'ƒ',
-      Module = '',
-      Operator = "",
-      Property = "ﰠ",
-      Reference = "",
-      Snippet = "",
-      Struct = '',
-      Text = '',
-      TypeParameter = "",
-      Unit = "塞",
-      Value = "",
-      Variable = '',
-    },
-})
 end
 
 -- -----------------------------------------------------------------------------------------------
