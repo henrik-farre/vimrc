@@ -204,6 +204,6 @@ end
 -- code is causing.
 if vim.g.plugs['trouble.nvim'] then
   require("trouble").setup {
-    mode = "lsp_document_diagnostics"
+    mode = "document_diagnostics"
   }
 end
