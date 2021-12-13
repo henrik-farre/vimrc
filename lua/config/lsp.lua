@@ -3,18 +3,17 @@
 --
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'null-ls', 'terraformls', 'tflint', 'pyright', 'vimls', 'yamlls' }
+local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'terraformls', 'tflint', 'pyright', 'vimls', 'yamlls' }
 local nvim_lsp = require('lspconfig')
 
 -- null-ls setup
 if vim.g.plugs['null-ls.nvim'] then
-  local null_ls = require("null-ls")
-  local sources = {
-    null_ls.builtins.diagnostics.flake8,
-    null_ls.builtins.diagnostics.shellcheck,
-  }
-
-  null_ls.config({ sources = sources })
+  require("null-ls").setup({
+    sources = {
+      require("null-ls").builtins.diagnostics.flake8,
+      require("null-ls").builtins.diagnostics.shellcheck,
+    },
+  })
 end
 
 -- Use an on_attach function to only map the following keys
