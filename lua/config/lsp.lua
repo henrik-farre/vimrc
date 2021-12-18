@@ -83,7 +83,7 @@ vim.diagnostic.config({
 local function make_config(server)
   local config = {}
   config.on_attach = on_attach
-  config.flags = {debounce_text_changes = 500}
+  -- config.flags = {debounce_text_changes = 1000}
   if vim.g.plugs['nvim-cmp'] then
     config.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   end
@@ -156,6 +156,10 @@ local function make_config(server)
           {
             fileMatch = { 'Packer/**/*.json' },
             url = 'https://json.schemastore.org/packer.json',
+          },
+          {
+            fileMatch = {"**/filespecs/*.json", "*filespec*.json", "*.filespec", "**/specs/*.json"},
+            url = "https://raw.githubusercontent.com/jfrog/jfrog-cli/v2/schema/filespec-schema.json"
           }
         }
       }
