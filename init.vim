@@ -426,7 +426,7 @@ set foldlevel=1                   " this is just what i use
 " set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo " which commands trigger auto-unfold
 
 set number                        " Line numbers
-set signcolumn=yes:2             " Make space for multiple signs
+set signcolumn=yes:1              " Always show 1 sign column
 
 set list
 " set listchars=tab:▸\ ,eol:¬
@@ -486,6 +486,9 @@ set timeoutlen=1000
 " NeoVim handles ESC keys as alt+key set this to solve the problem
 " https://github.com/neovim/neovim/issues/2051
 set ttimeoutlen=0
+
+" Set updatetime to make floating windows appear faster
+set updatetime=250
 
 " Do not autoread changed files (still detect changes) https://github.com/neovim/neovim/issues/2127
 set noautoread
