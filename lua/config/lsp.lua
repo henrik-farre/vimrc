@@ -73,12 +73,15 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
   underline = false,
   update_in_insert = false,
   severity_sort = true,
+  float = { border = "single" },
 })
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 local function make_config(server)
   local config = {}
