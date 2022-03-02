@@ -32,7 +32,12 @@ if vim.g.plugs['nvim-cmp'] then
     sources = {
       { name = 'nvim_lsp' },
       { name = 'ultisnips' },
-      { name = 'buffer' },
+      {
+        name = 'buffer',
+          option = {
+            keyword_length = 3,
+        },
+      },
       { name = 'path' },
       { name = 'emoji' },
       { name = 'nvim_lua' },
@@ -42,7 +47,9 @@ if vim.g.plugs['nvim-cmp'] then
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
     sources = {
-      { name = 'buffer' }
+      {
+        name = 'buffer'
+      }
     }
   })
 
