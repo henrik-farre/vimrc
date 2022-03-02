@@ -2,7 +2,7 @@
 -- Treesitter
 --
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua" },
+  ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown" },
   highlight = {
     enable = true,
   },
