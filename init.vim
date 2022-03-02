@@ -837,6 +837,32 @@ function! MarkdownTypeDetect()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable syntax highlighting in big files
+" https://www.reddit.com/r/neovim/comments/s232p5/when_i_open_mega_filesover_gb_neovim_usually/
+"
+function DisableSyntaxTreesitter()
+    echo("Big file, disabling syntax, treesitter and folding")
+    if exists(':TSBufDisable')
+        exec 'TSBufDisable autotag'
+        exec 'TSBufDisable highlight'
+        " etc...
+    endif
+
+    set foldmethod=manual
+    syntax clear
+    syntax off
+    filetype off
+    set noundofile
+    set noswapfile
+    set noloadplugins
+endfunction
+
+augroup BigFileDisable
+    autocmd!
+    autocmd BufReadPost * if getfsize(expand("%")) > 512 * 1024 | exec DisableSyntaxTreesitter() | endif
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI settings
 "
 source $VIMHOME/ui.vim
