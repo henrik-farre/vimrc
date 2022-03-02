@@ -79,6 +79,7 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
   float = { border = "single" },
+  source = "always",
 })
 
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
@@ -87,8 +88,9 @@ local function make_config(server)
   local config = {}
   config.on_attach = on_attach
   config.flags = {debounce_text_changes = 500}
+  config.capabilities = vim.lsp.protocol.make_client_capabilities()
   if vim.g.plugs['nvim-cmp'] then
-    config.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    config.capabilities = require('cmp_nvim_lsp').update_capabilities(config.capabilities)
   end
 
   if server == 'ansiblels' then
@@ -171,6 +173,7 @@ local function make_config(server)
     config.cmd = { "vscode-html-languageserver", "--stdio" }
   elseif server == 'cssls' then
     config.cmd = { "vscode-css-languageserver", "--stdio" }
+    config.capabilities.textDocument.completion.completionItem.snippetSupport = true
   elseif server == 'groovyls' then
      config.cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
   end
