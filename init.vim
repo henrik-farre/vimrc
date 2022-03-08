@@ -159,8 +159,6 @@ Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-telescope/telescope.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
-" Enhanced wild menu
-" Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
@@ -326,56 +324,11 @@ require('config.cmp')
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Compe: completion plugin
-"
-if has_key(g:plugs, 'nvim-compe')
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.preselect = 'enable'
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:false
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.nvim_lua = v:true
-let g:compe.source.ultisnips = v:true
-let g:compe.source.emoji = v:true
-let g:compe.source.treesitter = v:true
-let g:compe.documentation = {}
-let g:compe.documentation.border = "rounded"
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rooter
 "
 let g:rooter_cd_cmd = 'lcd'
 let g:rooter_silent_chdir = 1
 let g:rooter_resolve_links = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Wilder
-"
-" Key bindings can be changed, see below
-if has_key(g:plugs, 'wilder.nvim')
-call wilder#setup({'modes': [':', '/', '?']})
-
-set wildoptions+=pum
-call wilder#set_option('renderer', wilder#popupmenu_renderer({
-      \ 'highlighter': wilder#basic_highlighter(),
-      \ }))
-call wilder#set_option('pipeline', [
-      \   wilder#branch(
-      \     wilder#python_file_finder_pipeline({
-      \       'file_command': ['fd', '-tf'],
-      \       'dir_command': ['fd', '-td'],
-      \       'filters': ['fuzzy_filter', 'difflib_sorter'],
-      \     }),
-      \     wilder#cmdline_pipeline(),
-      \     wilder#python_search_pipeline(),
-      \   ),
-      \ ])
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Peekaboo
