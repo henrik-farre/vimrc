@@ -4,6 +4,11 @@ if vim.g.plugs['nvim-cmp'] then
   local lspkind = require('lspkind')
 
   cmp.setup({
+    completion = {
+      -- only complete when 3+ characters match,
+      -- that will increas performance and make it less annoying
+      keyword_length = 3,
+    },
     snippet = {
       expand = function(args)
         vim.fn["UltiSnips#Anon"](args.body)
@@ -12,10 +17,12 @@ if vim.g.plugs['nvim-cmp'] then
     formatting = {
       format = lspkind.cmp_format({
         menu = ({
-          buffer = "[Buffer]",
+          buffer = "[BUF]",
           nvim_lsp = "[LSP]",
-          ultisnips = "[UltiSnips]",
-          nvim_lua = "[Lua]",
+          ultisnips = "[SNIP]",
+          nvim_lua = "[LUA]",
+          path = "[PATH]",
+          emoji = "[EMOJ]",
         })
       }),
     },
@@ -34,9 +41,7 @@ if vim.g.plugs['nvim-cmp'] then
       { name = 'ultisnips' },
       {
         name = 'buffer',
-          option = {
-            keyword_length = 3,
-        },
+        keyword_length = 3,
       },
       { name = 'path' },
       { name = 'emoji' },
@@ -48,8 +53,9 @@ if vim.g.plugs['nvim-cmp'] then
   cmp.setup.cmdline('/', {
     sources = {
       {
-        name = 'buffer'
-      }
+        name = 'buffer',
+        keyword_length = 3,
+      },
     }
   })
 
@@ -58,7 +64,7 @@ if vim.g.plugs['nvim-cmp'] then
     sources = cmp.config.sources({
       { name = 'path' }
     }, {
-      { name = 'cmdline' }
+      { name = 'cmdline', max_item_count = 10, keyword_length = 2  }
     })
   })
 end
