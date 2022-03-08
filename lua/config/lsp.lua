@@ -75,14 +75,13 @@ end
 vim.diagnostic.config({
   virtual_text = false,
   signs = true,
-  underline = false,
-  update_in_insert = false,
+  underline = true,
+  update_in_insert = true,
   severity_sort = true,
-  float = { border = "single" },
-  source = "always",
+  float = false,
 })
 
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 local function make_config(server)
   local config = {}
@@ -213,6 +212,8 @@ end
 -- code is causing.
 if vim.g.plugs['trouble.nvim'] then
   require("trouble").setup {
-    mode = "document_diagnostics"
+    mode = "document_diagnostics",
+    auto_open = true,
+    use_diagnostic_signs = true
   }
 end
