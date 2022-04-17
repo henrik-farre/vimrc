@@ -28,6 +28,12 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   local opts = { noremap=true, silent=true }
 
+  -- Avoid yamlls on helm files
+  -- https://www.reddit.com/r/neovim/comments/rwoxne/nvimlspconfig_helm_chart_templates/
+  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "yaml.gotexttmpl" then
+    vim.diagnostic.disable()
+  end
+
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -39,7 +45,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   -- https://jdhao.github.io/2021/12/01/nvim_v06_released/
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -119,36 +125,36 @@ local function make_config(server)
             -- Schemas should work out of the box
             -- ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
             -- ['https://json.schemastore.org/github-action.json'] = '.github/action.{yml,yaml}',
-            kubernetes = {
-              "clusterrolebinding.yaml",
-              "clusterrole-contour.yaml",
-              "clusterrole.yaml",
-              "configmap.yaml",
-              "cronjob.yaml",
-              "daemonset.yaml",
-              "deployment-*.yaml",
-              "deployment.yaml",
-              "*-deployment.yaml",
-              "hpa.yaml",
-              "ingress.yaml",
-              "job.yaml",
-              "namespace.yaml",
-              "pod.yaml",
-              "pv.yaml",
-              "pvc.yaml",
-              "rbac.yaml",
-              "rolebinding.yaml",
-              "role.yaml",
-              "sa.yaml",
-              "secret.yaml",
-              "serviceaccounts.yaml",
-              "service-account.yaml",
-              "serviceaccount.yaml",
-              "service-*.yaml",
-              "service.yaml",
-              "*-service.yaml",
-              "statefulset.yaml",
-            }
+            -- kubernetes = {
+            --   "clusterrolebinding.yaml",
+            --   "clusterrole-contour.yaml",
+            --   "clusterrole.yaml",
+            --   "configmap.yaml",
+            --   "cronjob.yaml",
+            --   "daemonset.yaml",
+            --   "deployment-*.yaml",
+            --   "deployment.yaml",
+            --   "*-deployment.yaml",
+            --   "hpa.yaml",
+            --   "ingress.yaml",
+            --   "job.yaml",
+            --   "namespace.yaml",
+            --   "pod.yaml",
+            --   "pv.yaml",
+            --   "pvc.yaml",
+            --   "rbac.yaml",
+            --   "rolebinding.yaml",
+            --   "role.yaml",
+            --   "sa.yaml",
+            --   "secret.yaml",
+            --   "serviceaccounts.yaml",
+            --   "service-account.yaml",
+            --   "serviceaccount.yaml",
+            --   "service-*.yaml",
+            --   "service.yaml",
+            --   "*-service.yaml",
+            --   "statefulset.yaml",
+            -- }
           }
         }
       }
