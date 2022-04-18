@@ -18,6 +18,10 @@ let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 
+" Use lua detection of filetypes, neovim 0.7 feature
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 0
+
 let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
 
 if has('vim_starting')
