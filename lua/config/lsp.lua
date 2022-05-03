@@ -78,13 +78,53 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
+-- vim.diagnostic.config({
+--   virtual_text = false,
+--   signs = true,
+--   underline = true,
+--   update_in_insert = true,
+--   severity_sort = true,
+--   float = false,
+-- })
+
+-- Configure diagnostic display
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = true,
-  float = false,
+    virtual_text = false,
+    float = {
+        severity_sort = true,
+        -- source = "if_many",
+        border = "rounded",
+        header = {
+            "",
+            "LspDiagnosticsDefaultWarning",
+        },
+        prefix = function(diagnostic)
+            local diag_to_format = {
+                [vim.diagnostic.severity.ERROR] = { "Error", "LspDiagnosticsDefaultError" },
+                [vim.diagnostic.severity.WARN] = { "Warning", "LspDiagnosticsDefaultWarning" },
+                [vim.diagnostic.severity.INFO] = { "Info", "LspDiagnosticsDefaultInfo" },
+                [vim.diagnostic.severity.HINT] = { "Hint", "LspDiagnosticsDefaultHint" },
+            }
+            local res = diag_to_format[diagnostic.severity]
+            return string.format("(%s) ", res[1]), res[2]
+        end,
+    },
+    severity_sort = true,
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  buffer = bufnr,
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'rounded',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
 })
 
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
