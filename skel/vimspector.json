@@ -1,0 +1,21 @@
+{
+  "configurations": {
+    "Python Attach": {
+      "adapter": "multi-session",
+        "variables": {
+        "port": "5678",
+        "host": "127.0.0.1"
+      },
+      "configuration": {
+        "request": "attach"
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "",
+          "userUnhandled": ""
+        }
+      }
+    }
+  }
+}

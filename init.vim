@@ -661,6 +661,7 @@ if !&diff
     autocmd BufNewFile .dockerignore 0r $VIMHOME/skel/dockerignore | $,$d
     autocmd BufNewFile hest.yml 0r $VIMHOME/skel/hest.yml | $,$d
     autocmd BufNewFile pyrightconfig.json 0r $VIMHOME/skel/pyrightconfig.json | $,$d
+    autocmd BufNewFile .vimspector.json 0r $VIMHOME/skel/vimspector.json | $,$d
   augroup END
 endif
 
