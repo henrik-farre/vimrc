@@ -164,6 +164,8 @@ Plug 'nvim-lua/popup.nvim'
 " vim tests
 Plug 'junegunn/vader.vim'
 Plug 'ntpeters/vim-better-whitespace'
+" Highlight TODO/FIXME and more
+Plug 'folke/todo-comments.nvim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -306,6 +308,9 @@ require'nvim-web-devicons'.setup {
   };
  default = true;
 }
+
+-- Highlight TODO/FIXME
+require("todo-comments").setup{}
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
