@@ -151,7 +151,8 @@ Plug 'folke/trouble.nvim'
 " Show 💡 if there is a code action avaliable
 Plug 'kosayoda/nvim-lightbulb'
 " Set working to project directory
-Plug 'airblade/vim-rooter'
+"Plug 'airblade/vim-rooter'
+Plug 'ahmedkhalf/project.nvim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fuzzy finders
 " FZF, first repository contains plugin, the other commands and mappings
@@ -296,8 +297,13 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.zshrc'] = ''
 
-" nvim-web-devicons also has a override for .zshrc https://github.com/kyazdani42/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua#L175
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setup for lua plugins
+"
 lua <<EOF
+------------------------------------------------------------
+-- nvim-web-devicons also has a override for .zshrc https://github.com/kyazdani42/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua#L175
+--
 require'nvim-web-devicons'.setup {
   override = {
     [".zshrc"] = {
@@ -309,14 +315,21 @@ require'nvim-web-devicons'.setup {
  default = true;
 }
 
+------------------------------------------------------------
 -- Highlight TODO/FIXME
-require("todo-comments").setup{}
-EOF
+--
+if vim.g.plugs['todo-comments.nvim'] then
+  require("todo-comments").setup{}
+end
+------------------------------------------------------------
+-- Project
+--
+if vim.g.plugs['project.nvim'] then
+  require("project_nvim").setup{
+    patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
+  }
+end
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Load Lua setup
-"
-lua << EOF
 -- LSP setup
 -- LSP kind
 -- LSP colors
@@ -331,13 +344,6 @@ require('config.indent-blankline')
 -- nvim cmp
 require('config.cmp')
 EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rooter
-"
-let g:rooter_cd_cmd = 'lcd'
-let g:rooter_silent_chdir = 1
-let g:rooter_resolve_links = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Peekaboo
