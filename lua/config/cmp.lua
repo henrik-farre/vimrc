@@ -5,9 +5,9 @@ if vim.g.plugs['nvim-cmp'] then
 
   cmp.setup({
     completion = {
-      -- only complete when 3+ characters match,
+      -- only complete when 2+ characters match,
       -- that will increas performance and make it less annoying
-      keyword_length = 3,
+      keyword_length = 2,
     },
     snippet = {
       expand = function(args)
@@ -42,7 +42,7 @@ if vim.g.plugs['nvim-cmp'] then
       { name = 'ultisnips' },
       {
         name = 'buffer',
-        keyword_length = 3,
+        keyword_length = 2,
       },
       { name = 'path' },
       { name = 'emoji' },
@@ -56,7 +56,7 @@ if vim.g.plugs['nvim-cmp'] then
     sources = {
       {
         name = 'buffer',
-        keyword_length = 3,
+        keyword_length = 2,
       },
     }
   })
