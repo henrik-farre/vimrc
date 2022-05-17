@@ -8,7 +8,10 @@ local nvim_lsp = require('lspconfig')
 
 -- null-ls setup
 if vim.g.plugs['null-ls.nvim'] then
+  local u = require 'null-ls.utils'
+
   require("null-ls").setup({
+    root_dir = u.root_pattern(".null-ls-root", "Makefile", ".git", ".flake8", "pyproject.toml"),
     sources = {
       require("null-ls").builtins.diagnostics.flake8,
       require("null-ls").builtins.diagnostics.shellcheck,
