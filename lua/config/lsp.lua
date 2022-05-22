@@ -235,6 +235,7 @@ if vim.g.plugs['trouble.nvim'] then
   require("trouble").setup {
     mode = "document_diagnostics",
     auto_open = true,
+    auto_close = true,
     use_diagnostic_signs = true
   }
 end
