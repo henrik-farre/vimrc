@@ -168,6 +168,8 @@ Plug 'junegunn/vader.vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Highlight TODO/FIXME and more
 Plug 'folke/todo-comments.nvim'
+" vim.ui handling
+Plug 'stevearc/dressing.nvim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -306,16 +308,34 @@ lua <<EOF
 -- nvim-web-devicons also has a override for .zshrc https://github.com/kyazdani42/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua#L175
 -- (used by telescope, trouble and more)
 --
-require'nvim-web-devicons'.setup {
-  override = {
-    [".zshrc"] = {
-      icon = "",
-      color = "#428850",
-      name = "Zsh"
-    }
-  };
- default = true;
-}
+if vim.g.plugs['nvim-web-devicons'] then
+  require'nvim-web-devicons'.setup {
+    override = {
+      [".zshrc"] = {
+        icon = "",
+        color = "#428850",
+        name = "Zsh"
+      }
+    };
+  default = true;
+  }
+end
+
+------------------------------------------------------------
+-- Handle vim.ui elements (Used by yaml-companion)
+--
+require('dressing').setup{}
+
+------------------------------------------------------------
+-- Output selected yaml schema from yaml-companion
+--
+function get_yaml_schema()
+  local schema = require("yaml-companion").get_buf_schema(0)
+  if schema then
+    return schema.result[1].name
+  end
+  return ""
+end
 
 ------------------------------------------------------------
 -- Highlight TODO/FIXME
