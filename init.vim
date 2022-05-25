@@ -133,11 +133,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Icons for filetypes
 Plug 'ryanoasis/vim-devicons'
-" Icons for filetypes - support for telescope
+" Icons for filetypes - support for trouble and more
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
-Plug 'nvim-lua/plenary.nvim' " required by null-ls and telescope
+Plug 'nvim-lua/plenary.nvim' " required by several plugins like null-ls
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'sbdchd/neoformat'
 " Show indent lines
@@ -159,7 +159,7 @@ Plug 'ahmedkhalf/project.nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Telescope and dependencies
-Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/popup.nvim'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'nvim-telescope/telescope.nvim'
 " vim tests
@@ -289,7 +289,7 @@ let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with s
 let g:terraform_align=1             " Set indent to 2 spaces
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DevIcons
+" DevIcons (use for vim-airline)
 "
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
@@ -303,6 +303,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.zshrc'] = ''
 lua <<EOF
 ------------------------------------------------------------
 -- nvim-web-devicons also has a override for .zshrc https://github.com/kyazdani42/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua#L175
+-- (used by telescope, trouble and more)
 --
 require'nvim-web-devicons'.setup {
   override = {
