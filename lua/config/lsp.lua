@@ -129,48 +129,13 @@ local function make_config(server)
       }
     }
   elseif server == 'yamlls' then
-    config.settings = {
-        yaml = {
-          validate = true,
-          hover = true,
-          completion = true,
-          schemas = {
-            -- Schemas should work out of the box
-            -- ['https://json.schemastore.org/github-workflow.json'] = '.github/workflows/*.{yml,yaml}',
-            -- ['https://json.schemastore.org/github-action.json'] = '.github/action.{yml,yaml}',
-            -- kubernetes = {
-            --   "clusterrolebinding.yaml",
-            --   "clusterrole-contour.yaml",
-            --   "clusterrole.yaml",
-            --   "configmap.yaml",
-            --   "cronjob.yaml",
-            --   "daemonset.yaml",
-            --   "deployment-*.yaml",
-            --   "deployment.yaml",
-            --   "*-deployment.yaml",
-            --   "hpa.yaml",
-            --   "ingress.yaml",
-            --   "job.yaml",
-            --   "namespace.yaml",
-            --   "pod.yaml",
-            --   "pv.yaml",
-            --   "pvc.yaml",
-            --   "rbac.yaml",
-            --   "rolebinding.yaml",
-            --   "role.yaml",
-            --   "sa.yaml",
-            --   "secret.yaml",
-            --   "serviceaccounts.yaml",
-            --   "service-account.yaml",
-            --   "serviceaccount.yaml",
-            --   "service-*.yaml",
-            --   "service.yaml",
-            --   "*-service.yaml",
-            --   "statefulset.yaml",
-            -- }
-          }
-        }
-      }
+    config = require("yaml-companion").setup({
+      lspconfig = {
+        on_attach = config.on_attach,
+        flags = config.flags,
+        capabilities = config.capabilities
+      },
+    })
   elseif server == 'jsonls' then
     config.cmd = { "vscode-json-languageserver", "--stdio" }
     config.settings = {

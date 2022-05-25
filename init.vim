@@ -153,6 +153,7 @@ Plug 'kosayoda/nvim-lightbulb'
 " Set working to project directory
 "Plug 'airblade/vim-rooter'
 Plug 'ahmedkhalf/project.nvim'
+Plug 'someone-stole-my-name/yaml-companion.nvim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fuzzy finders
 " FZF, first repository contains plugin, the other commands and mappings
