@@ -364,7 +364,7 @@ require('config.treesitter')
 -- Telescope
 -- require('config.telescope')
 -- Indent blankline
-require('config.indent-blankline')
+require('config.plugins')
 -- nvim cmp
 require('config.cmp')
 EOF
