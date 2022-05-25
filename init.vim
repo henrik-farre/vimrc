@@ -321,39 +321,6 @@ if vim.g.plugs['nvim-web-devicons'] then
   }
 end
 
-------------------------------------------------------------
--- Handle vim.ui elements (Used by yaml-companion)
---
-require('dressing').setup{}
-
-------------------------------------------------------------
--- Output selected yaml schema from yaml-companion
---
-function get_yaml_schema()
-  local schema = require("yaml-companion").get_buf_schema(0)
-  if schema then
-    return schema.result[1].name
-  end
-  return ""
-end
-
-------------------------------------------------------------
--- Highlight TODO/FIXME
---
-if vim.g.plugs['todo-comments.nvim'] then
-  require("todo-comments").setup{}
-end
-------------------------------------------------------------
--- Project
---
-if vim.g.plugs['project.nvim'] then
-  require("project_nvim").setup{
-    patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
-    -- silent_chdir = false,
-    ignore_lsp = { "null-ls" },
-  }
-end
-
 -- LSP setup
 -- LSP kind
 -- LSP colors
@@ -364,9 +331,14 @@ require('config.treesitter')
 -- Telescope
 -- require('config.telescope')
 -- Indent blankline
+-- Project
+-- Todo Comments
+-- Dressing
 require('config.plugins')
 -- nvim cmp
 require('config.cmp')
+-- lua functions
+require('config.functions')
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
