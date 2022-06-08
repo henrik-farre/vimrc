@@ -235,6 +235,12 @@ if has_key(g:plugs, 'incsearch')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" yaml-companion
+if has_key(g:plugs, 'yaml-companion.nvim')
+  nnoremap <leader>y :lua require("yaml-companion").open_ui_select()<CR>
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabular
 nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
