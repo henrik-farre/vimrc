@@ -96,7 +96,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'andymass/vim-matchup'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'haya14busa/incsearch.vim'
+" EOL plugin, replaced by builtin
+" Plug 'haya14busa/incsearch.vim'
 " Highlights on f F t T
 " Plug 'bradford-smith94/quick-scope'
 Plug 'ggandor/lightspeed.nvim'
