@@ -62,7 +62,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Javascript
 " JavaScript bundle for vim, this bundle provides syntax and indent plugins.
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go
 Plug 'fatih/vim-go'
@@ -100,7 +100,7 @@ Plug 'tpope/vim-surround'
 " Plug 'haya14busa/incsearch.vim'
 " Highlights on f F t T
 " Plug 'bradford-smith94/quick-scope'
-Plug 'ggandor/lightspeed.nvim'
+" Plug 'ggandor/lightspeed.nvim'
 " Add visual marks in gutter
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
