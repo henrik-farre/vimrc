@@ -104,6 +104,7 @@ Plug 'tpope/vim-surround'
 " Add visual marks in gutter
 Plug 'kshenoy/vim-signature'
 Plug 'godlygeek/tabular'
+Plug 'lewis6991/spellsitter.nvim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes
 Plug 'pacha/vem-dark'
@@ -340,6 +341,9 @@ require('config.plugins')
 require('config.cmp')
 -- lua functions
 require('config.functions')
+
+-- Only spell check inside comments
+require('spellsitter').setup()
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -492,6 +496,11 @@ endif
 " set completeopt+=menu,longest,preview
 set completeopt=menu,menuone,noselect
 set complete-=i                   " disabled scanning of include files
+
+" spelling
+set spellsuggest=best,9
+set spell
+set spelllang=en
 
 " Wrapping/linebreak
 set textwidth=0                   " Do not wrap text
@@ -716,13 +725,6 @@ augroup vimrc_markdown
     autocmd!
     " autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
     autocmd BufNewFile,BufRead *.md,*.markdown :call MarkdownTypeDetect()
-augroup END
-
-" Spelling, files for neovim: ftp://ftp.vim.org/pub/vim/runtime/spell/
-augroup vimrc_spelling
-    autocmd!
-    autocmd FileType gitcommit,markdown,ghmarkdown,cucumber setlocal spell spelllang=en_us
-    autocmd FileType gitcommit,markdown,ghmarkdown,cucumber setlocal complete+=kspell
 augroup END
 
 " Indent xml using xmllint
