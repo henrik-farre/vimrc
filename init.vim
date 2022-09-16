@@ -141,7 +141,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 " Icons for filetypes - support for trouble and more
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'norcalli/nvim-colorizer.lua'
 " Linting and formatting
 Plug 'nvim-lua/plenary.nvim' " required by several plugins like null-ls
 Plug 'jose-elias-alvarez/null-ls.nvim'
