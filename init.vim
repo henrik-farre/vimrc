@@ -72,7 +72,11 @@ Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Debugging
 Plug 'puremourning/vimspector'
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'mfussenegger/nvim-dap-python'
+" Plug 'rcarriga/nvim-dap-ui'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 " Shows git branch in statusline + tags to the one in .git/tags if exists
