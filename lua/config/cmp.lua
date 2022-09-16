@@ -15,16 +15,17 @@ if vim.g.plugs['nvim-cmp'] then
       end,
     },
     formatting = {
-      format = lspkind.cmp_format({
-        menu = ({
-          buffer = "[BUF]",
-          nvim_lsp = "[LSP]",
-          ultisnips = "[SNIP]",
-          nvim_lua = "[LUA]",
-          path = "[PATH]",
-          emoji = "[EMOJ]",
-        })
-      }),
+      format = function(entry, vim_item)
+        if entry.source.name == "buffer" then
+          vim_item.menu = "[Buffer]"
+        elseif entry.source.name == "nvim_lsp" then
+          vim_item.menu = '{' .. entry.source.source.client.name .. '}'
+        else
+          vim_item.menu = '[' .. entry.source.name .. ']'
+        end
+
+        return vim_item
+      end
     },
     window = {
       completion = cmp.config.window.bordered(),
