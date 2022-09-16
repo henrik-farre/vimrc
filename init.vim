@@ -173,9 +173,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vader.vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Highlight TODO/FIXME and more
-" Plug 'folke/todo-comments.nvim'
-" Active fork:
-Plug 'B4mbus/todo-comments.nvim'
+Plug 'folke/todo-comments.nvim'
 " vim.ui handling
 Plug 'stevearc/dressing.nvim'
 call plug#end()
