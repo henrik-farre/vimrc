@@ -176,6 +176,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'folke/todo-comments.nvim'
 " vim.ui handling
 Plug 'stevearc/dressing.nvim'
+" Generate doc string from signature
+" Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plug 'danymat/neogen'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -327,6 +330,17 @@ if vim.g.plugs['nvim-web-devicons'] then
   }
 end
 
+require('neogen').setup {
+  input_after_comment = true,
+  languages = {
+    python = {
+      template = {
+        annotation_convention = "numpydoc"
+      }
+    }
+  }
+}
+
 -- LSP setup
 -- LSP kind
 -- LSP colors
@@ -349,6 +363,11 @@ require('config.functions')
 -- Only spell check inside comments
 require('spellsitter').setup()
 EOF
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PyDocstring
+"
+" let g:pydocstring_formatter = 'numpy'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Peekaboo
