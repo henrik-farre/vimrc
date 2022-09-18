@@ -672,7 +672,7 @@ au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=500, o
 " Show 💡 when code action is avaliable
 augroup vimrc_lightbulb
   autocmd!
-  autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+  autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({ ignore = {"null-ls"} })
 augroup END
 
 " Omnicomplete
