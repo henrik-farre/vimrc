@@ -195,22 +195,12 @@ map <Space> <Leader>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
 if has_key(g:plugs, 'fzf') && executable('fzf')
-  nnoremap <leader>bv :Buffers<cr>
   " Dont use tmux split
   " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
   " let g:fzf_layout = {}
   let g:fzf_nvim_statusline=1
   " Override env from shell where I prefer -e
   let $FZF_DEFAULT_OPTS = '-x --inline-info'
-
-  " Find git root if it exists
-  " https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
-  function! s:fzf_root()
-      let path = finddir(".git", expand("%:p:h").";")
-      return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
-  endfun
-
-  nnoremap <silent> <Leader>t :exe 'Files ' . <SID>fzf_root()<CR>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

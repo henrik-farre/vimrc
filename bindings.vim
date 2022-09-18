@@ -220,6 +220,20 @@ if has_key(g:plugs, 'telescope.nvim')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
+if has_key(g:plugs, 'fzf.vim')
+  " Find git root if it exists
+  " https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
+  function! s:fzf_root()
+      let path = finddir(".git", expand("%:p:h").";")
+      return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
+  endfun
+
+  nnoremap <silent> <Leader>t :exe 'Files ' . <SID>fzf_root()<CR>
+  nnoremap <leader>bv :Buffers<cr>
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch
 if has_key(g:plugs, 'incsearch')
   let g:incsearch#auto_nohlsearch = 0
