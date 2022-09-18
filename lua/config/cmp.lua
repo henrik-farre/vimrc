@@ -15,17 +15,24 @@ if vim.g.plugs['nvim-cmp'] then
       end,
     },
     formatting = {
-      format = function(entry, vim_item)
-        if entry.source.name == "buffer" then
-          vim_item.menu = "[Buffer]"
-        elseif entry.source.name == "nvim_lsp" then
-          vim_item.menu = '{' .. entry.source.source.client.name .. '}'
-        else
-          vim_item.menu = '[' .. entry.source.name .. ']'
-        end
+      format = lspkind.cmp_format({
+        mode = 'symbol_text', -- show only symbol annotations
+        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-        return vim_item
-      end
+        -- The function below will be called before any actual modifications from lspkind
+        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+        before = function (entry, vim_item)
+          if entry.source.name == "buffer" then
+            vim_item.menu = "[Buffer]"
+          elseif entry.source.name == "nvim_lsp" then
+            vim_item.menu = '{' .. entry.source.source.client.name .. '}'
+          else
+            vim_item.menu = '[' .. entry.source.name .. ']'
+          end
+
+          return vim_item
+        end
+      })
     },
     window = {
       completion = cmp.config.window.bordered(),
