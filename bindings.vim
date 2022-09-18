@@ -249,13 +249,3 @@ vmap <leader>a: :Tabularize /:\zs<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD Commenter
 map <F5> <Plug>NERDCommenterToggle
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Compe: completion plugin
-"
-if has_key(g:plugs, 'nvim-compe')
-" Press enter to select element in menu
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-endif
