@@ -675,19 +675,6 @@ augroup vimrc_lightbulb
   autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({ ignore = {"null-ls"} })
 augroup END
 
-" Omnicomplete
-"
-" augroup vimrc_complete
-"   autocmd!
-"   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"   autocmd FileType html,xhtml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"   autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-"   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"   autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-" augroup END
-
 " Reads the skeleton files, delete empty line
 if !&diff
   augroup vimrc_skeleton
@@ -746,16 +733,8 @@ augroup END
 " Use github style markdown
 augroup vimrc_markdown
     autocmd!
-    " autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
     autocmd BufNewFile,BufRead *.md,*.markdown :call MarkdownTypeDetect()
 augroup END
-
-" Indent xml using xmllint
-" - Only works for entire file
-" augroup vimrc_xml
-"     autocmd!
-"     autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-" augroup END
 
 " Fix that after enter the key is indented, and LSP does not suggest anything,
 " key is reindented after pressing :
@@ -764,7 +743,6 @@ augroup vimrc_yaml
     autocmd FileType yaml.ansible setlocal indentexpr=
 augroup END
 
-
 " ansible-vim does not detect playbooks, `set filetype=x` overrides setfiletype
 augroup vimrc_ansible
     autocmd!
@@ -772,18 +750,10 @@ augroup vimrc_ansible
     autocmd BufRead,BufNewFile inventory set filetype=ansible_hosts
 augroup END
 
-" go-jira
-augroup vimrc_gojira
-  autocmd!
-  autocmd BufRead,BufNewFile /tmp/comment*.yml setlocal spell spelllang=da
-  autocmd BufRead,BufNewFile ~/.jira.d/templates/* setfiletype gotexttmpl
-augroup END
-
 " Jenkinsfile
 augroup vimrc_jenkins
   autocmd!
   autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
-  " autocmd FileType groovy setlocal omnifunc=javacomplete#Complete
 augroup END
 
 augroup vimrc_whitespace
@@ -793,12 +763,6 @@ augroup vimrc_whitespace
   autocmd FilterWritePre  *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
   autocmd BufWritePre     *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
 augroup END
-
-" Resize splits when the window is resized
-" augroup vimrc_resize
-"   autocmd!
-"   autocmd VimResized * :wincmd =
-" augroup END
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
