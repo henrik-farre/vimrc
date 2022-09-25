@@ -81,7 +81,7 @@ nmap <C-s> :wa<CR>
 nnoremap ' `
 nnoremap ` '
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard related mappings, yank/cut/paste - Uses Easyclip
 " Easyclip
 if has_key(g:plugs, 'vim-easyclip')
