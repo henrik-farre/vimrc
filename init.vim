@@ -181,6 +181,7 @@ Plug 'danymat/neogen'
 Plug 'towolf/vim-helm'
 " Show function signature when you type
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'petertriho/cmp-git'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

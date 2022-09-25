@@ -55,6 +55,7 @@ if vim.g.plugs['nvim-cmp'] then
       { name = 'path' },
       { name = 'emoji' },
       { name = 'nvim_lua' },
+      { name = "git" },
     }
   })
 
@@ -79,3 +80,5 @@ if vim.g.plugs['nvim-cmp'] then
     })
   })
 end
+
+require("cmp_git").setup()
