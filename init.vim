@@ -177,6 +177,10 @@ Plug 'folke/todo-comments.nvim'
 " vim.ui handling
 Plug 'stevearc/dressing.nvim'
 Plug 'danymat/neogen'
+" vim syntax for helm templates (yaml + gotmpl + sprig + custom)
+Plug 'towolf/vim-helm'
+" Show function signature when you type
+Plug 'ray-x/lsp_signature.nvim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

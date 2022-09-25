@@ -20,6 +20,11 @@ if vim.g.plugs['null-ls.nvim'] then
   })
 end
 
+-- lsp_signature
+if vim.g.plugs['lsp_signature.nvim'] then
+  require "lsp_signature".setup()
+end
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -34,8 +39,12 @@ local on_attach = function(client, bufnr)
 
   -- Avoid yamlls on helm files
   -- https://www.reddit.com/r/neovim/comments/rwoxne/nvimlspconfig_helm_chart_templates/
-  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "yaml.gotexttmpl" then
-    vim.diagnostic.disable()
+  -- https://www.reddit.com/r/neovim/comments/sqr6r5/helm_charts_for_kubernetes_in_nvim_bad_experience/
+  if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "yaml.gotexttmpl" or vim.bo[bufnr].filetype == "helm" then
+    vim.diagnostic.disable(bufnr)
+    vim.defer_fn(function()
+      vim.diagnostic.reset(nil, bufnr)
+    end, 1000)
   end
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
