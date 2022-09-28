@@ -95,8 +95,11 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-emoji'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto complete quotes, parenthesis, brackets and so on
+" Plug 'Raimondi/delimitMate'
+Plug 'windwp/nvim-autopairs'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
-Plug 'Raimondi/delimitMate'
 Plug 'andymass/vim-matchup'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -355,6 +358,11 @@ require('config.functions')
 
 -- Only spell check inside comments
 require('spellsitter').setup()
+
+-- Auto complete pairs
+if vim.g.plugs['nvim-autopairs'] then
+  require("nvim-autopairs").setup {}
+end
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
