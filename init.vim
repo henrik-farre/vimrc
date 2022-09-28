@@ -479,12 +479,11 @@ set formatoptions+=croql
 " Fix comments when jusing j to join lines
 set formatoptions+=j
 " http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
-set ttimeout
-set ttimeoutlen=100
-set timeoutlen=1000
-" NeoVim handles ESC keys as alt+key set this to solve the problem
-" https://github.com/neovim/neovim/issues/2051
-set ttimeoutlen=0
+" set ttimeout
+" set timeoutlen=1000
+" " NeoVim handles ESC keys as alt+key set this to solve the problem
+" " https://github.com/neovim/neovim/issues/2051
+" set ttimeoutlen=0
 
 " Set updatetime to make floating windows appear faster
 set updatetime=250
