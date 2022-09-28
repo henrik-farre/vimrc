@@ -15,4 +15,8 @@ require'nvim-treesitter.configs'.setup {
   matchup = {
     enable = true,
   },
+  -- https://github.com/andymass/vim-matchup
+  matchup = {
+    enable = true
+  },
 }
