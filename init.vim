@@ -65,7 +65,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Go
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
 Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
