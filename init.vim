@@ -255,10 +255,6 @@ let g:user_emmet_settings = {
       \   'filters' : 'html',
       \   'indentation' : ' '
       \ },
-      \ 'php' : {
-      \   'extends' : 'html,javascript',
-      \   'filters' : 'html,c',
-      \ },
       \ 'css' : {
       \   'filters' : 'fc',
       \ }
@@ -769,10 +765,10 @@ augroup END
 
 augroup vimrc_whitespace
   autocmd!
-  autocmd FileWritePre    *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
-  autocmd FileAppendPre   *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
-  autocmd FilterWritePre  *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
-  autocmd BufWritePre     *.{php,js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd FileWritePre    *.{js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd FileAppendPre   *.{js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd FilterWritePre  *.{js,module,info,tpl,md} :call TrimWhiteSpace()
+  autocmd BufWritePre     *.{js,module,info,tpl,md} :call TrimWhiteSpace()
 augroup END
 
 " Make sure Vim returns to the same line when you reopen a file.
