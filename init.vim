@@ -527,6 +527,7 @@ set complete-=i                   " disabled scanning of include files
 set spellsuggest=best,9
 set spell
 set spelllang=en
+set spelloptions+=noplainbuffer,camel
 
 " Wrapping/linebreak
 set textwidth=0                   " Do not wrap text
