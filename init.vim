@@ -108,7 +108,8 @@ Plug 'tpope/vim-surround'
 " Plug 'bradford-smith94/quick-scope'
 " Plug 'ggandor/lightspeed.nvim'
 Plug 'godlygeek/tabular'
-Plug 'lewis6991/spellsitter.nvim'
+" Included in neovim 0.8
+" Plug 'lewis6991/spellsitter.nvim'
 " Detect tabs vs spaces
 Plug 'tpope/vim-sleuth'
 " vim tests
@@ -368,7 +369,7 @@ require('config.cmp')
 require('config.functions')
 
 -- Only spell check inside comments
-require('spellsitter').setup()
+-- require('spellsitter').setup()
 
 -- Auto complete pairs
 if vim.g.plugs['nvim-autopairs'] then
