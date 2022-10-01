@@ -81,6 +81,8 @@ endif
 " Colorscheme
 "
 " colorscheme wombat256mod
+let g:vem_colors_italic = 1
+
 colorscheme vem-dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
