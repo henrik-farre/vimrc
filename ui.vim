@@ -159,34 +159,36 @@ endif
 " vim-signature
 hi SignatureMarkText cterm=bold ctermbg=10 gui=bold guifg=#aeee04
 
-" function! AirlineGitInfo()
-"   let git = fugitive#head()
-"   if git != ''
-"     return ' '.git
-"   else
-"     return ''
-"   endif
-" endfunction
+if has_key(g:plugs, 'vim-airline')
+  " function! AirlineGitInfo()
+  "   let git = fugitive#head()
+  "   if git != ''
+  "     return ' '.git
+  "   else
+  "     return ''
+  "   endif
+  " endfunction
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'jellybeans'
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#nvimlsp#enabled = 1
-let g:airline#extensions#nvimlsp#error_symbol = 'E:'
-let g:airline#extensions#nvimlsp#warning_symbol = 'W:'
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = 'jellybeans'
+  let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_buffers = 0
+  let g:airline#extensions#tabline#tab_min_count = 2
+  let g:airline#extensions#whitespace#enabled = 0
+  let g:airline#extensions#nvimlsp#enabled = 1
+  let g:airline#extensions#nvimlsp#error_symbol = 'E:'
+  let g:airline#extensions#nvimlsp#warning_symbol = 'W:'
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.notexists = ''
+
+  " let g:airline_section_b = '%{AirlineGitInfo()}'
+  let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+  " l: Line number, c: column, V: virtual column, not displayed if == c
+  let g:airline_section_z = airline#section#create([ '%l,%c%V'])
 endif
-let g:airline_symbols.notexists = ''
-
-" let g:airline_section_b = '%{AirlineGitInfo()}'
-let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
-" l: Line number, c: column, V: virtual column, not displayed if == c
-let g:airline_section_z = airline#section#create([ '%l,%c%V'])
 
 set noshowmode

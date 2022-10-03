@@ -117,6 +117,7 @@ Plug 'pacha/vem-dark'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'nvim-lualine/lualine.nvim'
 " Icons for filetypes
 Plug 'ryanoasis/vim-devicons'
 " Icons for filetypes - support for trouble and more
@@ -370,6 +371,14 @@ require('config.functions')
 -- Auto complete pairs
 if vim.g.plugs['nvim-autopairs'] then
   require("nvim-autopairs").setup {}
+end
+
+if vim.g.plugs['lualine.nvim'] then
+require('lualine').setup {
+  options = {
+    theme = 'jellybeans',
+  }
+}
 end
 EOF
 
