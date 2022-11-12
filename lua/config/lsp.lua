@@ -3,6 +3,10 @@
 --
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
+if vim.loop.os_uname().machine == "aarch64" then
+  return
+end
+
 local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'terraformls', 'tflint', 'pyright', 'vimls', 'yamlls' }
 local nvim_lsp = require('lspconfig')
 
