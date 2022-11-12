@@ -65,8 +65,7 @@ nnoremap <C-S-_> :sp<CR>
 " cnoremap <C-S-V> <C-R>+
 
 " Disable search highlightning
-" Will be replaced with C-l
-nmap <silent> <C-N> :silent noh<CR>
+nmap <silent> <C-n> :silent nohlsearch<CR>
 
 " Invisible character
 " Shortcut to rapidly toggle `set list`
