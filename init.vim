@@ -133,7 +133,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'folke/todo-comments.nvim'
 " vim.ui handling
 Plug 'stevearc/dressing.nvim'
-
+" Plug 'kevinhwang91/nvim-bqf'
+" Jump with s<char1><char2>
+Plug 'ggandor/leap.nvim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Registers
 " Show registers
@@ -380,6 +382,14 @@ require('lualine').setup {
   }
 }
 end
+
+if vim.g.plugs['nvim-bqf'] then
+  require('bqf').setup {}
+end
+
+if vim.g.plugs['leap.nvim'] then
+  require('leap').add_default_mappings()
+end
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -444,6 +454,10 @@ set sidescrolloff=7
 set shortmess=aTI
 " no ins-completion-menu messages
 set shortmess+=c
+
+
+" Keep windows stable when opening trouble and more
+set splitkeep=topline
 
 " More natural split opening
 " http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
