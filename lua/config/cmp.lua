@@ -9,6 +9,10 @@ if vim.g.plugs['nvim-cmp'] then
       -- that will increas performance and make it less annoying
       keyword_length = 2,
     },
+    matching = {
+        disallow_fuzzy_matching = true,
+        disallow_partial_matching = true
+    },
     snippet = {
       expand = function(args)
         vim.fn["UltiSnips#Anon"](args.body)
@@ -46,7 +50,10 @@ if vim.g.plugs['nvim-cmp'] then
       ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = {
-      { name = 'nvim_lsp' },
+      {
+        name = 'nvim_lsp',
+        max_item_count = 25
+      },
       { name = 'ultisnips' },
       {
         name = 'buffer',
@@ -55,11 +62,19 @@ if vim.g.plugs['nvim-cmp'] then
       { name = 'path' },
       { name = 'emoji' },
       { name = 'nvim_lua' },
-      { name = "git" },
     }
   })
 
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {

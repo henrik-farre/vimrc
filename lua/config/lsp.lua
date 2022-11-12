@@ -116,9 +116,9 @@ local function make_config(server)
   local config = {}
   config.on_attach = on_attach
   config.flags = {debounce_text_changes = 500}
-  config.capabilities = vim.lsp.protocol.make_client_capabilities()
+  -- config.capabilities = vim.lsp.protocol.make_client_capabilities()
   if vim.g.plugs['nvim-cmp'] then
-    config.capabilities = require('cmp_nvim_lsp').update_capabilities(config.capabilities)
+    config.capabilities = require("cmp_nvim_lsp").default_capabilities()
   end
 
   if server == 'ansiblels' then
@@ -211,4 +211,8 @@ if vim.g.plugs['trouble.nvim'] then
     auto_close = true,
     use_diagnostic_signs = true
   }
+end
+
+if vim.g.plugs['diaglist.nvim'] then
+  require("diaglist").init {}
 end
