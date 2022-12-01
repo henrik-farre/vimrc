@@ -115,6 +115,10 @@ noremap Y "+y$
 " Select pasted text, companion function to gv
 noremap gV `[v`]
 
+" Fix indent when pasting in insert mode:
+" https://www.reddit.com/r/neovim/comments/ywn367/til_pasting_with_crco_instead_of_cr_in_insert/
+inoremap <C-r> <C-r><C-o>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Typos {{{
 " http://blog.sanctum.geek.nz/vim-command-typos/
