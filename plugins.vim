@@ -130,6 +130,8 @@ Plug 'towolf/vim-helm'
 Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
+" Yaml, use :YAMLView Shows the full path and value of the current key/value pair
+Plug 'cuducos/yaml.nvim', { 'for': 'yaml' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LSP setup
 Plug 'neovim/nvim-lspconfig'
@@ -159,4 +161,3 @@ Plug 'junegunn/fzf.vim'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
-
