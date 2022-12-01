@@ -96,7 +96,8 @@ Plug 'ggandor/leap.nvim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Registers
 " Show registers
-Plug 'junegunn/vim-peekaboo'
+" - disabled for now as it breaks mapping <C-r> to <C-r><C-o>
+" Plug 'junegunn/vim-peekaboo'
 " Improve cut/paste
 Plug 'svermeulen/vim-easyclip'
 
