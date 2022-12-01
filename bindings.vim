@@ -195,7 +195,8 @@ noremap <leader>bp :bp<cr>
 
 " Search for visually selected text:
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
-vnoremap // y/\V<C-R>"<CR>
+" neovim defaults: Search selection by * and # in visual mode
+" vnoremap // y/\V<C-R>"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimSpector
