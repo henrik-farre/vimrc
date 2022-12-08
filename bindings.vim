@@ -174,9 +174,12 @@ vnoremap <F1> <ESC>
 " Disable increment of numbers, clashes with tmux
 nmap <C-a> <Nop>
 
-" Undo stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Undo
 " nnoremap u <NOP>
 " inoremap <C-u> <ESC>ui
+" Break undo sequence for each space - https://thevaluable.dev/vim-adept/#undo-in-insert-mode
+inoremap <space> <C-G>u<space>
 
 " Open none existing file under cursor
 nnoremap gF :view <cfile><cr>
