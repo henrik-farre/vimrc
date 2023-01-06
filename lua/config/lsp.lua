@@ -210,9 +210,11 @@ end
 -- code is causing.
 if vim.g.plugs['trouble.nvim'] then
   require("trouble").setup {
+    height = 5,
+    padding = false,
     mode = "document_diagnostics",
     auto_open = true,
-    auto_close = true,
+    auto_close = false,
     use_diagnostic_signs = true
   }
 end
