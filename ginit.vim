@@ -6,6 +6,10 @@ if exists(':GuiFont')
 endif
 
 " Disable GUI Popupmenu
-if exists(':GuiPopupmenu')
-    GuiPopupmenu 0
+" if exists(':GuiPopupmenu')
+"     GuiPopupmenu 0
+" endif
+
+if exists('g:GtkGuiLoaded')
+    call rpcnotify(1, 'Gui', 'Font', 'Iosevka Term Light Extended 10')
 endif
