@@ -13,3 +13,8 @@ endif
 if exists('g:GtkGuiLoaded')
     call rpcnotify(1, 'Gui', 'Font', 'Iosevka Term Light Extended 10')
 endif
+
+augroup auto_checktime
+    autocmd!
+    autocmd FocusGained * checktime
+augroup END
