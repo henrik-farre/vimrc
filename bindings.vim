@@ -33,6 +33,8 @@ nnoremap L $
 " FIXME: clashes with 0 g0 mapping above
 nnoremap <silent> 0 :call ToggleHomeZero()<CR>
 
+nnoremap <silent> <leader>ts :call TrimWhiteSpace()<CR>
+
 " http://www.reddit.com/r/vim/comments/2ueu0g/which_pluginskeybindsetc_significantly_changed/
 " expands %% to current file's directory in command-line mode
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<CR>
