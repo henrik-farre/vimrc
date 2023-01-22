@@ -65,14 +65,16 @@ if vim.g.plugs['nvim-cmp'] then
     }
   })
 
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
+  if vim.g.plugs['cmp-git'] then
+    -- Set configuration for specific filetype.
+    cmp.setup.filetype('gitcommit', {
+      sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+      }, {
+        { name = 'buffer' },
+      })
     })
-  })
+  end
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
@@ -96,4 +98,6 @@ if vim.g.plugs['nvim-cmp'] then
   })
 end
 
-require("cmp_git").setup()
+if vim.g.plugs['cmp-git'] then
+  require("cmp_git").setup()
+end
