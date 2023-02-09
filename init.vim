@@ -309,7 +309,9 @@ set shortmess+=c
 
 
 " Keep windows stable when opening trouble and more
-set splitkeep=cursor
+if exists('*splitkeep')
+  set splitkeep=cursor
+endif
 
 " More natural split opening
 " http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
