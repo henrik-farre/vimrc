@@ -523,6 +523,13 @@ function! TrimWhiteSpace()
 endfunction
 command! TrimWhiteSpace call TrimWhiteSpace()
 
+" Replaces escaped chars like \n and \t with the real ones
+function! ReplaceEscapedChars()
+  %s/\\n/\r/
+  %s/\\t/\t/
+endfunction
+command! ReplaceEscapedChars call ReplaceEscapedChars()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbrevs
 "
