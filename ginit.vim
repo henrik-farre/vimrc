@@ -11,7 +11,7 @@ endif
 " endif
 
 if exists('g:GtkGuiLoaded')
-    call rpcnotify(1, 'Gui', 'Font', 'Iosevka Term Light Extended 10')
+    call rpcnotify(1, 'Gui', 'Font', 'Iosevka Term Light Extended 10.5')
 endif
 
 augroup auto_checktime
