@@ -6,7 +6,7 @@ if vim.loop.os_uname().machine == "aarch64" then
 end
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown", "toml" },
+  ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown", "toml", "hcl"},
   highlight = {
     enable = true,
   },
