@@ -93,6 +93,9 @@ Plug 'stevearc/dressing.nvim'
 " Plug 'kevinhwang91/nvim-bqf'
 " Jump with s<char1><char2>
 Plug 'ggandor/leap.nvim'
+" File explorer
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Registers
 " Show registers

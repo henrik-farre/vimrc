@@ -258,3 +258,10 @@ vmap <leader>a: :Tabularize /:\zs<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD Commenter
 map <F5> <Plug>NERDCommenterToggle
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoTree
+if has_key(g:plugs, 'neo-tree.nvim')
+  " fe mnemonic "file explorer"
+  nnoremap <leader>fe <cmd>Neotree toggle<CR>
+endif
