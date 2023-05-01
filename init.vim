@@ -641,7 +641,7 @@ augroup END
 " ansible-vim does not detect playbooks, `set filetype=x` overrides setfiletype
 augroup vimrc_ansible
     autocmd!
-    autocmd BufRead,BufNewFile */Ansible/*.{yml,yaml} set filetype=yaml.ansible
+    autocmd BufRead,BufNewFile */[aA]nsible/*.{yml,yaml} set filetype=yaml.ansible
     autocmd BufRead,BufNewFile inventory set filetype=ansible_hosts
 augroup END
 
