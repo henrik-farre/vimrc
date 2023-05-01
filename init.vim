@@ -454,8 +454,10 @@ set synmaxcol=500                " Syntax coloring lines that are too long just 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Diff
 "
-set diffopt+=iwhite               " Ignore whitespace
-set diffexpr=""                   " When 'diffexpr' is empty, Vim uses this command to find the differences between file1 and file2: diff file1 file2 > outfile
+set diffopt+=iwhite,linematch:60,algorithm:patience " Ignore whitespace, Enable a second stage diff on each generated
+                                                    " hunk in order to align lines
+                                                    " Use patience diff algorithm
+set diffexpr=""                                     " When 'diffexpr' is empty, Vim uses this command to find the differences between file1 and file2: diff file1 file2 > outfile
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indention
