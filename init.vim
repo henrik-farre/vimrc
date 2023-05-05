@@ -77,7 +77,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
 "
-let g:snips_author = 'Henrik Farre <hfar@tv2.dk>'
+let g:snips_author = 'Henrik Farre <henrik@rockhopper.dk>'
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
