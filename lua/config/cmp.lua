@@ -59,7 +59,7 @@ if vim.g.plugs['nvim-cmp'] then
         name = 'buffer',
         keyword_length = 2,
       },
-      { name = 'path' },
+      { name = 'async_path' },
       { name = 'emoji' },
       { name = 'nvim_lua' },
     }
@@ -91,7 +91,7 @@ if vim.g.plugs['nvim-cmp'] then
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
+      { name = 'async_path' }
     }, {
       { name = 'cmdline', max_item_count = 10, keyword_length = 2  }
     })
