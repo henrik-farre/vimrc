@@ -21,19 +21,8 @@ let g:loaded_perl_provider = 0
 let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
 
 if has('vim_starting')
-  " ensure that we always start with Vim defaults (as opposed to those set by the current system)
-  " Save 'diff' as set all& resets it, from http://ruderich.org/simon/config/vimrc
-  let s:save_diff = &diff
-  " Disabled to fix lack of nvim resize, see https://github.com/neovim/neovim/issues/11066
-  " - also it should not be needed for neovim https://github.com/neovim/neovim/issues/5783
-
   " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
   set runtimepath+=/usr/share/vim/vimfiles
-endif
-
-if has('eval')
-  let &diff = s:save_diff
-  unlet s:save_diff
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
