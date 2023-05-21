@@ -96,7 +96,7 @@ Plug 'stevearc/dressing.nvim'
 Plug 'ggandor/leap.nvim'
 " File explorer
 Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x'}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Registers
 " Show registers
