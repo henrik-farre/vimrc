@@ -131,6 +131,7 @@ local function make_config(server)
       ansible = {
         ansible = {
           path = "/usr/bin/ansible"
+          useFullyQualifiedCollectionNames = true
         },
         ansibleLint = {
           enabled = true,
