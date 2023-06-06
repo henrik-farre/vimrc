@@ -130,7 +130,7 @@ local function make_config(server)
     config.settings = {
       ansible = {
         ansible = {
-          path = "/usr/bin/ansible"
+          path = "/usr/bin/ansible",
           useFullyQualifiedCollectionNames = true
         },
         ansibleLint = {
