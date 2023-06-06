@@ -143,7 +143,7 @@ let g:ansible_ftdetect_filename_regex = '\v(playbook|site|local|requirements)\.y
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Terraform settings
 "
-let g:terraform_fmt_on_save=1       " Run terraform fmt on save to comply with style guide
+let g:terraform_fmt_on_save=0       " Run terraform fmt on save to comply with style guide
 let g:terraform_align=1             " Set indent to 2 spaces
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
