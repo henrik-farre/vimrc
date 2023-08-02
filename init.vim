@@ -60,7 +60,7 @@ if has_key(g:plugs, 'fzf') && executable('fzf')
   " let g:fzf_layout = {}
   let g:fzf_nvim_statusline=1
   " Override env from shell where I prefer -e
-  let $FZF_DEFAULT_OPTS = '-x --inline-info'
+  let $FZF_DEFAULT_OPTS = '--keep-right -x --inline-info'
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
