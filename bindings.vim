@@ -153,6 +153,9 @@ cnoreabbrev B7 b7
 cnoreabbrev B8 b8
 cnoreabbrev B9 b9
 
+iabbrev cluser cluster
+iabbrev ecoit ecostruxureit.com
+
 if has("user_commands")
   command! -bang -nargs=? -complete=file E e<bang> <args>
   command! -bang -nargs=? -complete=file W w<bang> <args>
@@ -181,7 +184,8 @@ nmap <C-a> <Nop>
 " nnoremap u <NOP>
 " inoremap <C-u> <ESC>ui
 " Break undo sequence for each space - https://thevaluable.dev/vim-adept/#undo-in-insert-mode
-inoremap <space> <C-G>u<space>
+" There is a drawback, however: abbreviations won’t work anymore in insert mode.
+"inoremap <space> <C-G>u<space>
 
 " Open none existing file under cursor
 nnoremap gF :view <cfile><cr>
