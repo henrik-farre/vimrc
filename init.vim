@@ -551,14 +551,6 @@ augroup END
 
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=500, on_visual=true}
 
-if has_key(g:plugs, 'nvim-lightbulb')
-" Show 💡 when code action is avaliable
-augroup vimrc_lightbulb
-  autocmd!
-  autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({ ignore = {"null-ls"} })
-augroup END
-endif
-
 " Reads the skeleton files, delete empty line
 if !&diff
   augroup vimrc_skeleton

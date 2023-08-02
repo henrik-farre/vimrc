@@ -43,3 +43,9 @@ if vim.g.plugs['neo-tree.nvim'] then
     }
   }
 end
+
+if vim.g.plugs['nvim-lightbulb'] then
+  require("nvim-lightbulb").setup({
+    autocmd = { enabled = true }
+  })
+end
