@@ -137,9 +137,6 @@ local function make_config(server)
           enabled = true,
           path = "/usr/bin/ansible-lint",
           arguments = "-x yaml"
-        },
-        python = {
-          interpreterPath = "/usr/bin/python3"
         }
       }
     }
@@ -152,7 +149,6 @@ local function make_config(server)
       },
     })
   elseif server == 'jsonls' then
-    config.cmd = { "vscode-json-languageserver", "--stdio" }
     config.settings = {
       json = {
         schemas = {
@@ -167,11 +163,6 @@ local function make_config(server)
         }
       }
     }
-  elseif server == 'html' then
-    config.cmd = { "vscode-html-languageserver", "--stdio" }
-  elseif server == 'cssls' then
-    config.cmd = { "vscode-css-languageserver", "--stdio" }
-    config.capabilities.textDocument.completion.completionItem.snippetSupport = true
   elseif server == 'groovyls' then
      config.cmd = { "java", "-jar", "/usr/share/java/groovy-language-server/groovy-language-server-all.jar" }
   end
