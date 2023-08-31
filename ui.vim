@@ -186,7 +186,7 @@ if has_key(g:plugs, 'vim-airline')
   let g:airline_symbols.notexists = ''
 
   " let g:airline_section_b = '%{AirlineGitInfo()}'
-  let g:airline_section_c = '%<%-25.60F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+  let g:airline_section_c = '%<%-25.75F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
   " l: Line number, c: column, V: virtual column, not displayed if == c
   let g:airline_section_z = airline#section#create([ '%l,%c%V'])
 endif
