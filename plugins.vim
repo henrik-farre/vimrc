@@ -144,7 +144,7 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'folke/trouble.nvim'
 " Show 💡 if there is a code action avaliable
-Plug 'kosayoda/nvim-lightbulb'
+" Plug 'kosayoda/nvim-lightbulb'
 " Set working to project directory
 "Plug 'airblade/vim-rooter'
 Plug 'ahmedkhalf/project.nvim'
