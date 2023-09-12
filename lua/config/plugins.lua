@@ -39,7 +39,11 @@ end
 if vim.g.plugs['neo-tree.nvim'] then
   require('neo-tree').setup{
     filesystem = {
-      follow_current_file = true, -- This will find and focus the file in the active buffer every
+      follow_current_file = {
+        enabled = true, -- This will find and focus the file in the active buffer every
+      },
+      hide_dotfiles = false,
+      hide_gitignored = false,
     }
   }
 end
