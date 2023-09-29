@@ -82,7 +82,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'norcalli/nvim-colorizer.lua'
 " Show indent lines
-Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'tag': 'v2.20.8' }
 " Add visual marks in gutter
 Plug 'kshenoy/vim-signature'
 " causes all trailing whitespace characters to be highlighted.
@@ -96,7 +96,7 @@ Plug 'stevearc/dressing.nvim'
 Plug 'ggandor/leap.nvim'
 " File explorer
 Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x'}
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Registers
 " Show registers
