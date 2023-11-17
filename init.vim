@@ -34,11 +34,7 @@ scriptencoding utf-8
 " Plugins
 "
 lua <<EOF
-if vim.loop.os_uname().machine == "aarch64" then
-  vim.cmd('source $VIMHOME/plugins-light.vim')
-else
-  vim.cmd('source $VIMHOME/plugins.vim')
-end
+vim.cmd('source $VIMHOME/plugins.vim')
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -368,18 +364,25 @@ set binary noeol
 " In insert mode:
 " - <C+r> *: Primary selection
 " - <C+r> +: Contents of clipboard
-"
-" use X clipboard if avaliable
-" let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
-" Make it work in Neovim
-if (has('clipboard') && executable('xsel') && exists('$DISPLAY'))
-  set clipboard+=unnamedplus
-elseif (has('clipboard') && executable('wl-copy'))
-  " wayland support
-  set clipboard+=unnamedplus
-elseif (has('clipboard') && executable('pbcopy') && has('mac'))
-  set clipboard+=unnamedplus
-endif
+
+lua <<EOF
+if string.find(vim.loop.os_uname().release, 'microsoft') then
+  vim.g.clipboard = {
+    name = 'WSLClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -NoProfile -NonInteractive -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -NoProfile -NonInteractive -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = false
+  }
+end
+EOF
+
+set clipboard+=unnamedplus
 
 set modeline                      " read settings for stuff like shiftwidth from current file
 set modelines=3                   " number lines checked for modelines
