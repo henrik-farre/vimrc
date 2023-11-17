@@ -61,6 +61,8 @@ nnoremap <C-\|> <C-W>v
 nnoremap <C-\> <C-W>v
 nnoremap <C-_> :sp<CR>
 nnoremap <C-S-_> :sp<CR>
+" WSL / goneovim
+nnoremap <C-S--> :sp<CR>
 
 " neovim-qt
 " inoremap <C-S-V> <C-R>+
