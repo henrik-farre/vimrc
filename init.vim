@@ -387,10 +387,6 @@ set clipboard+=unnamedplus
 set modeline                      " read settings for stuff like shiftwidth from current file
 set modelines=3                   " number lines checked for modelines
 
-if has("gui_running")
-  set noesckeys                   " Get rid of the delay when hitting esc!, NOTE: this produces A,B,C,D in input mode using arrow
-endif
-
 " set completeopt+=menu,longest,preview
 set completeopt=menu,menuone,noselect
 set complete-=i                   " disabled scanning of include files
