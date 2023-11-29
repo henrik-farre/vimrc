@@ -364,24 +364,6 @@ set binary noeol
 " In insert mode:
 " - <C+r> *: Primary selection
 " - <C+r> +: Contents of clipboard
-
-lua <<EOF
-if string.find(vim.loop.os_uname().release, 'microsoft') then
-  vim.g.clipboard = {
-    name = 'WSLClipboard',
-    copy = {
-      ['+'] = 'clip.exe',
-      ['*'] = 'clip.exe',
-    },
-    paste = {
-      ['+'] = 'powershell.exe -NoProfile -NonInteractive -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ['*'] = 'powershell.exe -NoProfile -NonInteractive -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    },
-    cache_enabled = false
-  }
-end
-EOF
-
 set clipboard+=unnamedplus
 
 set modeline                      " read settings for stuff like shiftwidth from current file
