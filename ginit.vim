@@ -2,7 +2,7 @@
 if exists(':GuiFont')
     GuiRenderLigatures 1
     GuiFont! mononoki Nerd Font:h11
-    set guifontwide=Noto\ Color\ Emoji:h10
+    set guifontwide=Noto\ Color\ Emoji:h11
 
     " Based on https://github.com/drzel/neovim-config/blob/ae5ebf721b6d1cd9e975b60df6ef97ae9fb0584c/nvim/ginit.vim#L32
     let s:fontsize = 11
