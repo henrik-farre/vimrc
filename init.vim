@@ -246,6 +246,10 @@ if has_key(g:plugs, 'vim-easyclip')
   let g:EasyClipUseCutDefaults = 0
 endif
 
+if has_key(g:plugs, 'markdown-preview.nvim')
+  let g:mkdp_filetypes = ['markdown', "ghmarkdown"]
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 "
