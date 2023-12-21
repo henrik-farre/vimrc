@@ -136,6 +136,8 @@ Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 " Yaml, use :YAMLView Shows the full path and value of the current key/value pair
 Plug 'cuducos/yaml.nvim', { 'for': 'yaml' }
+" Preview markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LSP setup
 Plug 'neovim/nvim-lspconfig'
