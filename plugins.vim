@@ -73,9 +73,7 @@ Plug 'junegunn/vader.vim'
 " Colorschemes / UI
 Plug 'pacha/vem-dark'
 " Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 " Icons for filetypes
 Plug 'ryanoasis/vim-devicons'
 " Icons for filetypes - support for trouble and more
@@ -135,7 +133,8 @@ Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 " Yaml, use :YAMLView Shows the full path and value of the current key/value pair
-Plug 'cuducos/yaml.nvim', { 'for': 'yaml' }
+" - overrides ft with yaml
+Plug 'cuducos/yaml.nvim'
 " Preview markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
