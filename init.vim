@@ -203,6 +203,8 @@ require('config.plugins')
 require('config.cmp')
 -- lua functions
 require('config.functions')
+-- UI
+require('config.ui')
 
 -- Only spell check inside comments
 -- require('spellsitter').setup()
@@ -210,14 +212,6 @@ require('config.functions')
 -- Auto complete pairs
 if vim.g.plugs['nvim-autopairs'] then
   require("nvim-autopairs").setup {}
-end
-
-if vim.g.plugs['lualine.nvim'] then
-require('lualine').setup {
-  options = {
-    theme = 'jellybeans',
-  }
-}
 end
 
 if vim.g.plugs['nvim-bqf'] then
