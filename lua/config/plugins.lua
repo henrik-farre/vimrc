@@ -76,3 +76,7 @@ if vim.g.plugs['nvim-lightbulb'] then
     autocmd = { enabled = true }
   })
 end
+
+if vim.g.plugs['yaml.nvim'] then
+  require("yaml_nvim").setup({ ft = { "yaml", "helm" } })
+end
