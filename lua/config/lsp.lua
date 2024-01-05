@@ -7,7 +7,7 @@ if vim.loop.os_uname().machine == "aarch64" then
   return
 end
 
-local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'terraformls', 'tflint', 'pyright', 'vimls', 'yamlls' }
+local servers = { 'ansiblels', 'bashls', 'cssls', 'dockerls', 'groovyls', 'html', 'jsonls', 'terraformls', 'tflint', 'pyright', 'vimls', 'helm_ls', 'yamlls', }
 local nvim_lsp = require('lspconfig')
 
 -- null-ls setup
