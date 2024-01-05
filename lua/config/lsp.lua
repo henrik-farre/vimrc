@@ -18,7 +18,6 @@ if vim.g.plugs['null-ls.nvim'] then
     root_dir = u.root_pattern(".null-ls-root", "Makefile", ".git", ".flake8", "pyproject.toml"),
     sources = {
       require("null-ls").builtins.diagnostics.flake8,
-      -- require("null-ls").builtins.diagnostics.shellcheck,
       -- require("null-ls").builtins.diagnostics.mypy,
     },
   })
