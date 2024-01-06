@@ -78,5 +78,5 @@ if vim.g.plugs['nvim-lightbulb'] then
 end
 
 if vim.g.plugs['yaml.nvim'] then
-  require("yaml_nvim").setup({ ft = { "yaml", "helm" } })
+  require("yaml_nvim").setup({ ft = { "yaml", "helm", "yaml.ansible" } })
 end
