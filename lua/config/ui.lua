@@ -16,7 +16,7 @@ if vim.g.plugs['lualine.nvim'] then
   end
 
   local yaml_key_value = function()
-    if vim.bo.filetype == "yaml" or vim.bo.filetype == "helm" then
+    if vim.bo.filetype == "yaml" or vim.bo.filetype == "yaml.ansible" or vim.bo.filetype == "helm" then
       local path = require("yaml_nvim").get_yaml_key()
       if string.len(path) > 0 then
           return truncateStringMiddle(path,70)
