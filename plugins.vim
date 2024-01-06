@@ -133,8 +133,8 @@ Plug 'tpope/vim-markdown', { 'for': 'ghmarkdown' }
 " Add-on to Tim Pope's markdown.vim to highlight using Github Flavored Markdown.
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'ghmarkdown' }
 " Yaml, use :YAMLView Shows the full path and value of the current key/value pair
-" - overrides ft with yaml
-Plug 'cuducos/yaml.nvim'
+" - fork that hardcodes yaml and does not change ft
+Plug 'henrik-farre/yaml.nvim', { 'branch': 'hack_to_work_with_other_ft' }
 " Preview markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
