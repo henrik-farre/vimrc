@@ -46,56 +46,6 @@ let g:mapleader = "\<Space>"
 map <Space> <Leader>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin settings
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF
-if has_key(g:plugs, 'fzf') && executable('fzf')
-  " Dont use tmux split
-  " https://github.com/junegunn/fzf.vim/issues/66#issuecomment-169362556
-  " let g:fzf_layout = {}
-  let g:fzf_nvim_statusline=1
-  " Override env from shell where I prefer -e
-  let $FZF_DEFAULT_OPTS = '--keep-right -x --inline-info'
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" UltiSnips
-"
-let g:snips_author = 'Henrik Farre <henrik@rockhopper.dk>'
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable plugins:
-"
-let g:loaded_html_danish = 1      " html_da
-let g:loaded_netrwPlugin = 1      " netrw
-let g:loaded_vimballPlugin = 1    " vimball
-let g:loaded_matchparen = 1       " Parenthesis matching is just too slow
-let g:loaded_gzip = 1
-let g:loaded_tarPlugin = 1
-let g:loaded_zipPlugin = 1
-let g:loaded_2html_plugin = 1
-let g:loaded_tutor_mode_plugin = 1
-let g:loaded_matchit = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Emmet
-"
-let g:user_emmet_expandabbr_key = '<c-e>'
-let g:user_emmet_complete_tag = 1
-let g:user_emmet_settings = {
-      \ 'html' : {
-      \   'filters' : 'html',
-      \   'indentation' : ' '
-      \ },
-      \ 'css' : {
-      \   'filters' : 'fc',
-      \ }
-      \}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable syntax checking when in a diff
 "
 if &diff
@@ -106,76 +56,11 @@ if &diff
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" delimitMate
-"
-" let delimitMate_expand_cr = 1
-" let delimitMate_expand_space = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERD Commenter
-"
-let g:NERDCreateDefaultMappings = 0
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JSON
 " Don't hide "
 let g:vim_json_syntax_conceal = 0
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Quick-scope
-"
-" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ansible settings
-" When this variable is set, indentation will completely reset (unindent to column 0) after two newlines in insert-mode. The normal behavior of YAML is to always keep the previous indentation, even across multiple newlines with no content.
-"
-let g:ansible_unindent_after_newline = 0
-let g:ansible_ftdetect_filename_regex = '\v(playbook|site|local|requirements)\.ya?ml$'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Terraform settings
-"
-let g:terraform_fmt_on_save=0       " Run terraform fmt on save to comply with style guide
-let g:terraform_align=1             " Set indent to 2 spaces
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup for lua plugins
-"
 lua <<EOF
-------------------------------------------------------------
--- nvim-web-devicons also has a override for .zshrc https://github.com/kyazdani42/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua#L175
--- (used by telescope, trouble and more)
---
-if vim.g.plugs['nvim-web-devicons'] then
-  require'nvim-web-devicons'.setup {
-    override = {
-      [".zshrc"] = {
-        icon = "",
-        color = "#428850",
-        name = "Zsh"
-      }
-    };
-  default = true;
-  }
-end
-
-if vim.g.plugs['neogen'] then
-  require('neogen').setup {
-    input_after_comment = true,
-    languages = {
-      python = {
-        template = {
-          annotation_convention = "numpydoc"
-        }
-      }
-    }
-  }
-end
-
 -- LSP setup
 -- LSP kind
 -- LSP colors
@@ -196,44 +81,7 @@ require('config.cmp')
 require('config.functions')
 -- UI
 require('config.ui')
-
--- Only spell check inside comments
--- require('spellsitter').setup()
-
--- Auto complete pairs
-if vim.g.plugs['nvim-autopairs'] then
-  require("nvim-autopairs").setup {}
-end
-
-if vim.g.plugs['nvim-bqf'] then
-  require('bqf').setup {}
-end
-
-if vim.g.plugs['leap.nvim'] then
-  require('leap').add_default_mappings()
-end
 EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Peekaboo
-"
-" Increase size of window
-if has_key(g:plugs, 'vim-peekaboo')
-  let g:peekaboo_window = "vert bo 70new"
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Easy clip
-"
-if has_key(g:plugs, 'vim-easyclip')
-  let g:EasyClipAlwaysMoveCursorToEndOfPaste = 1
-  let g:EasyClipPreserveCursorPositionAfterYank = 1
-  let g:EasyClipUseCutDefaults = 0
-endif
-
-if has_key(g:plugs, 'markdown-preview.nvim')
-  let g:mkdp_filetypes = ['markdown', "ghmarkdown"]
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding

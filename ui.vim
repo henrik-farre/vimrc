@@ -2,17 +2,12 @@
 " Colors
 "
 set termguicolors
-if has_key(g:plugs, 'nvim-colorizer.lua')
-  " Colorizer setup - requires termguicolors
-  lua require('colorizer').setup()
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme
 "
 " colorscheme wombat256mod
 let g:vem_colors_italic = 1
-
 colorscheme vem-dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
