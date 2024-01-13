@@ -72,11 +72,8 @@ Plug 'junegunn/vader.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorschemes / UI
 Plug 'pacha/vem-dark'
-" Plug 'itchyny/lightline.vim'
 Plug 'nvim-lualine/lualine.nvim'
 " Icons for filetypes
-Plug 'ryanoasis/vim-devicons'
-" Icons for filetypes - support for trouble and more
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'norcalli/nvim-colorizer.lua'
 " Show indent lines
