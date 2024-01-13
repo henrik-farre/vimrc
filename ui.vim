@@ -1,74 +1,4 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Window titles
-"
-" Term
-" if &term =~ "^screen"
-" " has("autocmd")
-" " autocmd VimLeave * :set term=screen " this fixes background artifacting when leaving vim inside screen
-"   set t_ts=k
-"   set t_fs=\
-" endif
-
-" Highlight VCS conflict markers
-" Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" allows cursor change in tmux mode
-" https://github.com/rafi/vim-config/blob/master/config/terminal.vim
-" http://dougblack.io/words/a-good-vimrc.html#tmux
-"if exists('$TMUX')
-"  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>[3 q\<Esc>\\"
-"  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[0 q\<Esc>\\"
-"endif
-
-" Might create problems with normal term
-" rxvt-256color is for launcing nvim directly with out tmux
-" if &term == 'xterm-256color' || &term =~ '^screen' || &term =~ '^rxvt-'
-"   " Cursor shape
-"   " ------------
-"   " For rxvt-unicode:
-"   " 1 or 0 -> blinking block
-"   " 2 -> solid block
-"   " 3 -> blinking underscore
-"   " 4 -> solid underscore
-"   " Recent versions of xterm (282 or above) also support
-"   " 5 -> blinking vertical bar
-"   " 6 -> solid vertical bar
-"   let &t_SI = "\<Esc>[6 q"
-"   let &t_EI = "\<Esc>[2 q"
-"   " let &t_EI = "\<Esc>]12;white\x9c"
-"   " let &t_SI = "\<Esc>]12;orange\x9c"
-" endif
-
-" Tries to match statusline
-if has('title')
-  set titlestring=%{v:progname}:\ 
-  " git branch
-  if has_key(g:plugs, 'fugitive')
-    set titlestring+=%{fugitive#statusline()}
-  endif
-  if has("gui_running")
-    " Full path if gvim is used
-    set titlestring+=\ %F\ 
-  else
-    " Display min 25, max 60 chars of F (Full path), from the right
-    set titlestring+=\ %-25.60F\ 
-  endif
-  " r: Read only flag
-  " y: Filetype
-  " m: Modified flag
-  set titlestring+=%m
-
-  " display a warning if fileformat isnt unix
-  set titlestring+=%{&ff!='unix'?'['.&ff.']':''}
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Font and terminal settings
-" https://gist.github.com/romainl/9ecd7b09a693816997ba
-" 'set t_Co=256' is a bad idea, set your terminal emulator up properly
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
 "
 set termguicolors
@@ -115,7 +45,10 @@ set colorcolumn = "99999"
 " Visual selection
 hi Visual guifg=#000000 guibg=LightBlue gui=none
 
-highlight ExtraWhitespace guibg=#4e2f2f
+hi ExtraWhitespace guibg=#4e2f2f
+
+" vim-signature
+hi SignatureMarkText cterm=bold ctermbg=10 gui=bold guifg=#aeee04
 
 " Make background consistent
 " http://www.reddit.com/r/vim/comments/2lqagi/making_the_vim_background_consistent/
@@ -139,6 +72,9 @@ highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
 highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
 highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 
+" Highlight VCS conflict markers
+" Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
@@ -155,9 +91,5 @@ if &diff
   " http://vim.wikia.com/wiki/Start_with_a_wide_window_for_diff
   " let &columns = 320 + 2*&foldcolumn + 1
 endif
-
-" vim-signature
-hi SignatureMarkText cterm=bold ctermbg=10 gui=bold guifg=#aeee04
-
 
 set noshowmode
