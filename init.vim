@@ -143,15 +143,6 @@ let g:terraform_fmt_on_save=0       " Run terraform fmt on save to comply with s
 let g:terraform_align=1             " Set indent to 2 spaces
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DevIcons (use for vim-airline)
-"
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['zsh'] = ''
-" ryanoasis/vim-devicons contains an explicit setting for .zshrc: https://github.com/ryanoasis/vim-devicons/blob/master/plugin/webdevicons.vim#L300
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.zshrc'] = ''
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup for lua plugins
 "
 lua <<EOF
