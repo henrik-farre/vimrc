@@ -497,8 +497,8 @@ function! TrimWhiteSpace()
   let _s=@/
   let l = line(".")
   let c = col(".")
+  %s///e
   %s/\s\+$//e
-  %s///
   " Clean up: restore previous search history, and cursor position
   let @/=_s
   call cursor(l, c)
