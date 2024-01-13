@@ -29,13 +29,7 @@ endif
 " Encoding
 "
 scriptencoding utf-8
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-"
-lua <<EOF
-vim.cmd('source $VIMHOME/plugins.vim')
-EOF
+set fileencodings=utf-8,iso-8859-1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader
@@ -61,6 +55,8 @@ endif
 let g:vim_json_syntax_conceal = 0
 
 lua <<EOF
+-- Load plugins and configure most of them
+require('config.plugins')
 -- LSP setup
 -- LSP kind
 -- LSP colors
@@ -68,13 +64,6 @@ lua <<EOF
 require('config.lsp')
 -- Treesitter
 require('config.treesitter')
--- Telescope
--- require('config.telescope')
--- Indent blankline
--- Project
--- Todo Comments
--- Dressing
-require('config.plugins')
 -- nvim cmp
 require('config.cmp')
 -- lua functions
@@ -82,11 +71,6 @@ require('config.functions')
 -- UI
 require('config.ui')
 EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Encoding
-"
-set fileencodings=utf-8,iso-8859-1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search
