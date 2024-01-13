@@ -1,3 +1,10 @@
+-- ----------------------------------------------------------------------------
+-- Window titles
+--
+vim.opt.title = true
+vim.opt.titlelen = 0 -- do not shorten title
+vim.opt.titlestring = 'nvim %{expand("%:p")} %M'
+
 if vim.g.plugs['lualine.nvim'] then
   -- Override 'encoding': Don't display if encoding is UTF-8.
   local lualine_encoding = function()
@@ -41,6 +48,14 @@ if vim.g.plugs['lualine.nvim'] then
       lualine_x = {
         yaml_key_value, lualine_encoding, 'fileformat', 'filetype',
       },
+    },
+    inactive_sections = {
+      lualine_c = {
+        {
+          'filename',
+          path = 3,
+        }
+      }
     }
   }
 end
