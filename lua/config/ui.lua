@@ -1,9 +1,20 @@
--- ----------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------
 -- Window titles
 --
 vim.opt.title = true
 vim.opt.titlelen = 0 -- do not shorten title
 vim.opt.titlestring = 'nvim %{expand("%:p")} %M'
+
+-- -----------------------------------------------------------------------------
+-- Colors
+--
+vim.opt.termguicolors = true
+
+-- -----------------------------------------------------------------------------
+-- Colorscheme
+--
+vim.g.vem_colors_italic = 1
+vim.cmd("colorscheme vem-dark")
 
 if vim.g.plugs['lualine.nvim'] then
   -- Override 'encoding': Don't display if encoding is UTF-8.
@@ -59,3 +70,8 @@ if vim.g.plugs['lualine.nvim'] then
     }
   }
 end
+
+-- -----------------------------------------------------------------------------
+-- Vimscript UI settings
+--
+vim.cmd.source(vim.fn.stdpath("config") .. "/ui.vim")

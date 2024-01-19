@@ -1,16 +1,4 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors
-"
-set termguicolors
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colorscheme
-"
-" colorscheme wombat256mod
-let g:vem_colors_italic = 1
-colorscheme vem-dark
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cursor
 "
 " hi CursorLine guibg=#282828
