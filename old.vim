@@ -12,7 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-set infercase                     " Handle case in a smart way in autocompletes
 set lazyredraw                    " Speed up macros
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

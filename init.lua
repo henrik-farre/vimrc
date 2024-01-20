@@ -35,6 +35,10 @@ vim.o.smartcase = true      -- Do smart case search - case sensitive if first le
 vim.o.inccommand = "split"  -- Incremental replace, https://github.com/neovim/neovim/pull/5561
 vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to disable
 
+-- -----------------------------------------------------------------------------
+--
+vim.o.infercase = true      -- Handle case in a smart way in autocompletes
+
 
 
 vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
