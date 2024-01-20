@@ -13,11 +13,6 @@
 "
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" JSON
-" Don't hide "
-let g:vim_json_syntax_conceal = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search
 "
 set ignorecase                    " Do case insensitive matching, must be set for smartcase to work
