@@ -1,5 +1,35 @@
+-- -----------------------------------------------------------------------------
+-- Disable Language providers
+--
+vim.g.loaded_python_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+
+-- -----------------------------------------------------------------------------
+--  Encoding
+--
+vim.scriptencoding = 'utf-8'
+vim.opt.fileencodings = "utf-8"
+
+-- -----------------------------------------------------------------------------
+-- Leader
+-- Needs to be set here, and not in bindings.vim as it is sourced to late
+-- http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
+--
+vim.g.mapleader = " "
+
+-- -----------------------------------------------------------------------------
+-- Disable swapfile when in a diff
+-- the old syntax checker options do not exist anymore
+--
+if vim.opt.diff:get() then
+  vim.o.noswapfile = true
+end
+
 vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
 
+-- Archlinux adds /usr/share/vim/vimfiles to rtp
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({

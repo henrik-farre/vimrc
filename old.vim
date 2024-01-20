@@ -12,43 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-" Disable unused providers
-let g:loaded_python_provider = 0
-let g:loaded_ruby_provider = 0
-let g:loaded_node_provider = 0
-let g:loaded_perl_provider = 0
-
-let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
-
-if has('vim_starting')
-  " Some Arch Linux packages (tmux, docker) install syntax and more in the following path
-  set runtimepath+=/usr/share/vim/vimfiles
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Encoding
-"
-scriptencoding utf-8
-set fileencodings=utf-8,iso-8859-1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader
-" Needs to be set here, and not in bindings.vim as it is sourced to late
-" http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
-"
-let g:mapleader = "\<Space>"
-map <Space> <Leader>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable syntax checking when in a diff
-"
-if &diff
-  set noswapfile
-  let g:loaded_javascript_syntax_checker = 1
-  let g:loaded_html_syntax_checker = 1
-  let g:loaded_xhtml_syntax_checker = 1
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " JSON
 " Don't hide "
