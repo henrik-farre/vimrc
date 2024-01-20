@@ -40,6 +40,14 @@ vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to di
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
 
+-- -----------------------------------------------------------------------------
+-- Folding rules
+--
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldnestmax = 10      -- deepest fold is 10 levels
+vim.o.foldenable = false    -- don't fold by default
+vim.o.foldlevel = 1
 
 vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
 

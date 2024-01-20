@@ -12,20 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Folding rules
-"
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldnestmax=10                " deepest fold is 10 levels
-set nofoldenable                  " dont fold by default
-set foldlevel=1                   " this is just what i use
-" set nofen                       " foldenable no
-" set foldenable                  " enable folding
-" set foldcolumn=2                " add a fold column
-" set foldmethod=marker           " detect triple-{ style fold markers
-" set foldlevelstart=0            " start out with everything folded
-" set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo " which commands trigger auto-unfold
 
 set number                        " Line numbers
 set signcolumn=yes:1              " Always show 1 sign column
