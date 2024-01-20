@@ -16,7 +16,6 @@ vim.opt.termguicolors = true
 vim.g.vem_colors_italic = 1
 vim.cmd("colorscheme vem-dark")
 
-
 -- -----------------------------------------------------------------------------
 -- Vimscript UI settings
 --
