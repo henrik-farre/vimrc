@@ -12,14 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Search
-"
-set ignorecase                    " Do case insensitive matching, must be set for smartcase to work
-set smartcase                     " Do smart case search - case sensitive if first letter in search is uppercase
-set inccommand=split              " Incremental replace, https://github.com/neovim/neovim/pull/5561
-set gdefault                      " Applies substitutions globally on lines, /g to disable
-
 set infercase                     " Handle case in a smart way in autocompletes
 set lazyredraw                    " Speed up macros
 

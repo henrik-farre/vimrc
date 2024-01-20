@@ -27,6 +27,16 @@ if vim.opt.diff:get() then
   vim.o.noswapfile = true
 end
 
+-- -----------------------------------------------------------------------------
+-- Search / Replace
+--
+vim.o.ignorecase = true     -- Do case insensitive matching, must be set for smartcase to work
+vim.o.smartcase = true      -- Do smart case search - case sensitive if first letter in search is uppercase
+vim.o.inccommand = "split"  -- Incremental replace, https://github.com/neovim/neovim/pull/5561
+vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to disable
+
+
+
 vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
 
 -- Archlinux adds /usr/share/vim/vimfiles to rtp
