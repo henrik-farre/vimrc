@@ -12,8 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-set lazyredraw                    " Speed up macros
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding rules
 "
