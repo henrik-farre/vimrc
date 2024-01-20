@@ -12,10 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-
-set number                        " Line numbers
-set signcolumn=yes:1              " Always show 1 sign column
-
 set list
 " set listchars=tab:▸\ ,eol:¬
 set listchars=tab:\ \ ,extends:»,precedes:«,nbsp:·
@@ -51,7 +47,6 @@ set ssop-=folds " do not store folds
 set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
-set title                         " change the terminals/windows title
 set hid                           " change buffer without saving
 set autowrite                     " Write contents of the file, if it has been modified, on buffer exit
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
@@ -160,12 +155,6 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
 set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
-
-" Use less space for line numbering if possible
-try
-  setlocal numberwidth=3
-catch
-endtry
 
 set keymodel=startsel             " Allow select of text in insert mode using shift
 
