@@ -84,14 +84,6 @@ nmap <C-s> :wa<CR>
 nnoremap ' `
 nnoremap ` '
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clipboard related mappings, yank/cut/paste - Uses Easyclip
-" Easyclip
-if has_key(g:plugs, 'vim-easyclip')
-    nnoremap x "+x
-    xnoremap x "+x
-    " nmap xx xx
-endif
 " Make shift-insert work like in Xterm
 " map <S-Insert> <MiddleMouse>
 " For command mode:
@@ -156,7 +148,6 @@ cnoreabbrev B8 b8
 cnoreabbrev B9 b9
 
 iabbrev cluser cluster
-iabbrev ecoit ecostruxureit.com
 
 if has("user_commands")
   command! -bang -nargs=? -complete=file E e<bang> <args>
@@ -210,64 +201,12 @@ noremap <leader>bp :bp<cr>
 " vnoremap // y/\V<C-R>"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VimSpector
-nmap <leader><F5> <Plug>VimspectorContinue
-nmap <leader><F3> <Plug>VimspectorStop
-nmap <leader><F4> <Plug>VimspectorRestart
-nmap <leader><F6> <Plug>VimspectorPause
-nmap <leader><F8> <Plug>VimspectorAddFunctionBreakpoint
-nmap <F9> <Plug>VimspectorToggleBreakpoint
-" <Plug>VimspectorToggleConditionalBreakpoint
-" <Plug>VimspectorRunToCursor
-nmap <F10> <Plug>VimspectorStepOver
-nmap <F11> <Plug>VimspectorStepInto
-nmap <F12> <Plug>VimspectorStepOut
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Telescope
-if has_key(g:plugs, 'telescope.nvim')
-  nnoremap <leader>bv <cmd>Telescope buffers show_all_buffers=true ignore_current_buffer=true cwd_only=false<CR>
-  nnoremap <leader>gv <cmd>Telescope git_files<CR>
-  nnoremap <leader>lg <cmd>Telescope live_grep<CR>
-  nnoremap <leader>ca <cmd>Telescope lsp_code_actions<CR>
-  nnoremap <leader>ss <cmd>Telescope spell_suggest<CR>
-  nnoremap <leader>ff :lua require('telescope.builtin').find_files({hidden = true})<CR>
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF
-if has_key(g:plugs, 'fzf.vim')
-  " Find git root if it exists
-  " https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
-  function! s:fzf_root()
-      let path = finddir(".git", expand("%:p:h").";")
-      return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
-  endfun
+" Find git root if it exists
+" https://github.com/junegunn/fzf.vim/issues/47#issuecomment-160237795
+function! s:fzf_root()
+    let path = finddir(".git", expand("%:p:h").";")
+    return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
+endfun
 
-  nnoremap <silent> <Leader>t :exe 'Files ' . <SID>fzf_root()<CR>
-  nnoremap <leader>bv :Buffers<cr>
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" yaml-companion
-if has_key(g:plugs, 'yaml-companion.nvim')
-  nnoremap <leader>y :lua require("yaml-companion").open_ui_select()<CR>
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabular
-nmap <leader>a= :Tabularize /=<CR>
-vmap <leader>a= :Tabularize /=<CR>
-nmap <leader>a: :Tabularize /:\zs<CR>
-vmap <leader>a: :Tabularize /:\zs<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERD Commenter
-map <F5> <Plug>NERDCommenterToggle
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoTree
-if has_key(g:plugs, 'neo-tree.nvim')
-  " fe mnemonic "file explorer"
-  nnoremap <leader>fe <cmd>Neotree toggle<CR>
-endif
+nnoremap <silent> <Leader>t :exe 'Files ' . <SID>fzf_root()<CR>

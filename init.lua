@@ -13,22 +13,23 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- -----------------------------------------------------------------------------
--- Load plugins and configure most of them
+------------------------------------------------------------
+-- Disable plugins:
+--
+vim.g.loaded_html_danish = 1       -- html_da
+vim.g.loaded_netrwPlugin = 1       -- netrw
+vim.g.loaded_vimballPlugin = 1     -- vimball
+vim.g.loaded_matchparen = 1        -- Parenthesis matching is just too slow
+vim.g.loaded_gzip = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_matchit = 1
+
 require("lazy").setup("plugins")
--- LSP setup
--- LSP kind
--- LSP colors
--- Trouble
-require('config.lsp')
--- Treesitter
-require('config.treesitter')
--- nvim cmp
-require('config.cmp')
--- lua functions
-require('config.functions')
--- UI
-require('config.ui')
+require('functions')
+require('ui')
 
 -- -----------------------------------------------------------------------------
 -- Keymaps
