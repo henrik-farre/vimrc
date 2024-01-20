@@ -129,7 +129,6 @@ return {
 -- Colorschemes / UI
 --
 "pacha/vem-dark",
-"nvim-lualine/lualine.nvim",
 {
   -- Icons for filetypes, used by telescope, trouble and more
   "nvim-tree/nvim-web-devicons",
