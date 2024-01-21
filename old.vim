@@ -283,12 +283,6 @@ augroup vimrc_line_return
         \ endif
 augroup END
 
-" Hide quickfix from bufferlist
-augroup vimrc_qfix
-    autocmd!
-    autocmd FileType qf setlocal nobuflisted
-augroup END
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Detect Markdown filetype
 "

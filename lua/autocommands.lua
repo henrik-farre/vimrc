@@ -100,3 +100,13 @@ vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
     pattern = "*/[aA]nsible/*.{yml,yaml}",
     command = "set filetype=yaml.ansible",
 })
+
+-- -----------------------------------------------------------------------------
+-- Hide quickfix from bufferlist
+--
+local custom_quickfix_grp = vim.api.nvim_create_augroup('custom_quickfix', { clear = true })
+vim.api.nvim_create_autocmd({"FileType"}, {
+    group = custom_quickfix_grp,
+    pattern = "qf",
+    command = "setlocal nobuflisted",
+})
