@@ -31,3 +31,14 @@ vim.api.nvim_create_autocmd({ 'WinLeave' }, {
     vim.opt_local.cursorline = false
   end
 })
+
+-- -----------------------------------------------------------------------------
+-- Highlight yanked text
+--
+local custom_yankhighlight_grp = vim.api.nvim_create_augroup('custom_cursorline', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = custom_yankhighlight_grp,
+    callback = function()
+        vim.highlight.on_yank({ higroup="IncSearch", timeout=500, on_visual=true })
+    end,
+})

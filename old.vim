@@ -259,8 +259,6 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 " Auto commands
 "
 
-au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=500, on_visual=true}
-
 " Reads the skeleton files, delete empty line
 if !&diff
   augroup vimrc_skeleton
