@@ -20,9 +20,17 @@ vim.opt.fileencodings = "utf-8"
 vim.g.mapleader = " "
 
 -- -----------------------------------------------------------------------------
+-- Diff settings
+--
+
+vim.opt.diffopt:append({
+  "iwhite",             -- Ignore changes in amount of white space
+  "linematch:60",       -- Enable a second stage diff on each generated hunk in order to align lines
+  "algorithm:histogram" -- Use either histogram or patience diff algorithm, https://luppeng.wordpress.com/2020/10/10/when-to-use-each-of-the-git-diff-algorithms/
+})
+
 -- Disable swapfile when in a diff
 -- the old syntax checker options do not exist anymore
---
 if vim.opt.diff:get() then
   vim.o.noswapfile = true
 end
