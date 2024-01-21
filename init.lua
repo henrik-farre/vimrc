@@ -79,6 +79,7 @@ vim.g.loaded_matchit = 1
 
 require("lazy").setup("plugins")
 require('functions')
+require('autocommands')
 require('ui')
 
 -- -----------------------------------------------------------------------------

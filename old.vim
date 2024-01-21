@@ -258,13 +258,6 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto commands
 "
-augroup vimrc_number
-  autocmd!
-  autocmd FocusLost * :set norelativenumber
-  autocmd FocusGained * :set relativenumber
-  autocmd InsertEnter * :set norelativenumber
-  autocmd InsertLeave * :set relativenumber
-augroup END
 
 " Only show cursorline in active window/buffer
 augroup vimrc_CursorLine
