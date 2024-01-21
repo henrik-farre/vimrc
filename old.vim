@@ -276,11 +276,6 @@ if !&diff
   augroup END
 endif
 
-augroup vimrc_tmuxfiletype
-  autocmd!
-  autocmd BufNewFile,BufRead .tmux.conf setlocal filetype=tmux
-augroup END
-
 " Transparent editing of gpg encrypted files.
 " By Wouter Hanegraaff <wouter@blub.net>
 augroup encrypted
