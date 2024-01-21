@@ -12,11 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-" All abbrevitions, truncate middle of long messages, no intro when starting,
-set shortmess=aTI
-" no ins-completion-menu messages
-set shortmess+=c
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Session
 "

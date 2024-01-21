@@ -47,6 +47,15 @@ vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to di
 --
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
+-- ---------------------------------------------------------------------------- Shortmess
+-- Avoid all the |hit-enter| prompts caused by file messages
+--
+vim.opt.shortmess = {
+  a = true,                  -- all abbrevitions (filmnrwx)
+  T = true,                  -- truncate middle of long messages
+  I = true,                  -- no intro when starting
+  c = true,                  -- no ins-completion-menu messages, needed by cmp
+}
 
 -- -----------------------------------------------------------------------------
 -- Folding rules
