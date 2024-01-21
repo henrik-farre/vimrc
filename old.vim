@@ -285,14 +285,6 @@ augroup vimrc_jenkins
   autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
 augroup END
 
-augroup vimrc_whitespace
-  autocmd!
-  autocmd FileWritePre    *.{js,module,info,tpl,md} :call TrimWhiteSpace()
-  autocmd FileAppendPre   *.{js,module,info,tpl,md} :call TrimWhiteSpace()
-  autocmd FilterWritePre  *.{js,module,info,tpl,md} :call TrimWhiteSpace()
-  autocmd BufWritePre     *.{js,module,info,tpl,md} :call TrimWhiteSpace()
-augroup END
-
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
 " https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
