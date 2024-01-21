@@ -24,17 +24,6 @@ set shortmess=aTI
 " no ins-completion-menu messages
 set shortmess+=c
 
-
-" Keep windows stable when opening trouble and more
-if exists('*splitkeep')
-  set splitkeep=cursor
-endif
-
-" More natural split opening
-" http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
-set splitbelow
-set splitright
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Session
 "

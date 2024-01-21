@@ -25,6 +25,17 @@ vim.o.signcolumn = "yes:1"          -- Always show 1 sign column
 vim.o.numberwidth = 3               -- Use less space for line numbering if possible
 
 -- -----------------------------------------------------------------------------
+-- Split settings
+--
+
+vim.o.splitkeep = "cursor"          -- Keep windows stable when opening trouble and more
+
+-- More natural split opening
+-- http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+-- -----------------------------------------------------------------------------
 -- Vimscript UI settings
 --
 vim.cmd.source(vim.fn.stdpath("config") .. "/ui.vim")
