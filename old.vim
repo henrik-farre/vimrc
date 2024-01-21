@@ -263,8 +263,6 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 if !&diff
   augroup vimrc_skeleton
     autocmd!
-    autocmd BufNewFile *.module 0r $VIMHOME/skel/drupal_module |normal Gdd2h
-    autocmd BufNewFile *.info 0r $VIMHOME/skel/drupal_info |normal Gdd2h
     autocmd BufNewFile *.html 0r $VIMHOME/skel/html | $,$d
     autocmd BufNewFile *.css 0r $VIMHOME/skel/css | $,$d
     autocmd BufNewFile *.sh 0r $VIMHOME/skel/bash | $,$d
