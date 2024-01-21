@@ -86,6 +86,17 @@ for _, skeleton in pairs(skeleton_options) do
     vim.api.nvim_create_autocmd({"BufNewFile"}, {
       group = custom_skeleton_grp,
       pattern = skeleton.pattern,
-      command = "0r " .. vim.fn.stdpath("config") .. "/skeletons/" .. skeleton.file .. " | $,$d" ,
+      command = "0r " .. vim.fn.stdpath("config") .. "/skeletons/" .. skeleton.file .. " | $,$d",
     })
 end
+
+-- -----------------------------------------------------------------------------
+-- Ansible - pearofducks/ansible-vim does not detect playbooks with other names
+-- `set filetype=x` overrides setfiletype
+--
+local custom_ansible_grp = vim.api.nvim_create_augroup('custom_ansible', { clear = true })
+vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+    group = custom_ansible_grp,
+    pattern = "*/[aA]nsible/*.{yml,yaml}",
+    command = "set filetype=yaml.ansible",
+})

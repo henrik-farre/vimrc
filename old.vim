@@ -272,13 +272,6 @@ augroup vimrc_yaml
     autocmd FileType yaml.ansible setlocal indentexpr=
 augroup END
 
-" ansible-vim does not detect playbooks, `set filetype=x` overrides setfiletype
-augroup vimrc_ansible
-    autocmd!
-    autocmd BufRead,BufNewFile */[aA]nsible/*.{yml,yaml} set filetype=yaml.ansible
-    autocmd BufRead,BufNewFile inventory set filetype=ansible_hosts
-augroup END
-
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
 " https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
