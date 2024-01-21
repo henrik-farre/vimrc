@@ -25,6 +25,13 @@ vim.o.signcolumn = "yes:1"          -- Always show 1 sign column
 vim.o.numberwidth = 3               -- Use less space for line numbering if possible
 
 -- -----------------------------------------------------------------------------
+-- Vertical/horizontal scroll off settings
+-- Keep lines between the cursor and sides/bottom/top
+--
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 7
+
+-- -----------------------------------------------------------------------------
 -- Split settings
 --
 
