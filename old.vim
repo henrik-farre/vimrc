@@ -259,13 +259,6 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 " Auto commands
 "
 
-" Only show cursorline in active window/buffer
-augroup vimrc_CursorLine
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
-
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=500, on_visual=true}
 
 " Reads the skeleton files, delete empty line
