@@ -12,10 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-set list
-" set listchars=tab:▸\ ,eol:¬
-set listchars=tab:\ \ ,extends:»,precedes:«,nbsp:·
-
 " All abbrevitions, truncate middle of long messages, no intro when starting,
 set shortmess=aTI
 " no ins-completion-menu messages

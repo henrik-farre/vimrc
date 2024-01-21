@@ -25,6 +25,17 @@ vim.o.signcolumn = "yes:1"          -- Always show 1 sign column
 vim.o.numberwidth = 3               -- Use less space for line numbering if possible
 
 -- -----------------------------------------------------------------------------
+-- List chars - show invisible characters
+--
+vim.o.list = true
+vim.opt.listchars = {
+  tab = "→ ",                       -- indent line might hide this
+  extends = "»",
+  precedes = "«",
+  nbsp = "·",
+}
+
+-- -----------------------------------------------------------------------------
 -- Vertical/horizontal scroll off settings
 -- Keep lines between the cursor and sides/bottom/top
 --
