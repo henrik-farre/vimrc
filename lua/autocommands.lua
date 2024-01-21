@@ -101,6 +101,14 @@ vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
     command = "set filetype=yaml.ansible",
 })
 
+-- Fix that after enter the key is indented, and LSP does not suggest anything,
+-- key is reindented after pressing :
+vim.api.nvim_create_autocmd({"FileType"}, {
+    group = custom_ansible_grp,
+    pattern = "yaml.ansible",
+    command = "setlocal indentexpr=",
+})
+
 -- -----------------------------------------------------------------------------
 -- Hide quickfix from bufferlist
 --

@@ -265,13 +265,6 @@ augroup vimrc_markdown
     autocmd BufNewFile,BufRead *.md,*.markdown :call MarkdownTypeDetect()
 augroup END
 
-" Fix that after enter the key is indented, and LSP does not suggest anything,
-" key is reindented after pressing :
-augroup vimrc_yaml
-    autocmd!
-    autocmd FileType yaml.ansible setlocal indentexpr=
-augroup END
-
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
 " https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
