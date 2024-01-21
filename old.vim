@@ -33,8 +33,6 @@ set hid                           " change buffer without saving
 set autowrite                     " Write contents of the file, if it has been modified, on buffer exit
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showmode                      " display the current mode
-" set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-set fillchars+=vert:│
 set showfulltag                   " Show full tag for completion
 set switchbuf=useopen             " Buffer switching the reuses already visible buffers
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
