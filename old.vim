@@ -279,12 +279,6 @@ augroup vimrc_ansible
     autocmd BufRead,BufNewFile inventory set filetype=ansible_hosts
 augroup END
 
-" Jenkinsfile
-augroup vimrc_jenkins
-  autocmd!
-  autocmd BufNewFile,BufRead Jenkinsfile setfiletype groovy
-augroup END
-
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
 " https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
