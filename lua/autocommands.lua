@@ -42,3 +42,50 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank({ higroup="IncSearch", timeout=500, on_visual=true })
     end,
 })
+
+-- -----------------------------------------------------------------------------
+-- Skeleton files
+--
+local custom_skeleton_grp = vim.api.nvim_create_augroup('custom_skeleton', { clear = true })
+local skeleton_options = {
+  {
+    pattern = {"*.html"},
+    file = "html",
+  },
+  {
+    pattern = {"*.css"},
+    file = "css"
+  },
+  {
+    pattern = {"*.sh"},
+    file = "bash"
+  },
+  {
+    pattern = {"Dockerfile"},
+    file = "Dockerfile"
+  },
+  {
+    pattern = {".dockerignore"},
+    file = "dockerignore"
+  },
+  {
+    pattern = {"hest.yml"},
+    file = "ansible_playbook.yml"
+  },
+  {
+    pattern = {"pyrightconfig.json"},
+    file = "pyrightconfig.json"
+  },
+  {
+    pattern = {".vimspector.json"},
+    file = "vimspector.json"
+  },
+}
+
+for _, skeleton in pairs(skeleton_options) do
+    vim.api.nvim_create_autocmd({"BufNewFile"}, {
+      group = custom_skeleton_grp,
+      pattern = skeleton.pattern,
+      command = "0r " .. vim.fn.stdpath("config") .. "/skeletons/" .. skeleton.file .. " | $,$d" ,
+    })
+end

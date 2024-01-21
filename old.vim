@@ -259,21 +259,6 @@ iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 " Auto commands
 "
 
-" Reads the skeleton files, delete empty line
-if !&diff
-  augroup vimrc_skeleton
-    autocmd!
-    autocmd BufNewFile *.html 0r $VIMHOME/skel/html | $,$d
-    autocmd BufNewFile *.css 0r $VIMHOME/skel/css | $,$d
-    autocmd BufNewFile *.sh 0r $VIMHOME/skel/bash | $,$d
-    autocmd BufNewFile Dockerfile 0r $VIMHOME/skel/Dockerfile | $,$d
-    autocmd BufNewFile .dockerignore 0r $VIMHOME/skel/dockerignore | $,$d
-    autocmd BufNewFile hest.yml 0r $VIMHOME/skel/hest.yml | $,$d
-    autocmd BufNewFile pyrightconfig.json 0r $VIMHOME/skel/pyrightconfig.json | $,$d
-    autocmd BufNewFile .vimspector.json 0r $VIMHOME/skel/vimspector.json | $,$d
-  augroup END
-endif
-
 " Use github style markdown
 augroup vimrc_markdown
     autocmd!

@@ -6,5 +6,5 @@
 
   tasks:
     - name: Debugging
-      debug:
-        var: "hest"
+      ansible.builtin.debug:
+        msg: "hest"
