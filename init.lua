@@ -48,7 +48,8 @@ vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to di
 --
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
--- ---------------------------------------------------------------------------- Shortmess
+-- ----------------------------------------------------------------------------
+-- Shortmess
 -- Avoid all the |hit-enter| prompts caused by file messages
 --
 vim.opt.shortmess = {
