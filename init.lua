@@ -60,6 +60,25 @@ vim.opt.shortmess = {
 }
 
 -- -----------------------------------------------------------------------------
+-- Indent
+-- Note that modeline may override this
+-- treesitter indent is disabled
+--
+vim.o.breakindent = true     -- Every wrapped line will continue visually indented
+vim.o.softtabstop = 2        -- Standard vi interprets the tab key literally, but there are popular vi-derived alternatives that are smarter, like vim. To get vim to interpret tab as an ``indent'' command instead of an insert-a-tab command
+vim.o.shiftwidth = 2         -- Number of spaces to use for each insertion of (auto)indent.
+vim.o.shiftround = true      -- use multiple of shiftwidth when indenting with '<' and '>'
+vim.o.tabstop = 4            -- To cause the TAB file-character to be displayed as mod-N in vi and vim (what Emacs calls tab-width)
+vim.o.expandtab = true       -- To cause TAB characters to not be used in the file for compression, and for only spaces to be used (what emacs calls indent-tabs-mode),
+-- set smarttab
+-- Disable smartindent
+-- http://stackoverflow.com/questions/18415492/autoindent-is-subset-of-smartindent-in-vim/18415867#18415867
+-- http://vim.wikia.com/wiki/Indenting_source_code#Methods_for_automatic_indentation
+-- set smartindent           -- insert tabs on the start of a line according to shiftwidth, not tabstop
+vim.o.copyindent = true      -- copy the previous indentation on autoindenting
+vim.o.preserveindent = true
+
+-- -----------------------------------------------------------------------------
 -- Session
 --
 vim.opt.sessionoptions:remove('options') -- do not store global and local values in a session

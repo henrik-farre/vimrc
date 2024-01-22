@@ -15,7 +15,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff
 "
-set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
 set hid                           " change buffer without saving
@@ -131,23 +130,6 @@ set keymodel=startsel             " Allow select of text in insert mode using sh
 " Syntax highlightning
 "
 set synmaxcol=500                " Syntax coloring lines that are too long just slows down the world
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indention
-" Note that modeline may override this
-"
-set softtabstop=2                 " Standard vi interprets the tab key literally, but there are popular vi-derived alternatives that are smarter, like vim. To get vim to interpret tab as an ``indent'' command instead of an insert-a-tab command
-set shiftwidth=2                  " Number of spaces to use for each insertion of (auto)indent.
-set shiftround                    " use multiple of shiftwidth when indenting with '<' and '>'
-set tabstop=4                     " To cause the TAB file-character to be displayed as mod-N in vi and vim (what Emacs calls tab-width)
-set expandtab                     " To cause TAB characters to not be used in the file for compression, and for only spaces to be used (what emacs calls indent-tabs-mode),
-" set smarttab
-" Disable smartindent
-" http://stackoverflow.com/questions/18415492/autoindent-is-subset-of-smartindent-in-vim/18415867#18415867
-" http://vim.wikia.com/wiki/Indenting_source_code#Methods_for_automatic_indentation
-" set smartindent                   " insert tabs on the start of a line according to shiftwidth, not tabstop
-set copyindent                    " copy the previous indentation on autoindenting
-set preserveindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
