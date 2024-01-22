@@ -44,6 +44,7 @@ vim.o.inccommand = "split"  -- Incremental replace, https://github.com/neovim/ne
 vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to disable
 
 -- -----------------------------------------------------------------------------
+-- infercase
 --
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
