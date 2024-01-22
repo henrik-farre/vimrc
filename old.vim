@@ -18,7 +18,6 @@
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
 set hid                           " change buffer without saving
-set autowrite                     " Write contents of the file, if it has been modified, on buffer exit
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showmode                      " display the current mode
 set showfulltag                   " Show full tag for completion
@@ -45,14 +44,6 @@ set formatoptions+=j
 
 " Set updatetime to make floating windows appear faster
 set updatetime=250
-
-" Do not autoread changed files (still detect changes) https://github.com/neovim/neovim/issues/2127
-set noautoread
-
-" Automatically change to directory of current file
-" - fixes start location of telescope find files
-" - Use rooter instead
-" set autochdir
 
 " Avoid adding newline to last line of file
 set binary noeol

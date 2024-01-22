@@ -81,6 +81,14 @@ vim.o.linebreak = true                -- Do not softwrap the line in the middle 
 vim.o.whichwrap = '<,>,[,],h,l,b,s,~' -- Make end/beginning-of-line cursor wrapping behave human-like, not vi-like
 
 -- -----------------------------------------------------------------------------
+-- Auto options
+--
+
+vim.o.autowrite = false                -- Write contents of the file, if it has been modified, on buffer exit
+vim.o.autoread = false                -- Do not autoread changed files (still detect changes) https://github.com/neovim/neovim/issues/2127
+vim.o.autochdir = false -- Do not automatically change to directory of current file, project.nvim is used instead
+
+-- -----------------------------------------------------------------------------
 -- Session
 --
 vim.opt.sessionoptions:remove('options') -- do not store global and local values in a session
