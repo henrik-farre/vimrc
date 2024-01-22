@@ -95,11 +95,6 @@ set spell
 set spelllang=en
 set spelloptions+=noplainbuffer,camel
 
-" Wrapping/linebreak
-set textwidth=0                   " Do not wrap text
-set linebreak                     " Do not softwrap the line in the middle of a word
-set whichwrap=<,>,[,],h,l,b,s,~   " Make end/beginning-of-line cursor wrapping behave human-like, not vi-like
-
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 set wildignore+=.hg,.git,.svn,CSV                " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files

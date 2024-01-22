@@ -77,6 +77,10 @@ vim.o.expandtab = true       -- To cause TAB characters to not be used in the fi
 -- set smartindent           -- insert tabs on the start of a line according to shiftwidth, not tabstop
 vim.o.copyindent = true      -- copy the previous indentation on autoindenting
 vim.o.preserveindent = true
+vim.o.textwidth = 0                     -- Do not wrap text
+vim.o.linebreak = true                  -- Do not softwrap the line in the middle of a word
+vim.o.whichwrap = '<,>,[,],h,l,b,s,~'   -- Make end/beginning-of-line cursor wrapping behave human-like, not vi-like
+
 
 -- -----------------------------------------------------------------------------
 -- Session
