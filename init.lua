@@ -58,6 +58,12 @@ vim.opt.shortmess = {
 }
 
 -- -----------------------------------------------------------------------------
+-- Session
+--
+vim.opt.sessionoptions:remove('options') -- do not store global and local values in a session
+vim.opt.sessionoptions:remove('folds')   -- do not store folds
+
+-- -----------------------------------------------------------------------------
 -- Folding rules
 --
 vim.o.foldmethod = "expr"

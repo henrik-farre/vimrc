@@ -13,12 +13,6 @@
 "
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Session
-"
-set ssop-=options " do not store global and local values in a session
-set ssop-=folds " do not store folds
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff
 "
 set breakindent                   " visually indent text: http://www.reddit.com/r/vim/comments/2jjtad/this_picture_says_it_all_thanks_to_uchrisbra10/
