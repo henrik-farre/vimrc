@@ -127,11 +127,6 @@ set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
 set keymodel=startsel             " Allow select of text in insert mode using shift
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntax highlightning
-"
-set synmaxcol=500                " Syntax coloring lines that are too long just slows down the world
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 "
 " http://ddrscott.github.io/blog/2016/vim-toggle-movement/
