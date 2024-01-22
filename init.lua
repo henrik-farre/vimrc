@@ -84,9 +84,9 @@ vim.o.whichwrap = '<,>,[,],h,l,b,s,~' -- Make end/beginning-of-line cursor wrapp
 -- Auto options
 --
 
-vim.o.autowrite = false                -- Write contents of the file, if it has been modified, on buffer exit
+vim.o.autowrite = false               -- Write contents of the file, if it has been modified, on buffer exit
 vim.o.autoread = false                -- Do not autoread changed files (still detect changes) https://github.com/neovim/neovim/issues/2127
-vim.o.autochdir = false -- Do not automatically change to directory of current file, project.nvim is used instead
+vim.o.autochdir = false               -- Do not automatically change to directory of current file, project.nvim is used instead
 
 -- -----------------------------------------------------------------------------
 -- Session
