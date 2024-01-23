@@ -14,15 +14,14 @@ vim.opt.fileencodings = "utf-8"
 
 -- -----------------------------------------------------------------------------
 -- Leader
+--
 -- Needs to be set here, and not in bindings.vim as it is sourced to late
 -- http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
---
 vim.g.mapleader = " "
 
 -- -----------------------------------------------------------------------------
 -- Diff settings
 --
-
 vim.opt.diffopt:append({
   "iwhite",             -- Ignore changes in amount of white space
   "linematch:60",       -- Enable a second stage diff on each generated hunk in order to align lines
@@ -44,14 +43,14 @@ vim.o.inccommand = "split"  -- Incremental replace, https://github.com/neovim/ne
 vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to disable
 
 -- -----------------------------------------------------------------------------
--- infercase
+-- Infercase
 --
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
 -- ----------------------------------------------------------------------------
 -- Shortmess
--- Avoid all the |hit-enter| prompts caused by file messages
 --
+-- Avoid all the |hit-enter| prompts caused by file messages
 vim.opt.shortmess = {
   a = true,                  -- all abbrevitions (filmnrwx)
   T = true,                  -- truncate middle of long messages
@@ -61,9 +60,9 @@ vim.opt.shortmess = {
 
 -- -----------------------------------------------------------------------------
 -- Indent
+--
 -- Note that modeline may override this
 -- treesitter indent is disabled
---
 vim.o.breakindent = true              -- Every wrapped line will continue visually indented
 vim.o.softtabstop = 2                 -- Standard vi interprets the tab key literally, but there are popular vi-derived alternatives that are smarter, like vim. To get vim to interpret tab as an ``indent'' command instead of an insert-a-tab command
 vim.o.shiftwidth = 2                  -- Number of spaces to use for each insertion of (auto)indent.
@@ -83,7 +82,6 @@ vim.o.whichwrap = '<,>,[,],h,l,b,s,~' -- Make end/beginning-of-line cursor wrapp
 -- -----------------------------------------------------------------------------
 -- Auto options
 --
-
 vim.o.autowrite = false               -- Write contents of the file, if it has been modified, on buffer exit
 vim.o.autoread = false                -- Do not autoread changed files (still detect changes) https://github.com/neovim/neovim/issues/2127
 vim.o.autochdir = false               -- Do not automatically change to directory of current file, project.nvim is used instead
