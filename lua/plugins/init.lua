@@ -178,6 +178,8 @@ return {
     require('dressing').setup{}
   end
 },
+
+"equalsraf/neovim-gui-shim",  -- lazy.nvim breaks loading of ginit.vim, https://github.com/folke/lazy.nvim/issues/584
 ------------------------------------------------------------
 -- Registers
 --
