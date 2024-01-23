@@ -103,8 +103,14 @@ vim.o.foldnestmax = 10      -- deepest fold is 10 levels
 vim.o.foldenable = false    -- don't fold by default
 vim.o.foldlevel = 1
 
+-- -----------------------------------------------------------------------------
+-- Load old vimscript settings
+--
 vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
 
+-- -----------------------------------------------------------------------------
+-- Init lazy.nvim
+--
 -- Archlinux adds /usr/share/vim/vimfiles to rtp
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -131,6 +137,9 @@ vim.g.loaded_2html_plugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_matchit = 1
 
+-- -----------------------------------------------------------------------------
+-- Setup Lazy.nvim and load plugins
+--
 require("lazy").setup("plugins")
 require('functions')
 require('autocommands')
