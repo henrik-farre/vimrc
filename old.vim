@@ -30,9 +30,6 @@ set showfulltag                   " Show full tag for completion
 " Set updatetime to make floating windows appear faster
 set updatetime=250
 
-" Avoid adding newline to last line of file
-set binary noeol
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard
 "

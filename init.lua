@@ -7,10 +7,12 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 -- -----------------------------------------------------------------------------
---  Encoding
+--  Encoding & fileformat
 --
 vim.scriptencoding = 'utf-8'
 vim.opt.fileencodings = "utf-8"
+
+vim.o.binary = "noeol" -- Avoid adding newline to last line of file
 
 -- -----------------------------------------------------------------------------
 -- Leader
