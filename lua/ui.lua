@@ -51,15 +51,14 @@ vim.opt.fillchars = {
 
 -- -----------------------------------------------------------------------------
 -- Vertical/horizontal scroll off settings
--- Keep lines between the cursor and sides/bottom/top
 --
+-- Keep lines between the cursor and sides/bottom/top
 vim.o.scrolloff = 10
 vim.o.sidescrolloff = 7
 
 -- -----------------------------------------------------------------------------
 -- Split settings
 --
-
 vim.o.splitkeep = "cursor"          -- Keep windows stable when opening trouble and more
 
 -- More natural split opening
