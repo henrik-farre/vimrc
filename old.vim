@@ -20,19 +20,6 @@ set display+=lastline             " A nicer way to show long wrapped lines
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showmode                      " display the current mode
 set showfulltag                   " Show full tag for completion
-" http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
-" html.vim overrides comments setting, so a fix is in vimrc_php autocmd group
-"  -t:  Do not apply 'textwidth' to code.
-"  +c:  Apply 'textwidth' to comments.
-"  +r:  Continue comments after hitting <Enter> in Insert mode.
-"  +o:  Continue comments after when using 'O' or 'o' to open a new line.
-"  +q:  Format comments using q<motion>.
-"  +l:  Do not break a comment line if it is long before you start.
-"  +j:  Where it makes sense, remove a comment leader when joining lines.
-set formatoptions-=t
-set formatoptions+=croql
-" Fix comments when jusing j to join lines
-set formatoptions+=j
 " http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
 " set ttimeout
 " set timeoutlen=1000

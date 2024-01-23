@@ -86,6 +86,19 @@ vim.o.linebreak = true                -- Do not softwrap the line in the middle 
 vim.o.whichwrap = '<,>,[,],h,l,b,s,~' -- Make end/beginning-of-line cursor wrapping behave human-like, not vi-like
 
 -- -----------------------------------------------------------------------------
+-- Formatting
+--
+-- This is a sequence of letters which describes how automatic formatting is to be done.
+-- http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+vim.opt.formatoptions:remove("t") -- Do not apply 'textwidth' to code.
+vim.opt.formatoptions:append("c") -- Apply 'textwidth' to comments.
+vim.opt.formatoptions:append("r") -- Continue comments after hitting <Enter> in Insert mode.
+vim.opt.formatoptions:append("o") -- Continue comments after when using 'O' or 'o' to open a new line.
+vim.opt.formatoptions:append("q") -- Format comments using q<motion>.
+vim.opt.formatoptions:append("l") -- Do not break a comment line if it is long before you start.
+vim.opt.formatoptions:append("j") -- Where it makes sense, remove a comment leader when joining lines
+
+-- -----------------------------------------------------------------------------
 -- Auto options
 --
 vim.o.autowrite = false               -- Write contents of the file, if it has been modified, on buffer exit
