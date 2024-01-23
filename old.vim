@@ -17,11 +17,9 @@
 "
 set confirm                       " present a dialog
 set display+=lastline             " A nicer way to show long wrapped lines
-set hid                           " change buffer without saving
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showmode                      " display the current mode
 set showfulltag                   " Show full tag for completion
-set switchbuf=useopen             " Buffer switching the reuses already visible buffers
 " http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 " html.vim overrides comments setting, so a fix is in vimrc_php autocmd group
 "  -t:  Do not apply 'textwidth' to code.

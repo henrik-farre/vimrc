@@ -47,6 +47,12 @@ vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to di
 --
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
+-- -----------------------------------------------------------------------------
+-- Buffers
+--
+vim.o.hidden = true         -- Change buffer without saving
+vim.o.switchbuf = "useopen" -- Buffer switching the reuses already visible buffers
+
 -- ----------------------------------------------------------------------------
 -- Shortmess
 --
