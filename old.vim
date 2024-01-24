@@ -20,12 +20,6 @@ set display+=lastline             " A nicer way to show long wrapped lines
 set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
 set showmode                      " display the current mode
 set showfulltag                   " Show full tag for completion
-" http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
-" set ttimeout
-" set timeoutlen=1000
-" " NeoVim handles ESC keys as alt+key set this to solve the problem
-" " https://github.com/neovim/neovim/issues/2051
-" set ttimeoutlen=0
 
 " Set updatetime to make floating windows appear faster
 set updatetime=250
