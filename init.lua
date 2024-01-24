@@ -16,6 +16,11 @@ vim.opt.fileencodings = "utf-8"
 -- vim.o.eol = false -- Avoid adding newline to last line of file
 
 -- -----------------------------------------------------------------------------
+--  Modeline
+--
+vim.o.modeline = false -- Nobody uses modelines
+
+-- -----------------------------------------------------------------------------
 -- Leader
 --
 -- Needs to be set here, and not in bindings.vim as it is sourced to late

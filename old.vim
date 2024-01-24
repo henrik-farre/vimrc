@@ -12,9 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-set modeline                      " read settings for stuff like shiftwidth from current file
-set modelines=3                   " number lines checked for modelines
-
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 set wildignore+=.hg,.git,.svn,CSV                " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
