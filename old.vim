@@ -140,13 +140,6 @@ endfunction
 command! ReplaceEscapedChars call ReplaceEscapedChars()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Abbrevs
-"
-iabbrev seperator separator
-iabbrev lenght length
-iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto commands
 "
 

@@ -147,6 +147,12 @@ cnoreabbrev B7 b7
 cnoreabbrev B8 b8
 cnoreabbrev B9 b9
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Abbrevs
+"
+iabbrev seperator separator
+iabbrev lenght length
+iab _DATE_ <C-r>=strftime("%Y-%m-%d")<CR>
 iabbrev cluser cluster
 
 if has("user_commands")
