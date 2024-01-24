@@ -72,16 +72,17 @@ vim.o.showfulltag = true    -- Show full tag for completion
 -- Wild ignore/mode and suffixes
 --
 -- Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
-vim.opt.wildignore:append(".hg,.git,.svn,CSV")                -- Version control
-vim.opt.wildignore:append("*.aux,*.out,*.toc")                -- LaTeX intermediate files
-vim.opt.wildignore:append("*.jpg,*.bmp,*.gif,*.png,*.jpeg")   -- binary images
-vim.opt.wildignore:append("*.o,*.obj,*.exe,*.dll,*.manifest") -- compiled object files
-vim.opt.wildignore:append("*.spl")                            -- compiled spelling word lists
-vim.opt.wildignore:append("*.sw?")                            -- Vim swap files
-vim.opt.wildignore:append("*.DS_Store")                       -- OSX bullshit
-vim.opt.wildignore:append("*.luac")                           -- Lua byte code
-vim.opt.wildignore:append("*.pyc")                            -- Python byte code
-vim.opt.wildignore:append("*.orig")                           -- Merge resolution files
+vim.opt.wildignore:append(".hg,.git,.svn,CSV")                    -- Version control
+vim.opt.wildignore:append("*.aux,*.out,*.toc")                    -- LaTeX intermediate files
+vim.opt.wildignore:append("*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.pdf") -- binary images
+vim.opt.wildignore:append("*.o,*.obj,*.exe,*.dll,*.manifest")     -- compiled object files
+vim.opt.wildignore:append("*.spl")                                -- compiled spelling word lists
+vim.opt.wildignore:append("*.sw?")                                -- Vim swap files
+vim.opt.wildignore:append("*.DS_Store")                           -- OSX bullshit
+vim.opt.wildignore:append("*.luac")                               -- Lua byte code
+vim.opt.wildignore:append("*.pyc")                                -- Python byte code
+vim.opt.wildignore:append("*.orig")                               -- Merge resolution files
+vim.opt.wildignore:append("*.zip,*.tgz")                          -- Compressed files
 
 vim.o.wildmode = "list:longest,full"
 vim.o.wildignorecase = true
