@@ -39,7 +39,6 @@ set nobackup                      " dont use backups
 " set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
 set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
 
-set keymodel=startsel             " Allow select of text in insert mode using shift
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
