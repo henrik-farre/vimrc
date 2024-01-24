@@ -12,31 +12,6 @@
 " Variable scope: http://www.ibm.com/developerworks/library/l-vim-script-1/#N101F8
 "
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clipboard
-"
-" In insert mode:
-" - <C+r> *: Primary selection
-" - <C+r> +: Contents of clipboard
-set clipboard+=unnamedplus
-
-if exists('$WAYLAND_DISPLAY') && has("wsl")
-  " https://github.com/neovim/neovim/issues/10223
-  " clipboard on wayland with newline fix
-  let g:clipboard = {
-    \   'name': 'WL-Clipboard with ^M Trim',
-    \   'copy': {
-    \      '+': 'wl-copy --foreground --type text/plain',
-    \      '*': 'wl-copy --foreground --type text/plain --primary',
-    \    },
-    \   'paste': {
-    \      '+': {-> systemlist('wl-paste --no-newline --type "text/plain;charset=utf-8" 2>/dev/null | sed -e "s/\r$//"', '', 1)},
-    \      '*': {-> systemlist('wl-paste --no-newline --type "text/plain;charset=utf-8" --primary 2>/dev/null | sed -e "s/\r$//"', '', 1)},
-    \   },
-    \   'cache_enabled': 1,
-    \ }
-endif
-
 set modeline                      " read settings for stuff like shiftwidth from current file
 set modelines=3                   " number lines checked for modelines
 

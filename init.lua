@@ -144,6 +144,43 @@ vim.o.foldlevel = 1
 vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
 
 -- -----------------------------------------------------------------------------
+-- Clipboard
+--
+-- In insert mode:
+-- <C+r> *: Primary selection
+-- <C+r> +: Contents of clipboard
+vim.o.clipboard = 'unnamedplus'
+
+if vim.env.WAYLAND_DISPLAY and vim.fn.has('wsl') == 1 then
+  -- https://github.com/neovim/neovim/issues/10223
+  -- clipboard on wayland with newline fix
+  vim.g.clipboard = {
+      name = "WL-Clipboard with ^M Trim",
+      copy = {
+          ["+"] = "wl-copy --foreground --trim-newline --type text/plain",
+          ["*"] = "wl-copy --foreground --trim-newline --type text/plain --primary"
+      },
+      paste = {
+          ["+"] = function()
+              return { vim.fn.systemlist(
+                  'wl-paste --no-newline --type "text/plain;charset=utf-8" 2>/dev/null | tr -d $"\r"',
+                  "",
+                  1
+              ), 'v' }
+          end,
+          ["*"] = function()
+              return { vim.fn.systemlist(
+                  'wl-paste --no-newline --type "text/plain;charset=utf-8" --primary 2>/dev/null | tr -d $"\r"',
+                  "",
+                  1
+              ), 'v' }
+          end
+      },
+      cache_enabled = 1
+  }
+end
+
+-- -----------------------------------------------------------------------------
 -- Init lazy.nvim
 --
 -- Archlinux adds /usr/share/vim/vimfiles to rtp
