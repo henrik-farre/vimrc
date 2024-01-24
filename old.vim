@@ -76,12 +76,6 @@ command! ReplaceEscapedChars call ReplaceEscapedChars()
 " Auto commands
 "
 
-" Use github style markdown
-augroup vimrc_markdown
-    autocmd!
-    autocmd BufNewFile,BufRead *.md,*.markdown :call MarkdownTypeDetect()
-augroup END
-
 " Make sure Vim returns to the same line when you reopen a file.
 " Based on
 " https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
@@ -92,16 +86,6 @@ augroup vimrc_line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Detect Markdown filetype
-"
-function! MarkdownTypeDetect()
-  setlocal filetype=ghmarkdown
-  if expand("%:p:h") =~ 'content'
-    setlocal filetype=ghmarkdown.hugo
-  endif
-endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable syntax highlighting in big files
