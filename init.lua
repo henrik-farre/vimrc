@@ -101,6 +101,14 @@ vim.opt.formatoptions:append("l") -- Do not break a comment line if it is long b
 vim.opt.formatoptions:append("j") -- Where it makes sense, remove a comment leader when joining lines
 
 -- -----------------------------------------------------------------------------
+-- Spelling
+--
+vim.o.spellsuggest = "best,9"
+vim.o.spell = true
+vim.o.spelllang = "en"
+vim.opt.spelloptions = "noplainbuffer,camel" -- only spell check buffers with syntax enabled, and treat camelCase as separate words
+
+-- -----------------------------------------------------------------------------
 -- Auto options
 --
 vim.o.autowrite = false               -- Write contents of the file, if it has been modified, on buffer exit

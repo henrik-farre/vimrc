@@ -62,12 +62,6 @@ set modelines=3                   " number lines checked for modelines
 set completeopt=menu,menuone,noselect
 set complete-=i                   " disabled scanning of include files
 
-" spelling
-set spellsuggest=best,9
-set spell
-set spelllang=en
-set spelloptions+=noplainbuffer,camel
-
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 set wildignore+=.hg,.git,.svn,CSV                " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
