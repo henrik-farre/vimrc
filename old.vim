@@ -21,9 +21,6 @@ set virtualedit=block             " Allow the cursor to go in to 'invalid' place
 set showmode                      " display the current mode
 set showfulltag                   " Show full tag for completion
 
-" Set updatetime to make floating windows appear faster
-set updatetime=250
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard
 "

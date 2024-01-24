@@ -57,6 +57,11 @@ vim.o.scrolloff = 10
 vim.o.sidescrolloff = 7
 
 -- -----------------------------------------------------------------------------
+-- Update time
+--
+vim.o.updatetime=250                -- Used for CursorHold event, makes floating windows appear faster
+
+-- -----------------------------------------------------------------------------
 -- Split settings
 --
 vim.o.splitkeep = "cursor"          -- Keep windows stable when opening trouble and more
