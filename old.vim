@@ -15,10 +15,6 @@
 set modeline                      " read settings for stuff like shiftwidth from current file
 set modelines=3                   " number lines checked for modelines
 
-" set completeopt+=menu,longest,preview
-set completeopt=menu,menuone,noselect
-set complete-=i                   " disabled scanning of include files
-
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 set wildignore+=.hg,.git,.svn,CSV                " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files

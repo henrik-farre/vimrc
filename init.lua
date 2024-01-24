@@ -55,6 +55,11 @@ vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 --
 vim.o.confirm = true        -- Present a dialog
 vim.o.virtualedit = "block" -- Allow the cursor to go in to 'invalid' places in visual block mode
+
+-- -----------------------------------------------------------------------------
+-- Completion
+--
+vim.o.completeopt = "menu,menuone,noselect"
 vim.o.showfulltag = true    -- Show full tag for completion
 
 -- -----------------------------------------------------------------------------
