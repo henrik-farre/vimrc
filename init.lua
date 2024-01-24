@@ -51,6 +51,15 @@ vim.o.gdefault = true       -- Applies substitutions globally on lines, /g to di
 vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 
 -- -----------------------------------------------------------------------------
+-- Miscellaneous settings
+--
+vim.o.confirm = true        -- Present a dialog
+vim.o.display+=lastline     -- A nicer way to show long wrapped lines
+vim.o.virtualedit = "block" -- Allow the cursor to go in to 'invalid' places in visual block mode
+vim.o.showmode = true       -- Display the current mode
+vim.o.showfulltag = true    -- Show full tag for completion
+
+-- -----------------------------------------------------------------------------
 -- Buffers
 --
 vim.o.hidden = true         -- Change buffer without saving

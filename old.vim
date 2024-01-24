@@ -13,15 +13,6 @@
 "
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Stuff
-"
-set confirm                       " present a dialog
-set display+=lastline             " A nicer way to show long wrapped lines
-set virtualedit=block             " Allow the cursor to go in to 'invalid' places in visual block mode
-set showmode                      " display the current mode
-set showfulltag                   " Show full tag for completion
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clipboard
 "
 " In insert mode:
