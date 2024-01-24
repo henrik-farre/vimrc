@@ -69,6 +69,12 @@ vim.o.showfulltag = true    -- Show full tag for completion
 vim.o.hidden = true         -- Change buffer without saving
 vim.o.switchbuf = "useopen" -- Buffer switching the reuses already visible buffers
 
+-- -----------------------------------------------------------------------------
+-- Backup
+--
+vim.o.backup = false        -- Don't use backups
+vim.o.backupskip = "/tmp/*" -- Make Vim able to edit crontab files again.
+
 -- ----------------------------------------------------------------------------
 -- Shortmess
 --

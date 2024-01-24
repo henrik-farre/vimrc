@@ -35,11 +35,6 @@ endif
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,CVS/,tags
 
-set nobackup                      " dont use backups
-" set noswapfile                  " do not write annoying intermediate swap files, who did ever restore from swap files anyway?
-set backupskip=/tmp/*"            " Make Vim able to edit crontab files again.
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 "
