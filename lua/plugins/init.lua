@@ -193,7 +193,7 @@ return {
   keys = {
     { 'x', '"+x', mode = { 'n', 'x' }, desc = 'Easyclip Cut' },
   },
-  init = function()
+  config = function()
     vim.g.EasyClipAlwaysMoveCursorToEndOfPaste = 1
     vim.g.EasyClipPreserveCursorPositionAfterYank = 1
     vim.g.EasyClipUseCutDefaults = 0
