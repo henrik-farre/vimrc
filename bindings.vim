@@ -189,8 +189,6 @@ nmap <C-a> <Nop>
 " Open none existing file under cursor
 nnoremap gF :view <cfile><cr>
 
-" Bclose function ca be found in "Buffer related" section
-map <leader>bd :Bclose<cr>
 " Switch buffers using <leader>bn/bp, skips quickfix because autocmd has set
 " it to nobuflisted
 noremap <leader>bn :bn<cr>

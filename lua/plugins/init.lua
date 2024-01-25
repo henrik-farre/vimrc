@@ -134,6 +134,18 @@ return {
     }
   end
 },
+{
+  -- Keep window layout when closing buffer
+  "ojroques/nvim-bufdel",
+  config = function()
+    require('bufdel').setup{
+      quit = false
+    }
+  end,
+  keys = {
+    { '<leader>bd', ':BufDel<cr>', mode = { 'n' }, desc = 'nvim-bufdel' },
+  },
+},
 
 ------------------------------------------------------------
 -- Colorschemes / UI

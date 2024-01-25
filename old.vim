@@ -24,29 +24,6 @@ function! ToggleHomeZero()
   endif
 endfunction
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-
-" <SID> explanation: http://stackoverflow.com/questions/16768059/how-to-understand-these-vim-scripts
-function! <SID>BufcloseCloseIt()
-  let l:currentBufNum = bufnr("%")
-  let l:alternateBufNum = bufnr("#")
-
-  if buflisted(l:alternateBufNum)
-    buffer #
-  else
-    bnext
-  endif
-
-  if bufnr("%") == l:currentBufNum
-    new
-  endif
-
-  if buflisted(l:currentBufNum)
-    execute("bdelete! ".l:currentBufNum)
-  endif
-endfunction
-
 " Removes trailing spaces
 function! TrimWhiteSpace()
   " Preparation: save last search, and cursor position.
