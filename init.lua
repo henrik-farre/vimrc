@@ -197,20 +197,20 @@ if vim.env.WAYLAND_DISPLAY and vim.fn.has('wsl') == 1 then
   vim.g.clipboard = {
       name = "WL-Clipboard with ^M Trim",
       copy = {
-          ["+"] = "wl-copy --foreground --trim-newline --type text/plain",
-          ["*"] = "wl-copy --foreground --trim-newline --type text/plain --primary"
+          ["+"] = "wl-copy --foreground --type text/plain",
+          ["*"] = "wl-copy --foreground --type text/plain --primary"
       },
       paste = {
           ["+"] = function()
               return { vim.fn.systemlist(
-                  'wl-paste --no-newline --type "text/plain;charset=utf-8" 2>/dev/null | tr -d $"\r"',
+                  'wl-paste --no-newline --type "text/plain;charset=utf-8" 2>/dev/null | sed -e "s/\r//"',
                   "",
                   1
               ), 'v' }
           end,
           ["*"] = function()
               return { vim.fn.systemlist(
-                  'wl-paste --no-newline --type "text/plain;charset=utf-8" --primary 2>/dev/null | tr -d $"\r"',
+                  'wl-paste --no-newline --type "text/plain;charset=utf-8" --primary 2>/dev/null | sed -e "s/\r//"',
                   "",
                   1
               ), 'v' }
