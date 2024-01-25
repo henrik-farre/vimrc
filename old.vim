@@ -76,17 +76,6 @@ command! ReplaceEscapedChars call ReplaceEscapedChars()
 " Auto commands
 "
 
-" Make sure Vim returns to the same line when you reopen a file.
-" Based on
-" https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
-augroup vimrc_line_return
-    autocmd!
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable syntax highlighting in big files
 " https://www.reddit.com/r/neovim/comments/s232p5/when_i_open_mega_filesover_gb_neovim_usually/

@@ -124,6 +124,16 @@ return {
 -- # 'lewis6991/spellsitter.nvim' -- Included in neovim 0.8
 "tpope/vim-sleuth", -- Detect tabs vs spaces
 -- # "junegunn/vader.vim", -- vim tests
+{
+  "ethanholz/nvim-lastplace",
+  config = function()
+    require'nvim-lastplace'.setup {
+      lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+      lastplace_ignore_filetype = {"gitcommit", "gitrebase"},
+      lastplace_open_folds = true
+    }
+  end
+},
 
 ------------------------------------------------------------
 -- Colorschemes / UI
