@@ -201,20 +201,12 @@ if vim.env.WAYLAND_DISPLAY and vim.fn.has('wsl') == 1 then
           ["*"] = "wl-copy --foreground --type text/plain --primary"
       },
       paste = {
-          ["+"] = function()
-              return { vim.fn.systemlist(
-                  'wl-paste --no-newline --type "text/plain;charset=utf-8" 2>/dev/null | sed -e "s/\r//"',
-                  "",
-                  1
-              )}
-          end,
-          ["*"] = function()
-              return { vim.fn.systemlist(
-                  'wl-paste --no-newline --type "text/plain;charset=utf-8" --primary 2>/dev/null | sed -e "s/\r//"',
-                  "",
-                  1
-              )}
-          end
+        ["+"] = (function()
+          return vim.fn.systemlist('wl-paste --no-newline --type "text/plain;charset=utf-8" 2>/dev/null | sed -e "s/\r$//"', {''}, 1) -- '1' keeps empty lines
+        end),
+        ["*"] = (function()
+          return vim.fn.systemlist('wl-paste --no-newline --type "text/plain;charset=utf-8" --primary 2>/dev/null | sed -e "s/\r$//"', {''}, 1)
+        end),
       },
       cache_enabled = 1
   }
