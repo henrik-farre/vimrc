@@ -179,11 +179,6 @@ vim.o.foldenable = false    -- don't fold by default
 vim.o.foldlevel = 1
 
 -- -----------------------------------------------------------------------------
--- Load old vimscript settings
---
-vim.cmd.source(vim.fn.stdpath("config") .. "/old.vim")
-
--- -----------------------------------------------------------------------------
 -- Clipboard
 --
 -- In insert mode:
