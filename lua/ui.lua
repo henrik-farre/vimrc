@@ -79,6 +79,12 @@ vim.opt.guicursor:append("n-c:block-Cursor,v:block-CursorVisual,i-ci-ve:ver25-Cu
 vim.o.cursorline = true
 
 -- -----------------------------------------------------------------------------
+-- Mouse
+--
+vim.o.mousemodel = "popup"
+vim.o.mouse = "ar"                  -- Mouse on, all modes + hit-enter/more-prompt
+
+-- -----------------------------------------------------------------------------
 -- Vimscript UI settings
 --
 vim.cmd.source(vim.fn.stdpath("config") .. "/ui.vim")

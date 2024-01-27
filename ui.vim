@@ -58,8 +58,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
-set mousemodel=popup
-set mouse=ar            " Mouse on, all modes + hit-enter/more-prompt
 
 set cmdheight=1         " The commandbar is 1 high
 
