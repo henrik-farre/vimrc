@@ -19,8 +19,6 @@ hi VertSplit guibg=NONE guifg=#444444 ctermbg=NONE ctermfg=NONE
 
 " Indent guide
 hi IndentBlanklineChar guifg=#2f2f2f gui=nocombine
-" https://github.com/lukas-reineke/indent-blankline.nvim/issues/59
-set colorcolumn = "99999"
 
 " Visual selection
 hi Visual guifg=#000000 guibg=LightBlue gui=none
