@@ -23,7 +23,7 @@ imap <silent> <end> <C-o>g<end>
 " Fix moving pass wrapped lines: http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <buffer> <silent> 0 g0
+" noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 nnoremap H 0
 nnoremap L $
