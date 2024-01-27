@@ -19,3 +19,20 @@ function ReplaceEscapedChars()
   ]])
 end
 vim.api.nvim_create_user_command('ReplaceEscapedChars', function() ReplaceEscapedChars() end, { desc = 'Replace \n and \t with real chars' })
+
+-- -----------------------------------------------------------------------------
+-- Removes trailing spaces and windows line endings
+--
+function TrimWhiteSpace()
+  local cursor_pos = vim.api.nvim_win_get_cursor(0)
+
+  -- keep* ensures existing jumps and search patterns are kept
+  vim.cmd([[
+    :keepjumps keeppatterns %s/\r$//e
+    :keepjumps keeppatterns %s/\s\+$//e
+  ]])
+
+  vim.api.nvim_win_set_cursor(0, cursor_pos)
+end
+
+vim.api.nvim_create_user_command("TrimWhiteSpace", function() TrimWhiteSpace() end, {})

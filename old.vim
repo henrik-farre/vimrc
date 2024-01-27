@@ -23,18 +23,3 @@ function! ToggleHomeZero()
     execute "normal! 0"
   endif
 endfunction
-
-" Removes trailing spaces
-function! TrimWhiteSpace()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  %s///e
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-command! TrimWhiteSpace call TrimWhiteSpace()
-
