@@ -61,6 +61,7 @@ vim.o.infercase = true      -- Handle case in a smart way in autocompletes
 vim.o.confirm = true        -- Present a dialog
 vim.o.virtualedit = "block" -- Allow the cursor to go in to 'invalid' places in visual block mode
 vim.o.keymodel = "startsel" -- Allow select of text in insert mode using shift
+vim.o.selection = "inclusive" -- Selection will include current char, set to exclusive else
 
 -- -----------------------------------------------------------------------------
 -- Completion

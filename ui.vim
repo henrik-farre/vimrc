@@ -58,7 +58,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
-set selection=inclusive " Selection will include current char, set to exclusive else
 set mousemodel=popup
 set mouse=ar            " Mouse on, all modes + hit-enter/more-prompt
 
