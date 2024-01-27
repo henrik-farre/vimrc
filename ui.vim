@@ -55,8 +55,3 @@ highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 " Highlight VCS conflict markers
 " Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Behavior
-
-set noshowmode
