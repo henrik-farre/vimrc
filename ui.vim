@@ -59,14 +59,4 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Behavior
 
-set cmdheight=1         " The commandbar is 1 high
-
-if &diff
-  " Fixes "press enter or type command to continue"
-  set cmdheight=2
-  " Breaks rendering in neovim
-  " http://vim.wikia.com/wiki/Start_with_a_wide_window_for_diff
-  " let &columns = 320 + 2*&foldcolumn + 1
-endif
-
 set noshowmode

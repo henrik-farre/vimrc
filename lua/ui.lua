@@ -85,6 +85,16 @@ vim.o.mousemodel = "popup"
 vim.o.mouse = "ar"                  -- Mouse on, all modes + hit-enter/more-prompt
 
 -- -----------------------------------------------------------------------------
+-- Cmdheight
+--
+vim.o.cmdheight = 1                 -- The commandbar is 1 high
+
+if vim.opt.diff:get() then
+  -- Fixes "press enter or type command to continue"
+  vim.o.cmdheight = 2
+end
+
+-- -----------------------------------------------------------------------------
 -- Vimscript UI settings
 --
 vim.cmd.source(vim.fn.stdpath("config") .. "/ui.vim")
