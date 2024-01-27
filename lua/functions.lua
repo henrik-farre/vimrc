@@ -36,3 +36,18 @@ function TrimWhiteSpace()
 end
 
 vim.api.nvim_create_user_command("TrimWhiteSpace", function() TrimWhiteSpace() end, {})
+
+-- -----------------------------------------------------------------------------
+-- Move to first non whitespace char or beginning of line
+--
+-- http://ddrscott.github.io/blog/2016/vim-toggle-movement/
+function ToggleHomeZero()
+  local cursor_pos = vim.api.nvim_win_get_cursor(0)[2]
+  -- Move to first non whitespace char
+  vim.cmd([[normal! ^]])
+
+  -- If the position did not change move to beginning of line
+  if cursor_pos == vim.api.nvim_win_get_cursor(0)[2] then
+    vim.cmd([[normal! 0"]])
+  end
+end

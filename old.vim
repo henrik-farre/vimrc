@@ -15,11 +15,3 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 "
-" http://ddrscott.github.io/blog/2016/vim-toggle-movement/
-function! ToggleHomeZero()
-  let pos = getpos('.')
-  execute "normal! ^"
-  if pos == getpos('.')
-    execute "normal! 0"
-  endif
-endfunction

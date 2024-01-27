@@ -31,7 +31,7 @@ nnoremap L $
 " Move cursor to first char on line on first press, next press goes to
 " beginning of line
 " FIXME: clashes with 0 g0 mapping above
-nnoremap <silent> 0 :call ToggleHomeZero()<CR>
+nnoremap <silent> 0 :lua ToggleHomeZero()<CR>
 
 nnoremap <silent> <leader>ts :call TrimWhiteSpace()<CR>
 
