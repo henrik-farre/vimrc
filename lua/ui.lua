@@ -72,6 +72,13 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 -- -----------------------------------------------------------------------------
+-- Cursor
+--
+vim.opt.guicursor = "a:blinkwait600-blinkoff450-blinkon500,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.guicursor:append("n-c:block-Cursor,v:block-CursorVisual,i-ci-ve:ver25-CursorInsert,r-cr:hor20,o:hor50")
+vim.o.cursorline = true
+
+-- -----------------------------------------------------------------------------
 -- Vimscript UI settings
 --
 vim.cmd.source(vim.fn.stdpath("config") .. "/ui.vim")

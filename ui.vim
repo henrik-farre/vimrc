@@ -6,9 +6,6 @@
 highlight Cursor guifg=white guibg=#0d61ac
 highlight default CursorInsert guifg=white guibg=#437019
 highlight default CursorVisual guifg=white guibg=#870000
-set guicursor=a:blinkwait600-blinkoff450-blinkon500,sm:block-blinkwait175-blinkoff150-blinkon175
-set guicursor+=n-c:block-Cursor,v:block-CursorVisual,i-ci-ve:ver25-CursorInsert,r-cr:hor20,o:hor50
-set cursorline
 
 " SignColumn
 " hi SignColumn guibg=#121212 ctermbg=232
