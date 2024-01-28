@@ -95,8 +95,3 @@ if vim.opt.diff:get() then
 end
 
 vim.o.showmode = false              -- Do not show mode in command line
-
--- -----------------------------------------------------------------------------
--- Vimscript UI settings
---
-vim.cmd.source(vim.fn.stdpath("config") .. "/ui.vim")

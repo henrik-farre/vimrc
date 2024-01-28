@@ -244,6 +244,7 @@ require("lazy").setup("plugins")
 require('functions')
 require('autocommands')
 require('ui')
+require('highlights')
 
 -- -----------------------------------------------------------------------------
 -- Keymaps
