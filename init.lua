@@ -245,8 +245,5 @@ require('functions')
 require('autocommands')
 require('ui')
 require('highlights')
-
--- -----------------------------------------------------------------------------
--- Keymaps
---
-vim.cmd.source(vim.fn.stdpath("config") .. "/bindings.vim")
+require('keymaps')
+require('abbreviations')
