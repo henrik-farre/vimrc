@@ -387,11 +387,13 @@ return {
   "junegunn/fzf.vim",
   dependencies = { "junegunn/fzf" },
   cond = vim.fn.executable('fzf') == 1,
+  cmd = {'Files'},
   config = function()
     vim.env.FZF_DEFAULT_OPTS = '--keep-right -x --inline-info'
   end,
   keys = {
-    { "<leader>bv", ":Buffers<cr>" }
+    { "<leader>bv", ":Buffers<cr>" },
+    { "<leader>t", ":Files<cr>"}
   }
 },
 
