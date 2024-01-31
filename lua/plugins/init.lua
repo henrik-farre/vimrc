@@ -255,7 +255,7 @@ return {
     }
   end
 },
-"andrewstuart/vim-kubernetes", -- Kubernetes + snippets
+-- "andrewstuart/vim-kubernetes", -- Kubernetes + snippets
 {
   -- Hashicorp plugins
   "hashivim/vim-terraform",
@@ -266,7 +266,11 @@ return {
 },
 "tmux-plugins/vim-tmux", -- Syntax and more for tmux
 "leafgarland/typescript-vim", -- TypeScript
-"towolf/vim-helm", -- vim syntax for helm templates (yaml + gotmpl + sprig + custom)
+{
+  -- vim syntax for helm templates (yaml + gotmpl + sprig + custom)
+  "towolf/vim-helm",
+  ft = "helm", -- https://github.com/mrjosh/helm-ls/issues/44
+},
 -- # 'pangloss/vim-javascript', { 'for': 'javascript' } JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 -- # 'fatih/vim-go'
 {

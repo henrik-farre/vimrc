@@ -18,16 +18,6 @@ return {
       -- Mappings.
       local opts = { noremap=true, silent=true }
 
-      -- Avoid yamlls on helm files
-      -- https://www.reddit.com/r/neovim/comments/rwoxne/nvimlspconfig_helm_chart_templates/
-      -- https://www.reddit.com/r/neovim/comments/sqr6r5/helm_charts_for_kubernetes_in_nvim_bad_experience/
-      if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "yaml.gotexttmpl" or vim.bo[bufnr].filetype == "helm" then
-        vim.diagnostic.disable(bufnr)
-        vim.defer_fn(function()
-          vim.diagnostic.reset(nil, bufnr)
-        end, 1000)
-      end
-
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
       buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
