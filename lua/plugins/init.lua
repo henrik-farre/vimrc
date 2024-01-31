@@ -292,6 +292,9 @@ return {
 },
 {
   "someone-stole-my-name/yaml-companion.nvim",
+  dependencies = {
+    "stevearc/dressing.nvim",
+  },
   keys = {
     { "<leader>y", function() require("yaml-companion").open_ui_select() end, desc = "YAML companion UI open" }
   }
