@@ -23,7 +23,7 @@ vim.o.modeline = false -- Nobody uses modelines
 -- -----------------------------------------------------------------------------
 -- Leader
 --
--- Needs to be set here, and not in bindings.vim as it is sourced to late
+-- Needs to be set here, and not in keymaps.lua as it is sourced to late
 -- http://www.reddit.com/r/vim/comments/1vdrxg/space_is_a_big_key_what_do_you_map_it_to/
 vim.g.mapleader = " "
 
