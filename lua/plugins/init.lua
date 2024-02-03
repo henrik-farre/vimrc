@@ -56,6 +56,7 @@ return {
 {
   -- Completes html tags, e.g. div>h1
   "mattn/emmet-vim",
+  ft = { 'html', 'css' },
   init = function()
     vim.g.user_emmet_expandabbr_key = '<c-e>'
     vim.g.user_emmet_complete_tag = 1
