@@ -126,6 +126,7 @@ return {
 "tpope/vim-sleuth", -- Detect tabs vs spaces
 -- # "junegunn/vader.vim", -- vim tests
 {
+  -- Return to same line in file when reopening
   "ethanholz/nvim-lastplace",
   config = function()
     require'nvim-lastplace'.setup {
