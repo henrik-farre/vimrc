@@ -205,8 +205,12 @@ return {
 {
   -- Improve cut/paste
   "svermeulen/vim-easyclip",
-  keys = {
-    { 'x', '"+x', mode = { 'n', 'x' }, desc = 'Easyclip Cut' },
+  dependencies = {
+    "tpope/vim-repeat",
+  },
+  event = "BufEnter",
+  keys ={
+    { "X", "<Plug>MoveMotionEndOfLinePlug", desc = "Easyclip cut to end of line" },
   },
   config = function()
     vim.g.EasyClipAlwaysMoveCursorToEndOfPaste = 1
