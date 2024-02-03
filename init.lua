@@ -111,13 +111,12 @@ vim.o.backupskip = "/tmp/*" -- Make Vim able to edit crontab files again.
 -- Shortmess
 --
 -- Avoid all the |hit-enter| prompts caused by file messages
-vim.opt.shortmess = {
+vim.opt.shortmess:append({
   a = true,                  -- all abbrevitions (filmnrwx)
-  T = true,                  -- truncate middle of long messages
   I = true,                  -- no intro when starting
+  s = true,                  -- no search hit bottom
   c = true,                  -- no ins-completion-menu messages, needed by cmp
-}
-
+})
 -- -----------------------------------------------------------------------------
 -- Indent
 --
