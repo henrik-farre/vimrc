@@ -3,6 +3,7 @@
 -- http://blog.sanctum.geek.nz/vim-command-typos/
 -- http://vim.wikia.com/wiki/Handle_common_command_typos
 vim.cmd("cnoreabbrev q1 q!")
+vim.cmd("cnoreabbrev Qa qa")
 vim.cmd("cnoreabbrev wQ wq")
 vim.cmd("cnoreabbrev WQ wq")
 vim.cmd("cnoreabbrev Wq wq")
