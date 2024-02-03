@@ -73,9 +73,7 @@ return {
 {
   -- Auto complete quotes, parenthesis, brackets and so on
   "windwp/nvim-autopairs",
-  config = function()
-    require("nvim-autopairs").setup {}
-  end
+  config = true
 },
 
 -- # 'Raimondi/delimitMate'
@@ -187,9 +185,7 @@ return {
 {
   -- Highlight TODO/FIXME and more
   "folke/todo-comments.nvim",
-  config = function()
-    require("todo-comments").setup{}
-  end
+  config = true
 },
 "equalsraf/neovim-gui-shim",  -- lazy.nvim breaks loading of ginit.vim, https://github.com/folke/lazy.nvim/issues/584
 ------------------------------------------------------------
@@ -294,9 +290,7 @@ return {
     {
       -- Handle vim.ui elements
       "stevearc/dressing.nvim",
-      config = function()
-        require('dressing').setup{}
-      end
+      config = true,
     },
   },
   keys = {
@@ -348,9 +342,7 @@ return {
 -- Show function signature when you type
 {
   "ray-x/lsp_signature.nvim",
-  config = function()
-    require("lsp_signature").setup {}
-  end,
+  config = true,
 },
 "nvim-lua/plenary.nvim", -- required by several plugins like null-ls
 {
