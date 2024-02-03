@@ -51,11 +51,6 @@ return {
 -- # 'rcarriga/nvim-dap-ui'
 
 ------------------------------------------------------------
--- Git
---
-"tpope/vim-fugitive", -- Shows git branch in statusline + tags to the one in .git/tags if exists
-
-------------------------------------------------------------
 -- HTML
 --
 {
