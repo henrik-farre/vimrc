@@ -211,6 +211,7 @@ return {
   },
   event = "BufEnter",
   keys ={
+    { 'x', '"+x', mode = { 'n', 'x' }, desc = 'Easyclip cut' },
     { "X", "<Plug>MoveMotionEndOfLinePlug", desc = "Easyclip cut to end of line" },
   },
   config = function()
