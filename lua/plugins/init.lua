@@ -81,6 +81,7 @@ return {
 {
   -- Generate doc strings
   "danymat/neogen",
+  ft = "python",
   config = function()
     require('neogen').setup {
       input_after_comment = true,
@@ -117,8 +118,11 @@ return {
 -- # 'bradford-smith94/quick-scope' -- Highlights on f F t T
 -- # 'ggandor/lightspeed.nvim'
 -- # 'lewis6991/spellsitter.nvim' -- Included in neovim 0.8
-"tpope/vim-sleuth", -- Detect tabs vs spaces
--- # "junegunn/vader.vim", -- vim tests
+{
+  -- Detect tabs vs spaces
+  'tpope/vim-sleuth',
+  event = 'BufReadPre',
+},
 {
   -- Return to same line in file when reopening
   "ethanholz/nvim-lastplace",
@@ -254,7 +258,11 @@ return {
     vim.g.terraform_align = 1              -- Set indent to 2 spaces
   end
 },
-"tmux-plugins/vim-tmux", -- Syntax and more for tmux
+{
+  -- Syntax and more for tmux
+  "tmux-plugins/vim-tmux",
+  ft = "tmux"
+},
 "leafgarland/typescript-vim", -- TypeScript
 {
   -- vim syntax for helm templates (yaml + gotmpl + sprig + custom)
@@ -373,13 +381,6 @@ return {
       ignore_lsp = { "null-ls" },
     }
   end,
-},
-{
-  -- Jump with s<char1><char2>
-  "ggandor/leap.nvim",
-  config = function()
-    require('leap').add_default_mappings()
-  end
 },
 {
   -- fzf.vim repository contains plugin, the other commands and mappings
