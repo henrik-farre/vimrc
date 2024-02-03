@@ -194,14 +194,6 @@ return {
     require("todo-comments").setup{}
   end
 },
-{
-  -- Handle vim.ui elements (Used by yaml-companion)
-  "stevearc/dressing.nvim",
-  config = function()
-    require('dressing').setup{}
-  end
-},
-
 "equalsraf/neovim-gui-shim",  -- lazy.nvim breaks loading of ginit.vim, https://github.com/folke/lazy.nvim/issues/584
 ------------------------------------------------------------
 -- Registers
@@ -297,7 +289,13 @@ return {
 {
   "someone-stole-my-name/yaml-companion.nvim",
   dependencies = {
-    "stevearc/dressing.nvim",
+    {
+      -- Handle vim.ui elements
+      "stevearc/dressing.nvim",
+      config = function()
+        require('dressing').setup{}
+      end
+    },
   },
   keys = {
     { "<leader>y", function() require("yaml-companion").open_ui_select() end, desc = "YAML companion UI open" }
