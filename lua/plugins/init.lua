@@ -34,6 +34,7 @@ return {
 --
 {
   "puremourning/vimspector",
+  ft = "python",
   keys = {
     { "<leader><F5>", "<Plug>VimspectorContinue", desc = "VimspectorContinue" },
     { "<leader><F3>", "<Plug>VimspectorStop", desc = "VimspectorStop" },
