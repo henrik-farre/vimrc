@@ -9,7 +9,10 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-emoji",
     "quangnguyen30192/cmp-nvim-ultisnips",
-    "petertriho/cmp-git",
+    {
+      "petertriho/cmp-git",
+      config = true,
+    },
     "onsails/lspkind-nvim", -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
   },
   config = function()
@@ -105,7 +108,5 @@ return {
         { name = 'cmdline', max_item_count = 10, keyword_length = 2  }
       })
     })
-
-    require("cmp_git").setup()
   end
 }
