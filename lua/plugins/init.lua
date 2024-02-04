@@ -150,7 +150,13 @@ return {
 ------------------------------------------------------------
 -- Colorschemes / UI
 --
-"pacha/vem-dark",
+{
+  "pacha/vem-dark",
+  enable = false,
+  init = function()
+    vim.g.vem_colors_italic = 1
+  end
+},
 {
   -- Icons for filetypes, used by telescope, trouble and more
   "nvim-tree/nvim-web-devicons",
