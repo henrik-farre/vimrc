@@ -100,7 +100,8 @@ return {
 {
   "preservim/nerdcommenter",
   keys = {
-    { "<F5>", "<Plug>NERDCommenterToggle<CR>", desc = "NERDCommenter" }
+    { "<F5>", "<Plug>NERDCommenterToggle", mode = { "n", "v" }, desc = "NERDCommenter toggle" },
+    { "<leader>cs", "<Plug>NERDCommenterSexy", mode = { "n", "v" }, desc = "NERDCommenter comment out sexy" },
   },
   init = function()
     vim.g.NERDCreateDefaultMappings = 0
