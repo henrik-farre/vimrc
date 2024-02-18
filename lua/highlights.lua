@@ -65,3 +65,10 @@ vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
 --
 -- Based on https://bitbucket.org/sjl/dotfiles/src/141b96496989091fce4aa5165946f94d31c2374f/vim/vimrc
 vim.fn.matchadd("ErrorMsg", [[^\(<\|=\|>\)\{7\}\([^=].\+\)\?$]])
+
+-- -----------------------------------------------------------------------------
+-- Diagnostic float
+--
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg='NONE' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg='NONE', fg='white' })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingError', { bg='NONE', fg='#ff0000'})
