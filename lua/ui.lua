@@ -38,8 +38,6 @@ vim.opt.listchars = {
 -- Fillchars - UI elements
 --
 vim.opt.fillchars = {
-  vert = '┃',                       -- HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-  fold = '─',
   eob = " ",                        -- suppress ~ at EndOfBuffer
   diff = '⣿',
   msgsep = "‾",
