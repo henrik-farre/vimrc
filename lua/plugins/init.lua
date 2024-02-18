@@ -355,8 +355,8 @@ return {
   end,
 },
 -- # 'kosayoda/nvim-lightbulb' -- Show 💡 if there is a code action avaliable
--- Show function signature when you type
 {
+  -- Show function signature when you type
   "ray-x/lsp_signature.nvim",
   config = true,
 },
