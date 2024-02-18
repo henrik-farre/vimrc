@@ -85,6 +85,7 @@ vim.o.mouse = "ar"                  -- Mouse on, all modes + hit-enter/more-prom
 -- Command line
 --
 vim.o.cmdheight = 1                 -- The command line is 1 high
+vim.o.laststatus = 3                -- Global status line
 
 if vim.opt.diff:get() then
   -- Fixes "press enter or type command to continue"
