@@ -1,5 +1,10 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "henrik-farre/yaml.nvim",
+    -- "someone-stole-my-name/yaml-companion.nvim",
+  },
   config = function()
     -- Override 'encoding': Don't display if encoding is UTF-8.
     local lualine_encoding = function()
@@ -16,6 +21,19 @@ return {
             return originalString
         end
     end
+
+    -- -----------------------------------------------------------------------------
+    -- Output selected yaml schema from yaml-companion
+    --
+    --[[
+       [ local get_yaml_schema = function()
+       [   local schema = require("yaml-companion").get_buf_schema(0)
+       [   if schema then
+       [     return schema.result[1].name
+       [   end
+       [   return ""
+       [ end
+       ]]
 
     local yaml_key_value = function()
       if vim.bo.filetype == "yaml" or vim.bo.filetype == "yaml.ansible" or vim.bo.filetype == "helm" then
@@ -41,7 +59,7 @@ return {
           }
         },
         lualine_x = {
-          yaml_key_value, lualine_encoding, 'fileformat', 'filetype',
+          lualine_encoding, 'fileformat', 'filetype',
         },
       },
       inactive_sections = {
@@ -51,6 +69,20 @@ return {
             path = 3,
           }
         }
+      },
+      winbar = {
+        lualine_a = {
+          'filename',
+          -- get_yaml_schema(),
+        },
+        lualine_x = {
+          yaml_key_value,
+        },
+      },
+      inactive_winbar = {
+        lualine_a = {
+          'filename',
+        },
       }
     }
   end,
