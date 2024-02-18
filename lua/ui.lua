@@ -93,3 +93,37 @@ if vim.opt.diff:get() then
 end
 
 vim.o.showmode = false              -- Do not show mode in command line
+
+-- -----------------------------------------------------------------------------
+-- Diagnostics
+--
+-- Configure diagnostic display
+vim.diagnostic.config({
+  virtual_text = false,
+  update_in_insert = false,
+  float = {
+    severity_sort = true,
+    -- source = "if_many",
+    border = "rounded",
+    header = { '\u{F188} Diagnostics', 'Title' },
+    prefix = function(diagnostic)
+      local diag_to_format = {
+        [vim.diagnostic.severity.ERROR] = { "Error", "LspDiagnosticsDefaultError" },
+        [vim.diagnostic.severity.WARN] = { "Warning", "LspDiagnosticsDefaultWarning" },
+        [vim.diagnostic.severity.INFO] = { "Info", "LspDiagnosticsDefaultInfo" },
+        [vim.diagnostic.severity.HINT] = { "Hint", "LspDiagnosticsDefaultHint" },
+      }
+      local res = diag_to_format[diagnostic.severity]
+      return string.format("(%s) ", res[1]), res[2]
+    end,
+  },
+  severity_sort = true,
+})
+
+-- NOTE: can be done in vim.diagnostic.config in neovim >= 0.10
+local signs = { Error = "", Warn = "", Hint = "⚑", Info = "" }
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
