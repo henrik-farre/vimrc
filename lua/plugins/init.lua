@@ -302,6 +302,7 @@ return {
 },
 {
   "someone-stole-my-name/yaml-companion.nvim",
+  enabled = false,
   dependencies = {
     {
       -- Handle vim.ui elements
