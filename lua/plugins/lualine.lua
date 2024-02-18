@@ -45,9 +45,13 @@ return {
       return ""
     end
 
+    local custom_theme = require('lualine.themes.ayu_dark')
+    custom_theme.inactive.a.fg = '#3e4b59'
+    custom_theme.normal.a.fg = '#e6e1cf'
+
     require('lualine').setup {
       options = {
-        theme = 'ayu_dark'
+        theme = custom_theme
       },
       extensions = { 'fzf', 'neo-tree', 'trouble', 'man' },
       sections = {
