@@ -66,6 +66,7 @@ o.confirm = true        -- Present a dialog
 o.virtualedit = "block" -- Allow the cursor to go in to 'invalid' places in visual block mode
 o.keymodel = "startsel" -- Allow select of text in insert mode using shift
 o.selection = "inclusive" -- Selection will include current char, set to exclusive else
+o.showcmd = false       -- Do not show (partial) command in status line (also displays keys)
 
 -- -----------------------------------------------------------------------------
 -- Completion
