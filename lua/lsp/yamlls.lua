@@ -24,34 +24,17 @@ local settings = {
 }
 
 local extras = {}
+local replace = {}
 
-if vim.env.NVIM_YAMLLS_SCHEMA_URI then
-  local URI = vim.env.NVIM_YAMLLS_SCHEMA_URI
-  extras = {
-    {
-      description = "K8s with local schema",
-      fileMatch = {
-        '*onfigma*.y*ml',
-        '*eployment*.y*ml',
-        '*ervic*.y*ml',
-        '*ngres*.y*ml',
-        '*ecre*.y*ml',
-        '*stateful*.y*ml',
-        'pod.y*ml',
-        '*ame*pace*.y*ml',
-        '*aemon*et*.y*ml',
-        '*hpa*.y*ml',
-        '*pv*.y*ml',
-        '*ron*ob*.y*ml',
-        },
-      name = "configmap.json",
-      url = URI .. '/all.json',
-    }
-  }
+if vim.env.NVIM_YAMLLS_USE_OVERRIDES then
+  local overrides = require('lsp.yaml_overrides')
+  extras = overrides.extras()
+  replace = overrides.replace()
 end
 
 settings.yaml.schemas = require('schemastore').yaml.schemas({
-  extra = extras
+  extra = extras,
+  replace = replace
 })
 
 --[[
