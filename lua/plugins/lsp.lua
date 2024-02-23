@@ -49,6 +49,7 @@ return {
       'vimls',
       'helm_ls',
       'yamlls',
+      'lua_ls',
     }
 
     for _, name in ipairs(servers) do
