@@ -154,7 +154,7 @@ return {
 --
 {
   "pacha/vem-dark",
-  enable = false,
+  enabled = true,
   init = function()
     vim.g.vem_colors_italic = 1
   end
