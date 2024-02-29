@@ -282,18 +282,7 @@ return {
 },
 -- # 'pangloss/vim-javascript', { 'for': 'javascript' } JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 -- # 'fatih/vim-go'
-{
-  -- Github flavored Markdown
-  "tpope/vim-markdown",
-  ft = "ghmarkdown",
-  dependencies = {
-    {
-      -- Add-on to Tim Pope"s markdown.vim to highlight using Github Flavored Markdown.
-      "jtratner/vim-flavored-markdown",
-      ft = "ghmarkdown"
-    },
-  }
-},
+"preservim/vim-markdown",
 {
   -- Yaml, use :YAMLView Shows the full path and value of the current key/value pair
   -- fork that hardcodes yaml and does not change ft
@@ -321,6 +310,8 @@ return {
   -- Preview markdown
   "iamcco/markdown-preview.nvim",
   build = "cd app && npx --yes yarn install",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  ft = "markdown",
   init = function()
     vim.g.mkdp_filetypes = { "markdown", "ghmarkdown" }
   end
