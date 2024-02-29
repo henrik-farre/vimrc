@@ -4,13 +4,16 @@ return {
 --
 {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+  build = function()
+    local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+    ts_update()
+  end,
   dependencies = {
     "andymass/vim-matchup", -- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
   },
   config = function()
     require('nvim-treesitter.configs').setup {
-      ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown", "toml", "hcl", "vim", "terraform", "go" },
+      ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown", "markdown_inline", "toml", "hcl", "vim", "terraform", "go" },
       highlight = {
         enable = true,
       },
