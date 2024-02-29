@@ -50,6 +50,7 @@ return {
       'helm_ls',
       'yamlls',
       'lua_ls',
+      'gopls',
     }
 
     for _, name in ipairs(servers) do
