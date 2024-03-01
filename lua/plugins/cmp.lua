@@ -5,7 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     -- # 'hrsh7th/cmp-path'
-    "FelipeLema/cmp-async-path",
+    "https://codeberg.org/FelipeLema/cmp-async-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-emoji",
     "quangnguyen30192/cmp-nvim-ultisnips",
