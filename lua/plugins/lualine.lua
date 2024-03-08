@@ -76,7 +76,11 @@ return {
       },
       winbar = {
         lualine_a = {
-          'filename',
+          {
+            'filename',
+            path = 3,
+            shorting_target = 40,
+          },
           -- get_yaml_schema(),
         },
         lualine_x = {
@@ -85,7 +89,11 @@ return {
       },
       inactive_winbar = {
         lualine_a = {
-          'filename',
+          {
+            'filename',
+            path = 3,
+            shorting_target = 40,
+          },
         },
       }
     }
