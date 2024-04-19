@@ -59,11 +59,15 @@ return {
           {
             'filename',
             path = 3,
-            shorting_target = 40,
+            shorting_target = 50,
           }
         },
         lualine_x = {
           lualine_encoding, 'fileformat', 'filetype',
+        },
+        lualine_z = {
+          'selectioncount',
+          'location'
         },
       },
       inactive_sections = {
@@ -79,7 +83,7 @@ return {
           {
             'filename',
             path = 3,
-            shorting_target = 40,
+            shorting_target = 50,
           },
           -- get_yaml_schema(),
         },
@@ -92,7 +96,7 @@ return {
           {
             'filename',
             path = 3,
-            shorting_target = 40,
+            shorting_target = 50,
           },
         },
       }
