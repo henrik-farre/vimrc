@@ -39,15 +39,15 @@ return {
     "puremourning/vimspector",
     ft = "python",
     keys = {
-      { "<leader><F5>", "<Plug>VimspectorContinue", desc = "VimspectorContinue" },
-      { "<leader><F3>", "<Plug>VimspectorStop", desc = "VimspectorStop" },
-      { "<leader><F4>", "<Plug>VimspectorRestart", desc = "VimspectorRestart" },
-      { "<leader><F6>", "<Plug>VimspectorPause", desc = "VimspectorPause" },
+      { "<leader><F5>", "<Plug>VimspectorContinue",              desc = "VimspectorContinue" },
+      { "<leader><F3>", "<Plug>VimspectorStop",                  desc = "VimspectorStop" },
+      { "<leader><F4>", "<Plug>VimspectorRestart",               desc = "VimspectorRestart" },
+      { "<leader><F6>", "<Plug>VimspectorPause",                 desc = "VimspectorPause" },
       { "<leader><F8>", "<Plug>VimspectorAddFunctionBreakpoint", desc = "VimspectorAddFunctionBreakpoint" },
-      { "<F9>", "<Plug>VimspectorToggleBreakpoint", desc = "VimspectorToggleBreakpoint" },
-      { "<F10>", "<Plug>VimspectorStepOver", desc = "VimspectorStepOver" },
-      { "<F11>", "<Plug>VimspectorStepInto", desc = "VimspectorStepInto" },
-      { "<F12>", "<Plug>VimspectorStepOut", desc = "VimspectorStepOut" },
+      { "<F9>",         "<Plug>VimspectorToggleBreakpoint",      desc = "VimspectorToggleBreakpoint" },
+      { "<F10>",        "<Plug>VimspectorStepOver",              desc = "VimspectorStepOver" },
+      { "<F11>",        "<Plug>VimspectorStepInto",              desc = "VimspectorStepInto" },
+      { "<F12>",        "<Plug>VimspectorStepOut",               desc = "VimspectorStepOut" },
     }
   },
   -- # 'mfussenegger/nvim-dap'
@@ -103,8 +103,8 @@ return {
   {
     "preservim/nerdcommenter",
     keys = {
-      { "<F5>", "<Plug>NERDCommenterToggle", mode = { "n", "v" }, desc = "NERDCommenter toggle" },
-      { "<leader>cs", "<Plug>NERDCommenterSexy", mode = { "n", "v" }, desc = "NERDCommenter comment out sexy" },
+      { "<F5>",       "<Plug>NERDCommenterToggle", mode = { "n", "v" }, desc = "NERDCommenter toggle" },
+      { "<leader>cs", "<Plug>NERDCommenterSexy",   mode = { "n", "v" }, desc = "NERDCommenter comment out sexy" },
     },
     init = function()
       vim.g.NERDCreateDefaultMappings = 0
@@ -132,9 +132,9 @@ return {
     -- Return to same line in file when reopening
     "ethanholz/nvim-lastplace",
     config = function()
-      require'nvim-lastplace'.setup {
-        lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-        lastplace_ignore_filetype = {"gitcommit", "gitrebase"},
+      require 'nvim-lastplace'.setup {
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = { "gitcommit", "gitrebase" },
         lastplace_open_folds = true
       }
     end
@@ -143,7 +143,7 @@ return {
     -- Keep window layout when closing buffer
     "ojroques/nvim-bufdel",
     config = function()
-      require('bufdel').setup{
+      require('bufdel').setup {
         quit = false
       }
     end,
@@ -174,10 +174,9 @@ return {
             color = "#428850",
             name = "Zsh"
           }
-        };
-        default = true;
+        },
+        default = true,
       }
-
     end
   },
   -- # 'norcalli/nvim-colorizer.lua'
@@ -185,24 +184,24 @@ return {
     -- Show indent lines
     "lukas-reineke/indent-blankline.nvim",
     tag = 'v2.20.8',
-    config =  function()
+    config = function()
       require("indent_blankline").setup {
-        char_list = {'│', '¦', '┆', '┊'},
-        filetype_exclude = {"help", "terminal", "list", "nofile", "man"},
-        buftype_exclude = {"help", "terminal", "list", "nofile", "man"},
-        bufname_exclude = {"man://.*"},
+        char_list = { '│', '¦', '┆', '┊' },
+        filetype_exclude = { "help", "terminal", "list", "nofile", "man" },
+        buftype_exclude = { "help", "terminal", "list", "nofile", "man" },
+        bufname_exclude = { "man://.*" },
         show_current_context = true,
       }
     end
   },
-  "kshenoy/vim-signature", -- Add visual marks in gutter
+  "kshenoy/vim-signature",          -- Add visual marks in gutter
   "ntpeters/vim-better-whitespace", -- causes all trailing whitespace characters to be highlighted.
   {
     -- Highlight TODO/FIXME and more
     "folke/todo-comments.nvim",
     config = true
   },
-  "equalsraf/neovim-gui-shim",  -- lazy.nvim breaks loading of ginit.vim, https://github.com/folke/lazy.nvim/issues/584
+  "equalsraf/neovim-gui-shim", -- lazy.nvim breaks loading of ginit.vim, https://github.com/folke/lazy.nvim/issues/584
   ------------------------------------------------------------
   -- Registers
   --
@@ -217,8 +216,8 @@ return {
       "tpope/vim-repeat",
     },
     event = "BufEnter",
-    keys ={
-      { 'x', '"+x', mode = { 'n', 'x' }, desc = 'Easyclip cut' },
+    keys = {
+      { 'x', '"+x',                           mode = { 'n', 'x' },                 desc = 'Easyclip cut' },
       { "X", "<Plug>MoveMotionEndOfLinePlug", desc = "Easyclip cut to end of line" },
     },
     config = function()
@@ -265,8 +264,8 @@ return {
     -- Hashicorp plugins
     "hashivim/vim-terraform",
     init = function()
-      vim.g.terraform_fmt_on_save = 0        -- Run terraform fmt on save to comply with style guide
-      vim.g.terraform_align = 1              -- Set indent to 2 spaces
+      vim.g.terraform_fmt_on_save = 0 -- Run terraform fmt on save to comply with style guide
+      vim.g.terraform_align = 1       -- Set indent to 2 spaces
     end
   },
   {
@@ -389,7 +388,7 @@ return {
     -- Set working to project directory
     "ahmedkhalf/project.nvim",
     config = function()
-      require("project_nvim").setup{
+      require("project_nvim").setup {
         patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
         -- silent_chdir = false,
         ignore_lsp = { "null-ls" },
@@ -401,13 +400,13 @@ return {
     "junegunn/fzf.vim",
     dependencies = { "junegunn/fzf" },
     cond = vim.fn.executable('fzf') == 1,
-    cmd = {'Files'},
+    cmd = { 'Files' },
     config = function()
       vim.env.FZF_DEFAULT_OPTS = '--keep-right -x --inline-info'
     end,
     keys = {
       { "<leader>bv", ":Buffers<cr>" },
-      { "<leader>t", ":Files<cr>"}
+      { "<leader>t",  ":Files<cr>" }
     }
   },
 
