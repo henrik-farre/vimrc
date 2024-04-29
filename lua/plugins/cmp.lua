@@ -14,6 +14,7 @@ return {
       config = true,
     },
     "onsails/lspkind-nvim", -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
+    "nvim-lua/plenary.nvim",
   },
   event = { "InsertEnter", "CmdlineEnter" },
   config = function()
