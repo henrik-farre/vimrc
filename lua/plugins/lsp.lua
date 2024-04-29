@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
   })
 end
 
-local flags = {debounce_text_changes = 500}
+local flags = { debounce_text_changes = 500 }
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -56,5 +56,7 @@ return {
     for _, name in ipairs(servers) do
       require("lsp." .. name).setup(on_attach, capabilities, flags)
     end
+
+    require("lspconfig.ui.windows").default_options.border = "rounded"
   end
 }
