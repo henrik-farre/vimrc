@@ -25,16 +25,19 @@ local settings = {
 
 local extras = {}
 local replace = {}
+local ignore = {}
 
 if vim.env.NVIM_YAMLLS_USE_OVERRIDES then
   local overrides = require('lsp.yaml_overrides')
   extras = overrides.extras()
   replace = overrides.replace()
+  ignore = overrides.ignore()
 end
 
 settings.yaml.schemas = require('schemastore').yaml.schemas({
   extra = extras,
-  replace = replace
+  replace = replace,
+  ignore = ignore,
 })
 
 --[[
