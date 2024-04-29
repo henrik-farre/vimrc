@@ -356,17 +356,29 @@ return {
     config = true,
   },
   {
-    -- Linting and formatting
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-      require("null-ls").setup({
-        root_dir = require('null-ls.utils').root_pattern(".null-ls-root", "Makefile", ".git", ".flake8", "pyproject.toml"),
-        sources = {
-          require("null-ls").builtins.diagnostics.flake8,
-          -- require("null-ls").builtins.diagnostics.mypy,
-        },
-      })
-    end,
+    -- Lightweight yet powerful formatter plugin for Neovim
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        go = { "gofmt" },
+        terraform = { "terraform_fmt" }
+      },
+      format_on_save = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+    },
+  },
+  {
+    'mfussenegger/nvim-lint',
+    optional = true,
+    event = { "BufReadPost" },
+    opts = {
+      linters_by_ft = {
+        sh = { "shellcheck" },
+      },
+    },
   },
 
   ------------------------------------------------------------
