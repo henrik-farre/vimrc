@@ -261,14 +261,6 @@ return {
   },
   -- "andrewstuart/vim-kubernetes", -- Kubernetes + snippets
   {
-    -- Hashicorp plugins
-    "hashivim/vim-terraform",
-    init = function()
-      vim.g.terraform_fmt_on_save = 0 -- Run terraform fmt on save to comply with style guide
-      vim.g.terraform_align = 1       -- Set indent to 2 spaces
-    end
-  },
-  {
     -- Syntax and more for tmux
     "tmux-plugins/vim-tmux",
     ft = "tmux"
