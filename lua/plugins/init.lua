@@ -355,7 +355,6 @@ return {
     "ray-x/lsp_signature.nvim",
     config = true,
   },
-  "nvim-lua/plenary.nvim", -- required by several plugins like null-ls
   {
     -- Linting and formatting
     "jose-elias-alvarez/null-ls.nvim",
