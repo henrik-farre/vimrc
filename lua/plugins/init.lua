@@ -99,7 +99,7 @@ return {
       }
     end,
   },
-  "sbdchd/neoformat",
+  -- "sbdchd/neoformat",
   {
     "preservim/nerdcommenter",
     keys = {
