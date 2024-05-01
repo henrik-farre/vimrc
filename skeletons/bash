@@ -6,5 +6,3 @@
 set -o nounset
 set -o errexit
 set -o pipefail
-# Note this breaks passing a variable as args to a command
-IFS=$'\n\t'
