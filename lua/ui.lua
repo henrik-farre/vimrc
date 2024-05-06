@@ -11,24 +11,19 @@ vim.opt.titlestring = 'nvim %{expand("%:p")} %M'
 vim.opt.termguicolors = true
 
 -- -----------------------------------------------------------------------------
--- Colorscheme
---
-vim.cmd("colorscheme vem-dark")
-
--- -----------------------------------------------------------------------------
 -- Sign column settings
 --
-vim.o.number = true                 -- Line numbers
+vim.o.number = true        -- Line numbers
 vim.o.relativenumber = true
-vim.o.signcolumn = "yes:1"          -- Always show 1 sign column
-vim.o.numberwidth = 3               -- Use less space for line numbering if possible
+vim.o.signcolumn = "yes:1" -- Always show 1 sign column
+vim.o.numberwidth = 3      -- Use less space for line numbering if possible
 
 -- -----------------------------------------------------------------------------
 -- List chars - show invisible characters
 --
 vim.o.list = true
 vim.opt.listchars = {
-  tab = "→ ",                       -- indent line might hide this
+  tab = "→ ", -- indent line might hide this
   extends = "»",
   precedes = "«",
   nbsp = "·",
@@ -38,7 +33,7 @@ vim.opt.listchars = {
 -- Fillchars - UI elements
 --
 vim.opt.fillchars = {
-  eob = " ",                        -- suppress ~ at EndOfBuffer
+  eob = " ", -- suppress ~ at EndOfBuffer
   diff = '⣿',
   msgsep = "‾",
   foldopen = "▾",
@@ -56,12 +51,12 @@ vim.o.sidescrolloff = 7
 -- -----------------------------------------------------------------------------
 -- Update time
 --
-vim.o.updatetime=250                -- Used for CursorHold event, makes floating windows appear faster
+vim.o.updatetime = 250 -- Used for CursorHold event, makes floating windows appear faster
 
 -- -----------------------------------------------------------------------------
 -- Split settings
 --
-vim.o.splitkeep = "cursor"          -- Keep windows stable when opening trouble and more
+vim.o.splitkeep = "cursor" -- Keep windows stable when opening trouble and more
 
 -- More natural split opening
 -- http://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
@@ -79,20 +74,20 @@ vim.o.cursorline = true
 -- Mouse
 --
 vim.o.mousemodel = "popup"
-vim.o.mouse = "ar"                  -- Mouse on, all modes + hit-enter/more-prompt
+vim.o.mouse = "ar" -- Mouse on, all modes + hit-enter/more-prompt
 
 -- -----------------------------------------------------------------------------
 -- Command line
 --
-vim.o.cmdheight = 1                 -- The command line is 1 high
-vim.o.laststatus = 3                -- Global status line
+vim.o.cmdheight = 1  -- The command line is 1 high
+vim.o.laststatus = 3 -- Global status line
 
 if vim.opt.diff:get() then
   -- Fixes "press enter or type command to continue"
   vim.o.cmdheight = 2
 end
 
-vim.o.showmode = false              -- Do not show mode in command line
+vim.o.showmode = false -- Do not show mode in command line
 
 -- -----------------------------------------------------------------------------
 -- Diagnostics
