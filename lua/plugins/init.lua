@@ -160,6 +160,9 @@ return {
     enabled = true,
     init = function()
       vim.g.vem_colors_italic = 1
+    end,
+    config = function()
+      vim.cmd('colorscheme vem-dark')
     end
   },
   {
