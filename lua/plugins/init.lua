@@ -365,14 +365,50 @@ return {
     },
   },
   {
+    "nvimtools/none-ls.nvim",
+    lazy = true,
+    ft = { "go", "dockerfile", "lua", "python", "markdown" },
+    event = { "BufNewFile", "BufReadPost" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        root_dir = require('null-ls.utils').root_pattern(".null-ls-root", "Makefile", ".git", ".flake8", "pyproject.toml"),
+        sources = {
+          null_ls.builtins.diagnostics.hadolint,
+          null_ls.builtins.code_actions.proselint,
+          null_ls.builtins.diagnostics.markdownlint,
+          null_ls.builtins.diagnostics.trivy.with({
+            extra_filetypes = { "dockerfile", "lua", "go", "gomod", "gowork", "gotmpl", "yaml", "yaml.ansible", "yaml.docker-compose" },
+          }),
+        },
+      })
+    end
+  },
+  {
     'mfussenegger/nvim-lint',
-    optional = true,
+    enabled = false,
+    -- optional = true,
     event = { "BufReadPost" },
-    opts = {
-      linters_by_ft = {
-        sh = { "shellcheck" },
-      },
-    },
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        -- sh = { "shellcheck" },
+        python = { "flake8" },
+        dockerfile = { "hadolint" }, -- trivy is broken
+        -- go = { "trivy" },
+        -- terraform = { "trivy" }
+        markdown = { "proselint", "markdownlint" }
+      }
+
+      local lint_autogroup = vim.api.nvim_create_augroup("lint", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufwritePost", "InsertLeave" }, {
+        group = lint_autogroup,
+        callback = function()
+          lint.try_lint()
+        end,
+      })
+    end
   },
 
   ------------------------------------------------------------
