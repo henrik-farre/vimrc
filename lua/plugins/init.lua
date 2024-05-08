@@ -376,7 +376,7 @@ return {
         root_dir = require('null-ls.utils').root_pattern(".null-ls-root", "Makefile", ".git", ".flake8", "pyproject.toml"),
         sources = {
           null_ls.builtins.diagnostics.hadolint,
-          null_ls.builtins.code_actions.proselint,
+          null_ls.builtins.diagnostics.proselint,
           null_ls.builtins.diagnostics.markdownlint,
           null_ls.builtins.diagnostics.trivy.with({
             extra_filetypes = { "dockerfile", "lua", "go", "gomod", "gowork", "gotmpl", "yaml", "yaml.ansible", "yaml.docker-compose" },
