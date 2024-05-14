@@ -367,7 +367,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     lazy = true,
-    ft = { "go", "dockerfile", "lua", "python", "markdown" },
+    ft = { "go", "dockerfile", "lua", "python", "markdown", "zsh" },
     event = { "BufNewFile", "BufReadPost" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
@@ -377,6 +377,7 @@ return {
         sources = {
           null_ls.builtins.diagnostics.hadolint,
           null_ls.builtins.diagnostics.proselint,
+          null_ls.builtins.diagnostics.zsh,
           null_ls.builtins.diagnostics.markdownlint,
           null_ls.builtins.diagnostics.trivy.with({
             extra_filetypes = { "dockerfile", "lua", "go", "gomod", "gowork", "gotmpl", "yaml", "yaml.ansible", "yaml.docker-compose" },
