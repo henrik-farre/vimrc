@@ -10,8 +10,10 @@ local settings = {
     hover = true,
     format = {
       enable = true,
-      singleQuote = true,
-      bracketSpacing = true,
+      singleQuote = false,
+      bracketSpacing = false,
+      proseWrap = "never",
+      printWidth = 200,
     },
     schemaDownload = { enable = true },
     -- Configured for SchemaStore plugin
