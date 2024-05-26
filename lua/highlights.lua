@@ -169,3 +169,6 @@ hi('@lsp.type.struct', { link = 'Structure' })
 hi('@lsp.type.type', { link = 'Type' })
 hi('@lsp.type.typeParameter', { link = 'TypeDef' })
 hi('@lsp.type.variable', { link = 'Identifier' })
+
+-- folke/flash.nvim
+hi("FlashLabel", { bg = '#ff0000' })
