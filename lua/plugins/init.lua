@@ -37,7 +37,8 @@ return {
   --
   {
     "puremourning/vimspector",
-    ft = "python",
+    ft = { "python", "go" },
+    cmd = { 'VimspectorInstall' },
     keys = {
       { "<leader><F5>", "<Plug>VimspectorContinue",              desc = "VimspectorContinue" },
       { "<leader><F3>", "<Plug>VimspectorStop",                  desc = "VimspectorStop" },
