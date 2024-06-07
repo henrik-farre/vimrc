@@ -13,7 +13,7 @@ return {
     },
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown", "markdown_inline", "toml", "hcl", "vim", "terraform", "go" },
+        ensure_installed = { "dockerfile", "yaml", "python", "bash", "json", "javascript", "html", "css", "lua", "markdown", "markdown_inline", "toml", "hcl", "vim", "terraform", "go", "helm" },
         highlight = {
           enable = true,
         },
