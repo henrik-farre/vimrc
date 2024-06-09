@@ -332,16 +332,13 @@ return {
     -- results, quickfix and location lists to help you solve all the trouble your
     -- code is causing.
     "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup({
-        height = 5,
-        padding = false,
-        mode = "document_diagnostics",
-        auto_open = true,
-        auto_close = false,
-        use_diagnostic_signs = true
-      })
-    end,
+    cmd = "Trouble",
+    opts = {
+      auto_close = false,   -- auto close when there are no items
+      auto_open = true,     -- auto open when there are items
+      auto_preview = false, -- automatically open preview when on an item
+      auto_refresh = true,  -- auto refresh when open
+    },
   },
   -- # 'kosayoda/nvim-lightbulb' -- Show 💡 if there is a code action avaliable
   {
