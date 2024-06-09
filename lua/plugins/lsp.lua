@@ -1,7 +1,7 @@
 -- -----------------------------------------------------------------------------
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -23,6 +23,8 @@ local on_attach = function(client, bufnr)
     end
   })
 end
+
+-- vim.lsp.set_log_level 'trace'
 
 local flags = { debounce_text_changes = 500 }
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
