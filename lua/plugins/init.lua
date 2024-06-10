@@ -382,10 +382,14 @@ return {
     "folke/trouble.nvim",
     cmd = "Trouble",
     opts = {
-      auto_close = false,   -- auto close when there are no items
-      auto_open = true,     -- auto open when there are items
-      auto_preview = false, -- automatically open preview when on an item
-      auto_refresh = true,  -- auto refresh when open
+      modes = {
+        diagnostics = {
+          auto_close = false,   -- auto close when there are no items
+          auto_open = true,     -- auto open when there are items
+          auto_preview = false, -- automatically open preview when on an item
+          auto_refresh = true,  -- auto refresh when open
+        },
+      }
     },
   },
   -- # 'kosayoda/nvim-lightbulb' -- Show 💡 if there is a code action avaliable
