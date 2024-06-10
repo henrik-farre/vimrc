@@ -216,6 +216,7 @@ return {
   {
     -- Icons for filetypes, used by telescope, trouble and more
     "nvim-tree/nvim-web-devicons",
+    lazy = true,
     -- fix zshrc
     config = function()
       require('nvim-web-devicons').setup {
