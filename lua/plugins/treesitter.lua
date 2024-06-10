@@ -7,8 +7,9 @@ return {
     local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
     ts_update()
   end,
+  event = { "BufReadPre", "BufNewFile" }, -- Load treesitter when opening an existing/new file.
   dependencies = {
-    "andymass/vim-matchup",   -- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
+    "andymass/vim-matchup",               -- match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text.
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   config = function()
@@ -38,7 +39,7 @@ return {
       textobjects = {
         move = {
           enable = true,
-          set_jumps = true,   -- whether to set jumps in the jumplist
+          set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             ["]f"] = { query = "@call.outer", desc = "Next function call start" },
             ["]m"] = { query = "@function.outer", desc = "Next method/function def start" },
