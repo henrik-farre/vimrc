@@ -305,7 +305,9 @@ return {
     cmd = "Trouble",
     opts = {
       modes = {
-        diagnostics = {
+        diagnostics_buffer = {
+          mode = "diagnostics", -- inherit from diagnostics mode
+          filter = { buf = 0 }, -- filter diagnostics to the current buffer
           auto_close = false,   -- auto close when there are no items
           auto_open = true,     -- auto open when there are items
           auto_preview = false, -- automatically open preview when on an item
