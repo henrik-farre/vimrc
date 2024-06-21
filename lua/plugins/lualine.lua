@@ -13,13 +13,14 @@ return {
     end
 
     local truncateStringMiddle = function(originalString, maxLength)
-        if #originalString > maxLength then
-            local halfLength = math.floor((maxLength - 3) / 2)  -- Subtract 3 for the ellipsis (...)
-            local truncatedString = string.sub(originalString, 1, halfLength) .. "..." .. string.sub(originalString, -halfLength)
-            return truncatedString
-        else
-            return originalString
-        end
+      if #originalString > maxLength then
+        local halfLength = math.floor((maxLength - 3) / 2)     -- Subtract 3 for the ellipsis (...)
+        local truncatedString = string.sub(originalString, 1, halfLength) ..
+        "..." .. string.sub(originalString, -halfLength)
+        return truncatedString
+      else
+        return originalString
+      end
     end
 
     -- -----------------------------------------------------------------------------
@@ -39,7 +40,7 @@ return {
       if vim.bo.filetype == "yaml" or vim.bo.filetype == "yaml.ansible" or vim.bo.filetype == "helm" then
         local path = require("yaml_nvim").get_yaml_key()
         if string.len(path) > 0 then
-            return truncateStringMiddle(path,70)
+          return truncateStringMiddle(path, 70)
         end
       end
       return ""
@@ -56,11 +57,6 @@ return {
       extensions = { 'fzf', 'neo-tree', 'trouble', 'man' },
       sections = {
         lualine_c = {
-          {
-            'filename',
-            path = 3,
-            shorting_target = 50,
-          }
         },
         lualine_x = {
           lualine_encoding, 'fileformat', 'filetype',
