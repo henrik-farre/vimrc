@@ -43,7 +43,7 @@ opt.diffopt:append({
 -- Disable swapfile when in a diff
 -- the old syntax checker options do not exist anymore
 if vim.opt.diff:get() then
-  vim.o.noswapfile = true
+  vim.o.swapfile = false
 end
 
 -- -----------------------------------------------------------------------------
