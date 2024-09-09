@@ -302,7 +302,6 @@ return {
     -- results, quickfix and location lists to help you solve all the trouble your
     -- code is causing.
     "folke/trouble.nvim",
-    cmd = "Trouble",
     opts = {
       modes = {
         diagnostics_buffer = {
