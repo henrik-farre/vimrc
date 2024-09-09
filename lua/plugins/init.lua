@@ -341,12 +341,13 @@ return {
     lazy = true,
     ft = { "go", "dockerfile", "lua", "python", "markdown", "zsh" },
     event = { "BufNewFile", "BufReadPost" },
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim" },
     config = function()
       local null_ls = require("null-ls")
       null_ls.setup({
         root_dir = require('null-ls.utils').root_pattern(".null-ls-root", "Makefile", ".git", ".flake8", "pyproject.toml"),
         sources = {
+          require("none-ls.diagnostics.flake8"),
           null_ls.builtins.diagnostics.hadolint,
           null_ls.builtins.diagnostics.proselint,
           null_ls.builtins.diagnostics.zsh,
