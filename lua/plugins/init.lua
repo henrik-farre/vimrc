@@ -405,10 +405,12 @@ return {
     -- fzf.vim repository contains plugin, the other commands and mappings
     "junegunn/fzf.vim",
     dependencies = { "junegunn/fzf" },
+    -- Pin before require 0.56.0 of fzf, wait for Arch to release new version
+    commit = "ec75ffb",
     cond = vim.fn.executable('fzf') == 1,
     cmd = { 'Files' },
     config = function()
-      vim.env.FZF_DEFAULT_OPTS = '--keep-right -x --inline-info'
+      vim.env.FZF_DEFAULT_OPTS = '--keep-right -x --inline-info --preview-window=70%,top'
     end,
     keys = {
       { "<leader>bv", ":Buffers<cr>" },
