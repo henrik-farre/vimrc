@@ -8,10 +8,9 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
-  branch = 'v3.x',
 
   config = function()
-    require('neo-tree').setup{
+    require('neo-tree').setup {
       default_component_configs = {
         name = {
           trailing_slash = false,
@@ -20,13 +19,14 @@ return {
         },
       },
       filesystem = {
+        use_libuv_file_watcher = true,
         bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
         cwd_target = {
-          sidebar = "tab",   -- sidebar is when position = left or right
+          sidebar = "global",
           current = "window" -- current is when position = current
         },
         follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every
+          enabled = true,          -- This will find and focus the file in the active buffer every
           --              -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
@@ -37,7 +37,7 @@ return {
       },
       buffers = {
         follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
+          enabled = true,          -- This will find and focus the file in the active buffer every time
           --              -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         }

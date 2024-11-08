@@ -396,7 +396,8 @@ return {
       require("project_nvim").setup {
         patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
         -- silent_chdir = false,
-        ignore_lsp = { "null-ls" },
+        scope_chdir = 'global',
+        ignore_lsp = { "null-ls", "helm_ls", "yamlls" },
       }
     end,
   },
