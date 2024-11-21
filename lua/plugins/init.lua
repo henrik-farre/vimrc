@@ -411,6 +411,7 @@ return {
     cmd = { 'Files' },
     config = function()
       vim.env.FZF_DEFAULT_OPTS = '--keep-right -x --inline-info --preview-window=70%,top'
+      vim.g.fzf_layout = { window = { width = 0.9, height = 0.9 } }
     end,
     keys = {
       { "<leader>bv", ":Buffers<cr>" },
