@@ -12,8 +12,7 @@ local settings = {
       enable = true,
       singleQuote = false,
       bracketSpacing = false,
-      proseWrap = "never",
-      printWidth = 200,
+      proseWrap = "preserve",
     },
     schemaDownload = { enable = true },
     -- Configured for SchemaStore plugin
