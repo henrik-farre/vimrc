@@ -23,7 +23,7 @@ set('n', '<C-n>', '<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>', {
 
 -- Save keystrokes on save
 -- https://vim.wikia.com/wiki/Use_Ctrl-O_instead_of_Esc_in_insert_mode_mappings
-set({'i', 'n'}, '<C-s>', vim.cmd.wall)
+set({ 'i', 'n' }, '<C-s>', vim.cmd.wall)
 
 -- expands %% to current file's directory in command-line mode
 set('c', '%%', function()
@@ -33,7 +33,7 @@ end)
 -- -----------------------------------------------------------------------------
 -- Disable existing maps
 --
-set('', '<F1>', '<Nop>') -- Disable help
+set('', '<F1>', '<Nop>')   -- Disable help
 set('n', '<C-a>', '<Nop>') -- Disable increment of numbers, clashes with tmux
 
 -- -----------------------------------------------------------------------------
@@ -91,8 +91,8 @@ set('n', '<C-_>', '<C-W>s')
 -- Change indent
 --
 -- https://github.com/mkropat/vim-dwiw2015/blob/master/plugin/dwiw2015.vim#L212
-set('v', '>', '>gv')  -- shift selection rightwards (preserve selection) [Visual Mode]
-set('v', '<', '<gv')  -- shift selection leftwards (preserve selection) [Visual Mode]
+set('v', '>', '>gv') -- shift selection rightwards (preserve selection) [Visual Mode]
+set('v', '<', '<gv') -- shift selection leftwards (preserve selection) [Visual Mode]
 
 -- -----------------------------------------------------------------------------
 -- Buffer navigation
