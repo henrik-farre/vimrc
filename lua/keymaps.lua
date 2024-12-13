@@ -68,6 +68,12 @@ set('n', '0', function() ToggleHomeZero() end, { silent = true })
 set('n', "'", "`")
 set('n', "`", "'")
 
+-- Move lines up and down
+set('n', '<A-j>', ":m .+1<CR>==")     -- move line up(n)
+set('n', '<A-k>', ":m .-2<CR>==")     -- move line down(n)
+set('v', '<A-j>', ":m '>+1<CR>gv=gv") -- move line up(v)
+set('v', '<A-k>', ":m '<-2<CR>gv=gv") -- move line down(v)
+
 -- -----------------------------------------------------------------------------
 -- Split navigation
 --
