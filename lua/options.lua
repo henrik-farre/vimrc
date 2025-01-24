@@ -107,10 +107,12 @@ o.hidden = true         -- Change buffer without saving
 o.switchbuf = "useopen" -- Buffer switching the reuses already visible buffers
 
 -- -----------------------------------------------------------------------------
--- Backup
+-- Backup and undo
 --
 o.backup = false        -- Don't use backups
 o.backupskip = "/tmp/*" -- Make Vim able to edit crontab files again.
+
+opt.undofile = true     -- Store undo history
 
 -- ----------------------------------------------------------------------------
 -- Shortmess
