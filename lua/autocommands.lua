@@ -98,7 +98,9 @@ local custom_ansible_grp = vim.api.nvim_create_augroup('custom_ansible', { clear
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = custom_ansible_grp,
   pattern = "*/[aA]nsible/*.{yml,yaml}",
-  command = "set filetype=yaml.ansible",
+  callback = function()
+    vim.bo.filetype = "yaml.ansible"
+  end
 })
 
 -- Fix that after enter the key is indented, and LSP does not suggest anything,
