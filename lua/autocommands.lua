@@ -37,10 +37,10 @@ vim.api.nvim_create_autocmd({ 'WinLeave' }, {
 --
 local custom_yankhighlight_grp = vim.api.nvim_create_augroup('custom_yankhighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-    group = custom_yankhighlight_grp,
-    callback = function()
-        vim.highlight.on_yank({ higroup="IncSearch", timeout=500, on_visual=true })
-    end,
+  group = custom_yankhighlight_grp,
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500, on_visual = true })
+  end,
 })
 
 -- -----------------------------------------------------------------------------
@@ -49,45 +49,45 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 local custom_skeleton_grp = vim.api.nvim_create_augroup('custom_skeleton', { clear = true })
 local skeleton_options = {
   {
-    pattern = {"*.html"},
+    pattern = { "*.html" },
     file = "html",
   },
   {
-    pattern = {"*.css"},
+    pattern = { "*.css" },
     file = "css"
   },
   {
-    pattern = {"*.sh"},
+    pattern = { "*.sh" },
     file = "bash"
   },
   {
-    pattern = {"Dockerfile"},
+    pattern = { "Dockerfile" },
     file = "Dockerfile"
   },
   {
-    pattern = {".dockerignore"},
+    pattern = { ".dockerignore" },
     file = "dockerignore"
   },
   {
-    pattern = {"hest.yml"},
+    pattern = { "hest.yml" },
     file = "ansible_playbook.yml"
   },
   {
-    pattern = {"pyrightconfig.json"},
+    pattern = { "pyrightconfig.json" },
     file = "pyrightconfig.json"
   },
   {
-    pattern = {".vimspector.json"},
+    pattern = { ".vimspector.json" },
     file = "vimspector.json"
   },
 }
 
 for _, skeleton in pairs(skeleton_options) do
-    vim.api.nvim_create_autocmd({"BufNewFile"}, {
-      group = custom_skeleton_grp,
-      pattern = skeleton.pattern,
-      command = "0r " .. vim.fn.stdpath("config") .. "/skeletons/" .. skeleton.file .. " | $,$d",
-    })
+  vim.api.nvim_create_autocmd({ "BufNewFile" }, {
+    group = custom_skeleton_grp,
+    pattern = skeleton.pattern,
+    command = "0r " .. vim.fn.stdpath("config") .. "/skeletons/" .. skeleton.file .. " | $,$d",
+  })
 end
 
 -- -----------------------------------------------------------------------------
@@ -95,26 +95,26 @@ end
 -- `set filetype=x` overrides setfiletype
 --
 local custom_ansible_grp = vim.api.nvim_create_augroup('custom_ansible', { clear = true })
-vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
-    group = custom_ansible_grp,
-    pattern = "*/[aA]nsible/*.{yml,yaml}",
-    command = "set filetype=yaml.ansible",
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = custom_ansible_grp,
+  pattern = "*/[aA]nsible/*.{yml,yaml}",
+  command = "set filetype=yaml.ansible",
 })
 
 -- Fix that after enter the key is indented, and LSP does not suggest anything,
 -- key is reindented after pressing :
-vim.api.nvim_create_autocmd({"FileType"}, {
-    group = custom_ansible_grp,
-    pattern = "yaml.ansible",
-    command = "setlocal indentexpr=",
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = custom_ansible_grp,
+  pattern = "yaml.ansible",
+  command = "setlocal indentexpr=",
 })
 
 -- -----------------------------------------------------------------------------
 -- Hide quickfix from bufferlist
 --
 local custom_quickfix_grp = vim.api.nvim_create_augroup('custom_quickfix', { clear = true })
-vim.api.nvim_create_autocmd({"FileType"}, {
-    group = custom_quickfix_grp,
-    pattern = "qf",
-    command = "setlocal nobuflisted",
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = custom_quickfix_grp,
+  pattern = "qf",
+  command = "setlocal nobuflisted",
 })
