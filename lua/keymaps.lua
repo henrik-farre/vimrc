@@ -23,7 +23,17 @@ set('n', '<C-n>', '<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>', {
 
 -- Save keystrokes on save
 -- https://vim.wikia.com/wiki/Use_Ctrl-O_instead_of_Esc_in_insert_mode_mappings
-set({ 'i', 'n' }, '<C-s>', vim.cmd.wall)
+set({ 'i', 'n' }, '<C-s>', '', {
+  callback = function()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.api.nvim_buf_get_option(buf, 'modified') and vim.api.nvim_buf_get_name(buf) ~= '' then
+        vim.api.nvim_buf_call(buf, function()
+          vim.cmd('write')
+        end)
+      end
+    end
+  end
+})
 
 -- expands %% to current file's directory in command-line mode
 set('c', '%%', function()
