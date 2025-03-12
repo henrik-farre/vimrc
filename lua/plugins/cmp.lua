@@ -29,8 +29,8 @@ return {
         keyword_length = 2,
       },
       matching = {
-          disallow_fuzzy_matching = true,
-          disallow_partial_matching = true
+        disallow_fuzzy_matching = true,
+        disallow_partial_matching = true
       },
       snippet = {
         expand = function(args)
@@ -44,7 +44,7 @@ return {
 
           -- The function below will be called before any actual modifications from lspkind
           -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-          before = function (entry, vim_item)
+          before = function(entry, vim_item)
             if entry.source.name == "buffer" then
               vim_item.menu = "[Buffer]"
             elseif entry.source.name == "nvim_lsp" then
@@ -78,17 +78,18 @@ return {
         { name = 'async_path' },
         { name = 'emoji' },
         { name = 'nvim_lua' },
+        { name = 'render-markdown' },
       }
     })
 
-      -- Set configuration for specific filetype.
-      cmp.setup.filetype('gitcommit', {
-        sources = cmp.config.sources({
-          { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-        }, {
-          { name = 'buffer' },
-        })
+    -- Set configuration for specific filetype.
+    cmp.setup.filetype('gitcommit', {
+      sources = cmp.config.sources({
+        { name = 'cmp_git' },   -- You can specify the `cmp_git` source if you were installed it.
+      }, {
+        { name = 'buffer' },
       })
+    })
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline('/', {
@@ -107,7 +108,7 @@ return {
       sources = cmp.config.sources({
         { name = 'async_path' }
       }, {
-        { name = 'cmdline', max_item_count = 10, keyword_length = 2  }
+        { name = 'cmdline', max_item_count = 10, keyword_length = 2 }
       })
     })
   end

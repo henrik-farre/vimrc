@@ -229,6 +229,7 @@ return {
       vim.g.ansible_ftdetect_filename_regex = [[\v(playbook|site|local|requirements)\.ya?ml$]]
       vim.g.ansible_template_syntaxes = {
         ['*.ya?ml.j2'] = 'yaml',
+        ['*.sh.j2'] = 'sh',
       }
     end
   },
@@ -246,7 +247,12 @@ return {
   },
   -- # 'pangloss/vim-javascript', { 'for': 'javascript' } JavaScript bundle for vim, this bundle provides syntax and indent plugins.
   -- # 'fatih/vim-go'
-  "preservim/vim-markdown",
+  -- "preservim/vim-markdown",
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+  },
   {
     -- Yaml, use :YAMLView Shows the full path and value of the current key/value pair
     -- fork that hardcodes yaml and does not change ft
@@ -406,7 +412,6 @@ return {
     "junegunn/fzf.vim",
     dependencies = { "junegunn/fzf" },
     -- Pin before require 0.56.0 of fzf, wait for Arch to release new version
-    commit = "ec75ffb",
     cond = vim.fn.executable('fzf') == 1,
     cmd = { 'Files' },
     config = function()
