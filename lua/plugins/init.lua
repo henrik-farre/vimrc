@@ -125,6 +125,8 @@ return {
   -- Colorschemes / UI
   --
   {
+    -- "askfiy/visual_studio_code",
+    -- slight tweaking "marko-cerovac/material.nvim",
     "pacha/vem-dark",
     enabled = true,
     init = function()
