@@ -14,9 +14,9 @@ return {
 
     local truncateStringMiddle = function(originalString, maxLength)
       if #originalString > maxLength then
-        local halfLength = math.floor((maxLength - 3) / 2)     -- Subtract 3 for the ellipsis (...)
+        local halfLength = math.floor((maxLength - 3) / 2) -- Subtract 3 for the ellipsis (...)
         local truncatedString = string.sub(originalString, 1, halfLength) ..
-        "..." .. string.sub(originalString, -halfLength)
+            "..." .. string.sub(originalString, -halfLength)
         return truncatedString
       else
         return originalString
