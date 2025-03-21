@@ -86,6 +86,9 @@ vim.api.nvim_set_hl(0, "@markup.link.url.markdown_inline",
 vim.api.nvim_set_hl(0, "@markup.link.label.markdown_inline", { underline = true })
 vim.api.nvim_set_hl(0, "@markup.heading.markdown", { bold = true })
 
+vim.api.nvim_set_hl(0, "RenderMarkdownH3Bg", { link = 'Title' })
+vim.api.nvim_set_hl(0, "RenderMarkdownH4Bg", { link = 'Title' })
+
 local hi = function(name, val)
   -- Make sure that `cterm` attribute is not populated from `gui`
   val.cterm = val.cterm or {}
