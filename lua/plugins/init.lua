@@ -253,7 +253,11 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    opts = {},
+    opts = {
+      heading = {
+        sign = false,
+      }
+    },
   },
   {
     -- Yaml, use :YAMLView Shows the full path and value of the current key/value pair
