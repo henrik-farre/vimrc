@@ -1,3 +1,4 @@
+--[[
 -- -----------------------------------------------------------------------------
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -23,10 +24,10 @@ local on_attach = function(_, bufnr)
     end
   })
 end
-
+--]]
 -- vim.lsp.set_log_level 'trace'
 
-local flags = { debounce_text_changes = 500 }
+-- local flags = { debounce_text_changes = 500 }
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -37,28 +38,10 @@ return {
     -- "someone-stole-my-name/yaml-companion.nvim",
   },
   config = function()
-    local servers = {
-      'ansiblels',
-      'bashls',
-      'cssls',
-      'dockerls',
-      'groovyls',
-      'html',
-      'jsonls',
-      'terraformls',
-      'tflint',
-      'pyright',
-      'vimls',
-      'helm_ls',
-      'yamlls',
-      'lua_ls',
-      'gopls',
-    }
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
 
-    for _, name in ipairs(servers) do
-      require("lsp." .. name).setup(on_attach, capabilities, flags)
-    end
-
-    require("lspconfig.ui.windows").default_options.border = "rounded"
+    -- require("lspconfig.ui.windows").default_options.border = "rounded"
   end
 }

@@ -1,3 +1,6 @@
+-- -----------------------------------------------------------------------------
+-- TODO: duplicated in both yamlls and helm_ls
+--
 local settings = {
   redhat = {
     telemetry = {
@@ -58,16 +61,5 @@ settings.yaml.schemas = require('schemastore').yaml.schemas({
    ]]
 
 return {
-  setup = function(on_attach, capabilities, flags)
-    -- require("lspconfig").yamlls.setup(cfg)
-    require("lspconfig").yamlls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      flags = flags,
-      settings = settings,
-    })
-  end,
-  config = function()
-    return settings
-  end,
+  settings = settings,
 }
