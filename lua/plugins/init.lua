@@ -178,31 +178,6 @@ return {
   },
   "equalsraf/neovim-gui-shim", -- lazy.nvim breaks loading of ginit.vim, https://github.com/folke/lazy.nvim/issues/584
   ------------------------------------------------------------
-  -- Registers
-  --
-  -- Show registers
-  -- # 'junegunn/vim-peekaboo' -- disabled for now as it breaks mapping <C-r> to <C-r><C-o>
-  -- # Increase size of window
-  -- # vim.g.peekaboo_window = "vert bo 70new"
-  {
-    -- Improve cut/paste
-    "svermeulen/vim-easyclip",
-    dependencies = {
-      "tpope/vim-repeat",
-    },
-    event = "BufEnter",
-    keys = {
-      { 'x', '"+x',                           mode = { 'n', 'x' },                 desc = 'Easyclip cut' },
-      { "X", "<Plug>MoveMotionEndOfLinePlug", desc = "Easyclip cut to end of line" },
-    },
-    config = function()
-      vim.g.EasyClipAlwaysMoveCursorToEndOfPaste = 1
-      vim.g.EasyClipPreserveCursorPositionAfterYank = 1
-      vim.g.EasyClipUseCutDefaults = 0
-    end
-  },
-
-  ------------------------------------------------------------
   -- Snippets
   --
   {

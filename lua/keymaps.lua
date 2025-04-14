@@ -127,6 +127,17 @@ set('n', 'gV', '`[v`]')
 -- https://www.reddit.com/r/neovim/comments/ywn367/til_pasting_with_crco_instead_of_cr_in_insert/
 set('i', '<C-r>', '<C-r><C-o>')
 
--- yank till the end of the line
+-- Replacement for easyclip mappings
 -- https://github.com/neovim/neovim/pull/13268
-set('n', 'Y', '"+y$')
+set('n', 'Y', '"+y$', { desc = 'Yank till end of line' })
+set('n', 'X', 'D', { desc = 'Delete till end of line' })
+
+-- Make delete go to black hole register
+set('n', 'd', '"_d', { noremap = true })
+set('v', 'd', '"_d', { noremap = true })
+
+set('n', 'D', '"_D', { noremap = true })
+set('n', 'dd', '"_dd', { noremap = true })
+
+-- Make paste not overwrite default register
+set('v', 'p', '"_dP', { noremap = true, desc = "Paste without yanking replaced text" })
