@@ -120,3 +120,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "qf",
   command = "setlocal nobuflisted",
 })
+
+-- -----------------------------------------------------------------------------
+-- Open diagnostics on CursorHold
+--
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
+})
