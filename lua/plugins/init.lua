@@ -55,18 +55,16 @@ return {
     -- Generate doc strings
     "danymat/neogen",
     ft = "python",
-    config = function()
-      require('neogen').setup {
-        input_after_comment = true,
-        languages = {
-          python = {
-            template = {
-              annotation_convention = "numpydoc"
-            }
+    opts = {
+      input_after_comment = true,
+      languages = {
+        python = {
+          template = {
+            annotation_convention = "numpydoc"
           }
         }
       }
-    end,
+    }
   },
   -- "sbdchd/neoformat",
   {
@@ -100,22 +98,18 @@ return {
   {
     -- Return to same line in file when reopening
     "ethanholz/nvim-lastplace",
-    config = function()
-      require 'nvim-lastplace'.setup {
-        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-        lastplace_ignore_filetype = { "gitcommit", "gitrebase" },
-        lastplace_open_folds = true
-      }
-    end
+    opts = {
+      lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+      lastplace_ignore_filetype = { "gitcommit", "gitrebase" },
+      lastplace_open_folds = true
+    }
   },
   {
     -- Keep window layout when closing buffer
     "ojroques/nvim-bufdel",
-    config = function()
-      require('bufdel').setup {
-        quit = false
-      }
-    end,
+    opts = {
+      quit = false
+    },
     keys = {
       { '<leader>bd', ':BufDel<cr>', mode = { 'n' }, desc = 'nvim-bufdel' },
     },
@@ -141,33 +135,29 @@ return {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
     -- fix zshrc
-    config = function()
-      require('nvim-web-devicons').setup {
-        override = {
-          [".zshrc"] = {
-            icon = "",
-            color = "#428850",
-            name = "Zsh"
-          }
-        },
-        default = true,
-      }
-    end
+    opts = {
+      override = {
+        [".zshrc"] = {
+          icon = "",
+          color = "#428850",
+          name = "Zsh"
+        }
+      },
+      default = true,
+    }
   },
   -- # 'norcalli/nvim-colorizer.lua'
   {
     -- Show indent lines
     "lukas-reineke/indent-blankline.nvim",
     tag = 'v2.20.8',
-    config = function()
-      require("indent_blankline").setup {
-        char_list = { '│', '¦', '┆', '┊' },
-        filetype_exclude = { "help", "terminal", "list", "nofile", "man" },
-        buftype_exclude = { "help", "terminal", "list", "nofile", "man" },
-        bufname_exclude = { "man://.*" },
-        show_current_context = true,
-      }
-    end
+    opts = {
+      char_list = { '│', '¦', '┆', '┊' },
+      filetype_exclude = { "help", "terminal", "list", "nofile", "man" },
+      buftype_exclude = { "help", "terminal", "list", "nofile", "man" },
+      bufname_exclude = { "man://.*" },
+      show_current_context = true,
+    }
   },
   "kshenoy/vim-signature",          -- Add visual marks in gutter
   "ntpeters/vim-better-whitespace", -- causes all trailing whitespace characters to be highlighted.
@@ -239,9 +229,7 @@ return {
     -- fork that hardcodes yaml and does not change ft
     "henrik-farre/yaml.nvim",
     branch = "hack_to_work_with_other_ft",
-    config = function()
-      require("yaml_nvim").setup({ ft = { "yaml", "helm", "yaml.ansible" } })
-    end
+    opts = { ft = { "yaml", "helm", "yaml.ansible" } }
   },
   {
     "someone-stole-my-name/yaml-companion.nvim",
@@ -274,14 +262,12 @@ return {
     -- LSP colors, highlightning of messages for colorschemes that does not support
     -- those groups
     "folke/lsp-colors.nvim",
-    config = function()
-      require("lsp-colors").setup({
-        Error = "#db4b4b",
-        Warning = "#e0af68",
-        Information = "#0db9d7",
-        Hint = "#10B981"
-      })
-    end,
+    opts = {
+      Error = "#db4b4b",
+      Warning = "#e0af68",
+      Information = "#0db9d7",
+      Hint = "#10B981"
+    }
   },
   -- 'iamcco/diagnostic-languageserver'
   {
