@@ -25,9 +25,7 @@ local on_attach = function(_, bufnr)
   })
 end
 --]]
--- vim.lsp.set_log_level 'trace'
 
--- local flags = { debounce_text_changes = 500 }
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -41,7 +39,6 @@ return {
     vim.lsp.config("*", {
       capabilities = capabilities,
     })
-
-    -- require("lspconfig.ui.windows").default_options.border = "rounded"
+    -- vim.lsp.set_log_level 'trace'
   end
 }
