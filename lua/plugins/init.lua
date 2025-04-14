@@ -378,7 +378,10 @@ return {
   -- # 'airblade/vim-rooter'
   {
     -- Set working to project directory
-    "ahmedkhalf/project.nvim",
+    --"ahmedkhalf/project.nvim"
+    -- Fork PR https://github.com/ahmedkhalf/project.nvim/pull/183 is based on that fixes deprecated function
+    "Spelis/project.nvim",
+    commit = "715491d807e12da417c788bbd6735d4b68268f14",
     config = function()
       require("project_nvim").setup {
         patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
