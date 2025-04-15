@@ -42,6 +42,11 @@ vim.opt.fillchars = {
 }
 
 -- -----------------------------------------------------------------------------
+-- Floating windows
+--
+vim.o.winborder = 'rounded'
+
+-- -----------------------------------------------------------------------------
 -- Vertical/horizontal scroll off settings
 --
 -- Keep lines between the cursor and sides/bottom/top
@@ -107,7 +112,6 @@ vim.diagnostic.config({
   float = {
     severity_sort = true,
     -- source = "if_many",
-    border = "rounded",
     header = { '\u{F188} Diagnostics', 'Title' },
     prefix = function(diagnostic)
       local diag_to_format = {

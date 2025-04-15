@@ -311,7 +311,6 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    enabled = false,
     lazy = true,
     ft = { "go", "dockerfile", "lua", "python", "markdown", "zsh" },
     event = { "BufNewFile", "BufReadPost" },
