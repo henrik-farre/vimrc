@@ -122,7 +122,8 @@ return {
     -- "askfiy/visual_studio_code",
     -- slight tweaking "marko-cerovac/material.nvim",
     "pacha/vem-dark",
-    enabled = true,
+    lazy = false,
+    priority = 1000,
     init = function()
       vim.g.vem_colors_italic = 1
     end,
