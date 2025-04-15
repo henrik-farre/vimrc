@@ -3,12 +3,6 @@ return {
     ansible = {
       ansible = {
         useFullyQualifiedCollectionNames = true
-      },
-      validation = {
-        enabled = true,
-        lint = {
-          enabled = true,
-        }
       }
     }
   }
