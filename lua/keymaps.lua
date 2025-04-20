@@ -141,3 +141,6 @@ set('n', 'dd', '"_dd', { noremap = true })
 
 -- Make paste not overwrite default register
 set('v', 'p', '"_dP', { noremap = true, desc = "Paste without yanking replaced text" })
+
+-- Make change to end of line not overwrite default register
+set('n', 'C', '"_C', { noremap = true })
