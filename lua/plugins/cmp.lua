@@ -29,7 +29,8 @@ return {
       completion = {
         -- only complete when 2+ characters match,
         -- that will increas performance and make it less annoying
-        keyword_length = 2,
+        -- keyword_length = 2,
+        completeopt = 'menu,menuone,noinsert',
       },
       matching = {
         disallow_fuzzy_matching = true,
