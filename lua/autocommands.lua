@@ -39,7 +39,7 @@ local custom_yankhighlight_grp = vim.api.nvim_create_augroup('custom_yankhighlig
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = custom_yankhighlight_grp,
   callback = function()
-    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500, on_visual = true })
+    vim.hl.on_yank({ higroup = "IncSearch", timeout = 500, on_visual = true })
   end,
 })
 
@@ -119,4 +119,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   group = custom_quickfix_grp,
   pattern = "qf",
   command = "setlocal nobuflisted",
+})
+
+-- -----------------------------------------------------------------------------
+-- Open diagnostics on CursorHold
+--
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
 })

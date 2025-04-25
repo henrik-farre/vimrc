@@ -223,15 +223,3 @@ if vim.env.WAYLAND_DISPLAY and vim.fn.has('wsl') == 1 then
     cache_enabled = 1
   }
 end
-
--- -----------------------------------------------------------------------------
--- Disable plugins:
---
-g.loaded_netrwPlugin = 1 -- netrw
-g.loaded_matchparen = 1  -- Parenthesis matching is just too slow
-g.loaded_gzip = 1
-g.loaded_tarPlugin = 1
-g.loaded_zipPlugin = 1
-g.loaded_2html_plugin = 1
-g.loaded_tutor_mode_plugin = 1
-g.loaded_matchit = 1

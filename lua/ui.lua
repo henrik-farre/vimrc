@@ -42,6 +42,11 @@ vim.opt.fillchars = {
 }
 
 -- -----------------------------------------------------------------------------
+-- Floating windows
+--
+vim.o.winborder = 'rounded'
+
+-- -----------------------------------------------------------------------------
 -- Vertical/horizontal scroll off settings
 --
 -- Keep lines between the cursor and sides/bottom/top
@@ -96,10 +101,17 @@ vim.o.showmode = false -- Do not show mode in command line
 vim.diagnostic.config({
   virtual_text = false,
   update_in_insert = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = "󰋼 ",
+      [vim.diagnostic.severity.HINT] = "󰌵 ",
+    },
+  },
   float = {
     severity_sort = true,
     -- source = "if_many",
-    border = "rounded",
     header = { '\u{F188} Diagnostics', 'Title' },
     prefix = function(diagnostic)
       local diag_to_format = {
@@ -114,11 +126,3 @@ vim.diagnostic.config({
   },
   severity_sort = true,
 })
-
--- NOTE: can be done in vim.diagnostic.config in neovim >= 0.10
-local signs = { Error = "", Warn = "", Hint = "⚑", Info = "" }
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end

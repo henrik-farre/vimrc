@@ -23,10 +23,14 @@ return {
     local lspkind = require('lspkind')
 
     cmp.setup({
+      experimental = {
+        ghost_text = true,
+      },
       completion = {
         -- only complete when 2+ characters match,
         -- that will increas performance and make it less annoying
-        keyword_length = 2,
+        -- keyword_length = 2,
+        completeopt = 'menu,menuone,noinsert',
       },
       matching = {
         disallow_fuzzy_matching = true,
@@ -64,6 +68,8 @@ return {
       mapping = cmp.mapping.preset.insert({
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
       }),
       sources = {
         {

@@ -5,3 +5,4 @@ swaps
 autoload/plug.vim
 autoload/plug.vim.old
 shada
+lazy-lock.json
