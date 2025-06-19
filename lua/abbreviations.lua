@@ -22,4 +22,5 @@ vim.cmd([[
   iabbrev seperator separator
   iabbrev lenght length
   iabbrev cluser cluster
+  iabbrev lastest latest
 ]])
