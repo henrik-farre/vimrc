@@ -23,9 +23,9 @@ return {
     local lspkind = require('lspkind')
 
     cmp.setup({
-      experimental = {
-        ghost_text = true,
-      },
+      -- experimental = {
+      --   ghost_text = true,
+      -- },
       completion = {
         -- only complete when 2+ characters match,
         -- that will increas performance and make it less annoying
