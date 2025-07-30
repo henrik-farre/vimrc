@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# https://google.github.io/styleguide/shellguide.html#s7.2-variable-names
 # Fix common errors:
 # Referencing undefined variables (which default to "")
 # Ignoring failing commands
