@@ -368,7 +368,7 @@ return {
     -- Set working to project directory
     "DrKJeff16/project.nvim",
     config = function()
-      require("project_nvim").setup {
+      require("project").setup {
         patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
         -- silent_chdir = false,
         scope_chdir = 'global',
