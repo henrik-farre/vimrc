@@ -298,6 +298,7 @@ return {
   {
     -- Lightweight yet powerful formatter plugin for Neovim
     'stevearc/conform.nvim',
+    enabled = false,
     opts = {
       formatters_by_ft = {
         go = { "gofmt" },
