@@ -99,7 +99,6 @@ return {
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline('/', {
-      mapping = cmp.mapping.preset.cmdline(),
       sources = {
         {
           name = 'buffer',
@@ -110,12 +109,28 @@ return {
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmp.mapping.preset.cmdline({
+        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      }),
       sources = cmp.config.sources({
-        { name = 'async_path' }
-      }, {
-        { name = 'cmdline', max_item_count = 10, keyword_length = 2 }
-      })
+        {
+          name = 'async_path',
+          option = {
+            trailing_slash = true,
+          },
+        },
+        {
+          name = 'cmdline',
+          max_item_count = 10,
+          keyword_length = 1,
+          option = {
+            treat_trailing_slash = false
+          }
+        }
+      }),
+      completion = {
+        completeopt = 'menu,menuone,noinsert', -- `noinsert` prevents inserting until selected
+      },
     })
   end
 }
