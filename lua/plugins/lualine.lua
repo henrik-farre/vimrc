@@ -50,6 +50,23 @@ return {
     custom_theme.inactive.a.fg = '#3e4b59'
     custom_theme.normal.a.fg = '#e6e1cf'
 
+    local location = {
+      -- %l = current line number
+      -- %L = number of lines in the buffer
+      -- %c = column number
+      -- %P = percentage through file of displayed window
+      -- If you don't like statuline "jiggling" during navigation, set fixed width for location
+      -- "%7(%l/%L%):%-3c",
+      "%6(%l/%L%):%-3c",
+    }
+
+    local searchcount = {
+      "searchcount",
+      maxcount = 999,
+      timeout = 500,
+      icon = "",
+    }
+
     require('lualine').setup {
       options = {
         theme = custom_theme
@@ -61,9 +78,12 @@ return {
         lualine_x = {
           lualine_encoding, 'fileformat', 'filetype',
         },
+        lualine_y = {
+          location,
+        },
         lualine_z = {
           'selectioncount',
-          'location'
+          searchcount
         },
       },
       inactive_sections = {
