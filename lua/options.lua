@@ -119,10 +119,11 @@ opt.undofile = true     -- Store undo history
 --
 -- Avoid all the |hit-enter| prompts caused by file messages
 opt.shortmess:append({
-  a = true, -- all abbrevitions (filmnrwx)
-  I = true, -- no intro when starting
-  s = true, -- no search hit bottom
-  c = true, -- no ins-completion-menu messages, needed by cmp
+  a = true,  -- all abbrevitions (filmnrwx)
+  I = true,  -- no intro when starting
+  s = false, -- search hit top/bottom
+  S = true,  -- no search count (lua line)
+  c = true,  -- no ins-completion-menu messages, needed by cmp
 })
 -- -----------------------------------------------------------------------------
 -- Indent
