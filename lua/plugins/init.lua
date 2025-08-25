@@ -218,6 +218,7 @@ return {
   -- "preservim/vim-markdown",
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    enabled = false,
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     opts = {
       heading = {
@@ -298,18 +299,42 @@ return {
   {
     -- Lightweight yet powerful formatter plugin for Neovim
     'stevearc/conform.nvim',
-    enabled = false,
-    opts = {
-      formatters_by_ft = {
-        go = { "gofmt" },
-        terraform = { "terraform_fmt" }
-      },
-      format_on_save = {
-        -- These options will be passed to conform.format()
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-    },
+    enabled = true,
+    config = function()
+      local conform = require("conform")
+
+      conform.setup({
+        formatters_by_ft = {
+            go = { "gofmt" },
+            terraform = { "terraform_fmt" }
+        },
+        format_on_save = function(bufnr)
+          -- Disable with a global or buffer-local variable
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+          return { timeout_ms = 500, lsp_format = "fallback" }
+        end,
+      })
+
+      vim.api.nvim_create_user_command("FormatDisable", function(args)
+        if args.bang then
+          -- FormatDisable! will disable formatting just for this buffer
+          vim.b.disable_autoformat = true
+        else
+          vim.g.disable_autoformat = true
+        end
+      end, {
+        desc = "Disable autoformat-on-save",
+        bang = true,
+      })
+      vim.api.nvim_create_user_command("FormatEnable", function()
+        vim.b.disable_autoformat = false
+        vim.g.disable_autoformat = false
+      end, {
+        desc = "Re-enable autoformat-on-save",
+      })
+    end
   },
   {
     "nvimtools/none-ls.nvim",
