@@ -7,7 +7,9 @@ function ReplaceEscapedChars()
     %s/\\t/\t/
   ]])
 end
-vim.api.nvim_create_user_command('ReplaceEscapedChars', function() ReplaceEscapedChars() end, { desc = 'Replace \n and \t with real chars' })
+
+vim.api.nvim_create_user_command('ReplaceEscapedChars', function() ReplaceEscapedChars() end,
+  { desc = 'Replace \n and \t with real chars' })
 
 -- -----------------------------------------------------------------------------
 -- Removes trailing spaces and windows line endings

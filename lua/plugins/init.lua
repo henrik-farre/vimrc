@@ -305,8 +305,8 @@ return {
 
       conform.setup({
         formatters_by_ft = {
-            go = { "gofmt" },
-            terraform = { "terraform_fmt" }
+          go = { "gofmt" },
+          terraform = { "terraform_fmt" }
         },
         format_on_save = function(bufnr)
           -- Disable with a global or buffer-local variable
