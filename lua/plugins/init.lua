@@ -397,7 +397,9 @@ return {
         patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
         -- silent_chdir = false,
         scope_chdir = 'global',
-        ignore_lsp = { "null-ls", "helm_ls", "yamlls" },
+        lsp = {
+          ignore = { "null-ls", "helm_ls", "yamlls" }
+        },
       }
     end,
   },
